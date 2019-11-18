@@ -8,13 +8,8 @@ if (!defined('header')) {
 }
 $timezone=  date_default_timezone_set('Africa/Tunis');
 // connection with db
-$dbData = require "db.php";
-//var_dump($dbData);
-$con = mysqli_connect($dbData['host'],$dbData['user'],$dbData['password'], $dbData['dbname']);
-if(mysqli_connect_errno()){
-    echo 'connection failled'. mysqli_connect_error();
+ require "db.php";
 
-}
 
 
 ?>
