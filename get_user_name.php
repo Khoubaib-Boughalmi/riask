@@ -1,8 +1,5 @@
 <?php
-    $con = mysqli_connect('localhost','root','','riask');
-    if(mysqli_connect_errno()){
-        echo 'connection failled';
-    }
+ require 'db.php';
     if (isset($_POST['suggestion'])) {
         $user_name =$_POST['suggestion'];
         $query_user_name = mysqli_query($con,"SELECT user_name FROM users WHERE user_name='$user_name'");
