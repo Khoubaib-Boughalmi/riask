@@ -2363,7 +2363,7 @@ cursor: pointer;
     html{
         font-size: 62.5%;
     }
-    .main-page{
+    /* .main-page{
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
     }
@@ -2376,7 +2376,7 @@ cursor: pointer;
         
     }
     .right-content{
-        /* display: none; */
+        display: none;
     }
     .middle-content{
         margin-top: 3rem;
@@ -2384,7 +2384,7 @@ cursor: pointer;
     
     .right .main-page-footer{
         margin-top: 3rem;
-    }
+    } */
     
     .middle-content .log-in:hover{
         background-color: #fff;
