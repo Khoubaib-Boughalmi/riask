@@ -2376,7 +2376,7 @@ cursor: pointer;
         
     }
     .right-content{
-        display: none;
+        /* display: none; */
     }
     .middle-content{
         margin-top: 3rem;
