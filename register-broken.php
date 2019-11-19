@@ -5,7 +5,7 @@
 
 <?php
 // connection with db
-$con = mysqli_connect('localhost','root','','riask');
+require 'db.php';
 if(mysqli_connect_errno()){
     echo 'connection failled';
 }

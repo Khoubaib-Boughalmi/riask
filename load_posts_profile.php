@@ -3,7 +3,7 @@ session_start();
 session_regenerate_id();
 
 $count=$_POST['count_posts'];
-$con = mysqli_connect('localhost','root','','riask');
+require 'db.php';
 if(mysqli_connect_errno()){
     echo 'connection failled';
 }
