@@ -18,7 +18,7 @@ if (isset($_SESSION['user_name_log_in'])) {
     $row=mysqli_fetch_array($query_log_in);
 }
 else{
-    header('location: index.php');
+    // header('location: index.php');
 }
 $user_obj=new user($con,$user_name);
 // get all user followed by user logged in
