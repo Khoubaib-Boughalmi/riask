@@ -1,9 +1,6 @@
 <?php
-require 'db.php';
-if(mysqli_connect_errno()){
-    echo 'connection failled';
+require '../db.php';
 
-}
 if (isset($_POST['user_logged_in'])) {
     $user_name = $_POST['user_logged_in'];
 }
