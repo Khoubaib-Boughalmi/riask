@@ -3,7 +3,7 @@
 session_start();
 session_regenerate_id();
 
-require 'db.php';
+require '../db.php';
 if(mysqli_connect_errno()){
 	echo 'connection failled';
 }

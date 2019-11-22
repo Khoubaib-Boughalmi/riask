@@ -5,11 +5,7 @@
 
 <?php
  require "db.php";
-?>
- kwait  hhh
-
-
-    <script>
+?>  <script>
         var error_array = new Array();
 
         // create a remove function
