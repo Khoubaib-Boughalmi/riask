@@ -42,7 +42,7 @@ if (isset($_POST['submit_test'])) {
         <!--start navigation bar -->
         <nav id="main-nav">
             <div class="user-main">
-                <a class="user-name-menu"><i class="fas fa-bars" style="font-size:1.8rem;"></i><span
+                <a class="user-name-menu"><img src="images/icons/bars.png" style="height: 2rem;" alt=""><span
                         class="user-name-menu-span"><?php echo $user_obj->get_first_last_name() ?></span></a>
             </div>
             </div>
@@ -96,7 +96,7 @@ if (isset($_POST['submit_test'])) {
                     <div class="top-header-post">
                         <div class="top-header-post_top">
                             <h4>Home</h4>
-                            <i class="fas fa-brain" style="font-size:2.3rem;"></i>
+                            <img src="images/brain_logo.png" alt="" style="width:6rem">
                         </div>
                         <div class="top-header-post_bottom">
                             <hr>

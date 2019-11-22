@@ -599,6 +599,9 @@ outline: .2rem solid  #052424;
     
 
 }
+.load_post{
+margin-top: 3rem;
+}
 .navigation-icons a{
     font-size: 1.8rem;
     color: #222222;
@@ -693,7 +696,7 @@ outline: .2rem solid  #052424;
 }
 .notification_bell_num{
     position: absolute;
-    top: 2px;
+    top: 7px;
     background-color: red;
     /* padding: 0.1rem; */
     height: 1.8rem;
@@ -786,6 +789,8 @@ outline: .2rem solid  #052424;
     text-decoration: none;
     font-weight: bold;
     color: #222222;
+    display: flex;
+    align-content: space-around;
 }
 
 .user-main .user-image img{
@@ -873,7 +878,7 @@ outline: .2rem solid  #052424;
     font-weight: bold;
 }
 .post-container{
-    margin: 3rem;
+    margin: 0rem 3rem 3rem 3rem;
     display: grid;
     grid-template-rows: min-content 1fr min-content;
     height: 90%;
@@ -888,12 +893,14 @@ outline: .2rem solid  #052424;
 }
 .top-header-post h4{
     font-size: 1.8rem;
+    display: flex;
+    align-items: center;
 
 }
 
 .top-header-post .top-header-post_bottom hr{
     /* transform :rotate(0deg); */
-    margin-top: 2rem;
+    margin-top: 0.5rem;
 }
 
 /*post body*/
@@ -1564,6 +1571,7 @@ font-size: 3.3rem;
 .user-name-menu-span{
     cursor: pointer;
     font-size: 1.6rem;
+    margin-left: 1rem;
 }
 .slide-menu-header{
     display: flex;
