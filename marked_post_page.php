@@ -19,6 +19,11 @@ $user_obj=new user($con,$user_name_logged_in);
 include('classes/marked_post_page_class.php');
 $marked_obj=new marked($con,$user_name_logged_in);
 
+include('classes/notification.php');
+$notification_obj=new notification($con,$user_name_logged_in);
+
+$num_notification=$notification_obj->num_notification($user_name_logged_in);
+
 ?>
 
 <body style="background-color: #DAE0E6;overflow-x: hidden;">
@@ -28,25 +33,45 @@ $marked_obj=new marked($con,$user_name_logged_in);
         <!--start navigation bar -->
         <nav id="main-nav">
             <div class="user-main">
-                <a class="user-name-menu" href="#"><i class="fas fa-bars" style="font-size:1.8rem;"></i><span class="user-name-menu-span">Khoubaib Boughalmi</span></a>
+                <a class="user-name-menu"><img src="images/icons/bars.png" style="height:2rem;width:2rem;" alt=""><span
+                        class="user-name-menu-span"><?php echo $user_obj->get_first_last_name() ?></span></a>
             </div>
-            
-        </div>
-    </div>
-    <div class="search-main">
-        <i class=" fas fa-search" style="color:#222222;"></i>
-        <input type="text" class="input-search input-search-main" placeholder="Search">
-    </div>
-    <div class="navigation-icons">
-        <a href="#"><i class="fas fa-home"></i></a>
-        <a href="#"><i class="far fa-bell"></i></a>
-        <a href="#" class="fa-cog"><i class="fas fa-cog"></i></a>
-        <a href="#"><i class="fas fa-pencil-alt"></i></a>
-        <a href="#" class="fa-sign-out-alt"><i class="fas fa-sign-out-alt"></i></a>
-    </div>
-    
-</nav>
-<!--end navigation bar -->
+            </div>
+            </div>
+            <div class="search-main">
+            <img src="images/icons/loop.png" alt="" class="fa-search" style='height:2.1rem;'>
+
+                <!-- <i class=" fas fa-search" style="color:#222222;"></i> -->
+                <input type="text" class="input-search input-search-main" placeholder="Search for a question">
+            </div>
+            <div class="navigation-icons">
+                <a href="main.php" class="home_icon"><img src="images/icons/home.png" alt=""></a>
+                <div class="notification_bell notification_container ">
+                    <img src="images/icons/notification.png" alt="" class="fa-bell dropbtn" style="width:4rem;height:4rem;" onclick="drop_down_notification_function()">
+                    <!-- show the number of notification -->
+                    <?php 
+                if ($num_notification>0) {
+                    echo "<span class='notification_bell_num'>$num_notification</span>";
+                }
+                ?>
+
+                    <div id='myDropdown' class='dropdown-content' style="overflow-y: scroll; height:375px;">
+                        <div class='dropdown_notification_header'><span>Notification</span></div>
+
+                        <?php
+                echo($notification_obj->load_notification());                
+                ?>
+
+                    </div>
+                </div>
+                <a href="settings.php" class="fa-cog"><img src="images/icons/settings.png" alt=""></a>
+                <a href="create-post.php"><img src="images/icons/pencil.png" alt=""></a>
+                <a href="classes/log_out.php" class="fa-sign-out-alt"><img src="images/icons/logout.png" alt=""></a>
+            </div>
+
+        </nav>
+        <!--end navigation bar -->
+
 
 <!-- main content -->
 
@@ -302,6 +327,46 @@ document.querySelector('.slide-menu-header-close').addEventListener("click", fun
             }
 
         })
+
+        
+        // dropdown menu notification
+
+        function drop_down_notification_function() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+        // notification bell was clicked update notification view
+        document.querySelector('.notification_bell').addEventListener("click", function () {
+
+            document.querySelector(".notification_bell_num").style.display = "none";
+
+        })
+
+        // notification  was opened update notification opened
+        $('.dropdown_notification_container').click(function () {
+
+            var notification_id = $(this).attr('class')
+            var notification_id = notification_id.substr(70);
+
+            var notification_type = $(this).attr('class')
+            var notification_type = notification_type.substr(64, 5);
+        })
+
+
 </script>
    
 </body>

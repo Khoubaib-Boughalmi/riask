@@ -45,13 +45,13 @@ class marked{
 
                     echo "<div class='show_all_search_result_content show_all_search_result_content_$id'>
                     <div class='show_all_search_result_reactions'>
-                        <div class='show_all_search_result_reaction_like'>
-                            <i class='fas fa-flag' style='font-size:1.8rem ;color:#0080008c;'></i>
-                            <span style='font-size:1.4rem; margin-left:.4rem;font-weight:bold'>$query_num_likes</span>
+                        <div class='show_all_search_result_reaction_like' style='display: flex;align-items: flex-end;'>
+                        <img src='images/green_flag.png' style='height: 2.2rem;'>
+                        <span style='font-size:1.4rem; margin-left:.4rem;font-weight:bold'>$query_num_likes</span>
                         </div>
-                        <div class='show_all_search_result_reaction_dislike'>
-                            <i class='fas fa-flag' style='font-size:1.8rem ;color:#FF6B6B;'></i>
-                            <span style='font-size:1.4rem; margin-left:.4rem;font-weight:bold'>$query_num_dislikes</span>
+                        <div class='show_all_search_result_reaction_dislike'  style='display: flex;align-items: flex-end;'>
+                        <img src='images/red_flag.png' style='height: 2.2rem;'>
+                        <span style='font-size:1.4rem; margin-left:.4rem;font-weight:bold'>$query_num_dislikes</span>
                         </div>
                     </div>
                     <div class='show_all_search_result_content_title_and_subtitle'>

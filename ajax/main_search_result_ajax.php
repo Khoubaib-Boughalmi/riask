@@ -89,12 +89,12 @@ echo "<div class='main_search_result_header'>
         <div class='main_search_result_content'>
         <div class='main_search_result_reactions' style=''>
             <div class='main_search_result_like'>
-                <i class='fas fa-flag' style='font-size:1.8rem ;color:#0080008c;'></i>
-                <span style='font-size:1.4rem; margin-left:.4rem;font-weight:bold'>".$query_search_array['likes']."</span>
+			<img src='images/green_flag.png' style='height: 2rem;'>
+			<span style='font-size:1.4rem; margin-left:.4rem;font-weight:bold'>".$query_search_array['likes']."</span>
             </div>
             <div class='main_search_result_like'>
-                <i class='fas fa-flag' style='font-size:1.8rem;color:#ff000094'></i>
-                <span style='font-size:1.6rem; margin-left:.4rem;font-weight:bold'>".$query_search_array['dislikes']."</span>
+			<img src='images/red_flag.png' style='height: 2rem;'>
+			<span style='font-size:1.6rem; margin-left:.4rem;font-weight:bold'>".$query_search_array['dislikes']."</span>
             </div>
         </div>
         <a href='show_comments.php?post_id=".$query_search_array['id']."/$title' style='padding: .8rem 0rem;'>

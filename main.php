@@ -250,12 +250,20 @@ if (isset($_POST['submit_test'])) {
 
                 </div>
                 <div class="slide-menu-option">
-                    <img src="images/icons/mark.png" alt=""  style="height:2.1rem;">
+                    <img src="images/icons/home.png" alt=""  style="height:2.1rem;">
                     <a
-                        href="marked_post_page.php?user_profile=<?php echo $user_name?>">
-                        <p>Marked Post</p>
+                        href="main.php">
+                        <p>Home Page</p>
                     </a>
                 </div>
+                <div class="slide-menu-option">
+                    <img src="images/icons/user.png" alt=""  style="height:2.1rem;">
+                    <a
+                        href="profile.php?user_profile=<?php echo $user_name?>">
+                        <p>Profile Page</p>
+                    </a>
+                </div>
+                
                 <div class="slide-menu-option">
                     <a href="create-post.php">
                     <img src="images/icons/pencil.png" alt=""  style="height:2.1rem;">
@@ -266,6 +274,13 @@ if (isset($_POST['submit_test'])) {
                     <a href="settings.php">
                     <img src="images/icons/settings.png" alt=""  style="height:2.1rem;">
                         <p>User Settings</p>
+                    </a>
+                </div>
+                <div class="slide-menu-option">
+                    <img src="images/icons/mark.png" alt=""  style="height:2.1rem;">
+                    <a
+                        href="marked_post_page.php?user_profile=<?php echo $user_name?>">
+                        <p>Marked Post</p>
                     </a>
                 </div>
                 <hr>
