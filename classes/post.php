@@ -132,14 +132,14 @@ class post{
 
                                     <div class='user-name-timer'>
                                     <div class='image-name-post'>
-                                        <a href='profile.php?user_profile=$user_name'><img src='".$user_obj->get_profile_pic()."'  class='images-user-post images-user-post_".$row['id']."' ></a>
+                                        <a href='profile.php?user_profile=$user_name'><img src='".$user_obj->get_profile_pic()."'  class='images-user-post images-user-post_".$row['id']."' alt='' ></a>
                                             <div class='time_name_post'>
                                                 <a href='profile.php?user_profile=$user_name'><span class='user-name-post'>$user_name</span></a>
                                                 <span class='timer-post'>$time_message</span>
                                             </div>   
                                     </div>
                                     <div class='dropdown_post'>
-                                        <img class='ellipsis_img_post ellipsis_img_post_".$row['id']."' src='images/ellipsis.png'>
+                                        <img class='ellipsis_img_post ellipsis_img_post_".$row['id']."' src='images/ellipsis.png' alt=''>
                                         <div id='more_option_post_div more_option_post_div_".$row['id']."' class='dropdown-content_more_option_post dropdown-content_more_option_post_".$row['id']."'>";
                                         if ($row['added_by']==$this->user_name_loged_in) {
                                             echo "<div class='delete_post_div delete_post_div_".$row['id']."'><i class='far fa-times-circle' style='font-size: 1.3rem;'></i><span class='report_button_post'>delete</span></div>";
@@ -169,13 +169,13 @@ class post{
                             <div class='likes_dislikes_display_number' id='likes_dislikes_display_number_".$id."'>
                             <div class='like-stat'> <!-- Like statistic container-->
 							<span class='like-emo'> <!-- like emotions container -->
-                            <img src='images/green_flag.png' style='height: 1.8rem;'>
+                            <img src='images/green_flag.png' style='height: 1.8rem;' alt=''>
                             </span>
 							<span class='like-details like-details_liked_".$id."'>".$query_num_likes."</span>
                             </div>
                             <div class='like-stat' style='margin-left:2rem;'> <!-- Like statistic container-->
 							<span class='dislike-emo'> <!-- like emotions container -->
-                            <img src='images/red_flag.png' style='height: 1.8rem;'>
+                            <img src='images/red_flag.png' style='height: 1.8rem;' alt=''>
 							</span>
 							<span class='like-details like-details_disliked_".$id."'>".$query_num_dislikes."</span>
                             </div>
