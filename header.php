@@ -22,7 +22,7 @@ $timezone=  date_default_timezone_set('Africa/Tunis');
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="css/front.css">
-    <script src="3rd_party/font_awsome/all.js"></script>
+    <!-- <script src="3rd_party/font_awsome/all.js"></script> -->
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans|Montserrat&display=swap" rel="stylesheet">
     <!--Notification-->
     <script src="3rd_party/notification/simpleNotify.min.js"></script>
