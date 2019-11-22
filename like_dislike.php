@@ -83,8 +83,8 @@
                         </div>
                         <div class='icon1 icon_comment' id='comment_".$post_id."'>
                             <form action='show_comments.php?post_id=$post_id/$title' method='POST' style='display: flex;' >
-                                    <i class='far fa-comment-alt' style='font-size:1.6rem;'></i>
-                                <input type='submit' value='Comments' name='span-icon-name'class='span-icon-name'>
+                            <img src='images/icons/comment.png' alt=''  style='height:2.1rem';>
+                            <input type='submit' value='Comments' name='span-icon-name'class='span-icon-name'>
                                 </form>
                             </div>
                             <div class='bottom_post_componment_mark_post' id='bottom_post_componment_mark_post_".$post_id."'>";
