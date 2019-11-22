@@ -6,6 +6,8 @@ if (isset($_POST['user_logged_in'])) {
 }
 $query_load_user=mysqli_query($con,"SELECT * FROM users where user_name='$user_name'");
 $user_array=mysqli_fetch_array($query_load_user);
+$timezone=  date_default_timezone_set('Africa/Tunis');
+
 ?>
 <div class='review_create_post'>
 <h3 class="h3-create-post">What languages, technologies, and/or frameworks is your question about?</h3>

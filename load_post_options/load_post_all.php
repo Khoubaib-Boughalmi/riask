@@ -18,11 +18,12 @@ $like_dislike_obj=new likes_dislikes($con,$user_name_logged_in);
 $post="";
 $query_load_post=mysqli_query($con,"SELECT * FROM posts ORDER BY id DESC limit $count" );	
 if (mysqli_num_rows($query_load_post)>0) {
+	
 	while($row=mysqli_fetch_array($query_load_post)){
 		if (strstr($row['repored_by'],$user_name_logged_in)==false) {
 			$user_obj=new user($con,$row['added_by']);
 			
-                
+			
 			$user_name=$row['added_by'];
 			$body=$row['body'];
 			$date_time=$row['date_added'];
@@ -37,7 +38,8 @@ if (mysqli_num_rows($query_load_post)>0) {
 			$query_num_likes=mysqli_num_rows($query_likes);
 			$query_num_dislikes=mysqli_num_rows($query_dislikes);
 			
-
+			
+			$timezone=  date_default_timezone_set('Africa/Tunis');
 				$start_date = new DateTime($date_time); //Time of post
 				$end_date = new DateTime($date_time_now); //Current time
 				$interval = $start_date->diff($end_date); //Difference between dates 

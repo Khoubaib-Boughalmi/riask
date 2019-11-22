@@ -47,6 +47,7 @@ $post="";
 					$query_num_likes=mysqli_num_rows($query_likes);
 					$query_num_dislikes=mysqli_num_rows($query_dislikes);
 					
+					$timezone=  date_default_timezone_set('Africa/Tunis');
 
 						$start_date = new DateTime($date_time); //Time of post
 						$end_date = new DateTime($date_time_now); //Current time
