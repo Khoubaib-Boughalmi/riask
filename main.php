@@ -42,7 +42,7 @@ if (isset($_POST['submit_test'])) {
         <!--start navigation bar -->
         <nav id="main-nav">
             <div class="user-main">
-                <a class="user-name-menu"><img src="images/icons/bars.png" style="height: 2rem;" alt=""><span
+                <a class="user-name-menu"><img src="images/icons/bars.png" style="height:2rem;width:2rem;" alt=""><span
                         class="user-name-menu-span"><?php echo $user_obj->get_first_last_name() ?></span></a>
             </div>
             </div>
@@ -56,7 +56,7 @@ if (isset($_POST['submit_test'])) {
             <div class="navigation-icons">
                 <a href="main.php" class="home_icon"><img src="images/icons/home.png" alt=""></a>
                 <div class="notification_bell notification_container ">
-                    <img src="images/icons/notification.png" alt="" class="fa-bell dropbtn" onclick="drop_down_notification_function()">
+                    <img src="images/icons/notification.png" alt="" class="fa-bell dropbtn" style="width:4rem;height:4rem;" onclick="drop_down_notification_function()">
                     <!-- show the number of notification -->
                     <?php 
                 if ($num_notification>0) {
@@ -253,7 +253,7 @@ if (isset($_POST['submit_test'])) {
                     <img src="images/icons/mark.png" alt=""  style="height:2.1rem;">
                     <a
                         href="marked_post_page.php?user_profile=<?php echo $user_name?>">
-                        <p>hiiiiiiiiiiiii Post</p>
+                        <p>Marked Post</p>
                     </a>
                 </div>
                 <div class="slide-menu-option">

@@ -55,9 +55,9 @@
                             </div>
                             <hr>";
                             }else if ($marked_post_num==1) {
-                                $value.= "<img src='images/icons/mark.png' alt=''  style='height:2.1rem;background:green;';>
+                                $value.= "<img src='images/icons/mark_green.png' alt=''  style='height:2.1rem;';>
 
-                                <span style='color:green;' class='span-icon-name'>Marked</span>
+                                <span style='color:#73b973;' class='span-icon-name'>Marked</span>
                             </div>
                             
                             </div>
@@ -97,9 +97,9 @@
                             </div>
                             <hr>";
                             }else if ($marked_post_num==1) {
-                                $value.= "<img src='images/icons/mark.png' alt=''  style='height:2.1rem;background:green;';>
+                                $value.= "<img src='images/icons/mark_green.png' alt=''  style='height:2.1rem;';>
 
-                                <span style='color:green;' class='span-icon-name'>Marked</span>
+                                <span style='color:#73b973;' class='span-icon-name'>Marked</span>
                             </div>
                             
                             </div>
@@ -142,9 +142,9 @@
                             </div>
                             <hr>";
                             }else if ($marked_post_num==1) {
-                                $value.= "<img src='images/icons/mark.png' alt=''  style='height:2.1rem;background:green;';>
+                                $value.= "<img src='images/icons/mark_green.png' alt=''  style='height:2.1rem;';>
 
-                                <span style='color:green;' class='span-icon-name'>Marked</span>
+                                <span style='color:#73b973;' class='span-icon-name'>Marked</span>
                             </div>
                             
                             </div>

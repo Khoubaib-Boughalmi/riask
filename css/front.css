@@ -612,14 +612,14 @@ margin-top: 3rem;
 }
 .dropbtn {
     color: white;
-    padding: 11px;
+    /* padding: 11px; */
     font-size: 16px;
     border: none;
     cursor: pointer;
     color: #222222;
       font-size: 1.8rem;
       font-weight: bold;
-      margin: 0.5rem .5rem .2rem 0.5rem;
+      /* margin: 0.5rem .5rem .2rem 0.5rem; */
   }
   
   .dropbtn:hover, .dropbtn:focus {
@@ -696,13 +696,13 @@ margin-top: 3rem;
 }
 .notification_bell_num{
     position: absolute;
-    top: 7px;
+    top: 2px;
     background-color: red;
     /* padding: 0.1rem; */
     height: 1.8rem;
     width: 1.8rem;
     border-radius: 10rem;
-    left: 23px;
+    left: 17px;
     font-size: 1.1rem;
     color: #fff;
     font-weight: bold;

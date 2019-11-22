@@ -18,9 +18,9 @@ $query_post_marked_num_rows=mysqli_num_rows($query_post_marked);
 if ($query_post_marked_num_rows == 0) {
     $query_post_marked_insert=mysqli_query($con,"INSERT INTO `marked_post`(`id`, `post_id`, `marked_by`, `title`, `body`, `tags`) VALUES ('','$post_marked_id','$user_name_logged_in','$title','$body','$tags')");
 
-    echo" <i class='far fa-bookmark' style='font-size:1.6rem;color:green'></i>
+    echo" <img src='images/icons/mark_green.png' alt=''  style='height:2.1rem;';>
 
-           <span class='span-icon-name' style='color:green'>Marked</span>";
+    <span style='color:#73b973;' class='span-icon-name'>Marked</span>";
 }
 
 

@@ -1,1 +1,189 @@
-.riask-reaction{max-width:100%;margin:0 auto;position:relative;outline:0}.like-btn{font-weight:bold;color:#7f7f7f;position:relative;cursor:pointer;outline:0;display:flex}.like-btn-default{background-image:url('../images/empty_flag.png');background-size:cover}.like_button_main{display:flex;outline:0}.like-btn-emo{display:inline-block;width:21px;height:21px}.reactions-box{height:44px;width:110px;padding:8px 10px;position:absolute;top:-60px;left:-38px;box-shadow:1px 1px 2px #ccc,-1px 0 2px #eee;border-radius:44px 44px;display:none;outline:0}.reaction{list-style-type:none;cursor:pointer;display:inline-block;width:48px;height:48px;position:absolute;top:8px;opacity:0;transform:scale(1,1);transition:opacity .5s ease-in-out 1s,transform .07s ease-in-out 0s,top .07s ease-in-out 0s;background-repeat:no-repeat;background-size:cover;background-position:center center;background-color:#7f7f7f00;border:0;outline:0}.like-btn:hover .reactions-box{display:flex}.reaction-like{left:10px;transition-delay:0s;background-image:url('../images/green_flag.png');outline:0}.reaction-love{left:68px;transition-delay:.05s;background-image:url('../images/red_flag.png');outline:0}.like-btn:hover .reaction{opacity:1;animation-name:reaction_delay;animation-duration:.5s}@keyframes reaction_delay{0%{width:48px;height:48px;top:60px}48%{width:56px;height:56px;top:5px}100%{width:48px;height:48px;top:8px}}.like-btn:hover .reaction-like{animation-delay:0s}.like-btn:hover .reaction-love{animation-delay:.05s}.reaction:hover{transform:scale(1.3,1.3);top:2px}.reaction::before{display:inline-block;color:#fff;text-align:center;line-height:17px;font-size:.7em;width:80%;height:17px;margin-left:10%;background-color:rgba(0,0,0,0.6);border-radius:20px;position:absolute;opacity:0;top:-25px;left:1px;transition:opacity .2s ease-in-out 0s;outline:0}.reaction:hover::before{opacity:1}.reaction-like::before{content:'Like'}.reaction-love::before{content:'Dislike'}.like-stat{margin-top:10px;margin-left:5rem}.likes_dislikes_display_number{display:flex}.like-btn-like{background-image:url('../images/green_flag.png');background-size:cover}.like-btn-love{background-image:url('../images/red_flag.png');background-size:cover}.like-btn-text{display:flex;align-items:center;font-weight:bold;align-items:center;margin-left:.5rem;font-size:1.4rem;color:#222}.like-btn-text-love{color:#f25268}.like-emo>span{display:inline-block;margin:0 -3px -3px 0;width:16px;height:16px;border:1px solid #EEE;border-radius:50%}.dislike-emo>span{display:inline-block;margin:0 -3px -3px 0;width:16px;height:16px;border:1px solid #EEE;border-radius:50%}.like-details{margin-left:10px;color:#9197a3;font-size:12px;font-weight:bold}
+.riask-reaction {
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+    outline: 0
+}
+
+.like-btn {
+    font-weight: bold;
+    color: #7f7f7f;
+    position: relative;
+    cursor: pointer;
+    outline: 0;
+    display: flex
+}
+
+.like-btn-default {
+    background-image: url('../images/empty_flag.png');
+    background-size: cover
+}
+
+.like_button_main {
+    display: flex;
+    outline: 0
+}
+
+.like-btn-emo {
+    display: inline-block;
+    width: 21px;
+    height: 21px
+}
+
+.reactions-box {
+    height: 44px;
+    width: 110px;
+    padding: 8px 10px;
+    position: absolute;
+    top: -60px;
+    left: -38px;
+    box-shadow: 1px 1px 2px #ccc, -1px 0 2px #eee;
+    border-radius: 44px 44px;
+    display: none;
+    outline: 0
+}
+
+.reaction {
+    list-style-type: none;
+    cursor: pointer;
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    top: 8px;
+    opacity: 0;
+    transform: scale(1, 1);
+    transition: opacity .5s ease-in-out 1s, transform .07s ease-in-out 0s, top .07s ease-in-out 0s;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-color: #7f7f7f00;
+    border: 0;
+    outline: 0
+}
+
+.like-btn:hover .reactions-box {
+    display: flex
+}
+
+.reaction-like {
+    left: 10px;
+    transition-delay: 0s;
+    background-image: url('../images/green_flag.png');
+    outline: 0
+}
+
+.reaction-love {
+    left: 68px;
+    transition-delay: .05s;
+    background-image: url('../images/red_flag.png');
+    outline: 0
+}
+
+.like-btn:hover .reaction {
+    opacity: 1;
+ 
+}
+
+.like-btn:hover .reaction-like {
+    animation-delay: 0s
+}
+
+.like-btn:hover .reaction-love {
+    animation-delay: .05s
+}
+
+.reaction:hover {
+    transform: scale(1.3, 1.3);
+    top: 2px
+}
+
+.reaction::before {
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    line-height: 17px;
+    font-size: .7em;
+    width: 80%;
+    height: 17px;
+    margin-left: 10%;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
+    position: absolute;
+    opacity: 0;
+    top: -25px;
+    left: 1px;
+    transition: opacity .2s ease-in-out 0s;
+    outline: 0
+}
+
+.reaction:hover::before {
+    opacity: 1
+}
+
+.reaction-like::before {
+    content: 'Like'
+}
+
+.reaction-love::before {
+    content: 'Dislike'
+}
+
+.like-stat {
+    margin-top: 10px;
+    margin-left: 5rem;
+    display: flex;
+}
+
+.likes_dislikes_display_number {
+    display: flex
+}
+
+.like-btn-like {
+    background-image: url('../images/green_flag.png');
+    background-size: cover
+}
+
+.like-btn-love {
+    background-image: url('../images/red_flag.png');
+    background-size: cover
+}
+
+.like-btn-text {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    align-items: center;
+    margin-left: .5rem;
+    font-size: 1.4rem;
+    color: #222
+}
+
+.like-btn-text-love {
+    color: #f25268
+}
+
+.like-emo>span {
+    display: inline-block;
+    margin: 0 -3px -3px 0;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #EEE;
+    border-radius: 50%
+}
+
+.dislike-emo>span {
+    display: inline-block;
+    margin: 0 -3px -3px 0;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #EEE;
+    border-radius: 50%
+}
+
+.like-details {
+    margin-left: 10px;
+    color: #9197a3;
+    font-size: 12px;
+    font-weight: bold
+}
