@@ -303,7 +303,7 @@ font-weight: bold;
 .modal-contents {
 	height: 550px;
 	width: 850px;
-	background-color: white;
+	background-color: #ffffffbf;
 	text-align: center;
 	position: relative;
     display: grid;
