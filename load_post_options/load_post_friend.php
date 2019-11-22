@@ -153,13 +153,13 @@ $post="";
 					<div class='likes_dislikes_display_number' id='likes_dislikes_display_number_".$id."'>
 					<div class='like-stat'> <!-- Like statistic container-->
 					<span class='like-emo'> <!-- like emotions container -->
-					<i class='fas fa-flag' style='font-size:1.8rem ;color:#0080008c;'></i>
+					<img src='images/green_flag.png' style='height: 1.8rem;'>
 					</span>
 					<span class='like-details'>".$query_num_likes."</span>
 					</div>
 					<div class='like-stat' style='margin-left:2rem;'> <!-- Like statistic container-->
 					<span class='dislike-emo'> <!-- like emotions container -->
-					<i class='fas fa-flag' style='font-size:1.8rem ;color:#FF6B6B;'></i>
+					<img src='images/green_flag.png' style='height: 1.8rem;'>
 					</span>
 					<span class='like-details'>".$query_num_dislikes."</span>
 					</div>
