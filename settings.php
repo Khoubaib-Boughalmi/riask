@@ -18,8 +18,6 @@ $notification_obj=new notification($con,$user_name);
 $num_notification=$notification_obj->num_notification($user_name);
 ?>
 <script src="js/md5.min.js"></script>
-3la chnaw tlawej
-
 <link rel="stylesheet" type="text/css" href="css/reaction.css" />
 <!-- jQuery for Reaction system -->
 
