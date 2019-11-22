@@ -253,7 +253,7 @@ if (isset($_POST['submit_test'])) {
                     <img src="images/icons/mark.png" alt=""  style="height:2.1rem;">
                     <a
                         href="marked_post_page.php?user_profile=<?php echo $user_name?>">
-                        <p>Marked Post</p>
+                        <p>hiiiiiiiiiiiii Post</p>
                     </a>
                 </div>
                 <div class="slide-menu-option">
