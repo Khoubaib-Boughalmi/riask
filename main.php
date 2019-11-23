@@ -82,7 +82,7 @@ if (isset($_POST['submit_test'])) {
         <!--end navigation bar -->
 
         <!-- main content -->
-        <a id="button-back-top"><i class="fa fa-chevron-up" style="margin-top:.5rem;"></i></a>
+        <a id="button-back-top"><img src="images/icons/arrow_top.png" style="width:3.5rem" alt=""></a>
 
         <div class="main-content main-content_main_page">
             <div class="empty-main-content1">
@@ -145,7 +145,7 @@ if (isset($_POST['submit_test'])) {
 
                 <div class="ads first-ads">
                     <span> advertisment</span>
-                    <img src="images/ads2.jpg" alt="">
+                    <!-- <img src="images/ads2.jpg" alt=""> -->
                 </div>
 
                 <div class="tags" style="font-size:3rem;">
@@ -173,7 +173,7 @@ if (isset($_POST['submit_test'])) {
 
                 <div class="ads second-ads">
                     <span> advertisment</span>
-                    <img src="images/ads.png" alt="">
+                    <!-- <img src="images/ads.png" alt=""> -->
                 </div>
                 <div class="footer">
                     <div class="top-footer">

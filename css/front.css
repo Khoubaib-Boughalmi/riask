@@ -1614,7 +1614,7 @@ font-size: 3.3rem;
 .slide-menu-option {
     display: flex;
     margin:1.5rem 0 1rem 2rem;
-
+    align-items: center;
 }
 
 .slide-menu-option a {
@@ -1693,6 +1693,8 @@ font-size: 3.3rem;
     font-weight: bold;
     margin-bottom: 1rem;
     padding: 1.5rem;
+    display: flex;
+    align-items: center;
 }
 
 .create-post-botton-btn{
@@ -1756,16 +1758,18 @@ font-size: 3.3rem;
     grid-template-rows: min-content min-content 1fr;
     margin-left: 22rem;
     /* width: 76rem; */
-    width: 76%;
+    width: 78%;
 }
 
 .post-header-create-post{
     background-color: #ffffff;
     /* width: 85vw; */
-    height: 6rem;
+    height: 4rem;
     grid-row: 1/2;
-    padding: 1.5rem;
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
     border-radius: .5rem;
+    display: flex;
+    justify-content: space-between;
 }
 .create-post-tags-title{
     display: grid;
@@ -1872,12 +1876,8 @@ font-size: 3.3rem;
 
 /* back top btn */
 #button-back-top {
-    display: inline-block;
-    background-color: #fff;
     height: 3rem;
     width: 3rem;
-    text-align: center;
-   border-radius: 10rem;
     position: fixed;
     bottom: 4rem;
     right: 16rem;
@@ -1886,10 +1886,7 @@ font-size: 3.3rem;
     opacity: 0;
     visibility: hidden;
     z-index: 1000;
-    font-size: 1.8rem;
     padding: .6rem;
-    font-weight: bold;
-    color: #555;
   }
   #button-back-top::after {
     font-weight: normal;
@@ -1899,11 +1896,11 @@ font-size: 3.3rem;
   }
   #button-back-top:hover {
     cursor: pointer;
-    background-color: #555;
-    color: #fff;
+    /* background-color: #555; */
+    /* color: #fff; */
   }
   #button-back-top:active {
-    background-color: #555;
+    /* background-color: #555; */
   }
   #button-back-top.show {
     opacity: 1;

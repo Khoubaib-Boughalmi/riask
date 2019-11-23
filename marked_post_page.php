@@ -81,10 +81,11 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
         </div>
         
         <div class="post post-create-post">
-            <div class="post-header-create-post">
-                <h2>Marked posts</h2>
-                <hr>
+        <div class="post-header-create-post">
+                <h2>Marked Posts</h2>
+                <img src="images/icons/mark.png"  style='width:3rem;height:3rem;margin: 0 2.5rem;' alt="">
             </div>
+            <hr style="margin: 0rem 3rem;">
             <div class="profile_post_container" style="display:block">
                 <?php
             $marked_obj->load_post($con,$user_profile);
@@ -178,47 +179,50 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
             <hr>
 
             <div class="slide-menu-options">
-            <div class="slide-menu-option">
-                    <a href="profile.php?user_profile=<?php echo $user_obj->get_user_name() ?>">
-                    <i class="fas fa-user" style="font-size:1.8rem;"></i>
-                        <p>My Profile</p>
+                <div class="slide-menu-option">
+                    <img src="images/icons/home.png" alt=""  style="height:2.1rem;">
+                    <a
+                        href="main.php">
+                        <p>Home Page</p>
                     </a>
                 </div>
                 <div class="slide-menu-option">
-                    <a href="marked_post_page.php?user_profile=<?php echo $user_obj->get_user_name() ?>">
-                    <i class="far fa-bookmark" style="font-size:1.8rem;"></i>
-                        <p>Marked post</p>
+                    <img src="images/icons/user.png" alt=""  style="height:2.1rem;">
+                    <a
+                        href="profile.php?user_profile=<?php echo $user_name_logged_in?>">
+                        <p>Profile Page</p>
                     </a>
                 </div>
-             
+                
                 <div class="slide-menu-option">
-                <a href="create-post.php">
-                    <i class="fas fa-pencil-alt" style="font-size:1.8rem;"></i>
-                        <p>Create A Post</p>
+                    <a href="create-post.php">
+                    <img src="images/icons/pencil.png" alt=""  style="height:2.1rem;">
+                    <p>Create A Post</p>
                     </a>
                 </div>
                 <div class="slide-menu-option">
                     <a href="settings.php">
-                    <i class="fas fa-cog" style="font-size:1.8rem;"></i>
-                        <p>Settings</p>
+                        <img src="images/icons/settings.png" alt=""  style="height:2.1rem;">
+                        <p>User Settings</p>
                     </a>
                 </div>
-               
+                <div class="slide-menu-option">
+                    <img src="images/icons/mark.png" alt=""  style="height:2.1rem;">
+                    <a
+                    href="marked_post_page.php?user_profile=<?php echo $user_name_logged_in?>">
+                    <p>Marked Post</p>
+                    </a>
+                </div>
+                
                 <hr>
                 <div class="slide-menu-option">
-                    <a href="#">
-                        <p style="margin-left:0;">Settings And Privacy</p>
-                    </a>
+                    <a href="#"><p style="margin-left:0;">Settings And Privacy</p></a>
                 </div>
                 <div class="slide-menu-option">
-                    <a href="#">
-                        <p style="margin-left:0;">Help</p>
-                    </a>
-                </div>
+                <a href="#"><p style="margin-left:0;">Help</p></a>
+            </div>
                 <div class="slide-menu-option">
-                    <a href="classes/log_out.php">
-                        <p style="margin-left:0;">Log Out</p>
-                    </a>
+                <a href="#"><p style="margin-left:0;">Log Out</p></a>
                 </div>
             </div>
         </div>

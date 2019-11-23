@@ -32,19 +32,21 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
         <!--start navigation bar -->
         <nav id="main-nav">
             <div class="user-main">
-                <a class="user-name-menu"><i class="fas fa-bars" style="font-size:1.8rem;"></i><span
+                <a class="user-name-menu"><img src="images/icons/bars.png" style="height:2rem;width:2rem;" alt=""><span
                         class="user-name-menu-span"><?php echo $user_obj->get_first_last_name() ?></span></a>
             </div>
             </div>
             </div>
             <div class="search-main">
-                <i class=" fas fa-search" style="color:#222222;"></i>
+            <img src="images/icons/loop.png" alt="" class="fa-search" style='height:2.1rem;'>
+
+                <!-- <i class=" fas fa-search" style="color:#222222;"></i> -->
                 <input type="text" class="input-search input-search-main" placeholder="Search for a question">
             </div>
             <div class="navigation-icons">
-                <a href="main.php"><i class="fas fa-home"></i></a>
+                <a href="main.php" class="home_icon"><img src="images/icons/home.png" alt=""></a>
                 <div class="notification_bell notification_container ">
-                    <i class="far fa-bell dropbtn" onclick='drop_down_notification_function()'></i>
+                    <img src="images/icons/notification.png" alt="" class="fa-bell dropbtn" style="width:4rem;height:4rem;" onclick="drop_down_notification_function()">
                     <!-- show the number of notification -->
                     <?php 
                 if ($num_notification>0) {
@@ -61,13 +63,13 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
 
                     </div>
                 </div>
-                <a href="settings.php" class="fa-cog"><i class="fas fa-cog"></i></a>
-                <a href="create-post.php"><i class="fas fa-pencil-alt"></i></a>
-                <a href="classes/log_out.php" class="fa-sign-out-alt"><i class="fas fa-sign-out-alt"></i></a>
+                <a href="settings.php" class="fa-cog"><img src="images/icons/settings.png" alt=""></a>
+                <a href="create-post.php"><img src="images/icons/pencil.png" alt=""></a>
+                <a href="classes/log_out.php" class="fa-sign-out-alt"><img src="images/icons/logout.png" alt=""></a>
             </div>
 
         </nav>
-<!--end navigation bar -->
+        <!--end navigation bar -->
 
 <!-- main content -->
 
@@ -78,9 +80,10 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
         
         <div class="post post-create-post">
             <div class="post-header-create-post">
-                <h2><?php echo $user_profile?></h2>
-                <hr>
+                <h2>My Profile</h2>
+                <img src="images/icons/user.png"  style='width:3rem;height:3rem;margin: 0 2.5rem;' alt="">
             </div>
+            <hr style="margin: 0rem 3rem;">
             <div class="profile_post_container">
                 <?php
             $user_profile_obj->load_profile_posts($con,$user_profile);
@@ -181,35 +184,51 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
             <hr>
     
             <div class="slide-menu-options">
-                <div class="slide-menu-option followed_list">
-                <i class="fas fa-user" style="font-size:1.8rem;"></i><a href="#"><p>followed list</p></a>
+                <div class="slide-menu-option">
+                    <img src="images/icons/home.png" alt=""  style="height:2.1rem;">
+                    <a
+                        href="main.php">
+                        <p>Home Page</p>
+                    </a>
                 </div>
+                <div class="slide-menu-option">
+                    <img src="images/icons/user.png" alt=""  style="height:2.1rem;">
+                    <a
+                        href="profile.php?user_profile=<?php echo $user_name_logged_in?>">
+                        <p>Profile Page</p>
+                    </a>
+                </div>
+                
                 <div class="slide-menu-option">
                     <a href="create-post.php">
-                    <i class="fas fa-pencil-alt" style="font-size:1.8rem;"></i>
-                        <p>Create A Post</p>
+                    <img src="images/icons/pencil.png" alt=""  style="height:2.1rem;">
+                    <p>Create A Post</p>
                     </a>
                 </div>
-                <div class="slide-menu-option">
-                    <a href="marked_post_page.php?user_profile=<?php echo $user_obj->get_user_name() ?>">
-                    <i class="far fa-bookmark" style="font-size:1.8rem;"></i>
-                        <p>Marked post</p>
-                    </a>
-                </div>
-             
                 <div class="slide-menu-option">
                     <a href="settings.php">
-                    <i class="fas fa-cog" style="font-size:1.8rem;"></i>
-                        <p>Settings</p>
+                        <img src="images/icons/settings.png" alt=""  style="height:2.1rem;">
+                        <p>User Settings</p>
                     </a>
+                </div>
+                <div class="slide-menu-option">
+                    <img src="images/icons/mark.png" alt=""  style="height:2.1rem;">
+                    <a
+                    href="marked_post_page.php?user_profile=<?php echo $user_name_logged_in?>">
+                    <p>Marked Post</p>
+                    </a>
+                </div>
+                <div class="slide-menu-option followed_list">
+                <img src="images/icons/users.png" alt=""  style="height:2.1rem;">
+                    <a href="#"><p>followed list</p></a>
                 </div>
                 <hr>
                 <div class="slide-menu-option">
-                <a href="#"><p style="margin-left:0;">Settings And Privacy</p></a>
+                    <a href="#"><p style="margin-left:0;">Settings And Privacy</p></a>
                 </div>
                 <div class="slide-menu-option">
                 <a href="#"><p style="margin-left:0;">Help</p></a>
-                </div>
+            </div>
                 <div class="slide-menu-option">
                 <a href="#"><p style="margin-left:0;">Log Out</p></a>
                 </div>
