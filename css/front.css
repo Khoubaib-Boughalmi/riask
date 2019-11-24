@@ -220,6 +220,41 @@ body{
     transition: background-color .3s;
     color: #fff
 }
+
+.log_in_pop_up_container{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.466);
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+}
+
+.log_in_pop_up{
+    width: 30%;
+    height: 80%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+}
+
+.close_log_in{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 42px;
+    color: #333;
+    transform: rotate(45deg);
+    cursor: pointer;
+    color: red;
+}
+
+.log_in_pop_up_body{
+    padding: 5rem 3rem;
+}
 /* step2 select check box */
 .dropdown_step2 {
     position: relative;

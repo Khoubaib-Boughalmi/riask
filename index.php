@@ -2,6 +2,7 @@
     define("header",true);
     include('header.php');
 ?>
+
 <body>
 
     <!-- main page -->
@@ -74,31 +75,48 @@
         <div class="modal-contents">
             <div class="close">+</div>
             <div class="right_side_registration">
-                
-<div class="create_account_email_header">
-    <span class="create_account_email_header_text"> Sotmy amet consectetur adipisicing elit </span>
-</div>
 
-<form action="" method="POST" id="form-register">
-    <input type="text" class="popup-input popup firstName-popup" name="reg_first_name" placeholder="First Name"
-        autocomplete="off" required>
-    <input type="text" class="popup-input popup lastName-popup" name="reg_last_name" placeholder="last Name"
-        autocomplete="off" required>
-    <br>
-    <input type="email" class="popup-input popup email-popup" name="reg_email" placeholder="E-Mail" autocomplete="off"
-        required value="">
-    <br>
-    <input type="password" class=" popup-input popup password-popup password-popup-one" name="reg_password"
-        placeholder="Password" autocomplete="off" required>
-    <input type="password" class="popup-input popup password-popup repeat-password-popup" name="reg_repeat_password"
-        placeholder="Repeat Password" autocomplete="off" required>
-    <br>
-    <span id="button-popup" onclick="load_errors()">Register</span>
-</form>
+                <div class="create_account_email_header">
+                    <span class="create_account_email_header_text"> Sotmy amet consectetur adipisicing elit </span>
+                </div>
+
+                <form action="" method="POST" id="form-register">
+                    <input type="text" class="popup-input popup firstName-popup" name="reg_first_name"
+                        placeholder="First Name" autocomplete="off" required>
+                    <input type="text" class="popup-input popup lastName-popup" name="reg_last_name"
+                        placeholder="last Name" autocomplete="off" required>
+                    <br>
+                    <input type="email" class="popup-input popup email-popup" name="reg_email" placeholder="E-Mail"
+                        autocomplete="off" required value="">
+                    <br>
+                    <input type="password" class=" popup-input popup password-popup password-popup-one"
+                        name="reg_password" placeholder="Password" autocomplete="off" required>
+                    <input type="password" class="popup-input popup password-popup repeat-password-popup"
+                        name="reg_repeat_password" placeholder="Repeat Password" autocomplete="off" required>
+                    <br>
+                    <span id="button-popup" onclick="load_errors()">Register</span>
+                </form>
 
 
             </div>
 
+        </div>
+    </div>
+    <div class="log_in_pop_up_container">
+        <div class="log_in_pop_up">
+            <div class="close_log_in">
+                +
+            </div>
+            <div class="log_in_pop_up_body">
+                <span>Lorem ipsum dolor sit amet </span>
+                <br>
+                <input type="text" class="email_pop_up">
+                <br>
+                <span>Lorem ipsum dolor sit amet </span>
+                <br>
+                <input type="text" class="password_pop_up">
+                <a href="#" class="log_in_button_pop_up">Log in</a>
+            </div>
         </div>
     </div>
     <script src="js/front.js"></script>
@@ -107,18 +125,17 @@ include('log_in.php');
 ?>
 
     <script>
- 
-    var error_array = new Array();
+        var error_array = new Array();
 
-    // create a remove function
-    function removeItem(name) {
-        for (var i = error_array.length - 1; i >= 0; i--) {
-            if (error_array[i] === name) {
-                error_array.splice(i, 1);
+        // create a remove function
+        function removeItem(name) {
+            for (var i = error_array.length - 1; i >= 0; i--) {
+                if (error_array[i] === name) {
+                    error_array.splice(i, 1);
+                }
             }
         }
-    }
-            $('.firstName-popup').keyup(function () {
+        $('.firstName-popup').keyup(function () {
             if ((($(this).val().length < 3)) || ($(this).val().length > 25)) {
                 $('.firstName-popup').css('border', '.2rem solid red');
                 error_array.push('First Name should be between 2 and 25 character');
@@ -170,76 +187,109 @@ include('log_in.php');
 
             }
         })
-    function validateEmail(email) {
-        var re =
-            /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email);
-    }
-    $(document).ready(function (e) {
-        $('.email-popup').blur(function () {
-            var email_val = $(this).val();
-            $.post("get_emails.php", {
-                suggestion: email_val
-            }, function (data) {
-                if (data != '0') {
-                    $('.email-popup').css('border', '.2rem solid red');
-                    simpleNotify.notify('Email already used', 'danger');
-                    error_array.push('Email Already used')
 
-                } else {
-                    if (validateEmail(email_val)) {
-                        $('.email-popup').css('border', '.2rem solid green');
-                        removeItem('Invalid Email')
+        function validateEmail(email) {
+            var re =
+                /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
+        $(document).ready(function (e) {
+            $('.email-popup').blur(function () {
+                var email_val = $(this).val();
+                $.post("get_emails.php", {
+                    suggestion: email_val
+                }, function (data) {
+                    if (data != '0') {
+                        $('.email-popup').css('border', '.2rem solid red');
+                        simpleNotify.notify('Email already used', 'danger');
+                        error_array.push('Email Already used')
 
                     } else {
-                        $('.email-popup').css('border', '.2rem solid red');
-                        error_array.push('Invalid Email')
+                        if (validateEmail(email_val)) {
+                            $('.email-popup').css('border', '.2rem solid green');
+                            removeItem('Invalid Email')
+
+                        } else {
+                            $('.email-popup').css('border', '.2rem solid red');
+                            error_array.push('Invalid Email')
+
+                        }
+                        removeItem('Email Already used')
+
 
                     }
-                    removeItem('Email Already used')
-
-
-                }
+                })
             })
         })
-    })
 
 
 
 
-    $('#button-popup').click(function (e) {
-        if (error_array.length > 0) {
-            const distinct = (value, index, self) => {
-                return self.indexOf(value) === index;
+        $('#button-popup').click(function (e) {
+            if (error_array.length > 0) {
+                const distinct = (value, index, self) => {
+                    return self.indexOf(value) === index;
+                }
+                var dis = error_array.filter(distinct);
+                dis = dis.reverse();
+                // $("#button-popup").addClass("not-allowed");
+                dis.forEach(e => {
+                    simpleNotify.notify(e, 'danger');
+                });
             }
-            var dis = error_array.filter(distinct);
-            dis = dis.reverse();
-            // $("#button-popup").addClass("not-allowed");
-            dis.forEach(e => {
-                simpleNotify.notify(e, 'danger');
-            });
-        }
-        if (($('.email-popup').val()==='')||($('.repeat-password-popup').val()=='')||($('.lastName-popup').val()=='')||($('.firstName-popup').val()=='')||($('.password-popup-one').val()=='')) {
-            simpleNotify.notify('input field is empty', 'danger');
+            if (($('.email-popup').val() === '') || ($('.repeat-password-popup').val() == '') || ($(
+                    '.lastName-popup').val() == '') || ($('.firstName-popup').val() == '') || ($(
+                    '.password-popup-one').val() == '')) {
+                simpleNotify.notify('input field is empty', 'danger');
 
-        }else{
-            if (error_array.length == 0){
-                // important do php just before inserting data in db 
-                first_name = $('.firstName-popup').val();
-                last_name = $('.lastName-popup').val();
-                email = $('.email-popup').val();
-                password = $('.repeat-password-popup').val();
-                sessionStorage.setItem('first_name',first_name);
-                sessionStorage.setItem('last_name',last_name);
-                sessionStorage.setItem('email',email);
-                sessionStorage.setItem('password',password);
-                window.location.replace("step2-register.php");
-                
+            } else {
+                if (error_array.length == 0) {
+                    // important do php just before inserting data in db 
+                    first_name = $('.firstName-popup').val();
+                    last_name = $('.lastName-popup').val();
+                    email = $('.email-popup').val();
+                    password = $('.repeat-password-popup').val();
+                    sessionStorage.setItem('first_name', first_name);
+                    sessionStorage.setItem('last_name', last_name);
+                    sessionStorage.setItem('email', email);
+                    sessionStorage.setItem('password', password);
+                    window.location.replace("step2-register.php");
+
+                }
             }
-        }
-    })
+        })
+        $('.log_in_button_pop_up').click(function () {
+            var email_pop_up_val = $('.email_pop_up').val();
+            var password_pop_up_val = $('.password_pop_up').val();
+            $.ajax({
+                url: 'ajax/log_in_pop_up.php',
+                type: 'POST',
+                data: {
+                    email_pop_up_val:email_pop_up_val,
+                    password_pop_up_val:password_pop_up_val
+                },
+                error: function () {
+                    alert('error');
+                },
+                success: function (data) {
+                    if (data == 1) {
+                        window.location.replace("main.php");
+                        // $('.email_pop_up').val(data)
+                    }else{
+                        simpleNotify.notify('Email or password are incorrect', 'danger'); 
+                    }
+                }
+            })
 
-</script>
+        })
+
+        $('.sign-up').click(function(){
+            $('.log_in_pop_up_container').css('display','block');
+        })
+        $('.close_log_in').click(function(){
+            $('.log_in_pop_up_container').css('display','none');
+        })
+    </script>
 </body>
 
 </html>

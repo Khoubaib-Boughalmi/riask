@@ -17,9 +17,9 @@ if (isset($_SESSION['user_name_log_in'])) {
     $query_log_in=mysqli_query($con,"SELECT * FROM users WHERE user_name ='$user_name'");
     $row=mysqli_fetch_array($query_log_in);
 }
-else{
-    header('location: index.php');
-}
+// else{
+//     header('location: index.php');
+// }
 $user_obj=new user($con,$user_name);
 // get all user followed by user logged in
 $followers_list = $user_obj->follower_list();
