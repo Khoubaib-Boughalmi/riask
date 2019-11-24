@@ -205,10 +205,9 @@ $category = new category($con);
             $('.mutliSelect input[type="checkbox"]').on('click', function () {
 
                 var title = $(this).closest('.mutliSelect').find('input[type="checkbox"]').val(),
-                    title = $(this).val() + ",";
 
                 if ($(this).is(':checked')) {
-                    var html = '<span title="' + title + '">' + title + '</span>';
+                    var html = '<span title="' + title + '" class="category" >' + title + '</span>';
                     $('.multiSel').append(html);
                     $(".hida").hide();
                 } else {

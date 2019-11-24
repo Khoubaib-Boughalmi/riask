@@ -95,21 +95,21 @@ body{
     .fa-search{
         font-size: 2.8rem;
         margin-right: 2rem;
-        font-weight: bolder;
+        font-weight: bold;
         color: #fff;
     }
     
     .fa-user-friends{
         font-size: 2.8rem;
         margin-right: 2rem;
-        font-weight: bolder;
+        font-weight: bold;
         color: #fff;
 
     }
     .fa-comment {
         font-size: 2.8rem;
         margin-right: 2rem;
-        font-weight: bolder;
+        font-weight: bold;
         color: #fff;
 
     }
