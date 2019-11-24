@@ -73,51 +73,30 @@
     <div class="bg-modal">
         <div class="modal-contents">
             <div class="close">+</div>
-
-            <div class="left_side_registration">
-                <img src="images/chip.png" width="60%" alt="">
-            </div>
-
             <div class="right_side_registration">
+                
+<div class="create_account_email_header">
+    <span class="create_account_email_header_text"> Sotmy amet consectetur adipisicing elit </span>
+</div>
 
-                <!-- <form action="" method="POST" id="form-register">
-                    <input type="text" class="popup-input popup firstName-popup" name="reg_first_name"
-                        placeholder="First Name" autocomplete="off" required>
-                    <input type="text" class="popup-input popup lastName-popup" name="reg_last_name"
-                        placeholder="last Name" autocomplete="off" required>
-                    <br>
-                    <input type="email" class="popup-input popup email-popup" name="reg_email" placeholder="E-Mail"
-                        autocomplete="off" required>
-                    <br>
-                    <input type="password" class=" popup-input popup password-popup password-popup-one"
-                        name="reg_password" placeholder="Password" autocomplete="off" required>
-                    <input type="password" class="popup-input popup password-popup repeat-password-popup"
-                        name="reg_repeat_password" placeholder="Repeat Password" autocomplete="off" required>
-                    <br>
-                    <input type="submit" class="" id="button-popup" value="Register" name="reg_submit"
-                        onclick="load_errors()">
-                </form> -->
-                <div class="create_account_header">
-                    <span class="create_account_header_text"> Sotmy amet consectetur adipisicing elit </span>
-                </div>
-                 <div class="create_account_log_in_options">
-                <!--    <div class="create_account_facebook_container">
-                        <div class="create_account_facebook_div" onclick="window.location = ''">
-                            <img src="images/facebook_icon1.png" alt="" style="width: 4.5rem;padding: .5rem;">
-                            <span class="create_account_facebook_text">Join Using Facebook</span>
-                        </div>
-                    </div> -->
-                    <br>
-                    <div class="create_account_email_container">
-                        <div class="create_account_email_div">
-                            <img src="images/email.png" alt="" style="width: 4.5rem;padding: .5rem;">
-                            <span class="create_account_email_text">Join Using email</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="create_account_footer">
-                    Lorem ipsum dolor sit .
-                </div>
+<form action="" method="POST" id="form-register">
+    <input type="text" class="popup-input popup firstName-popup" name="reg_first_name" placeholder="First Name"
+        autocomplete="off" required>
+    <input type="text" class="popup-input popup lastName-popup" name="reg_last_name" placeholder="last Name"
+        autocomplete="off" required>
+    <br>
+    <input type="email" class="popup-input popup email-popup" name="reg_email" placeholder="E-Mail" autocomplete="off"
+        required>
+    <br>
+    <input type="password" class=" popup-input popup password-popup password-popup-one" name="reg_password"
+        placeholder="Password" autocomplete="off" required>
+    <input type="password" class="popup-input popup password-popup repeat-password-popup" name="reg_repeat_password"
+        placeholder="Repeat Password" autocomplete="off" required>
+    <br>
+    <span id="button-popup" onclick="load_errors()">Register</span>
+</form>
+
+
             </div>
 
         </div>
@@ -128,22 +107,145 @@ include('log_in.php');
 ?>
 
     <script>
-        $('.create_account_email_container').click(function () {
-            $.ajax({
-                url: 'ajax/create_account_email.php',
-                type: 'POST',
-                data: {
+ 
+    var error_array = new Array();
 
-                },
-                error: function () {
-                    alert('error');
-                },
-                success: function (data) {
-                    $('.right_side_registration').html(data);
+    // create a remove function
+    function removeItem(name) {
+        for (var i = error_array.length - 1; i >= 0; i--) {
+            if (error_array[i] === name) {
+                error_array.splice(i, 1);
+            }
+        }
+    }
+
+
+    $(document).ready(function (e) {
+        $('.firstName-popup').keyup(function () {
+            if ((($(this).val().length < 3)) || ($(this).val().length > 25)) {
+                $('.firstName-popup').css('border', '.2rem solid red');
+                error_array.push('First Name should be between 2 and 25 character');
+            } else {
+                $('.firstName-popup').css('border', '.2rem solid green');
+                removeItem('First Name should be between 2 and 25 character');
+
+            }
+        })
+
+        $('.lastName-popup').keyup(function () {
+            if (($(this).val().length < 3) || ($(this).val.length) > 25) {
+                $('.lastName-popup').css('border', '.2rem solid red');
+                error_array.push('Last Name should be between 2 and 25 character')
+
+            } else {
+                $('.lastName-popup').css('border', '.2rem solid green');
+                removeItem('Last Name should be between 2 and 25 character')
+
+
+            }
+        })
+
+        $('.password-popup-one').keyup(function () {
+            if (($(this).val().length < 6) || ($(this).val.length) > 30) {
+                $('.password-popup-one').css('border', '.2rem solid red');
+                error_array.push('password should be between 6 and 30 character')
+
+            } else {
+                $('.password-popup-one').css('border', '.2rem solid green');
+                removeItem('password should be between 6 and 30 character')
+
+
+            }
+        })
+
+        // see if password do not matche
+        $('.repeat-password-popup').keyup(function () {
+
+            if (document.querySelector('.password-popup-one').value == document.querySelector(
+                    '.repeat-password-popup').value) {
+                document.querySelector('.repeat-password-popup').style.border = "0.2rem solid green";
+                removeItem('Repeated Password Incorrect')
+
+            } else {
+                // notification for password                
+                document.querySelector('.repeat-password-popup').style.border = "0.2rem solid red";
+                error_array.push('Repeated Password Incorrect')
+
+            }
+        })
+
+    })
+
+    function validateEmail(email) {
+        var re =
+            /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }
+    $(document).ready(function (e) {
+        $('.email-popup').blur(function () {
+            var email_val = $(this).val();
+            $.post("get_emails.php", {
+                suggestion: email_val
+            }, function (data) {
+                if (data != '0') {
+                    $('.email-popup').css('border', '.2rem solid red');
+                    simpleNotify.notify('Email already used', 'danger');
+                    error_array.push('Email Already used')
+
+                } else {
+                    if (validateEmail(email_val)) {
+                        $('.email-popup').css('border', '.2rem solid green');
+                        removeItem('Invalid Email')
+
+                    } else {
+                        $('.email-popup').css('border', '.2rem solid red');
+                        error_array.push('Invalid Email')
+
+                    }
+                    removeItem('Email Already used')
+
+
                 }
             })
         })
-    </script>
+    })
+
+
+
+
+    $('#button-popup').click(function (e) {
+        if (error_array.length > 0) {
+            const distinct = (value, index, self) => {
+                return self.indexOf(value) === index;
+            }
+            var dis = error_array.filter(distinct);
+            dis = dis.reverse();
+            // $("#button-popup").addClass("not-allowed");
+            dis.forEach(e => {
+                simpleNotify.notify(e, 'danger');
+            });
+        }
+        if (($('.email-popup').val()==='')||($('.repeat-password-popup').val()=='')||($('.lastName-popup').val()=='')||($('.firstName-popup').val()=='')||($('.password-popup-one').val()=='')) {
+            simpleNotify.notify('input field is empty', 'danger');
+
+        }else{
+            if (error_array.length == 0){
+                // important do php just before inserting data in db 
+                first_name = $('.firstName-popup').val();
+                last_name = $('.lastName-popup').val();
+                email = $('.email-popup').val();
+                password = $('.repeat-password-popup').val();
+                sessionStorage.setItem('first_name',first_name);
+                sessionStorage.setItem('last_name',last_name);
+                sessionStorage.setItem('email',email);
+                sessionStorage.setItem('password',password);
+                window.location.replace("step2-register.php");
+                
+            }
+        }
+    })
+
+</script>
 </body>
 
 </html>

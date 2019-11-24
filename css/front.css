@@ -302,12 +302,10 @@ font-weight: bold;
 
 .modal-contents {
 	height: 550px;
-	width: 850px;
+	width: 450px;
 	background-color: #ffffffbf;
 	text-align: center;
 	position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
 }
 
 .no_post_yet{
