@@ -1989,9 +1989,7 @@ font-size: 3.3rem;
     /* background-color: #555; */
     /* color: #fff; */
   }
-  #button-back-top:active {
-    /* background-color: #555; */
-  }
+
   #button-back-top.show {
     opacity: 1;
     visibility: visible;
