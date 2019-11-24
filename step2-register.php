@@ -116,7 +116,7 @@ $category = new category($con);
             $('.button-popup-register2').click(function (e) {
                 var tags='';
                 $('.category_val').each(function () {
-                    tags .= $(this).attr('title');
+                    tags = tags + $(this).attr('title');
                 })
                 console.log(tags);
                 if (($('.input-register2-user-name').val() == '') || ($('.input-register2-tags')
