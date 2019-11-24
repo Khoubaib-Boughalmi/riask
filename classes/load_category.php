@@ -10,7 +10,7 @@ class category{
         $query_array =mysqli_fetch_array($query);
         while ($query_array) { 
             echo '<li>
-            <input type="checkbox" value="">'.$query_array['category'] .'
+            <input type="checkbox" value="">'.$query_array['category_val'] .'
         </li>
         <hr>';
         }
