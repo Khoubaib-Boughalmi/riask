@@ -54,7 +54,6 @@ $user_name = striping1($user_name,$con);
 $first_name = striping1($first_name,$con);
 $last_name = striping1($last_name,$con);
 $email = striping1($email,$con);
-$tag_val = striping1($tag_val,$con);
 $password = striping2($password,$con);
 
 $inserting_query = mysqli_query($con,"INSERT INTO `users`(`id`, `first_name`, `last_name`, `user_name`, `email`, `password`, `user_bio`, `number_posts`, `profile_pic`, `user_closed`, `followers`, `tags_user`, `register_date`, `categories`, `followed_by`)VALUES ('','$first_name','$last_name','$user_name','$email','$password','hi u.u hi','0','images/steve.jpg','no','','php,css,java,','0-0-0','$tag_val','')");

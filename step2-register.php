@@ -137,7 +137,7 @@ $category = new category($con);
                             simpleNotify.notify(e, 'danger');
                         });
                         var tag_val = sessionStorage.setItem('tag_val',title)
-
+                        alert (tag_val)
                     } else {
                         var user_name = sessionStorage.getItem('user_name_log_in')
                         var first_name = sessionStorage.getItem('first_name')
