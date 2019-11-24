@@ -8,8 +8,7 @@ $category = new category($con);
 <style>
 
 </style>
-<link rel="stylesheet" href="js_ex/sellect.css">
-<script src="js_ex/sellect.js"></script>
+
 
 <body class="step_2_background">
 

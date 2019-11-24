@@ -253,30 +253,6 @@ $num_notification=$notification_obj->num_notification($user_name);
         });
 
         $(document).ready(function () {
-
-            // $('.botton1').click(function () {
-            //     var user_logged_in = '';
-            //     $.ajax({
-            //         url: 'creat-post-files/tags-create-post.php',
-            //         type: 'POST',
-            //         data: {
-            //             user_logged_in: user_logged_in
-            //         },
-            //         error: function () {
-            //             alert('error');
-            //         },
-            //         success: function (data) {
-            //             $('.ajax-insert').html(data);
-
-            //         }
-            //     })
-
-            //     // $.get('creat-post-files/tags-create-post.php',function(data){
-            //     //     $('.ajax-insert').html(data);
-            //     // })
-            //     $('svg').removeClass('active_btn_tag');
-            //     $(this).addClass('active_btn_tag');
-            // })
             $('.next_botton_tags_title').click(function () {
                 var title_value = $('.create-post-title-input').val();
                 var title_length = title_value.length;
