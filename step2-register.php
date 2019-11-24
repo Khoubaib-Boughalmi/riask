@@ -40,10 +40,6 @@ $category = new category($con);
                     <dd>
                         <div class="mutliSelect">
                             <ul>
-                                <li>
-                                    <input type="checkbox" value="Apple" />Apple
-                                </li>
-                                <hr>
                                 <?php $category->load_category() ?>
                             </ul>
                         </div>

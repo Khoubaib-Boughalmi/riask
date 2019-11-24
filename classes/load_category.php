@@ -8,8 +8,11 @@ class category{
     public function load_category(){
         $query = mysqli_query($this->con,'SELECT * from category');
         $query_array =mysqli_fetch_array($query);
-        for ($i=0; $i <count($query_array)-1; $i++) { 
-            echo 'hi '.'<br>';
+        while ($query_array) { 
+            echo '<li>
+            <input type="checkbox" value="">'.$query_array['category'] .'
+        </li>
+        <hr>';
         }
     }
 }
