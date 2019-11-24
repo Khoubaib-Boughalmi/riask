@@ -220,6 +220,98 @@ body{
     transition: background-color .3s;
     color: #fff
 }
+/* step2 select check box */
+.dropdown_step2 {
+    position: relative;
+  }
+ 
+  .dropdown_step2 dd,
+  .dropdown_step2 dt {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  .dropdown_step2 ul {
+    margin: -1px 0 0 0;
+  }
+  .dropdown_step2 ul li{
+    color: #222;
+    font-weight: bold;
+    font-size: 1.4rem;
+    padding: .5rem;
+  }
+  
+  .dropdown_step2 dd {
+    position: relative;
+  }
+  
+  .dropdown_step2 a,
+  .dropdown_step2 a:visited {
+    color: #fff;
+    text-decoration: none;
+    outline: none;
+    font-size: 12px;
+    margin: 0;
+    margin-left: 2rem;
+    border: .2rem solid;
+  }
+  
+  .dropdown_step2 dt a {
+    background-color: rgb(255, 255, 255);
+    display: block;
+    padding: 8px 20px 5px 10px;
+    min-height: 25px;
+    line-height: 24px;
+    overflow: hidden;
+    border: 0;
+    width: 90%;
+  }
+  
+  .dropdown_step2 dt a span,
+  .multiSel span {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 3px 2px 0;
+    color: #222;
+    font-weight: bold;
+  }
+  
+  .dropdown_step2 dd ul {
+    background-color: #e7eaec;
+    border: 0;
+    color: #fff;
+    /* display: none; */
+    left: 0px;
+    padding: 2px 15px 2px 5px;
+    position: absolute;
+    top: 10px;
+    width: 90%;
+    margin-left: 2rem;
+    list-style: none;
+    height: 212px;
+    overflow: auto;
+    border: .1rem solid grey;
+  }
+  
+  .dropdown_step2 dd ul li input{
+  float: left;
+  }
+  
+  .dropdown_step2 span.value {
+    display: none;
+  }
+  
+  .dropdown dd ul li a {
+    padding: 5px;
+    display: block;
+  }
+  
+  .dropdown dd ul li a:hover {
+    background-color: #fff;
+  }
+  
+  
+/* end step2 select check box */
 
 /* forum login */
 .right-content{
@@ -319,9 +411,9 @@ font-weight: bold;
 	width: 40%;
 	background-color: #ffffff;
 	text-align: center;
-	position: relative;
-    /* display: grid;
-    grid-template-columns: 1fr 1fr; */
+    position: relative;
+    display: grid;
+    grid-template-rows: 1fr min-content;
 }
 .left_side_registration{
     display: flex;
@@ -2673,6 +2765,14 @@ cursor: pointer;
 }
 
 /* styling tags from step2 registration */
+.scroling-div-step2-register{
+    display: none;
+    justify-content: center;
+    margin-top:0rem;
+}
+#text_area_step2_bio{
+    width: 95%;
+}
 .tags_suggestion{
     display: flex;
     justify-content: space-between;
