@@ -139,13 +139,13 @@ $category = new category($con);
                         
                     } else {
                         var tag_val = sessionStorage.setItem('tag_val',tags)
-                        alert (tag_val)
                         var user_name = sessionStorage.getItem('user_name_log_in')
                         var first_name = sessionStorage.getItem('first_name')
                         var last_name = sessionStorage.getItem('last_name')
                         var password = sessionStorage.getItem('password')
                         var email = sessionStorage.getItem('email')
                         var tag_val = sessionStorage.getItem('tag_val')
+                        alert (tag_val)
                         $.ajax({
                             url: 'ajax/add_user_info_db_create_account.php',
                             type: 'POST',
