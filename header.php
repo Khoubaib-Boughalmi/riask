@@ -31,7 +31,7 @@ $timezone=  date_default_timezone_set('Africa/Tunis');
     <script src="3rd_party/notification/simpleNotify.min.js"></script>
     <link rel="stylesheet" href="3rd_party/notification/simpleNotifyStyle.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153200341-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -39,7 +39,7 @@ $timezone=  date_default_timezone_set('Africa/Tunis');
   gtag('js', new Date());
 
   gtag('config', 'UA-153200341-1');
-</script>
+</script> -->
     <title>Document</title>
 </head>
 

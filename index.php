@@ -86,7 +86,7 @@
         autocomplete="off" required>
     <br>
     <input type="email" class="popup-input popup email-popup" name="reg_email" placeholder="E-Mail" autocomplete="off"
-        required>
+        required value="">
     <br>
     <input type="password" class=" popup-input popup password-popup password-popup-one" name="reg_password"
         placeholder="Password" autocomplete="off" required>
@@ -118,10 +118,7 @@ include('log_in.php');
             }
         }
     }
-
-
-    $(document).ready(function (e) {
-        $('.firstName-popup').keyup(function () {
+            $('.firstName-popup').keyup(function () {
             if ((($(this).val().length < 3)) || ($(this).val().length > 25)) {
                 $('.firstName-popup').css('border', '.2rem solid red');
                 error_array.push('First Name should be between 2 and 25 character');
@@ -173,9 +170,6 @@ include('log_in.php');
 
             }
         })
-
-    })
-
     function validateEmail(email) {
         var re =
             /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
