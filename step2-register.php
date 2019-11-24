@@ -118,7 +118,6 @@ $category = new category($con);
                 $('.category_val').each(function () {
                     tags = tags + $(this).attr('title');
                 })
-                console.log(tags);
                 if (($('.input-register2-user-name').val() == '') || (tags.length == 0)) {
                     simpleNotify.notify('input field is empty', 'danger');
                     error_array.push('input field is empty')
@@ -145,7 +144,6 @@ $category = new category($con);
                         var password = sessionStorage.getItem('password')
                         var email = sessionStorage.getItem('email')
                         var tag_val = sessionStorage.getItem('tag_val')
-                        alert (tag_val)
                         $.ajax({
                             url: 'ajax/add_user_info_db_create_account.php',
                             type: 'POST',
