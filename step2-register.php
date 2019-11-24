@@ -161,7 +161,7 @@ $category = new category($con);
                                 alert('error');
                             },
                             success: function (data) {
-                                window.location.replace("index.php");
+                                // window.location.replace("index.php");
                             }
                         })
                     }
