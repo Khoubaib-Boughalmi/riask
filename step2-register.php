@@ -136,7 +136,7 @@ $category = new category($con);
                         dis.forEach(e => {
                             simpleNotify.notify(e, 'danger');
                         });
-                        var tag_val = sessionStorage.setItem('tag_val',title)
+                        var tag_val = sessionStorage.setItem('tag_val',tags)
                         alert (tag_val)
                     } else {
                         var user_name = sessionStorage.getItem('user_name_log_in')
