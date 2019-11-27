@@ -315,7 +315,7 @@ body{
     background-color: #e7eaec;
     border: 0;
     color: #fff;
-    /* display: none; */
+    display: none;
     left: 0px;
     padding: 2px 15px 2px 5px;
     position: absolute;
