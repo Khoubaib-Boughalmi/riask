@@ -16,6 +16,8 @@ $user_obj=new user($con,$user_name);
 
 $notification_obj=new notification($con,$user_name);
 $num_notification=$notification_obj->num_notification($user_name);
+include('classes/load_category.php');
+$category = new category($con);
 ?>
 <script src="js/md5.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/reaction.css" />
@@ -171,6 +173,64 @@ $num_notification=$notification_obj->num_notification($user_name);
                 </div>
                 <div class="setting_change_value ">
                 <img src="" class="setting_change_value_profile_pic_display_img_preview" style="display:none;width: 10rem;height: 10rem;margin-bottom: 2rem;" />
+                </div>
+
+            </div>
+            <hr>
+            <div class="setting_grid change_category">
+                <div class="setting_name">Change category</div>
+                <div class="setting_value" style="text-align: center;"></div>
+                <div class="setting_change_value_category"><span class="setting_change_value_span">Change</span>
+                </div>
+            </div>
+            <div class="setting_grid toggel_conatiner_setting_page toggel_conatiner_setting_page_category">
+                <div class="setting_name">Change category</div>
+                <div class="setting_value">
+                    <form method="POST">
+                        <table>
+                            <tr>
+                                <td>
+                                <dl class="dropdown_step2">
+
+<dt>
+    <a href="#" style="border: .1rem solid grey;">
+        <span class="hida">Select</span>
+        <p class="multiSel"></p>
+    </a>
+</dt>
+
+<dd>
+    <div class="mutliSelect">
+        <ul>
+            <?php $category->load_category() ?>
+        </ul>
+    </div>
+</dd>
+</dl>
+<div class="scroling-div scroling-div-step2-register">
+<div style="height:80px;width:90%;border:1px solid #ccc;overflow:auto;">
+    <p class="scroling-div-step2-register-body"></p>
+</div>
+</div>
+
+
+                                </td>
+                            </tr>
+
+                            <tr class="submit_setting_page">
+                                <td class="submit_setting_page_content">
+                                    <input type="submit" name="submit_setting_value_category" class="submit_setting_value_category" value="Submit">
+                                    <!-- <span class="submit_setting_value_category">Submit</span> -->
+                                    <span class="cancel_setting_change_value_category"
+                                        style='margin:0rem .5rem'>Cancel</span>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </form>
+                </div>
+                <div class="setting_change_value ">
+                <!-- <img src="" class="setting_change_value_profile_pic_display_img_preview" style="display:none;width: 10rem;height: 10rem;margin-bottom: 2rem;" /> -->
                 </div>
 
             </div>
@@ -524,6 +584,18 @@ function compressImage($source, $destination, $quality) {
             $(".change_profile_pic").css('display', 'grid');
         })
 
+        // toggle category
+        $(".setting_change_value_category").click(function () {
+            // $('.setting_change_value_bio').toggle();
+            $(".toggel_conatiner_setting_page_category").css('display', 'grid');
+            $(".change_category").css('display', 'none');
+
+        })
+
+        $('.cancel_setting_change_value_category').click(function () {
+            $(".toggel_conatiner_setting_page_category").css('display', 'none');
+            $(".change_category").css('display', 'grid');
+        })
         // toggle email
 
         $(".setting_change_value_email").click(function () {
@@ -764,7 +836,34 @@ function compressImage($source, $destination, $quality) {
                if (window.history.replaceState) {
                 window.history.replaceState(null, null, window.location.href);
             }
+            $('.input-register2-tags').focus(function () {
+                $('.scroling-div-step2-register').css('display', 'flex')
+            })
+            $('.input-register2-tags').focusout(function () {
+                $('.scroling-div-step2-register').css('display', 'none')
+            })
+            $(".dropdown_step2 dt a").on('click', function () {
+                $(".dropdown_step2 dd ul").slideToggle('fast');
+            });
+            function getSelectedValue(id) {
+                return $("#" + id).find("dt a span.value").html();
+            }
+            $('.mutliSelect input[type="checkbox"]').on('click', function () {
 
+                var title = $(this).closest('.mutliSelect').find('input[type="checkbox"]').val(),
+                    title = $(this).val() + ",";
+
+                if ($(this).is(':checked')) {
+                    var html = '<span title="' + title + '" " class="category_val">' + title + '</span>';
+                    $('.multiSel').append(html);
+                    $(".hida").hide();
+                } else {
+                    $('span[title="' + title + '"]').remove();
+                    var ret = $(".hida");
+                    $('.dropdown_step2 dt a').show(ret);
+
+                }
+            });
 
     </script>
 </body>

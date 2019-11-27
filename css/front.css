@@ -1109,6 +1109,16 @@ margin-top: 3rem;
     padding: .5rem 7rem;
 }
 
+.bottom-post_comment{
+    margin: .5rem 5rem 0 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: .5rem 7rem;
+}
+
 .images-user-post{
     height: 4rem;
     width: 4rem;
@@ -1249,6 +1259,65 @@ margin-top: 3rem;
     background-color: rgb(245, 245, 245);
 }
 /*end post body*/
+
+/* show more option comment */
+
+/*show more option post*/
+.dropbtn_more_option_comment {
+    background-color: rgba(52, 152, 219, 0);
+    color: rgb(3, 3, 3);
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropbtn_more_option_comment:hover, .dropbtn_more_option_comment:focus {
+    background-color: rgba(82, 82, 82, 0.068);
+  }
+  
+  .dropdown_comment {
+    position: relative;
+    display: inline-block;
+  }
+  .dropdown-content_more_option_comment{
+      display: none;
+      position: absolute;
+      background-color: #ffffff;
+      min-width: 149px;
+      right: 0rem;
+      overflow: auto;
+      top: 22px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+      z-index: 1;
+      border: 1px solid #c9c9c9;
+  }
+  
+  .dropdown-content_more_option_comment div {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+  }
+  
+  .dropdown_comment a:hover {background-color: #ddd;}
+  
+  .show {display: block;}
+  .not_show {display: none;}
+  
+  .report_button_comment{
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-left: 0.5rem;
+  }
+  .delete_comment_div:hover{
+   background-color: rgb(245, 245, 245);
+  }
+  .report_comment_div:hover{
+      background-color: rgb(245, 245, 245);
+  }
+/* end show more option comment */
 /* end of main-content */
 /* start of side */
 .side{
@@ -1704,12 +1773,16 @@ font-size: 3.3rem;
     justify-content: space-between;
     margin-bottom: 2rem;    
 }
-.slide-menu-header-close{
+.close_slide{
     font-size: 3.8rem;
-    margin-right: 1.5rem;
+    /* margin-right: 1.5rem; */
     font-weight: bold;
-    transform: rotate(45deg);
+    transform: rotateY(161deg);
     color: rgb(250, 51, 51);
+    transform: rotate(45deg);
+    position: absolute;
+    top: 46px;
+    left: 19rem;
     display: none;
 }
 
@@ -1824,7 +1897,7 @@ font-size: 3.3rem;
 
 .create-post-botton-btn{
     display: flex;
-    margin-top: 4rem;
+    /* margin-top: 4rem; */
     justify-content: center;
     max-width:100%;
     flex-wrap: wrap;
@@ -1879,8 +1952,8 @@ font-size: 3.3rem;
 
 .post-create-post{
 
-    display: grid;
-    grid-template-rows: min-content min-content 1fr;
+    /* display: grid;
+    grid-template-rows: min-content min-content 1fr; */
     margin-left: 22rem;
     /* width: 76rem; */
     width: 78%;
@@ -2419,6 +2492,9 @@ font-size: 1.3rem;
 .toggel_conatiner_setting_page_password{
     display: none;
 }
+.toggel_conatiner_setting_page_category{
+    display: none;
+}
 
 .submit_setting_page{
     display: flex;
@@ -2530,6 +2606,9 @@ cursor: pointer;
     .bottom-post{
         padding: 0 3rem !important;
     }
+    .bottom-post_comment{
+        padding: 0 3rem !important;
+    }
     .slide-menu-option {
         margin:1.5rem 0 1rem 1rem;
     }
@@ -2537,7 +2616,7 @@ cursor: pointer;
         width: 20rem;
     }
     .side {
-        width: 28rem;
+        width: 31rem;
     }
     
     .user-main{
@@ -2547,11 +2626,15 @@ cursor: pointer;
         width: 98vw;
 }
 .main-content_main_page{
-    width: 95vw;
+    width: 98vw;
 }
 }
 @media(max-width: 1200px){
     .bottom-post{
+        padding: 0 2rem !important;
+        margin: .5rem 0rem;
+    }
+    .bottom-post_comment{
         padding: 0 2rem !important;
         margin: .5rem 0rem;
     }
@@ -2576,14 +2659,17 @@ cursor: pointer;
         grid-template-columns :min-content 1fr min-content;
     }
     .user-main {
-        width: 15rem;
+        width: 21.5rem;
     }
     .navigation-icons{
-        width: 35rem;
+        width: 25rem;
     }
 
     .setting_container{
         left: 65%;
+    }
+    .close_slide{
+        display: block;
     }
     
 }
@@ -2608,7 +2694,7 @@ cursor: pointer;
         width: 98vw;
     }
     .user-main{
-        width: 15rem;
+        width: 21.5rem;
     }
     .navigation-icons{
         width: 25rem;
@@ -2634,14 +2720,14 @@ cursor: pointer;
 
 @media(max-width: 800px){
     .main-content {
-        width: 98vw;
+        width: 99vw;
     }
     .navigation-icons{
         margin-right: 0rem;
 
     }
     .post{
-        margin: 1rem;
+        margin: .5rem;
         width: 98vw;
     }
     .user-name-menu{
@@ -2651,10 +2737,7 @@ cursor: pointer;
     .fa-bars{
         font-size: 1.6rem;
     }
-    .main-content{
-        width: 98vw;
-    }
-    
+
 }
 
 @media(max-width: 730px){
@@ -2665,13 +2748,16 @@ cursor: pointer;
         grid-template-columns: min-content 1fr min-content;
     }
     .navigation-icons{
-        width: 20rem;
+        width: 22rem;
     }
     .user-main{
         width: 5rem;
     }
     .create-post-tags-title{
         padding: 0rem 2rem 0 0rem;
+    }
+    .user-main a {
+        margin: 0 1rem 0px 1rem;
     }
 }
 
@@ -2792,7 +2878,7 @@ cursor: pointer;
         display: none;
     }
     .navigation-icons{
-        width: 15rem;
+        width: 13rem;
     }
 
 }

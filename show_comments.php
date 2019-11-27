@@ -33,7 +33,14 @@ if (isset($_GET['opened_from_notification'])) {
  
 }
 include_once('classes/user.php');
+$user_obj = new user($con,$user_name);
+include('classes/notification.php');
+$notification_obj=new notification($con,$user_name);
+$num_notification=$notification_obj->num_notification($user_name);
 
+// get user loged in pdp
+ 
+$pdp = $user_obj->get_profile_pic();
    
 ?>
 <link rel="stylesheet" type="text/css" href="css/reaction.css" />
@@ -45,24 +52,42 @@ include_once('classes/user.php');
 
     <section class='main-page-main'>
         <!--start navigation bar -->
-        <nav id='main-nav'>
-            <div class='user-main'>
-                <a class="user-name-menu"><i class="fas fa-bars" style="font-size:1.8rem;"></i><span
-                        class="user-name-menu-span">pasta 69</span></a>
+        <nav id="main-nav">
+            <div class="user-main">
+                <a class="user-name-menu"><img src="images/icons/bars.png" style="height:2rem;width:2rem;" alt=""><span
+                        class="user-name-menu-span"><?php echo $user_obj->get_first_last_name() ?></span></a>
             </div>
+            </div>
+            </div>
+            <div class="search-main">
+            <img src="images/icons/loop.png" alt="" class="fa-search" style='height:2.1rem;'>
 
+                <!-- <i class=" fas fa-search" style="color:#222222;"></i> -->
+                <input type="text" class="input-search input-search-main" placeholder="Search for a question">
             </div>
-            </div>
-            <div class='search-main'>
-                <i class=' fas fa-search' style='color:#222222;'></i>
-                <input type='text' class='input-search input-search-main' placeholder='Search'>
-            </div>
-            <div class='navigation-icons'>
-                <a href='#'><i class='fas fa-home'></i></a>
-                <a href='#'><i class='far fa-bell'></i></a>
-                <a href='#' class='fa-cog'><i class='fas fa-cog'></i></a>
-                <a href='#'><i class='fas fa-pencil-alt'></i></a>
-                <a href='#' class='fa-sign-out-alt'><i class='fas fa-sign-out-alt'></i></a>
+            <div class="navigation-icons">
+                <a href="main.php" class="home_icon"><img src="images/icons/home.png" alt=""></a>
+                <div class="notification_bell notification_container ">
+                    <img src="images/icons/notification.png" alt="" class="fa-bell dropbtn" style="width:4rem;height:4rem;" onclick="drop_down_notification_function()">
+                    <!-- show the number of notification -->
+                    <?php 
+                if ($num_notification>0) {
+                    echo "<span class='notification_bell_num'>$num_notification</span>";
+                }
+                ?>
+
+                    <div id='myDropdown' class='dropdown-content' style="overflow-y: scroll; height:375px;">
+                        <div class='dropdown_notification_header'><span>Notification</span></div>
+
+                        <?php
+                echo($notification_obj->load_notification());                
+                ?>
+
+                    </div>
+                </div>
+                <a href="settings.php" class="fa-cog"><img src="images/icons/settings.png" alt=""></a>
+                <a href="create-post.php"><img src="images/icons/pencil.png" alt=""></a>
+                <a href="classes/log_out.php" class="fa-sign-out-alt"><img src="images/icons/logout.png" alt=""></a>
             </div>
 
         </nav>
@@ -77,11 +102,11 @@ include_once('classes/user.php');
             <div class='post post-create-post' style=''>
                 <div class='post-header-create-post'>
                     <h2>Show Comments</h2>
-                    <hr>
                     <div class='create-post-botton-btn'>
-
+                        <img src="images/icons/comment.png" alt="" style="height:3rem;margin-right: 2rem;">   
+                        </div>
                     </div>
-                </div>
+                    <hr style='margin:.5rem 3rem'>
                 <div class='post_show_comments_container' style='border-radius:.2rem;padding:0rem 3rem;'>
                     <script></script>
                     <?php
@@ -210,13 +235,13 @@ include_once('classes/user.php');
 					<div class='likes_dislikes_display_number' id='likes_dislikes_display_number_".$id."'>
 					<div class='like-stat'> <!-- Like statistic container-->
 					<span class='like-emo'> <!-- like emotions container -->
-					<i class='fas fa-flag' style='font-size:1.8rem ;color:#0080008c;'></i>
+                    <img src='images/green_flag.png' style='height: 1.8rem;' alt=''>
 					</span>
 					<span class='like-details'>".$query_num_likes."</span>
 					</div>
 					<div class='like-stat' style='margin-left:2rem;'> <!-- Like statistic container-->
 					<span class='dislike-emo'> <!-- like emotions container -->
-					<i class='fas fa-flag' style='font-size:1.8rem ;color:#FF6B6B;'></i>
+                    <img src='images/red_flag.png' style='height: 1.8rem;' alt=''>
 					</span>
 					<span class='like-details'>".$query_num_dislikes."</span>
 					</div>
@@ -259,6 +284,7 @@ include_once('classes/user.php');
                          if (mysqli_num_rows($query_load_comment)>0) {
                   
                              while($row=mysqli_fetch_array($query_load_comment)){
+                                if (strstr($row['comment_reported_by'],$user_name)==false) {
                                  $posted_by=$row['posted_by'];
                                  $body=$row['comment_body'];
                                  $date_time=$row['date_added'];
@@ -267,6 +293,7 @@ include_once('classes/user.php');
                                  $date_time_now = date('Y-m-d H:i:s');                 
                                  $body = wordwrap($body,150,"<br>\n");
                                  $uesr_obj= new user($con,$posted_by);
+                                 $user_profile_pic =$row['user_profile_pic'];
                                      $start_date = new DateTime($date_time); //Time of post
                                      $end_date = new DateTime($date_time_now); //Current time
                                      $interval = $start_date->diff($end_date); //Difference between dates 
@@ -329,7 +356,7 @@ include_once('classes/user.php');
                                          }
                                      }
                  
-                                     $post= "<div class='post_".$row['id']."'>
+                                     $post= "<div class='comment_".$row['id']."'>
                                      <div class='top-post'>
                                      <div class='post-body'>
                                      <div class='post-body-user-image'>
@@ -340,48 +367,52 @@ include_once('classes/user.php');
                                  
                                  <div class='user-name-timer'>
                                  <div class='image-name-post'>
-                                     <a href='#'><img src='".$user_obj->get_profile_pic()."'  class='images-user-post' ></a>
+                                     <a href='#'><img src='".$user_profile_pic."'  class='images-user-post' ></a>
                                          <div class='time_name_post'>
                                              <a href='#'><span class='user-name-post'>$user_name</span></a>
                                              <span class='timer-post'>$time_message</span>
                                          </div>   
                                  </div>
-                                 <div class='dropdown_post'>
-                                     <img class='ellipsis_img_post ellipsis_img_post' src='images/ellipsis.png'>
-                                     <div id='more_option_post_div more_option_post_div' class='dropdown-content_more_option_post dropdown-content_more_option_post'>
-                                        <div class='delete_post_div delete_post_div'><i class='far fa-times-circle' style='font-size: 1.3rem;'></i><span class='report_button_post'>delete</span></div>
-                                                                            
-                                    </div>
-                                     </div>
+                                 <div class='dropdown_comment'>
+                                 <img class='ellipsis_img_comment ellipsis_img_comment_".$row['id']."' src='images/ellipsis.png' style='height:2rem'>
+                                 <div id='more_option_comment_div more_option_comment_div_".$row['id']."' class='dropdown-content_more_option_comment dropdown-content_more_option_comment_".$row['id']."'>";
+                                 if ($row['posted_by']==$user_name) {
+                                     $post.="<div class='delete_comment_div delete_comment_div_".$row['id']."'><i class='far fa-times-circle' style='font-size: 1.3rem;'></i><span class='report_button_comment'>delete</span></div>";
+                                 }else{
+                                     $post.="<div class='report_comment_div report_comment_div_".$row['id']."'><i class='fas fa-ban' style='font-size: 1.3rem;'></i><span class='report_button_comment'>Report</span></div>";
+                                 }
+                                 $post.="</div>
                                  </div>
-                                 <h4 class='title_review_create_post'></h4>
-                                 <span class='commen_css_post_span'> $body</span>
+                             </div>
+                                 <h4 class='title_review_create_comment'></h4>
+                                 <span class='commen_css_comment_span' style='font-size: 1.3rem;font-weight: bold;'> $body</span>
                                  <div class='show_all_search_result_content_tags'>
                                  
                                  </div>";
                                  
                                  
-                                 $post.=" 
+                                 $post.="
                                          </div>
                                      </div>
                                      </div>
                                  
-                                     <div class='likes_and_bottom_post".$row['id']."'>
+                                     <!-- <div class='likes_and_bottom_post".$row['id']."'>
                                      <div class='likes_dislikes_display_number'>
-                                     <div class='like-stat'> <!-- Like statistic container-->
-                                     <span class='like-emo'> <!-- like emotions container -->
+                                     <div class='like-stat'> 
+                                     <span class='like-emo'> 
                                      <i class='fas fa-flag' style='font-size:1.8rem ;color:#0080008c;'></i>
                                      </span>
                                      <span class='like-details'>0</span>
                                      </div>
-                                     <div class='like-stat' style='margin-left:2rem;'> <!-- Like statistic container-->
-                                     <span class='dislike-emo'> <!-- like emotions container -->
+                                     <div class='like-stat' style='margin-left:2rem;'> 
+                                     <span class='dislike-emo'>
                                      <i class='fas fa-flag' style='font-size:1.8rem ;color:#FF6B6B;'></i>
                                      </span>
                                      <span class='like-details'>0</span>
                                      </div>
-                                     </div>
-                                     <hr><div class='bottom-post'>
+                                     </div> -->
+                                     <hr>
+                                     <!-- <div class='bottom-post_comment'>
                                      <div class='bottom_post_like_0'>
                                      <div class='riask-reaction'>
                                      <span class='like-btn' style='display:flex'> 
@@ -396,18 +427,12 @@ include_once('classes/user.php');
                                              <input type='submit' value='Comments' name='span-icon-name'class='span-icon-name'>
                                              </form>
                                          </div>
-                                         <div class='bottom_post_componment_mark_post' id='bottom_post_componment_mark_post_0'>
-                                             <i class='far fa-bookmark' style='font-size:1.6rem;'></i>
-                                 
-                                             <span style='' class='span-icon-name'>Mark</span>
-                                         </div>
-                                         
                                          </div>
                                          <hr>
-                                     </div>
+                                     </div> -->
                                  </div>"; 
                                  echo $post;
-                           
+                            }
                          }
                          }else{
                          echo 'no posts to show';
@@ -507,34 +532,44 @@ include_once('classes/user.php');
                 </a>
             </div>
             <div class='number-posts'>
-                <p><?php echo $user_obj->followers() .'Follower'?></p>
+                <p><?php echo $user_obj->followers() .' Follower'?></p>
             </div>
             <hr>
 
             <div class='slide-menu-options'>
-                <div class='slide-menu-option'>
-                    <a href='profile.php?user_profile=<?php echo $user_obj->get_user_name()?>'>
-                        <i class='fas fa-user' style='font-size:1.8rem;'></i>
-                            <p>My Profile</p>
-                        </a>
+            <div class="slide-menu-option">
+                    <img src="images/icons/home.png" alt=""  style="height:2.1rem;">
+                    <a
+                        href="main.php">
+                        <p>Home Page</p>
+                    </a>
                 </div>
-                <div class='slide-menu-option'>
-                    <a href="main.php">
-                        <i class='fas fa-home' style='font-size:1.8rem;'></i>
-                            <p>Home</p>
-                        </a>
+                <div class="slide-menu-option">
+                    <img src="images/icons/user.png" alt=""  style="height:2.1rem;">
+                    <a
+                        href="profile.php?user_profile=<?php echo $user_name?>">
+                        <p>Profile Page</p>
+                    </a>
                 </div>
-                <div class='slide-menu-option'>
+                
+                <div class="slide-menu-option">
                     <a href="create-post.php">
-                        <i class='fas fa-pencil-alt' style='font-size:1.8rem;'></i>
-                            <p>Create A Post</p>
-                        </a>
+                    <img src="images/icons/pencil.png" alt=""  style="height:2.1rem;">
+                        <p>Create A Post</p>
+                    </a>
                 </div>
-                <div class='slide-menu-option'>
+                <div class="slide-menu-option">
                     <a href="settings.php">
-                        <i class='fas fa-cog' style='font-size:1.8rem;'></i>
-                            <p>User Settings</p>
-                        </a>
+                    <img src="images/icons/settings.png" alt=""  style="height:2.1rem;">
+                        <p>User Settings</p>
+                    </a>
+                </div>
+                <div class="slide-menu-option">
+                    <img src="images/icons/mark.png" alt=""  style="height:2.1rem;">
+                    <a
+                        href="marked_post_page.php?user_profile=<?php echo $user_name?>">
+                        <p>Marked Post</p>
+                    </a>
                 </div>
                 <hr>
                 <div class='slide-menu-option'>
@@ -777,12 +812,64 @@ include_once('classes/user.php');
             })
         })
 
+    // toggle comment ellipsis
+    $('.ellipsis_img_comment').click(function () {
+            var ellipsis_id = $(this).attr('class');
+            var ellipsis_id = ellipsis_id.slice(42);
+            $(".dropdown-content_more_option_comment_" + ellipsis_id).toggle("show");
+        })
+        // report a comment
+        $('.report_comment_div').click(function () {
+            var report_id = $(this).attr('class');
+            var report_id = report_id.slice(38);
+            var user_name_logged_in = '<?php echo $user_name?>';
+            $.ajax({
+                url: 'ajax/report_comment_ajax.php',
+                type: 'POST',
+                data: {
+                    report_id: report_id,
+                    user_name_logged_in: user_name_logged_in
+                },
+                error: function () {
+                    alert('error');
+                },
+                success: function (data) {
+                    $('.post_' + report_id).hide('slow', function () {
+                        $('.post_' + report_id).remove();
+                    });
+                }
+            })
+        })
+        $('.delete_comment_div').click(function () {
+            var post_id = $(this).attr('class');
+            var post_id = post_id.slice(38);
+            var user_name_logged_in = '<?php echo $user_name?>';
+            $.ajax({
+                url: 'ajax/delete_comment_ajax.php',
+                type: 'POST',
+                data: {
+                    post_id: post_id
+                },
+                error: function () {
+                    alert('error');
+                },
+                success: function (data) {
+                    $('.comment_' + post_id).hide('slow', function () {
+                        $('.comment_' + post_id).remove();
+                    });
+                }
+            })
+            // alert(post_id)
+        })
+
+    // submit comment
         $('.submit_comment').click(function () {
             var post_id = $(this).attr('class');
             var post_id = post_id.slice(30);
             var body = $('#trumbowyg-demo').html()
             var user_name_logged_in = '<?php echo $user_name?>';
             var user_to = $('.user_name_posted').text();
+            var pdp = '<?php echo $pdp ?>'
             $.ajax({
                 url: 'ajax/create_comment.php',
                 type: 'POST',
@@ -791,6 +878,7 @@ include_once('classes/user.php');
                     body: body,
                     user_to: user_to,
                     user_name_logged_in: user_name_logged_in,
+                    pdp:pdp
                 },
                 error: function () {
                     alert('error');
@@ -805,8 +893,44 @@ include_once('classes/user.php');
                 }
             })
 
-            // alert(user_to)
+            // alert(post_id.match(/[^/]*/i)[0])
+        })
+        
+        // dropdown menu notification
 
+        function drop_down_notification_function() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+        // notification bell was clicked update notification view
+        document.querySelector('.notification_bell').addEventListener("click", function () {
+
+            document.querySelector(".notification_bell_num").style.display = "none";
+
+        })
+
+        // notification  was opened update notification opened
+        $('.dropdown_notification_container').click(function () {
+
+            var notification_id = $(this).attr('class')
+            var notification_id = notification_id.substr(70);
+
+            var notification_type = $(this).attr('class')
+            var notification_type = notification_type.substr(64, 5);
         })
     </script>
 </body>

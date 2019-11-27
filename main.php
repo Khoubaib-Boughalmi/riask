@@ -17,9 +17,9 @@ if (isset($_SESSION['user_name_log_in'])) {
     $query_log_in=mysqli_query($con,"SELECT * FROM users WHERE user_name ='$user_name'");
     $row=mysqli_fetch_array($query_log_in);
 }
-// else{
-//     header('location: index.php');
-// }
+else{
+    header('location: index.php');
+}
 $user_obj=new user($con,$user_name);
 // get all user followed by user logged in
 $followers_list = $user_obj->follower_list();
@@ -196,7 +196,9 @@ if (isset($_POST['submit_test'])) {
     <!-- <div class="empty-main-content2"></div> -->
     <div class="slide-menu-wraper">
         <div class="slide-menu">
-
+            <div class="close_slide">
+                +
+            </div>
             <div class="slide-menu-profile-pic" style="display:flex;">
                 <a href="<?php echo 'profile.php?user_profile='.$user_obj->get_user_name()?>"><img
                         src="<?php echo $user_obj->get_profile_pic()?>" alt=""></a>
@@ -338,7 +340,25 @@ if (isset($_POST['submit_test'])) {
     </div>
    
     <script>
-        
+        function display_slide(x) {
+  if (x.matches) { // If media query matches
+    $('.user-name-menu').click(function(){
+        $('.slide-menu').css('display','block')
+    })
+  } 
+//   else {
+//    document.body.style.backgroundColor = "pink";
+//   }
+}
+
+$('.close_slide').click(function(){
+    $('.slide-menu').css('display','none')
+
+})
+
+var x = window.matchMedia("(max-width: 1100px)")
+display_slide(x) // Call listener function at run time
+x.addListener(display_slide) // Attach listener function on state changes
 
         var btn = $('#button-back-top');
 
