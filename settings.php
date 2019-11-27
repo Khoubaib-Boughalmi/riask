@@ -883,7 +883,11 @@ function compressImage($source, $destination, $quality) {
             }
         });
         $('.submit_setting_value_category').click(function(){
-            alert($('.input-register2-tags').val())
+            var tag_value = '';
+            $('.category_val').each(function(){
+                tag_value = tag_value +$(this).attr('title')
+            })
+            alert(tag_value)
         })
     </script>
 </body>
