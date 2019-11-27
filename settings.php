@@ -887,7 +887,7 @@ function compressImage($source, $destination, $quality) {
             
             if($('input[name="check_box_category"]:checked'))
             {
-                tag_value = tag_value +$('.category').attr('title')   
+                tag_value = tag_value +$('.category').attr('value')   
             }
             alert(tag_value)
         })
