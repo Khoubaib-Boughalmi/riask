@@ -25,50 +25,51 @@ $category = new category($con);
 
 
 <body style="background-color: #DAE0E6;overflow-x: hidden;">
-       <!--start navigation bar -->
-       <nav id="main-nav">
-            <div class="user-main">
-                <a class="user-name-menu"><img src="images/icons/bars.png" style="height:2rem;width:2rem;" alt=""><span
-                        class="user-name-menu-span"><?php echo $user_obj->get_first_last_name() ?></span></a>
-            </div>
-            </div>
-            </div>
-            <div class="search-main">
+    <!--start navigation bar -->
+    <nav id="main-nav">
+        <div class="user-main">
+            <a class="user-name-menu"><img src="images/icons/bars.png" style="height:2rem;width:2rem;" alt=""><span
+                    class="user-name-menu-span"><?php echo $user_obj->get_first_last_name() ?></span></a>
+        </div>
+        </div>
+        </div>
+        <div class="search-main">
             <img src="images/icons/loop.png" alt="" class="fa-search" style='height:2.1rem;'>
 
-                <!-- <i class=" fas fa-search" style="color:#222222;"></i> -->
-                <input type="text" class="input-search input-search-main" placeholder="Search for a question">
-            </div>
-            <div class="navigation-icons">
-                <a href="main.php" class="home_icon"><img src="images/icons/home.png" alt=""></a>
-                <div class="notification_bell notification_container ">
-                    <img src="images/icons/notification.png" alt="" class="fa-bell dropbtn" style="width:4rem;height:4rem;" onclick="drop_down_notification_function()">
-                    <!-- show the number of notification -->
-                    <?php 
+            <!-- <i class=" fas fa-search" style="color:#222222;"></i> -->
+            <input type="text" class="input-search input-search-main" placeholder="Search for a question">
+        </div>
+        <div class="navigation-icons">
+            <a href="main.php" class="home_icon"><img src="images/icons/home.png" alt=""></a>
+            <div class="notification_bell notification_container ">
+                <img src="images/icons/notification.png" alt="" class="fa-bell dropbtn" style="width:4rem;height:4rem;"
+                    onclick="drop_down_notification_function()">
+                <!-- show the number of notification -->
+                <?php 
                 if ($num_notification>0) {
                     echo "<span class='notification_bell_num'>$num_notification</span>";
                 }
                 ?>
 
-                    <div id='myDropdown' class='dropdown-content' style="overflow-y: scroll; height:375px;">
-                        <div class='dropdown_notification_header'><span>Notification</span></div>
+                <div id='myDropdown' class='dropdown-content' style="overflow-y: scroll; height:375px;">
+                    <div class='dropdown_notification_header'><span>Notification</span></div>
 
-                        <?php
+                    <?php
                 echo($notification_obj->load_notification());                
                 ?>
 
-                    </div>
                 </div>
-                <a href="settings.php" class="fa-cog"><img src="images/icons/settings.png" alt=""></a>
-                <a href="create-post.php"><img src="images/icons/pencil.png" alt=""></a>
-                <a href="classes/log_out.php" class="fa-sign-out-alt"><img src="images/icons/logout.png" alt=""></a>
             </div>
+            <a href="settings.php" class="fa-cog"><img src="images/icons/settings.png" alt=""></a>
+            <a href="create-post.php"><img src="images/icons/pencil.png" alt=""></a>
+            <a href="classes/log_out.php" class="fa-sign-out-alt"><img src="images/icons/logout.png" alt=""></a>
+        </div>
 
-        </nav>
-        <!--end navigation bar -->
+    </nav>
+    <!--end navigation bar -->
 
-        <!-- main content -->
-        <div class="setting_page_container" style='display:grid;grid-template-columns:min-content 1fr;'>
+    <!-- main content -->
+    <div class="setting_page_container" style='display:grid;grid-template-columns:min-content 1fr;'>
         <div class="setting_container">
             <div class="setting_header">
                 <span>Account Settings</span>
@@ -161,7 +162,8 @@ $category = new category($con);
 
                             <tr class="submit_setting_page">
                                 <td class="submit_setting_page_content">
-                                    <input type="submit" name="submit_setting_value_profile_pic" class="submit_setting_value_profile_pic" value="Submit">
+                                    <input type="submit" name="submit_setting_value_profile_pic"
+                                        class="submit_setting_value_profile_pic" value="Submit">
                                     <!-- <span class="submit_setting_value_profile_pic">Submit</span> -->
                                     <span class="cancel_setting_change_value_profile_pic"
                                         style='margin:0rem .5rem'>Cancel</span>
@@ -172,7 +174,8 @@ $category = new category($con);
                     </form>
                 </div>
                 <div class="setting_change_value ">
-                <img src="" class="setting_change_value_profile_pic_display_img_preview" style="display:none;width: 10rem;height: 10rem;margin-bottom: 2rem;" />
+                    <img src="" class="setting_change_value_profile_pic_display_img_preview"
+                        style="display:none;width: 10rem;height: 10rem;margin-bottom: 2rem;" />
                 </div>
 
             </div>
@@ -185,33 +188,33 @@ $category = new category($con);
             </div>
             <div class="setting_grid toggel_conatiner_setting_page toggel_conatiner_setting_page_category">
                 <div class="setting_name">Change category</div>
-                <div class="setting_value">
+                <div class="setting_value setting_value_category">
                     <form method="POST">
                         <table>
                             <tr>
                                 <td>
-                                <dl class="dropdown_step2">
+                                    <dl class="dropdown_step2">
 
-<dt>
-    <a href="#" style="border: .1rem solid grey;">
-        <span class="hida">Select</span>
-        <p class="multiSel"></p>
-    </a>
-</dt>
+                                        <dt>
+                                            <a href="#" style="border: .1rem solid grey;width: 25rem;">
+                                                <span class="hida">Select</span>
+                                                <p class="multiSel"></p>
+                                            </a>
+                                        </dt>
 
-<dd>
-    <div class="mutliSelect">
-        <ul>
-            <?php $category->load_category() ?>
-        </ul>
-    </div>
-</dd>
-</dl>
-<div class="scroling-div scroling-div-step2-register">
-<div style="height:80px;width:90%;border:1px solid #ccc;overflow:auto;">
-    <p class="scroling-div-step2-register-body"></p>
-</div>
-</div>
+                                        <dd>
+                                            <div class="mutliSelect">
+                                                <ul style="width: 26rem;">
+                                                    <?php $category->load_category() ?>
+                                                </ul>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                    <div class="scroling-div scroling-div-step2-register">
+                                        <div style="height:80px;width:90%;border:1px solid #ccc;overflow:auto;">
+                                            <p class="scroling-div-step2-register-body"></p>
+                                        </div>
+                                    </div>
 
 
                                 </td>
@@ -219,7 +222,7 @@ $category = new category($con);
 
                             <tr class="submit_setting_page">
                                 <td class="submit_setting_page_content">
-                                    <input type="submit" name="submit_setting_value_category" class="submit_setting_value_category" value="Submit">
+                                <span class="submit_setting_value_category">Submit</span>
                                     <!-- <span class="submit_setting_value_category">Submit</span> -->
                                     <span class="cancel_setting_change_value_category"
                                         style='margin:0rem .5rem'>Cancel</span>
@@ -230,7 +233,7 @@ $category = new category($con);
                     </form>
                 </div>
                 <div class="setting_change_value ">
-                <!-- <img src="" class="setting_change_value_profile_pic_display_img_preview" style="display:none;width: 10rem;height: 10rem;margin-bottom: 2rem;" /> -->
+                    <!-- <img src="" class="setting_change_value_profile_pic_display_img_preview" style="display:none;width: 10rem;height: 10rem;margin-bottom: 2rem;" /> -->
                 </div>
 
             </div>
@@ -288,20 +291,27 @@ $category = new category($con);
                         <table>
                             <tr>
                                 <td><label for="">Old password</label></td>
-                                <td><input type="password" class="setting_value_input_field setting_value_input_old_password" name='setting_value_input_old_password' required></td>
+                                <td><input type="password"
+                                        class="setting_value_input_field setting_value_input_old_password"
+                                        name='setting_value_input_old_password' required></td>
                             </tr>
                             <tr>
                                 <td><label for="">New password </label></td>
-                                <td><input type="password"class="setting_value_input_field setting_value_input_new_password" value=""required></td>
+                                <td><input type="password"
+                                        class="setting_value_input_field setting_value_input_new_password" value=""
+                                        required></td>
                             </tr>
                             <tr>
                                 <td><label for="">Repeat password </label></td>
-                                <td><input type="password"class="setting_value_input_field setting_value_input_repeat_password" value=""required></td>
+                                <td><input type="password"
+                                        class="setting_value_input_field setting_value_input_repeat_password" value=""
+                                        required></td>
                             </tr>
                             <tr class="submit_setting_page">
                                 <td class="submit_setting_page_content">
                                     <span class="submit_setting_value_password">Submit</span>
-                                    <span class="cancel_setting_change_value_password"style='margin:0rem .5rem'>Cancel</span>
+                                    <span class="cancel_setting_change_value_password"
+                                        style='margin:0rem .5rem'>Cancel</span>
                                 </td>
                             </tr>
                         </table>
@@ -313,82 +323,87 @@ $category = new category($con);
 
             <hr style="margin-bottom: 4rem;">
         </div>
-   
-    <div class="slide-menu-wraper">
-        <div class="slide-menu slide_menu_setting">
-            <div class="slide-menu-header">
-                <h3>Account info</h3>
-                <a href="#">
-                    <p class="slide-menu-header-close">+</p>
-                </a>
-            </div>
-            <hr>
-            <div class="slide-menu-profile-pic">
-                <a href="profile.php?user_profile=<?php echo $user_obj->get_user_name()?>">
-                <img src="<?php echo $user_obj->get_profile_pic()?>" alt="" style="width:4.3rem;">
-                </a>
-                <a href="profile.php?user_profile=<?php echo $user_obj->get_user_name()?>">
-                    <p><?php echo $user_obj->get_first_last_name() ?></p>
-                </a>
-            </div>
-            <div class="number-posts">
-                <p><?php echo $user_obj->followers()?> Follower</p>
-            </div>
-            <hr>
-            <div class="slide-menu-options">
-                <div class="slide-menu-option">
-                    <img src="images/icons/home.png" alt=""  style="height:2.1rem;">
-                    <a
-                        href="main.php">
-                        <p>Home Page</p>
+
+        <div class="slide-menu-wraper">
+            <div class="slide-menu slide_menu_setting">
+                <div class="slide-menu-header">
+                    <h3>Account info</h3>
+                    <a href="#">
+                        <p class="slide-menu-header-close">+</p>
                     </a>
-                </div>
-                <div class="slide-menu-option">
-                    <img src="images/icons/user.png" alt=""  style="height:2.1rem;">
-                    <a
-                        href="profile.php?user_profile=<?php echo $user_name?>">
-                        <p>Profile Page</p>
-                    </a>
-                </div>
-                
-                <div class="slide-menu-option">
-                    <a href="create-post.php">
-                    <img src="images/icons/pencil.png" alt=""  style="height:2.1rem;">
-                    <p>Create A Post</p>
-                    </a>
-                </div>
-                <div class="slide-menu-option">
-                    <a href="settings.php">
-                        <img src="images/icons/settings.png" alt=""  style="height:2.1rem;">
-                        <p>User Settings</p>
-                    </a>
-                </div>
-                <div class="slide-menu-option">
-                    <img src="images/icons/mark.png" alt=""  style="height:2.1rem;">
-                    <a
-                    href="marked_post_page.php?user_profile=<?php echo $user_name?>">
-                    <p>Marked Post</p>
-                    </a>
-                </div>
-                <div class="slide-menu-option followed_list">
-                <img src="images/icons/users.png" alt=""  style="height:2.1rem;">
-                    <a href="#"><p>followed list</p></a>
                 </div>
                 <hr>
-                <div class="slide-menu-option">
-                    <a href="#"><p style="margin-left:0;">Settings And Privacy</p></a>
+                <div class="slide-menu-profile-pic">
+                    <a href="profile.php?user_profile=<?php echo $user_obj->get_user_name()?>">
+                        <img src="<?php echo $user_obj->get_profile_pic()?>" alt="" style="width:4.3rem;">
+                    </a>
+                    <a href="profile.php?user_profile=<?php echo $user_obj->get_user_name()?>">
+                        <p><?php echo $user_obj->get_first_last_name() ?></p>
+                    </a>
                 </div>
-                <div class="slide-menu-option">
-                <a href="#"><p style="margin-left:0;">Help</p></a>
-            </div>
-                <div class="slide-menu-option">
-                <a href="#"><p style="margin-left:0;">Log Out</p></a>
+                <div class="number-posts">
+                    <p><?php echo $user_obj->followers()?> Follower</p>
+                </div>
+                <hr>
+                <div class="slide-menu-options">
+                    <div class="slide-menu-option">
+                        <img src="images/icons/home.png" alt="" style="height:2.1rem;">
+                        <a href="main.php">
+                            <p>Home Page</p>
+                        </a>
+                    </div>
+                    <div class="slide-menu-option">
+                        <img src="images/icons/user.png" alt="" style="height:2.1rem;">
+                        <a href="profile.php?user_profile=<?php echo $user_name?>">
+                            <p>Profile Page</p>
+                        </a>
+                    </div>
+
+                    <div class="slide-menu-option">
+                        <a href="create-post.php">
+                            <img src="images/icons/pencil.png" alt="" style="height:2.1rem;">
+                            <p>Create A Post</p>
+                        </a>
+                    </div>
+                    <div class="slide-menu-option">
+                        <a href="settings.php">
+                            <img src="images/icons/settings.png" alt="" style="height:2.1rem;">
+                            <p>User Settings</p>
+                        </a>
+                    </div>
+                    <div class="slide-menu-option">
+                        <img src="images/icons/mark.png" alt="" style="height:2.1rem;">
+                        <a href="marked_post_page.php?user_profile=<?php echo $user_name?>">
+                            <p>Marked Post</p>
+                        </a>
+                    </div>
+                    <div class="slide-menu-option followed_list">
+                        <img src="images/icons/users.png" alt="" style="height:2.1rem;">
+                        <a href="#">
+                            <p>followed list</p>
+                        </a>
+                    </div>
+                    <hr>
+                    <div class="slide-menu-option">
+                        <a href="#">
+                            <p style="margin-left:0;">Settings And Privacy</p>
+                        </a>
+                    </div>
+                    <div class="slide-menu-option">
+                        <a href="#">
+                            <p style="margin-left:0;">Help</p>
+                        </a>
+                    </div>
+                    <div class="slide-menu-option">
+                        <a href="#">
+                            <p style="margin-left:0;">Log Out</p>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     </div>
-            </div>
 
     <div class="main_search_container">
 
@@ -629,7 +644,8 @@ function compressImage($source, $destination, $quality) {
             var new_first_name = $('.setting_value_input_field_first_name').val();
             var new_last_name = $('.setting_value_input_field_last_name').val();
             var user_logged_in = '<?php echo $user_name?>';
-            if ((new_first_name.length > 2 && new_first_name.length < 24) && (new_last_name.length > 2 && new_last_name.length < 24)) {
+            if ((new_first_name.length > 2 && new_first_name.length < 24) && (new_last_name.length > 2 &&
+                    new_last_name.length < 24)) {
                 $.ajax({
                     url: 'ajax/settings/settings_change_name_ajax.php',
                     type: 'POST',
@@ -692,34 +708,34 @@ function compressImage($source, $destination, $quality) {
         })
 
         // update profile pic
-        
+
 
         $('.submit_setting_value_profile_pic').click(function (e) {
             var user_logged_in = '<?php echo $user_name?>';
             var file_name = $('input[type=file]').val();
-           
+
             var file_name = file_name.replace(/C:\\fakepath\\/, '')
-            var filename_rand= '<?php echo $filename_rand ;?>'
+            var filename_rand = '<?php echo $filename_rand ;?>'
             $.ajax({
                 url: 'upload_profile_pic.php',
                 type: 'POST',
                 data: {
                     user_logged_in: user_logged_in,
                     file_name: file_name,
-                    filename_rand:filename_rand,
+                    filename_rand: filename_rand,
                 },
                 error: function () {
                     alert('error try again');
                 },
-                success: function (data) {
-                }
+                success: function (data) {}
             })
             $(".toggel_conatiner_setting_page_profile_pic").css('display', 'none');
             $(".change_profile_pic").css('display', 'grid');
 
         })
-        $('input[type=file]').change( function(event) {
-            $(".setting_change_value_profile_pic_display_img_preview").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
+        $('input[type=file]').change(function (event) {
+            $(".setting_change_value_profile_pic_display_img_preview").fadeIn("fast").attr('src', URL
+                .createObjectURL(event.target.files[0]));
         });
         // update user email
 
@@ -832,39 +848,39 @@ function compressImage($source, $destination, $quality) {
         })
 
 
-               // to prevent resubmition of post method when user reload page
-               if (window.history.replaceState) {
-                window.history.replaceState(null, null, window.location.href);
+        // to prevent resubmition of post method when user reload page
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+        $('.input-register2-tags').focus(function () {
+            $('.scroling-div-step2-register').css('display', 'flex')
+        })
+        $('.input-register2-tags').focusout(function () {
+            $('.scroling-div-step2-register').css('display', 'none')
+        })
+        $(".dropdown_step2 dt a").on('click', function () {
+            $(".dropdown_step2 dd ul").slideToggle('fast');
+        });
+
+        function getSelectedValue(id) {
+            return $("#" + id).find("dt a span.value").html();
+        }
+        $('.mutliSelect input[type="checkbox"]').on('click', function () {
+
+            var title = $(this).closest('.mutliSelect').find('input[type="checkbox"]').val(),
+                title = $(this).val() + ",";
+
+            if ($(this).is(':checked')) {
+                var html = '<span title="' + title + '" " class="category_val">' + title + '</span>';
+                $('.multiSel').append(html);
+                $(".hida").hide();
+            } else {
+                $('span[title="' + title + '"]').remove();
+                var ret = $(".hida");
+                $('.dropdown_step2 dt a').show(ret);
+
             }
-            $('.input-register2-tags').focus(function () {
-                $('.scroling-div-step2-register').css('display', 'flex')
-            })
-            $('.input-register2-tags').focusout(function () {
-                $('.scroling-div-step2-register').css('display', 'none')
-            })
-            $(".dropdown_step2 dt a").on('click', function () {
-                $(".dropdown_step2 dd ul").slideToggle('fast');
-            });
-            function getSelectedValue(id) {
-                return $("#" + id).find("dt a span.value").html();
-            }
-            $('.mutliSelect input[type="checkbox"]').on('click', function () {
-
-                var title = $(this).closest('.mutliSelect').find('input[type="checkbox"]').val(),
-                    title = $(this).val() + ",";
-
-                if ($(this).is(':checked')) {
-                    var html = '<span title="' + title + '" " class="category_val">' + title + '</span>';
-                    $('.multiSel').append(html);
-                    $(".hida").hide();
-                } else {
-                    $('span[title="' + title + '"]').remove();
-                    var ret = $(".hida");
-                    $('.dropdown_step2 dt a').show(ret);
-
-                }
-            });
-
+        });
     </script>
 </body>
 

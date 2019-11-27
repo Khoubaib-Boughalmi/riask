@@ -2467,6 +2467,11 @@ font-size: 1.3rem;
 
 }
 
+.setting_value_category{
+    display: flex;
+    justify-content: center;
+}
+
 .setting_change_value_span{
     color: #7ba3de;
 }
