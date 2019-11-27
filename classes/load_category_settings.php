@@ -3,7 +3,7 @@
 class category{
     private $con;
     private $user_name_logged_in;
-    public function __construct($con,$user_name_logged_in='Pasta69'){
+    public function __construct($con,$user_name_logged_in='Hello'){
         $this->con=$con;
         $this->user_name_logged_in=$user_name_logged_in;
     }

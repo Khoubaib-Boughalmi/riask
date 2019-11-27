@@ -16,7 +16,7 @@ $user_obj=new user($con,$user_name);
 
 $notification_obj=new notification($con,$user_name);
 $num_notification=$notification_obj->num_notification($user_name);
-include('classes/load_category.php');
+include('classes/load_category_settings.php');
 $category = new category($con);
 ?>
 <script src="js/md5.min.js"></script>
