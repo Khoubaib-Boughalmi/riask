@@ -865,9 +865,10 @@ function compressImage($source, $destination, $quality) {
         function getSelectedValue(id) {
             return $("#" + id).find("dt a span.value").html();
         }
+        var title;
         $('.mutliSelect input[type="checkbox"]').on('click', function () {
 
-            var title = $(this).closest('.mutliSelect').find('input[type="checkbox"]').val(),
+            title = $(this).closest('.mutliSelect').find('input[type="checkbox"]').val(),
                 title = $(this).val() + ",";
 
             if ($(this).is(':checked')) {
@@ -881,6 +882,9 @@ function compressImage($source, $destination, $quality) {
 
             }
         });
+        $('.submit_setting_value_category').click(function(){
+            alert(title)
+        })
     </script>
 </body>
 
