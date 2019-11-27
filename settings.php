@@ -222,7 +222,7 @@ $category = new category($con,$user_name);
 
                             <tr class="submit_setting_page">
                                 <td class="submit_setting_page_content">
-                                <span class="submit_setting_value_category">Submit</span>
+                                    <span class="submit_setting_value_category">Submit</span>
                                     <!-- <span class="submit_setting_value_category">Submit</span> -->
                                     <span class="cancel_setting_change_value_category"
                                         style='margin:0rem .5rem'>Cancel</span>
@@ -882,31 +882,31 @@ function compressImage($source, $destination, $quality) {
 
             }
         });
-        $('.submit_setting_value_category').click(function(){
+        $('.submit_setting_value_category').click(function () {
             var tag_value = '';
             var user_logged_in = '<?php echo $user_name?>';
 
-            $('.category').each(function(){
+            $('.category').each(function () {
 
-            if($(this)[0].checked)
-            {
-                tag_value = tag_value +$(this).attr('value')   
-            }
+                if ($(this)[0].checked) {
+                    tag_value = tag_value + $(this).attr('value')
+                }
             })
             $.ajax({
-                    url: 'ajax/settings/settings_change_category.php',
-                    type: 'POST',
-                    data: {
-                        tag_value: tag_value,
-                        user_logged_in: user_logged_in
-                    },
-                    error: function () {
-                        alert('error try again');
-                    },
-                    success: function (data) {
-                        $('.setting_name').html(data)
-                    }
-                })        })
+                url: 'ajax/settings/settings_change_category.php',
+                type: 'POST',
+                data: {
+                    tag_value: tag_value,
+                    user_logged_in: user_logged_in
+                },
+                error: function () {
+                    alert('error try again');
+                },
+                success: function (data) {
+                    simpleNotify.notify('Category has been updated', 'green');
+                }
+            })
+        })
     </script>
 </body>
 
