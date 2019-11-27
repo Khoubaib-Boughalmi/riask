@@ -884,7 +884,8 @@ function compressImage($source, $destination, $quality) {
         });
         $('.submit_setting_value_category').click(function(){
             var tag_value = '';
-            
+            var user_logged_in = '<?php echo $user_name?>';
+
             $('.category').each(function(){
 
             if($(this)[0].checked)
@@ -892,8 +893,20 @@ function compressImage($source, $destination, $quality) {
                 tag_value = tag_value +$(this).attr('value')   
             }
             })
-            alert(tag_value)
-        })
+            $.ajax({
+                    url: 'ajax/settings/settings_change_category.php',
+                    type: 'POST',
+                    data: {
+                        tag_value: tag_value,
+                        user_logged_in: user_logged_in
+                    },
+                    error: function () {
+                        alert('error try again');
+                    },
+                    success: function (data) {
+                        // notification popup
+                    }
+                })        })
     </script>
 </body>
 
