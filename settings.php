@@ -885,10 +885,13 @@ function compressImage($source, $destination, $quality) {
         $('.submit_setting_value_category').click(function(){
             var tag_value = '';
             
+            $('.category').each(function(){
+
             if($('input[name="check_box_category"]:checked'))
             {
-                tag_value = tag_value +$('.category').attr('value')   
+                tag_value = tag_value +$(this).attr('value')   
             }
+            })
             alert(tag_value)
         })
     </script>
