@@ -16,12 +16,12 @@ class category{
             $category_list = $query_category_array['categories'];
             if (strstr($category_list,$query_array['category_val'])==false) {
                 echo '<li>
-                <input type="checkbox" value="'.$query_array['category_val'] .'" class="category">'.$query_array['category_val'] .'
+                <input type="checkbox" value="'.$query_array['category_val'] .'" class="category" name="check_box_category">'.$query_array['category_val'] .'
             </li>
             <hr>';
             }else{
                 echo '<li>
-                <input type="checkbox" value="'.$query_array['category_val'] .'" class="category" checked>'.$query_array['category_val'] .'
+                <input type="checkbox" value="'.$query_array['category_val'] .'" class="category" checked name="check_box_category">'.$query_array['category_val'] .'
             </li>
             <hr>';
             }

@@ -884,9 +884,11 @@ function compressImage($source, $destination, $quality) {
         });
         $('.submit_setting_value_category').click(function(){
             var tag_value = '';
-            $('.category_val').each(function(){
-                tag_value = tag_value +$(this).attr('title')
-            })
+            
+            if($('input[name="check_box_category"]:checked'))
+            {
+                tag_value = tag_value +$(this).attr('title')   
+            }
             alert(tag_value)
         })
     </script>
