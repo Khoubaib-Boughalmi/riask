@@ -889,7 +889,7 @@ function compressImage($source, $destination, $quality) {
             $('.category').each(function () {
 
                 if ($(this)[0].checked) {
-                    tag_value = tag_value + $(this).attr('value')
+                    tag_value = tag_value + $(this).attr('value')+','
                 }
             })
             $.ajax({
