@@ -904,7 +904,7 @@ function compressImage($source, $destination, $quality) {
                         alert('error try again');
                     },
                     success: function (data) {
-                        // notification popup
+                        $('.setting_name').html(data)
                     }
                 })        })
     </script>
