@@ -156,11 +156,11 @@ if (isset($_POST['submit_test'])) {
                         <h3 class="header-side-text">Tags that you may like</h3>
                     </div>
                     <div class="tags-friend-content" style="display flex;flex-direction:column;">
-                        <div class="tags_name"><img src="images/phpimg.png" alt=""><a href="#">PHP</a></div>
+                        <div class="tags_name tags_name_maths"><img src="images/phpimg.png" alt=""><a href="#">PHP</a></div>
                         <hr>
-                        <div class="tags_name"><img src="images/java.webp" alt=""><a href="#">Java</a></div>
+                        <div class="tags_name tags_name_computer_science"><img src="images/java.webp" alt=""><a href="#">Java</a></div>
                         <hr>
-                        <div class="tags_name"><img src="images/cpp.png" alt=""><a href="#">Cpp</a></div>
+                        <div class="tags_name tags_name_big_data"><img src="images/cpp.png" alt=""><a href="#">Cpp</a></div>
                         <hr>
                     </div>
                     <div class="span-button show_more_categories"> <a href="#">Show more</a></div>
@@ -349,7 +349,7 @@ if (isset($_POST['submit_test'])) {
             <div class="close_log_in">
                 +
             </div>
-            <div class="log_in_pop_up_body">
+            <div class="log_in_pop_up_body" style="padding : 1rem 0rem">
                 <!-- function load category -->
                 <?php $category_obj->load_category() ?>
                 
@@ -974,6 +974,39 @@ if (isset($_POST['submit_test'])) {
                     }
                 })
             }
+
+        })
+        $('.tags_name').click(function(){
+            var full_class = $(this).attr('class');
+            var full_class = full_class.slice(20);
+            if (full_class =='maths') {
+                $.ajax({
+                    url: 'load_post_options/load_post_all.php',
+                    type: 'POST',
+                    data: {
+                        full_class: full_class
+                    },
+
+                    error: function () {
+                        alert('error');
+                    },
+                    success: function (data) {
+                        $('.load_post').html(data);
+
+                    }
+                })
+            }else if(full_class =='big_data'){
+
+            }else if (full_class =='computer_science') {
+                
+            }
+            // else if (condition) {
+                
+            // }else if(){
+
+            // }else if (condition) {
+                
+            // }
 
         })
     </script>
