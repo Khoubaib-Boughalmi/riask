@@ -345,7 +345,7 @@ if (isset($_POST['submit_test'])) {
         </div>
     </div>
     <div class="log_in_pop_up_container">
-        <div class="log_in_pop_up">
+        <div class="log_in_pop_up" style="padding : 5rem 0rem">
             <div class="close_log_in">
                 +
             </div>
