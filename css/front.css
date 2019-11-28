@@ -2694,10 +2694,10 @@ cursor: pointer;
     .post{
         margin: 1rem;
         border-radius: 0 0 0 0;
-    }
-    .post{
+        height: 95vh;
         width: 98vw;
     }
+    
     .user-main{
         width: 21.5rem;
     }
