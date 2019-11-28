@@ -12,6 +12,7 @@ include('classes/post.php');
 include_once('like_dislike.php');
 include('classes/notification.php');
 include('classes/load_friends_suggestion_default.php');
+include('classes/load_category_main.php');
 if (isset($_SESSION['user_name_log_in'])) {
     $user_name=$_SESSION['user_name_log_in'];
     $query_log_in=mysqli_query($con,"SELECT * FROM users WHERE user_name ='$user_name'");
@@ -27,6 +28,7 @@ $categories_list = $user_obj->get_categories();
 $post_obj=new post($con,$user_name,$categories_list);
 $notification_obj=new notification($con,$user_name);
 $load_friends_suggestion_default_obj=new load_friends_default($con,$user_name);
+$category_obj=new category_main($con);
 
 
 
@@ -48,7 +50,7 @@ if (isset($_POST['submit_test'])) {
             </div>
             </div>
             <div class="search-main">
-            <img src="images/icons/loop.png" alt="" class="fa-search" style='height:2.1rem;'>
+                <img src="images/icons/loop.png" alt="" class="fa-search" style='height:2.1rem;'>
 
                 <!-- <i class=" fas fa-search" style="color:#222222;"></i> -->
                 <input type="text" class="input-search input-search-main" placeholder="Search for a question">
@@ -56,7 +58,8 @@ if (isset($_POST['submit_test'])) {
             <div class="navigation-icons">
                 <a href="main.php" class="home_icon"><img src="images/icons/home.png" alt=""></a>
                 <div class="notification_bell notification_container ">
-                    <img src="images/icons/notification.png" alt="" class="fa-bell dropbtn" style="width:4rem;height:4rem;" onclick="drop_down_notification_function()">
+                    <img src="images/icons/notification.png" alt="" class="fa-bell dropbtn"
+                        style="width:4rem;height:4rem;" onclick="drop_down_notification_function()">
                     <!-- show the number of notification -->
                     <?php 
                 if ($num_notification>0) {
@@ -160,7 +163,7 @@ if (isset($_POST['submit_test'])) {
                         <div class="tags_name"><img src="images/cpp.png" alt=""><a href="#">Cpp</a></div>
                         <hr>
                     </div>
-                    <div class="span-button"> <a href="#">Show more</a></div>
+                    <div class="span-button show_more_categories"> <a href="#">Show more</a></div>
                 </div>
                 <!-- <div class="create-post-side">
                     <div class="header-side header-side-create-post-side">
@@ -252,48 +255,51 @@ if (isset($_POST['submit_test'])) {
 
                 </div>
                 <div class="slide-menu-option">
-                    <img src="images/icons/home.png" alt=""  style="height:2.1rem;">
-                    <a
-                        href="main.php">
+                    <img src="images/icons/home.png" alt="" style="height:2.1rem;">
+                    <a href="main.php">
                         <p>Home Page</p>
                     </a>
                 </div>
                 <div class="slide-menu-option">
-                    <img src="images/icons/user.png" alt=""  style="height:2.1rem;">
-                    <a
-                        href="profile.php?user_profile=<?php echo $user_name?>">
+                    <img src="images/icons/user.png" alt="" style="height:2.1rem;">
+                    <a href="profile.php?user_profile=<?php echo $user_name?>">
                         <p>Profile Page</p>
                     </a>
                 </div>
-                
+
                 <div class="slide-menu-option">
                     <a href="create-post.php">
-                    <img src="images/icons/pencil.png" alt=""  style="height:2.1rem;">
+                        <img src="images/icons/pencil.png" alt="" style="height:2.1rem;">
                         <p>Create A Post</p>
                     </a>
                 </div>
                 <div class="slide-menu-option">
                     <a href="settings.php">
-                    <img src="images/icons/settings.png" alt=""  style="height:2.1rem;">
+                        <img src="images/icons/settings.png" alt="" style="height:2.1rem;">
                         <p>User Settings</p>
                     </a>
                 </div>
+                <div class="slide-menu-option suggested_friend_show_more_button_slide">
+                    <img src="images/icons/follower.png" alt="" style="height:2.1rem;">
+                    <a href="#">
+                        <p>show more friends</p>
+                    </a>
+                </div>
                 <div class="slide-menu-option">
-                    <img src="images/icons/mark.png" alt=""  style="height:2.1rem;">
-                    <a
-                        href="marked_post_page.php?user_profile=<?php echo $user_name?>">
+                    <img src="images/icons/mark.png" alt="" style="height:2.1rem;">
+                    <a href="marked_post_page.php?user_profile=<?php echo $user_name?>">
                         <p>Marked Post</p>
                     </a>
                 </div>
                 <hr>
                 <div class="slide-menu-option">
-                    
-                        <p style="margin-left:0;">Settings And Privacy</p>
+
+                    <p style="margin-left:0;">Settings And Privacy</p>
                     </a>
                 </div>
                 <div class="slide-menu-option">
-                    
-                        <p style="margin-left:0;">Help</p>
+
+                    <p style="margin-left:0;">Help</p>
                     </a>
                 </div>
                 <div class="slide-menu-option">
@@ -338,27 +344,38 @@ if (isset($_POST['submit_test'])) {
 
         </div>
     </div>
-   
+    <div class="log_in_pop_up_container">
+        <div class="log_in_pop_up">
+            <div class="close_log_in">
+                +
+            </div>
+            <div class="log_in_pop_up_body">
+                <!-- function load category -->
+                <?php $category_obj->load_category() ?>
+                
+            </div>
+        </div>
+    </div>
     <script>
         function display_slide(x) {
-  if (x.matches) { // If media query matches
-    $('.user-name-menu').click(function(){
-        $('.slide-menu').css('display','block')
-    })
-  } 
-//   else {
-//    document.body.style.backgroundColor = "pink";
-//   }
-}
+            if (x.matches) { // If media query matches
+                $('.user-name-menu').click(function () {
+                    $('.slide-menu').css('display', 'block')
+                })
+            }
+            //   else {
+            //    document.body.style.backgroundColor = "pink";
+            //   }
+        }
 
-$('.close_slide').click(function(){
-    $('.slide-menu').css('display','none')
+        $('.close_slide').click(function () {
+            $('.slide-menu').css('display', 'none')
 
-})
+        })
 
-var x = window.matchMedia("(max-width: 1100px)")
-display_slide(x) // Call listener function at run time
-x.addListener(display_slide) // Attach listener function on state changes
+        var x = window.matchMedia("(max-width: 1100px)")
+        display_slide(x) // Call listener function at run time
+        x.addListener(display_slide) // Attach listener function on state changes
 
         var btn = $('#button-back-top');
 
@@ -390,7 +407,7 @@ x.addListener(display_slide) // Attach listener function on state changes
             var user_name_logged_in = '<?php echo $user_name?>';
             var full_like_id = $(this).attr('id');
             var like_id = full_like_id.slice(4, full_like_id.len);
-            var liked_text_val = $('.bottom_post_like_'+like_id+' .like_btn_'+like_id).text()
+            var liked_text_val = $('.bottom_post_like_' + like_id + ' .like_btn_' + like_id).text()
             // alert(liked_text_val)
 
             $.ajax({
@@ -399,7 +416,7 @@ x.addListener(display_slide) // Attach listener function on state changes
                 data: {
                     like_id_val: like_id,
                     user_name_logged_in_val: user_name_logged_in,
-                    liked_text_val:liked_text_val
+                    liked_text_val: liked_text_val
                 },
                 async: false,
                 cache: false,
@@ -437,7 +454,7 @@ x.addListener(display_slide) // Attach listener function on state changes
             var user_name_logged_in = '<?php echo $user_name?>';
             var full_like_id = $(this).attr('id');
             var dislike_id = full_like_id.slice(7, full_like_id.len);
-            var liked_text_val = $('.bottom_post_like_'+dislike_id+' .like_btn_'+dislike_id).text()
+            var liked_text_val = $('.bottom_post_like_' + dislike_id + ' .like_btn_' + dislike_id).text()
             // alert(liked_text_val)
             $.ajax({
                 url: 'dislike_clicked.php',
@@ -445,7 +462,7 @@ x.addListener(display_slide) // Attach listener function on state changes
                 data: {
                     like_id_val: dislike_id,
                     user_name_logged_in_val: user_name_logged_in,
-                    liked_text_val:liked_text_val
+                    liked_text_val: liked_text_val
                 },
                 async: false,
                 cache: false,
@@ -499,22 +516,22 @@ x.addListener(display_slide) // Attach listener function on state changes
                 },
                 success: function (data) {
                     $('.bottom_post_like_' + like_id).html(data);
-                    if (like_val_class == 'Disliked'){
-                        var liked_text_val = $('.like-details_disliked_'+like_id).text()
-                        liked_text_val = parseInt(liked_text_val)-1;
-                         $('.like-details_disliked_'+like_id).text(liked_text_val)
+                    if (like_val_class == 'Disliked') {
+                        var liked_text_val = $('.like-details_disliked_' + like_id).text()
+                        liked_text_val = parseInt(liked_text_val) - 1;
+                        $('.like-details_disliked_' + like_id).text(liked_text_val)
 
-                    }else if(like_val_class == 'Liked') {
-                        var liked_text_val = $('.like-details_liked_'+like_id).text()
-                        liked_text_val = parseInt(liked_text_val)-1;
-                        $('.like-details_liked_'+like_id).text(liked_text_val)
+                    } else if (like_val_class == 'Liked') {
+                        var liked_text_val = $('.like-details_liked_' + like_id).text()
+                        liked_text_val = parseInt(liked_text_val) - 1;
+                        $('.like-details_liked_' + like_id).text(liked_text_val)
                         // alert('diliked')   
                     }
                 }
             })
         })
 
-    //    search for a friend
+        //    search for a friend
         $('.input-search-friend-content').keyup(function () {
             var user_logged_in = '<?php echo $user_name?>'
             var input_val = $(this).val();
@@ -553,15 +570,29 @@ x.addListener(display_slide) // Attach listener function on state changes
         $('.suggested_friend_show_more_button').click(function () {
             document.querySelector('.show_more_friends_popup_containner').style.display = 'block'
         })
-
-
         $('.closing_botton_show_more_friends').click(function () {
             document.querySelector('.show_more_friends_popup_containner').style.display = 'none'
+        })
+        $('.suggested_friend_show_more_button_slide').click(function () {
+            document.querySelector('.show_more_friends_popup_containner').style.display = 'block'
+        })
+
+        // show more categoties
+        $('.show_more_categories').click(function () {
+            document.querySelector('.log_in_pop_up_container').style.display = 'block'
+
+        })
+
+        $('.close_log_in').click(function () {
+            document.querySelector('.log_in_pop_up_container').style.display = 'none'
 
         })
 
 
-        $('.suggested_friend_show_more_button').click(function () {
+        $('.suggested_friend_show_more_button_slide').click(function () {
+            document.querySelector('.show_more_friends_popup_containner').style.display = 'block'
+        })
+        $('.suggested_friend_show_more_button, .suggested_friend_show_more_button_slide').click(function () {
 
             // insert value of suggeted input in search input by default
             var input_suggestion_val = $('.input-search-friend-content').val();
@@ -673,7 +704,7 @@ x.addListener(display_slide) // Attach listener function on state changes
                     url: 'ajax/remove_marked_post_ajax.php',
                     type: 'POST',
                     data: {
-                        post_id:post_marked_id,
+                        post_id: post_marked_id,
                         user_name_logged_in: user_name_logged_in
 
                     },
@@ -681,7 +712,7 @@ x.addListener(display_slide) // Attach listener function on state changes
                         alert('error');
                     },
                     success: function (data) {
-                        $('#bottom_post_componment_mark_post_'+post_marked_id).html(data)
+                        $('#bottom_post_componment_mark_post_' + post_marked_id).html(data)
                     }
                 })
             }
@@ -751,7 +782,9 @@ x.addListener(display_slide) // Attach listener function on state changes
                 success: function (data) {
                     $('.post_' + report_id).hide('slow', function () {
                         $('.post_' + report_id).remove();
-                        simpleNotify.notify('We will check this post as soon as possible &#128522;', 'attention');
+                        simpleNotify.notify(
+                            'We will check this post as soon as possible &#128522;',
+                            'attention');
 
                     });
                 }
@@ -775,7 +808,7 @@ x.addListener(display_slide) // Attach listener function on state changes
                         simpleNotify.notify('Post has been deleted &#128533;', 'attention');
                         $('.post_' + post_id).remove();
 
-                        
+
                     });
                 }
             })
@@ -943,8 +976,7 @@ x.addListener(display_slide) // Attach listener function on state changes
             }
 
         })
-
-      </script> 
-      </body>
+    </script>
+</body>
 
 </html>
