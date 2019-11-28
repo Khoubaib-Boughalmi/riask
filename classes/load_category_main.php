@@ -8,17 +8,17 @@ class category_main{
     public function load_category(){
         $query = mysqli_query($this->con,'SELECT * from category');
         while ($query_array=mysqli_fetch_array($query)) { 
-            echo "<div class='load_friend_search_div'>
-            <div class='friend_image_div_search_friend'>
-                <img src='".$query_array['category_img']."' alt='' srcset=''class='friend_image_search_friend'>
+            echo "<div class='load_category_search_div'>
+            <div class='category_image_div_search_category'>
+                <img src='".$query_array['category_img']."' alt='' srcset=''class='category_image_search_category'>
             </div>
-            <div class='friend_name_commen_friends'>
+            <div class='category_name_commen_categorys'>
                 <a href='profile.php?user_profile=$'>
-                <div class='friend_name'><span>".$query_array['category_val']."</span></div>
-                <div class='friend_commen_friends'><span>".$query_array['num_post']." Post in this category<span></div>
+                <div class='category_name'><span>".$query_array['category_val']."</span></div>
+                <div class='category_commen_categorys'><span>".$query_array['num_post']." Post in this category<span></div>
                 </a>
             </div>
-            <div class='follow_friend_button_search_friend follow_friend_button_search_friend_$'>Follow</div>
+            <div class='follow_category_button_search_category follow_category_button_search_category_$'>Follow</div>
             <div class=''></div>
             </div>
         <hr>";

@@ -1560,6 +1560,24 @@ font-size: 3.3rem;
     align-items: center;
     margin-bottom: 1rem;
 }
+/* category popup */
+.load_category_search_div{
+    display:grid;
+    grid-template-columns: min-content 1fr min-content;
+    padding-top: 1rem;
+}
+
+.load_category_search_div:hover{
+    background-color: rgba(60, 137, 196, 0.1);
+}
+
+.category_image_div_search_category{
+    width: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
 
 /* start of first ads */
 .ads{
