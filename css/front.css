@@ -233,15 +233,14 @@ body{
 
 .log_in_pop_up{
     width: 30%;
-    height: 80%;
+    height: 70%;
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 52%;
     transform: translate(-50%,-50%);
     background-color: #fff;
     overflow-x: hidden;
     overflow-y: scroll;
-
 }
 
 .close_log_in{

@@ -15,7 +15,7 @@ class category_main{
             <div class='friend_name_commen_friends'>
                 <a href='profile.php?user_profile=$'>
                 <div class='friend_name'><span>".$query_array['category_val']."</span></div>
-                <div class='friend_commen_friends'><span>".$query_array['num_post']."<span></div>
+                <div class='friend_commen_friends'><span>".$query_array['num_post']." Post in this category<span></div>
                 </a>
             </div>
             <div class='follow_friend_button_search_friend follow_friend_button_search_friend_$'>Follow</div>
