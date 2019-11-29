@@ -22,6 +22,15 @@ $post="";
 
 	$query_num = mysqli_num_rows($query_load_post);	
 	$query_load_post_count_array = mysqli_fetch_array($query_load_post_count);	
+	if ($num_querry>9) {
+		echo "<script>$('.all').css('opacity','1');
+		$('.all').prop('disabled', false);
+	  </script>";
+	}else{
+		echo "<script>$('.all').css('opacity','0');
+		$('.all').prop('disabled', true);
+	  </script>";
+	}
 	if ($query_num>0) {
         // if ($query_num>11) {
 		// 	echo "<script>$('.friend').css('display','block')</script>";
