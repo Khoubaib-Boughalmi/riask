@@ -22,7 +22,7 @@ $query_load_post_count=mysqli_query($con,"SELECT count(*) as count_db from posts
 $query_load_post_count_array = mysqli_fetch_array($query_load_post_count);	
 
 $num_querry = mysqli_num_rows($query_load_post);
-if ($num_querry>10) {
+if ($num_querry>9) {
 	echo "<script>$('.all').css('opacity','1');
 	$('.all').prop('disabled', false);
   </script>";
