@@ -358,7 +358,7 @@ if (isset($_POST['submit_test'])) {
     </div>
     <script>
         $('.load_category_search_div').click(function(){
-            alert(aaaaaaa)
+            alert('aaaaaaa')
         })
         // display the slide bar
         function display_slide(x) {

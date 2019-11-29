@@ -11,7 +11,7 @@ class category_main{
     public function load_category(){
         $query = $this->query;
         while ($query_array=mysqli_fetch_array($query)) { 
-            echo "<div class='load_category_search_div'>
+            echo "<div class='load_category_search_div load_category_search_div_".$query_array['category_val']."'>
             <div class='category_image_div_search_category'>
                 <img src='".$query_array['category_img']."' alt='' srcset=''class='category_image_search_category'>
             </div>
