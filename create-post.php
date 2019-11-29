@@ -261,6 +261,11 @@ $category_obj=new category_main($con);
     </div>
 
     <script>
+        $("select.select_category").change(function(){
+        var selectedCountry = $(this).children("option:selected").val();
+        alert("You have selected the country - " + selectedCountry);
+    });
+
         document.querySelector('.user-name-menu').addEventListener("click", function () {
             document.querySelector('.slide-menu-wraper').style.display = "block";
         });
