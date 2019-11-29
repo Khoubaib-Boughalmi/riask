@@ -17,9 +17,14 @@ $like_dislike_obj=new likes_dislikes($con,$user_name_logged_in);
 
 $post="";
 $query_load_post=mysqli_query($con,"SELECT * FROM posts ORDER BY id DESC limit $count" );	
+
+$query_load_post_count=mysqli_query($con,"SELECT count(*) as count_db from posts");
+$query_load_post_count_array = mysqli_fetch_array($query_load_post_count);	
+
+
 if (mysqli_num_rows($query_load_post)>0) {
 	echo "<script>$('.all').css('display','block')</script>";
-
+	$comp = 0;
 	while($row=mysqli_fetch_array($query_load_post)){
 		if (strstr($row['repored_by'],$user_name_logged_in)==false) {
 			$user_obj=new user($con,$row['added_by']);
@@ -166,9 +171,11 @@ if (mysqli_num_rows($query_load_post)>0) {
 				</div>";
                 
 				echo $post;
-                
+                $comp++;
         }
-		
+		if ($comp == $query_load_post_count_array['count_db']) {
+			echo "<script>$('.all').hide()</script>";
+		}
 	} 
 }   
 ?>

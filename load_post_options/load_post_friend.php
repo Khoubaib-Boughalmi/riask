@@ -18,7 +18,7 @@ $comp = 0;
 $post="";
 	// $query_load_post=mysqli_query($con,"SELECT * FROM posts ORDER BY id DESC" );
 	$query_load_post=mysqli_query($con,"SELECT * from posts where MATCH(added_by) AGAINST('$friend_list') order by id DESC");
-	$query_load_post_count=mysqli_query($con,"SELECT count(*) as count_db from posts where MATCH(added_by) AGAINST('$friend_list') order by id DESC");
+	$query_load_post_count=mysqli_query($con,"SELECT count(*) as count_db from posts where MATCH(added_by) AGAINST('$friend_list')");
 
 	$query_num = mysqli_num_rows($query_load_post);	
 	$query_load_post_count_array = mysqli_fetch_array($query_load_post_count);	
