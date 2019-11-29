@@ -100,7 +100,7 @@ $category_obj=new category_main($con);
                                 <div class="input-create-post-div input-create-post-category">
                                 
                                     <!-- <input type="text" class="create-post-category-input" placeholder="eg: php java c#"> -->
-                                    <select name="select_category" class="" id="">
+                                    <select name="select_category" class="select_category" id="">
                                    <?php $category_obj->load_category_create_post() ?>
                                     </select>
                                 </div>
