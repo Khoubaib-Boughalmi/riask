@@ -58,7 +58,7 @@ if (isset($_POST['body'])) {
     $select_category_array = mysqli_fetch_array($select_category);
     $category_num_post = $select_category_array['num_post'];
     $category_num_post++;
-    $update_query_category=mysqli_query($con,"UPDATE category SET num_post='$category_num_post'");
+    $update_query_category=mysqli_query($con,"UPDATE category SET num_post='$category_num_post' where category_val ='$selected_category_val'");
 
 }
 ?>
