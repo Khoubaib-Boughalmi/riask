@@ -186,6 +186,7 @@ class post{
                         $num_posts++;
                 } else{
                     echo '<button class="show_more_button related">show more</button>';
+                    exit();
                 }
          
             }    
