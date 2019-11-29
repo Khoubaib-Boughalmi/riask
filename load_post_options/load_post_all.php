@@ -167,10 +167,10 @@ if (mysqli_num_rows($query_load_post)>0) {
 				echo $post;
                 
 		}
-		echo '<button class="show_more_button all">show more</button>';
 		
 		
 	} 
+	echo '<button class="show_more_button all">show more</button>';
 }   
 ?>
 <script>;
