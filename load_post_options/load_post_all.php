@@ -21,15 +21,15 @@ $query_load_post=mysqli_query($con,"SELECT * FROM posts ORDER BY id DESC limit $
 $query_load_post_count=mysqli_query($con,"SELECT count(*) as count_db from posts");
 $query_load_post_count_array = mysqli_fetch_array($query_load_post_count);	
 
-
-if (mysqli_num_rows($query_load_post)>0) {
-	echo "<script>$('.all').css('opacity','1')</script>";
+$num_querry = mysqli_num_rows($query_load_post);
+if ($num_querry>10) {
+	echo '<script>$(".all").css({"opacity": "1", "display": "block"})</script>';
+}
+if ($num_querry>0) {
 	$comp = 0;
 	while($row=mysqli_fetch_array($query_load_post)){
 		if (strstr($row['repored_by'],$user_name_logged_in)==false) {
 			$user_obj=new user($con,$row['added_by']);
-			
-			
 			$user_name=$row['added_by'];
 			$body=$row['body'];
 			$date_time=$row['date_added'];
@@ -174,7 +174,7 @@ if (mysqli_num_rows($query_load_post)>0) {
                 $comp++;
         }
 		if ($comp == $query_load_post_count_array['count_db']) {
-			echo "<script>$('.all').hide()</script>";
+			echo "<script>$('.all').css('opacity','0')</script>";
 		}
 	} 
 }   
