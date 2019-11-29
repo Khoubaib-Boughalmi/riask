@@ -183,7 +183,7 @@ $post="";
 }   
 ?>
 <script>
-$('.show_more_button').css('display','none')
+// $('.show_more_button').css('display','none')
 
             // like button clicked
 			$(".reaction-like").click(function (event) {
