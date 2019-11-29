@@ -184,7 +184,9 @@ class post{
                             </div>
                         </div>";
                         $num_posts++;
-                }           
+                }  
+                echo '<button class="show_more_button related">show more</button>';
+         
             }    
         }
     // }

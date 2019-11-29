@@ -903,7 +903,7 @@ function compressImage($source, $destination, $quality) {
                     alert('error try again');
                 },
                 success: function (data) {
-                    simpleNotify.notify('Category has been updated', 'green');
+                    simpleNotify.notify('Category has been updated', 'good');
                 }
             })
         })

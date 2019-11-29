@@ -115,7 +115,7 @@ if (isset($_POST['submit_test'])) {
                         var last_name ='<?php echo $_SESSION['userData']['last_name']?>';
                         var email='<?php echo $_SESSION['userData']['email']?>'; -->
                     <!-- !!!!!!!!!!!!!!!!!!!!! -->
-                    <button class="show_more_button related">show more</button>
+                    <!-- <button class="show_more_button related">show more</button> -->
                 </div>
             </div>
             <!-- **************** -->
