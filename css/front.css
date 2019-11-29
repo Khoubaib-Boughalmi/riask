@@ -3075,6 +3075,12 @@ cursor: pointer;
     overflow:auto;
 }
 
+.create-post-category-input{
+    width: 93%;
+    padding: 1rem;
+    margin: 1rem;
+    border: .1rem solid;
+}
 .results_container_title{
     display: none;
     /* display: flex; */

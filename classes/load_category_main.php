@@ -2,11 +2,14 @@
 
 class category_main{
     private $con;
+    private $query;
+
     public function __construct($con){
         $this->con=$con;
+        $this->query=mysqli_query($this->con,'SELECT * from category');;
     }
     public function load_category(){
-        $query = mysqli_query($this->con,'SELECT * from category');
+        $query = $this->query;
         while ($query_array=mysqli_fetch_array($query)) { 
             echo "<div class='load_category_search_div'>
             <div class='category_image_div_search_category'>

@@ -90,6 +90,27 @@ $num_notification=$notification_obj->num_notification($user_name);
                 <div class="ajax-insert">
                     <div class="create-post-tags-title">
                         <div class="create-post-tags-title-container">
+                            <div class="create-post-category">
+                                <h3 class="h3-create-post">What languages, technologies, and/or frameworks is your
+                                    question about?</h3>
+                                <h4 class="h4-create-post">Tags help the right people find and answer your question.
+                                </h4>
+                                <div class="input-create-post-div input-create-post-category">
+                                
+                                    <!-- <input type="text" class="create-post-category-input" placeholder="eg: php java c#"> -->
+                                    <select name="select_category" class="create-post-category-input" id="">
+                                        <option value="">PHP</option>
+                                        <option value="">css</option>
+                                        <option value="">java</option>
+                                        <option value="">big data</option>
+                                        <option value="">lol</option>
+                                    </select>
+                                </div>
+                                <div class='results_container_categorys' style="">
+                                    <p class="tags_create_post"></p>
+                                </div>
+
+                            </div>
                             <div class="create-post-tags">
                                 <h3 class="h3-create-post">What languages, technologies, and/or frameworks is your
                                     question about?</h3>
@@ -107,9 +128,7 @@ $num_notification=$notification_obj->num_notification($user_name);
 
                                     </div>
                                 </div>
-                                <div class='results_container_tags' style="">
-                                    <p class="tags_create_post"></p>
-                                </div>
+                                
 
                             </div>
 
