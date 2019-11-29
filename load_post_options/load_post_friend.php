@@ -23,7 +23,10 @@ $post="";
 	$query_num = mysqli_num_rows($query_load_post);	
 	$query_load_post_count_array = mysqli_fetch_array($query_load_post_count);	
 	if ($query_num>0) {
-            
+        if ($query_num>11) {
+			echo "<script>$('.friend').css('display','block')</script>";
+
+		}    
 		while($row=mysqli_fetch_array($query_load_post)){
 			if (strstr($row['repored_by'],$user_name_logged_in)==false) {
 				$user_obj=new user($con,$row['added_by']);
