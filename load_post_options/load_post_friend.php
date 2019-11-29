@@ -171,9 +171,6 @@ $post="";
 				echo $post;
 				$comp++;
 				
-			}else{
-				echo '<button class="show_more_button friend">show more</button>';
-                    break;
 			}
         }
     }
