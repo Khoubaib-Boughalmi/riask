@@ -277,7 +277,6 @@ $category_obj=new category_main($con);
         $(document).ready(function () {
             $('.next_botton_tags_title').click(function () {
                 var selected_category_val = $("select.select_category").children("option:selected").val();
-                alert(selected_category_val)
                 var title_value = $('.create-post-title-input').val();
                 var title_length = title_value.length;
                 if ($('.tags_value').length>0 ) {
@@ -296,6 +295,7 @@ $category_obj=new category_main($con);
             var title = $('.create-post-title-input').val()
             title=title.trim()
             sessionStorage.setItem("title", title);
+            sessionStorage.setItem("selected_category_val", selected_category_val);
 
             $('.tags_title').html(all_tags)
                 $.ajax({
@@ -326,44 +326,7 @@ $category_obj=new category_main($con);
 
                 }
             })
-            // $('.botton3').click(function () {
-            //     var user_logged_in = ';
-            //     $.ajax({
-            //         url: 'creat-post-files/review-create-post.php',
-            //         type: 'POST',
-            //         data: {
-            //             user_logged_in: user_logged_in
-            //         },
-            //         error: function () {
-            //             alert('error');
-            //         },
-            //         success: function (data) {
-            //             $('.ajax-insert').html(data);
-
-            //         }
-            //     })
-
-            //     $('svg').removeClass('active_btn_tag');
-            //     $(this).addClass('active_btn_tag');
-            // })
-
-
-            //         $('#trumbowyg-demo').trumbowyg({
-            //     btns: [
-            //         ['undo', 'redo'], // Only supported in Blink browsers
-            //         ['formatting'],
-            //         ['strong', 'em'],
-            //         ['superscript', 'subscript'],
-            //         ['link'],
-            //         ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
-            //         ['unorderedList', 'orderedList'],
-            //         ['horizontalRule'],
-            //         ['removeformat'],
-            //         ['fullscreen']
-            //     ]
-            // });
-
-
+            
             $('.create-post-tags-input').keyup(function () {
                 var tag_val = $('.create-post-tags-input').val();
                 var user_logged_in = '<?php echo $user_name ;?>';

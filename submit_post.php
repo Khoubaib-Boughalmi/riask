@@ -20,6 +20,10 @@ if (isset($_POST['title'])) {
     $title = $_POST['title'];
 }
 
+if (isset($_POST['selected_category_val'])) {
+    $selected_category_val = $_POST['selected_category_val'];
+}
+
 if (isset($_POST['body'])) {
     $body = $_POST['body'];
 }
@@ -43,7 +47,7 @@ if (isset($_POST['body'])) {
  if (($check_empty_tags !='') && ($check_empty_title !='') && ($check_empty_body !='')) {
      $user_name_val=$user_obj->get_user_name();
      // insert into db
-     $insert_db_query=mysqli_query($con,"INSERT INTO `posts`(`id`, `title`, `body`, `added_by`, `date_added`, `deleted`, `user_closed`, `likes`, `dislikes`, `post_tags`, `repored_by`) VALUES ('','$title','$body','$user_name','$date_submited','no','no','0','0','$tags','')");
+     $insert_db_query=mysqli_query($con,"INSERT INTO `posts`(`id`, `title`, `body`, `added_by`, `date_added`, `deleted`, `user_closed`, `likes`, `dislikes`, `post_tags`, `repored_by`,`category`) VALUES ('','$title','$body','$user_name','$date_submited','no','no','0','0','$tags','','$selected_category_val')");
      $return_id=mysqli_insert_id($con);
      // update number of postes posted by the user
      $num_post=$user_obj->number_of_posts();

@@ -114,26 +114,7 @@ $timezone=  date_default_timezone_set('Africa/Tunis');
                 $('.botton3').removeClass('active_btn_tag');
                     $('.botton2').addClass('active_btn_tag');
             })
-            // $('.botton3').click(function(){
-            //     var user_logged_in = '';
-            //     $.ajax({
-            //     url: 'creat-post-files/review-create-post.php',
-            //     type: 'POST',
-            //     data:{
-            //     user_logged_in:user_logged_in
-            //     },
-            //     error: function(){
-            //         alert('error');
-            //     },
-            //     success:function (data) {
-            //         $('.ajax-insert').html(data);
-                    
-            //     }
-            //     })
-               
-            //     $('svg').removeClass('active_btn_tag');
-            //         $(this).addClass('active_btn_tag');
-            // })
+    
             $('.title_review_create_post').html(sessionStorage.getItem("title"));
             $('.commen_css_post_span').html(sessionStorage.getItem("body"))
             var tags_str=sessionStorage.getItem("tags");
@@ -148,6 +129,7 @@ $timezone=  date_default_timezone_set('Africa/Tunis');
                 var body = sessionStorage.getItem("body");
                 var tags = sessionStorage.getItem("tags");
                 var title = sessionStorage.getItem("title");
+                var selected_category_val = sessionStorage.getItem("selected_category_val");
                 $.ajax({
                 url: 'submit_post.php',
                 type: 'POST',
@@ -155,7 +137,8 @@ $timezone=  date_default_timezone_set('Africa/Tunis');
                 user_logged_in:user_logged_in,
                 body:body,
                 title:title,
-                tags:tags
+                tags:tags,
+                selected_category_val:selected_category_val
                 },
                 error: function(){
                     alert('error');

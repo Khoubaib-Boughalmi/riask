@@ -52,33 +52,10 @@ if (isset($_POST['user_logged_in'])) {
 
                 }
             })
-
-            // $.get('creat-post-files/tags-create-post.php',function(data){
-            //     $('.ajax-insert').html(data);
-            // })
             $('.botton2').removeClass('active_btn_tag');
             $('.botton1').addClass('active_btn_tag');
         })
-        // $('.botton2').click(function(){
-        //     var user_logged_in = '<?php echo $user_name; ?>';
-        //     $.ajax({
-        //     url: 'creat-post-files/description-create-post.php',
-        //     type: 'POST',
-        //     data:{
-        //     user_logged_in:user_logged_in
-        //     },
-        //     error: function(){
-        //         alert('error');
-        //     },
-        //     success:function (data) {
-        //         $('.ajax-insert').html(data);
-
-        //     }
-        //     })
-
-        //     $('svg').removeClass('active_btn_tag');
-        //         $(this).addClass('active_btn_tag');
-        // })
+      
         $('.next_botton_description').click(function () {
             var user_logged_in = '<?php echo $user_name; ?>';
             var body_val = $('#trumbowyg-demo').text();
@@ -113,8 +90,5 @@ if (isset($_POST['user_logged_in'])) {
             }
             
         })
-        // $('.next_botton_description').click(function () {
-           
-        //     // $('.text_palce').html(sessionStorage.getItem("body", body))
-        // })
+
     </script>
