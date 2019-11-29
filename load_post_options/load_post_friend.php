@@ -23,12 +23,12 @@ $post="";
 	$query_num = mysqli_num_rows($query_load_post);	
 	$query_load_post_count_array = mysqli_fetch_array($query_load_post_count);	
 	if ($query_num>0) {
-        if ($query_num>11) {
-			echo "<script>$('.friend').css('display','block')</script>";
+        // if ($query_num>11) {
+		// 	echo "<script>$('.friend').css('display','block')</script>";
 
-		}else{
-			echo '<script>$(".friend").css("diaplay","none");</script>';
-		}
+		// }else{
+		// 	echo '<script>$(".friend").css("diaplay","none");</script>';
+		// }
 		while($row=mysqli_fetch_array($query_load_post)){
 			if (strstr($row['repored_by'],$user_name_logged_in)==false) {
 				$user_obj=new user($con,$row['added_by']);
@@ -180,7 +180,7 @@ $post="";
 				
 			}
 		}
-		if ($comp == $query_load_post_count_array['count_db']) {
+		if ($comp == $query_load_post_count_array['count_db']-1) {
 			echo "<script>$('.friend').hide()</script>";
 		}
     }
