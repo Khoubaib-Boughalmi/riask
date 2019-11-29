@@ -18,7 +18,7 @@ $comp=0;
 $post="";
     // $query_load_post=mysqli_query($con,"SELECT * FROM posts ORDER BY id DESC LIMIT $count" );	
 	// $query_load_post=mysqli_query($con,"SELECT * from posts ORDER BY id DESC");
-	$query_load_post=mysqli_query($con,"SELECT * from posts where category=$category_name order by id DESC");
+	$query_load_post=mysqli_query($con,"SELECT * from posts where category='$category_name' order by id DESC");
 
     // $query_search=mysqli_query($this->con,"SELECT * from posts where MATCH(title,body) AGAINST('$input_val') limit 10") MATCH(category) AGAINST('$categories_list');
 
