@@ -277,7 +277,7 @@ $category_obj=new category_main($con);
         $(document).ready(function () {
             $('.next_botton_tags_title').click(function () {
                 var selected_category_val = $("select.select_category").children("option:selected").val();
-
+                alert(selected_category_val)
                 var title_value = $('.create-post-title-input').val();
                 var title_length = title_value.length;
                 if ($('.tags_value').length>0 ) {
