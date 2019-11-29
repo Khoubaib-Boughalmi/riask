@@ -21,7 +21,7 @@ $post="";
 	$query_load_post_count=mysqli_query($con,"SELECT count(*) as count_db from posts where MATCH(added_by) AGAINST('$friend_list') order by id DESC");
 
 	$query_num = mysqli_num_rows($query_load_post);	
-	$query_num = mysqli_fetch_array($query_load_post_count);	
+	$query_load_post_count_array = mysqli_fetch_array($query_load_post_count_array);	
 	if ($query_num>0) {
             
 		while($row=mysqli_fetch_array($query_load_post)){
@@ -175,7 +175,7 @@ $post="";
 				
 			}
 		}
-		if ($comp == $query_load_post_count['count_db']) {
+		if ($comp == $query_load_post_count_array['count_db']) {
 			echo 'llllllllllllllllllllllllllllllllllllllll';
 		}
     }
