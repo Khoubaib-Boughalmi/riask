@@ -181,13 +181,13 @@ $post="";
 			}
 		}
     }
-			// if ($comp == $query_load_post_count_array['count_db']-1) {
-				echo "<script>$('.friend').hide()</script>";
-				echo $comp.'<br>';
-				echo $query_load_post_count_array['count_db'];
-			// }
 	// } 
 }   
+// if ($comp == $query_load_post_count_array['count_db']-1) {
+	echo "<script>$('.friend').hide()</script>";
+	echo $comp.'<br>';
+	echo $query_load_post_count_array['count_db'];
+// }
 ?>
 <script>
 // $('.show_more_button').css('display','none')
