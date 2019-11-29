@@ -181,11 +181,11 @@ $post="";
 			}
 		}
 		if ($comp == $query_load_post_count_array['count_db']) {
-			echo "<script>$('.friend').css('opacity','0')</script>";
+			// echo "<script>$('.friend').css('opacity','0')</script>";
 		}
     }
 }else{
-	echo "<script>$('.friend').css('opacity','0')</script>";
+	// echo "<script>$('.friend').css('opacity','0')</script>";
 }   
 	?>
 <script>

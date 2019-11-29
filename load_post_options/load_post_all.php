@@ -175,7 +175,7 @@ if ($num_querry>0) {
         }
 		if ($comp == $query_load_post_count_array['count_db']) {
 			echo "<script>$('.all').css('opacity','0');
-							$('.all').addAttr('disabled');
+							$('.all').prop('disabled', true);
 						  </script>";
 		}
 	} 
