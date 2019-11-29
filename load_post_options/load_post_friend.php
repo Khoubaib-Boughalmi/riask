@@ -176,7 +176,7 @@ $post="";
 			}
 		}
 		if ($comp == $query_load_post_count_array['count_db']) {
-			echo "<script>$('.show_more_button').css('display','none')</script>";
+			echo "<script>$('.friend').hide()</script>";
 		}
     }
 	// } 
