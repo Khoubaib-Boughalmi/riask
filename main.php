@@ -359,7 +359,7 @@ if (isset($_POST['submit_test'])) {
     <script>
         $('.load_category_search_div').click(function(){
             var category_name = $(this).attr('class');
-            var category_name = category_name.slice(30);
+            var category_name = category_name.slice(46);
 
             alert(category_name)
 
