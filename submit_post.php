@@ -53,5 +53,12 @@ if (isset($_POST['body'])) {
      $num_post=$user_obj->number_of_posts();
      $num_post++;
      $update_query=mysqli_query($con,"UPDATE users SET number_posts='$num_post' WHERE user_name='$user_name_val'");
- }
+    //  select category table
+    $select_category=mysqli_query($con,"SELECT * from category WHERE category_val='$selected_category_val'");
+    $select_category_array = mysqli_fetch_array($select_category);
+    $category_num_post = $select_category_array['num_post'];
+    $category_num_post++;
+    $update_query_category=mysqli_query($con,"UPDATE category SET num_post='$category_num_post'");
+
+}
 ?>
