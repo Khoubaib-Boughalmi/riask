@@ -6,7 +6,7 @@ class category_main{
 
     public function __construct($con){
         $this->con=$con;
-        $this->query=mysqli_query($this->con,'SELECT * from category');
+        $this->query=mysqli_query($con,'SELECT * from category');
     }
     public function load_category(){
         $query = $this->query;
