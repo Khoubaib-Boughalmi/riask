@@ -376,6 +376,7 @@ if (isset($_POST['submit_test'])) {
                 },
                 success: function (data) {
                     $('.load_post').html(data);
+                    $('.log_in_pop_up_container').css('display','none')
 
                 }
             })
