@@ -261,10 +261,10 @@ $category_obj=new category_main($con);
     </div>
 
     <script>
-        $("select.select_category").change(function(){
-        var selected_category_val = $(this).children("option:selected").val();
-        alert("You have selected the _category_val - " + selected_category_val);
-    });
+    //     $("select.select_category").change(function(){
+    //     var selected_category_val = $("select.select_category").children("option:selected").val();
+    //     alert("You have selected the _category_val - " + selected_category_val);
+    // });
 
         document.querySelector('.user-name-menu').addEventListener("click", function () {
             document.querySelector('.slide-menu-wraper').style.display = "block";
@@ -276,6 +276,8 @@ $category_obj=new category_main($con);
 
         $(document).ready(function () {
             $('.next_botton_tags_title').click(function () {
+                var selected_category_val = $("select.select_category").children("option:selected").val();
+
                 var title_value = $('.create-post-title-input').val();
                 var title_length = title_value.length;
                 if ($('.tags_value').length>0 ) {
