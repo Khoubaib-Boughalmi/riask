@@ -358,7 +358,11 @@ if (isset($_POST['submit_test'])) {
     </div>
     <script>
         $('.load_category_search_div').click(function(){
-            alert('aaaaaaa')
+            var category_name = $(this).attr('class');
+            var category_name = category_name.slice(30);
+
+            alert(category_name)
+
         })
         // display the slide bar
         function display_slide(x) {
