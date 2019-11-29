@@ -18,7 +18,8 @@ $like_dislike_obj=new likes_dislikes($con,$user_name_logged_in);
 $post="";
 $query_load_post=mysqli_query($con,"SELECT * FROM posts ORDER BY id DESC limit $count" );	
 if (mysqli_num_rows($query_load_post)>0) {
-	
+	echo "<script>$('.all').css('display','block')</script>";
+
 	while($row=mysqli_fetch_array($query_load_post)){
 		if (strstr($row['repored_by'],$user_name_logged_in)==false) {
 			$user_obj=new user($con,$row['added_by']);
