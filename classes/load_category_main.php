@@ -27,5 +27,12 @@ class category_main{
         <hr>";
         }
     }
+
+    public function load_category_create_post(){
+        $query = $this->query;
+        while ($query_array=mysqli_fetch_array($query)) { 
+            echo "<option value='".$query_array['category_val']."'>".$query_array['category_val']."</option>";
+        }
+    }
 }
 ?>
