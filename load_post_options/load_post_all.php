@@ -23,7 +23,7 @@ $query_load_post_count_array = mysqli_fetch_array($query_load_post_count);
 
 
 if (mysqli_num_rows($query_load_post)>0) {
-	echo "<script>$('.all').css(opacity','1')</script>";
+	echo "<script>$('.all').css('opacity','1')</script>";
 	$comp = 0;
 	while($row=mysqli_fetch_array($query_load_post)){
 		if (strstr($row['repored_by'],$user_name_logged_in)==false) {
