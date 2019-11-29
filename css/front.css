@@ -1170,6 +1170,7 @@ margin-top: 3rem;
     justify-content: flex-end;
 }
 .show_more_button{
+    opacity: 0;
     outline: none;
     padding: .8rem;
     color: #222222;

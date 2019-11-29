@@ -23,7 +23,7 @@ $query_load_post_count_array = mysqli_fetch_array($query_load_post_count);
 
 $num_querry = mysqli_num_rows($query_load_post);
 if ($num_querry>10) {
-	echo "<script>$('.all').css('opacity','0');
+	echo "<script>$('.all').css('opacity','1');
 	$('.all').prop('disabled', false);
   </script>";
 }
