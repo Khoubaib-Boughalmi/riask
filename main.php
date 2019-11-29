@@ -357,15 +357,16 @@ if (isset($_POST['submit_test'])) {
         </div>
     </div>
     <script>
+        $('.load_category_search_div').click(function(){
+            alert(aaaaaaa)
+        })
+        // display the slide bar
         function display_slide(x) {
             if (x.matches) { // If media query matches
                 $('.user-name-menu').click(function () {
                     $('.slide-menu').css('display', 'block')
                 })
             }
-            //   else {
-            //    document.body.style.backgroundColor = "pink";
-            //   }
         }
 
         $('.close_slide').click(function () {
