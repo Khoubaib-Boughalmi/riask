@@ -18,8 +18,10 @@ $comp = 0;
 $post="";
 	// $query_load_post=mysqli_query($con,"SELECT * FROM posts ORDER BY id DESC" );
 	$query_load_post=mysqli_query($con,"SELECT * from posts where MATCH(added_by) AGAINST('$friend_list') order by id DESC");
+	$query_load_post_count=mysqli_query($con,"SELECT count(*) as count_db from posts where MATCH(added_by) AGAINST('$friend_list') order by id DESC");
 
 	$query_num = mysqli_num_rows($query_load_post);	
+	$query_num = mysqli_fetch_array($query_load_post_count);	
 	if ($query_num>0) {
             
 		while($row=mysqli_fetch_array($query_load_post)){
@@ -172,35 +174,16 @@ $post="";
 				$comp++;
 				
 			}
-        }
+		}
+		if ($comp == $query_load_post_count['count_db']) {
+			echo 'llllllllllllllllllllllllllllllllllllllll';
+		}
     }
 	// } 
 }   
 ?>
 <script>
-// $(document).ready(function(){
-//   $(".reaction").on("click",function(){   // like click
-// 	var data_reaction = $(this).attr("data-reaction");
-// 	$(".like-btn-emo").removeClass().addClass('like-btn-emo').addClass('like-btn-'+data_reaction.toLowerCase());
-// 	$(".like-btn-text").text(data_reaction).removeClass().addClass('like-btn-text').addClass('like-btn-text-'+data_reaction.toLowerCase()).addClass("active");;
-
-// 	if(data_reaction == "Like")
-// 	  $(".like-emo").html('<span class="like-btn-like"></span>');
-// 	else
-// 	  $(".like-emo").html('<span class="like-btn-like"></span><span class="like-btn-'+data_reaction.toLowerCase()+'"></span>');
-//   });
-  
-//   $(".like-btn-text").on("click",function(){ // undo like click
-// 	  if($(this).hasClass("active")){
-// 		  $(".like-btn-text").text("Like").removeClass().addClass('like-btn-text');
-// 		  $(".like-btn-emo").removeClass().addClass('like-btn-emo').addClass("like-btn-default");
-// 		  $(".like-emo").html('<span class="like-btn-like"></span>');
-		  
-// 	  }	  
-//   })
-  
-  
-// });
+$('.show_more_button').css('display','none')
 
             // like button clicked
 			$(".reaction-like").click(function (event) {
