@@ -27,7 +27,7 @@ $post="";
 			echo "<script>$('.friend').css('display','block')</script>";
 
 		}else{
-			echo '<script>$(".friend").css({"display": "block", "opacity": "0"});</script>';
+			echo '<script>$(".friend").css("opacity","0");</script>';
 		}
 		while($row=mysqli_fetch_array($query_load_post)){
 			if (strstr($row['repored_by'],$user_name_logged_in)==false) {
