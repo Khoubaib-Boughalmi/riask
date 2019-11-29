@@ -359,9 +359,28 @@ if (isset($_POST['submit_test'])) {
     <script>
         $('.load_category_search_div').click(function(){
             var category_name = $(this).attr('class');
-            var category_name = category_name.slice(46);
+            var category_name = category_name.slice(50);
+            var user_name_logged_in = '<?php echo $user_name?>';
 
-            alert(category_name)
+            var count = 20;
+            $.ajax({
+                url: 'load_post_options/load_post_category.php',
+                type: 'POST',
+                data: {
+                    category_name: category_name,
+                    user_name_logged_in_val: user_name_logged_in,
+                    count: count
+                },
+                
+                error: function () {
+                    alert('error');
+                },
+                success: function (data) {
+                    $('.load_post').html(data);
+
+                }
+            })
+            
 
         })
         // display the slide bar
