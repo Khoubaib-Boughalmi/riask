@@ -279,6 +279,7 @@ $category_obj=new category_main($con);
                         var user_logged_in = '<?php echo $user_name; ?>';
                 var tags;
             var all_tags = '';
+            alert(selected_category_val)
             $('.tags_value').each(function () {
                 tags = $(this).attr('class') + ',';
                 tags = tags.substr(22);
@@ -290,7 +291,7 @@ $category_obj=new category_main($con);
             var title = $('.create-post-title-input').val()
             title=title.trim()
             sessionStorage.setItem("title", title);
-            sessionStorage.setItem("category", title);
+            // sessionStorage.setItem("category", title);
 
             $('.tags_title').html(all_tags)
                 $.ajax({
