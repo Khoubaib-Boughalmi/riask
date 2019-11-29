@@ -14,6 +14,7 @@ include('classes/notification.php');
 $notification_obj=new notification($con,$user_name);
 $num_notification=$notification_obj->num_notification($user_name);
 
+$category_obj=new category_main($con);
 
 ?>
 <link rel="stylesheet" href="dist/ui/trumbowyg.min.css">
@@ -99,11 +100,7 @@ $num_notification=$notification_obj->num_notification($user_name);
                                 
                                     <!-- <input type="text" class="create-post-category-input" placeholder="eg: php java c#"> -->
                                     <select name="select_category" class="create-post-category-input" id="">
-                                        <option value="">PHP</option>
-                                        <option value="">css</option>
-                                        <option value="">java</option>
-                                        <option value="">big data</option>
-                                        <option value="">lol</option>
+                                        
                                     </select>
                                 </div>
                                 <div class='results_container_categorys' style="">
