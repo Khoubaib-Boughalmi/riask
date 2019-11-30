@@ -1,10 +1,10 @@
 <?php
 
-$num_followers_list=$_POST['num_followers_list'];
+$num_post_all=$_POST['num_post_all'];
 $user_name_logged_in=$_POST['user_name_logged_in'];
 
-$int_part=intval((int)$num_followers_list/10);
-            if ($int_part!=$num_followers_list/10) {
+$int_part=intval((int)$num_post_all/10);
+            if ($int_part!=$num_post_all/10) {
                 for ($i=0; $i < $int_part+1; $i++) { 
                     $j=$i+1;
                     if ($i == 10) {
@@ -26,7 +26,7 @@ $int_part=intval((int)$num_followers_list/10);
         $('.pagination_content').click(function(){
             var pagination_id =$(this).attr('id');
             pagination_id = pagination_id.substr(11);
-            var num_followers_list = "<?php echo $num_followers_list; ?>";
+            var num_post_all = "<?php echo $num_post_all; ?>";
             var user_name_logged_in = "<?php echo $user_name_logged_in ?>";
             var pagination_formul_start=(parseInt(pagination_id)-1)*10
 
