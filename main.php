@@ -33,8 +33,8 @@ $category_obj=new category_main($con);
 
 
 $num_notification=$notification_obj->num_notification($user_name);
-include('classes/main_search_result_class.php');
-$search_obj=new main_search_result($con,'Business');
+include('classes/load_pagination_main_page.php');
+$pagination=new main_pagination($con);
 
 if (isset($_POST['submit_test'])) {
     $post_obj->submit_post($_POST['text_area']);
@@ -113,9 +113,6 @@ if (isset($_POST['submit_test'])) {
                         <?php $post_obj->load_post()?>
                     </div>
 
-                    <!-- var first_name ='<?php echo $_SESSION['userData']['first_name']?>';
-                        var last_name ='<?php echo $_SESSION['userData']['last_name']?>';
-                        var email='<?php echo $_SESSION['userData']['email']?>'; -->
                     <!-- !!!!!!!!!!!!!!!!!!!!! -->
                     <div class="pagination">
                         <span href="#" class="pagination_content active" id='pagination_1'>1</span>
@@ -125,7 +122,8 @@ if (isset($_POST['submit_test'])) {
                         <span href="#" class="pagination_content" id='pagination_5'>5</span>
                         <span href="#" class="pagination_content" id='pagination_6'>6</span> -->
                             <?php
-                            $search_obj->pagination(200);
+                            $num_posts = $pagination->number_of_results_related($categories_list);
+                            $pagination->pagination($num_posts);
                             ?>
                     </div>                </div>
             </div>
