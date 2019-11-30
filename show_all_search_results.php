@@ -9,7 +9,6 @@ include('header.php');
 <script type="text/javascript" src="js/reaction.js"></script>
 <?php
 include('classes/notification.php');
-include('classes/main_search_result_class.php');
 if (isset($_SESSION['user_name_log_in'])) {
     $user_name=$_SESSION['user_name_log_in'];
     $query_log_in=mysqli_query($con,"SELECT * FROM users WHERE user_name ='$user_name'");
@@ -22,6 +21,7 @@ $notification_obj=new notification($con,$user_name);
 if (isset($_GET['q'])) {
     $q_val=$_GET['q'];
 }
+include('classes/main_search_result_class.php');
 $search_obj=new main_search_result($con,$q_val);
 $num_notification=$notification_obj->num_notification($user_name);
 
