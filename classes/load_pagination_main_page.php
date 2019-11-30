@@ -23,12 +23,6 @@
         $query_search_num = $query_search_array['count'];
         return $query_search_num;
     }
-    public function number_of_results_category($category_val){
-        $query_search=mysqli_query($this->con,"SELECT count(*) as count from posts where category='$category_val'");
-        $query_search_array=mysqli_fetch_array($query_search);
-        $query_search_num = $query_search_array['count'];
-        return $query_search_num;
-    }
 
     public function pagination($number_search_result){
         $int_part=intval((int)$number_search_result/10);
