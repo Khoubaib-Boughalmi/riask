@@ -899,7 +899,7 @@ if (isset($_POST['submit_test'])) {
                     success: function (data) {
                         $('.pagination').html(data);
                         // load pagination friend
-
+                        $('#pagination_1').addClass('active')
                     }
                 })
             } else if (checked_val == 'related') {
