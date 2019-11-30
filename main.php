@@ -907,7 +907,6 @@ if (isset($_POST['submit_test'])) {
                 pagination_formul_start = 0
                 var categories_list = '<?php echo $categories_list ?>'
                 var user_name_logged_in = '<?php echo $user_name?>'
-                alert(num_post_related_list)
                 // $.ajax({
                 //     url: 'load_post_options/load_post_related.php',
                 //     type: 'POST',
@@ -929,7 +928,7 @@ if (isset($_POST['submit_test'])) {
                     url: 'load_post_options/load_pagination_related.php',
                     type: 'POST',
                     data: {
-                        num_followers_list:num_followers_list,
+                        num_post_related_list:num_post_related_list,
                         user_name_logged_in:user_name_logged_in,
                         followers_list:followers_list
                         
