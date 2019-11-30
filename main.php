@@ -945,15 +945,14 @@ if (isset($_POST['submit_test'])) {
                     }
                 })
             } else if (checked_val == 'all') {
-                var categories_list = '<?php echo $categories_list ?>'
-                count_post_option_all = 10
+                pagination_formul_start = 0;
+                var user_name_logged_in = '<?php echo $user_name?>'
                 $.ajax({
                     url: 'load_post_options/load_post_all.php',
                     type: 'POST',
                     data: {
-                        count_post_option_all: count_post_option_all,
-                        user_name_logged_in: user_name_logged_in,
-                        categories_list: categories_list
+                        pagination_formul_start:pagination_formul_start,
+                        user_name_logged_in:user_name_logged_in
                     },
 
                     error: function () {

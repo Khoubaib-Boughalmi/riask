@@ -7,26 +7,17 @@ require '../db.php';
 if(mysqli_connect_errno()){
 	echo 'connection failled';
 }
-$count=$_POST['count_post_option_all'];
 $user_name_logged_in=$_POST['user_name_logged_in'];
-$categories_list=$_POST['categories_list'];
+$pagination_formul_start=$_POST['pagination_formul_start'];
 include_once('../classes/user.php');
 
 include_once('../like_dislike.php');
 $like_dislike_obj=new likes_dislikes($con,$user_name_logged_in);
 
 $post="";
-$query_load_post=mysqli_query($con,"SELECT * FROM posts ORDER BY id DESC limit $count" );	
-
-$query_load_post_count=mysqli_query($con,"SELECT count(*) as count_db from posts");
-$query_load_post_count_array = mysqli_fetch_array($query_load_post_count);	
-
+$query_load_post=mysqli_query($con,"SELECT * FROM posts ORDER BY id DESC limit $pagination_formul_start,10" );	
 $query_num = mysqli_num_rows($query_load_post);
-if ($query_num>9) {
-	echo "<script>$('.all').css('opacity','1');
-	$('.all').prop('disabled', false);
-  </script>";
-}
+
 if ($query_num>0) {
 	$comp = 0;
 	while($row=mysqli_fetch_array($query_load_post)){
@@ -175,11 +166,7 @@ if ($query_num>0) {
 				echo $post;
                 $comp++;
         }
-		if ($comp == $query_load_post_count_array['count_db']) {
-			echo "<script>$('.all').css('opacity','0');
-							$('.all').prop('disabled', true);
-						  </script>";
-		}
+		
 	} 
 }   
 ?>
