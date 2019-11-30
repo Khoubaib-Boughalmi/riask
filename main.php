@@ -394,8 +394,8 @@ if (isset($_POST['submit_test'])) {
                     type: 'POST',
                     data: {
                         user_name_logged_in:user_name_logged_in_val,
-                        followers_list:followers_list
-                        
+                        category_name: category_name,
+
                         
                     },
 

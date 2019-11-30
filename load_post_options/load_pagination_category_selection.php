@@ -3,9 +3,9 @@
 require '../db.php';
 
 $user_name_logged_in=$_POST['user_name_logged_in'];
-$category_val=$_POST['category_val'];
+$category_name=$_POST['category_name'];
 
-    $query_search=mysqli_query($con,"SELECT count(*) as count from posts where category='$category_val'");
+    $query_search=mysqli_query($con,"SELECT count(*) as count from posts where category='$category_name'");
     $query_search_array=mysqli_fetch_array($query_search);
     $num_post_category = $query_search_array['count'];
 
