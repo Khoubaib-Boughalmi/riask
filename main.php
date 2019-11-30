@@ -847,87 +847,6 @@ if (isset($_POST['submit_test'])) {
             })
         })
 
-        // loading post options
-        var count_post_option_friend = 10
-        var count_post_option_related = 10
-        var count_post_option_all = 10
-
-        // load results after user clicked on show more
-        $('.show_more_button').click(function () {
-            var full_class_show_more = $(this).attr('class');
-            var class_show_more = full_class_show_more.slice(17);
-
-            if (class_show_more == 'related') {
-                var user_name_logged_in = '<?php echo $user_name?>'
-                count_post_option_related = count_post_option_related + 10;
-                var categories_list = '<?php echo $categories_list ?>'
-
-
-                $.ajax({
-                    url: 'load_post_options/load_post_related.php',
-                    type: 'POST',
-                    data: {
-                        count_post_option_related: count_post_option_related,
-                        user_name_logged_in: user_name_logged_in,
-                        categories_list: categories_list
-                    },
-
-                    error: function () {
-                        alert('error');
-                    },
-                    success: function (data) {
-                        $('.load_post').html(data);
-                    }
-                })
-            }
-            if (class_show_more == 'all') {
-                count_post_option_all = count_post_option_all + 10
-                var user_name_logged_in = '<?php echo $user_name?>'
-                var categories_list = '<?php echo $categories_list ?>'
-
-                $.ajax({
-                    url: 'load_post_options/load_post_all.php',
-                    type: 'POST',
-                    data: {
-                        count_post_option_all: count_post_option_all,
-                        user_name_logged_in: user_name_logged_in,
-                        categories_list: categories_list
-                    },
-
-                    error: function () {
-                        alert('error');
-                    },
-                    success: function (data) {
-                        $('.load_post').html(data);
-
-                    }
-                })
-            }
-            if (class_show_more == 'friend') {
-                count_post_option_friend = count_post_option_friend + 10
-                var user_name_logged_in = '<?php echo $user_name?>'
-                var followers_list = '<?php echo $followers_list ?>'
-
-                $.ajax({
-                    url: 'load_post_options/load_post_friend.php',
-                    type: 'POST',
-                    data: {
-                        count_post_option_friend: count_post_option_friend,
-                        user_name_logged_in: user_name_logged_in,
-                        followers_list: followers_list
-                    },
-
-                    error: function () {
-                        alert('error');
-                    },
-                    success: function (data) {
-                        $('.load_post').html(data);
-
-                    }
-                })
-            }
-        })
-
 
         // show results after user clickeck on done
         $('.slide-menu-options_content_done').click(function () {
@@ -936,13 +855,6 @@ if (isset($_POST['submit_test'])) {
             var user_name_logged_in = '<?php echo $user_name?>'
             var checked_val = $("input[name='option_post']:checked").val();
             checked_val = checked_val.slice(11);
-
-
-            var full_class_show_more = $('.show_more_button').attr('class');
-            var class_show_more = full_class_show_more.slice(17);
-            $('.show_more_button').removeClass(class_show_more)
-            $('.show_more_button').addClass(checked_val)
-            var class_show_more_after = full_class_show_more.slice(17);
 
             if (checked_val == 'friend') {
 
