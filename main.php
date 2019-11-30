@@ -859,7 +859,7 @@ if (isset($_POST['submit_test'])) {
             if (checked_val == 'friend') {
 
                 var num_followers_list = '<?php echo $pagination->number_of_results_friend($followers_list) ?>'
-                pagination_formul_start = 10
+                pagination_formul_start = 0
 
                 var user_name_logged_in = '<?php echo $user_name?>'
                 var followers_list = '<?php echo $followers_list ?>'
