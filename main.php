@@ -903,26 +903,46 @@ if (isset($_POST['submit_test'])) {
                     }
                 })
             } else if (checked_val == 'related') {
-                var num_followers_list = '<?php echo $pagination->number_of_results_related($followers_list) ?>'
+                var num_post_related_list = '<?php echo $pagination->number_of_results_related($categories_list) ?>'
                 pagination_formul_start = 0
                 var categories_list = '<?php echo $categories_list ?>'
                 var user_name_logged_in = '<?php echo $user_name?>'
+                alert(num_post_related_list)
+                // $.ajax({
+                //     url: 'load_post_options/load_post_related.php',
+                //     type: 'POST',
+                //     data: {
+                //         pagination_formul_start: pagination_formul_start,
+                //         user_name_logged_in: user_name_logged_in,
+                //         categories_list: categories_list
+                //     },
 
+                //     error: function () {
+                //         alert('error');
+                //     },
+                //     success: function (data) {
+                //         $('.load_post').html(data);
+
+                //     }
+                // })
                 $.ajax({
-                    url: 'load_post_options/load_post_related.php',
+                    url: 'load_post_options/load_pagination_related.php',
                     type: 'POST',
                     data: {
-                        pagination_formul_start: pagination_formul_start,
-                        user_name_logged_in: user_name_logged_in,
-                        categories_list: categories_list
+                        num_followers_list:num_followers_list,
+                        user_name_logged_in:user_name_logged_in,
+                        followers_list:followers_list
+                        
+                        
                     },
 
                     error: function () {
                         alert('error');
                     },
                     success: function (data) {
-                        $('.load_post').html(data);
-
+                        // load pagination friend
+                        $('.pagination').html(data);
+                        $('#pagination_1').addClass('active')
                     }
                 })
             } else if (checked_val == 'all') {
