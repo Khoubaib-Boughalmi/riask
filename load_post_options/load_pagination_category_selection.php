@@ -34,7 +34,7 @@ $int_part=intval((int)$num_post_category/10);
             var pagination_id =$(this).attr('id');
             pagination_id = pagination_id.substr(11);
             var num_post_category = "<?php echo $num_post_category; ?>";
-            var user_name_logged_in = "<?php echo $user_name_logged_in ?>";
+            var user_name_logged_in_val = "<?php echo $user_name_logged_in ?>";
             var pagination_formul_start=(parseInt(pagination_id)-1)*10
 
 
@@ -45,7 +45,7 @@ $int_part=intval((int)$num_post_category/10);
                     url: 'load_post_options/load_post_category.php',
                     type: 'POST',
                     data: {
-                        user_name_logged_in: user_name_logged_in,
+                        user_name_logged_in_val: user_name_logged_in_val,
                         pagination_formul_start,pagination_formul_start
                     },
 
