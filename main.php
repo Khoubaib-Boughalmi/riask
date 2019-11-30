@@ -369,7 +369,7 @@ if (isset($_POST['submit_test'])) {
         $('.load_category_search_div').click(function(){
             var category_name = $(this).attr('class');
             var category_name = category_name.slice(50);
-            var user_name_logged_in_val = '<?php echo $user_name?>';
+            var user_name_logged_in_val = '<?php echo $user_name ?>';
             var count = 20;
             $.ajax({
                 url: 'load_post_options/load_post_category.php',
