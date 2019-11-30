@@ -864,24 +864,24 @@ if (isset($_POST['submit_test'])) {
                 var user_name_logged_in = '<?php echo $user_name?>'
                 var followers_list = '<?php echo $followers_list ?>'
 
-                // $.ajax({
-                //     url: 'load_post_options/load_post_friend.php',
-                //     type: 'POST',
-                //     data: {
-                //         count_post_option_friend: count_post_option_friend,
-                //         user_name_logged_in: user_name_logged_in,
-                //         followers_list: followers_list
-                //     },
+                $.ajax({
+                    url: 'load_post_options/load_post_friend.php',
+                    type: 'POST',
+                    data: {
+                        count_post_option_friend: count_post_option_friend,
+                        user_name_logged_in: user_name_logged_in,
+                        followers_list: followers_list
+                    },
 
-                //     error: function () {
-                //         alert('error');
-                //     },
-                //     success: function (data) {
-                //         $('.load_post').html(data);
-                //         // load pagination friend
+                    error: function () {
+                        alert('error');
+                    },
+                    success: function (data) {
+                        $('.load_post').html(data);
+                        // load pagination friend
                         
-                //     }
-                // })
+                    }
+                })
                 $.ajax({
                     url: 'load_post_options/load_pagination_friend.php',
                     type: 'POST',
