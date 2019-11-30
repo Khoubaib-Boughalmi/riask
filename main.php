@@ -370,7 +370,7 @@ if (isset($_POST['submit_test'])) {
             var category_name = $(this).attr('class');
             var category_name = category_name.slice(50);
             var user_name_logged_in_val = '<?php echo $user_name ?>';
-            var num_followers_list_category_post = '<?php $pagination->number_of_results_category($category_name) ?>'
+            var num_followers_list_category_post = '<?php echo $pagination->number_of_results_category($category_name) ?>'
             var pagination_formul_start = 0;
             $.ajax({
                 url: 'load_post_options/load_post_category.php',
