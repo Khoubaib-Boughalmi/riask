@@ -858,9 +858,11 @@ if (isset($_POST['submit_test'])) {
 
             if (checked_val == 'friend') {
 
-                var followers_list = '<?php echo $followers_list ?>'
                 var num_followers_list = '<?php echo $pagination->number_of_results_friend($followers_list) ?>'
                 count_post_option_friend = 10
+
+                var user_name_logged_in = '<?php echo $user_name?>'
+                var followers_list = '<?php echo $followers_list ?>'
 
                 // $.ajax({
                 //     url: 'load_post_options/load_post_friend.php',
@@ -884,7 +886,11 @@ if (isset($_POST['submit_test'])) {
                     url: 'load_post_options/load_pagination_friend.php',
                     type: 'POST',
                     data: {
-                        num_followers_list:num_followers_list
+                        num_followers_list:num_followers_list,
+                        user_name_logged_in:user_name_logged_in,
+                        followers_list:followers_list
+                        
+                        
                     },
 
                     error: function () {

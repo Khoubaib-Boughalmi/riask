@@ -7,23 +7,21 @@ require '../db.php';
 if(mysqli_connect_errno()){
 	echo 'connection failled';
 }
-$count=$_POST['count_post_option_friend'];
+$pagination_formul_start=$_POST['pagination_formul_start'];
 $user_name_logged_in=$_POST['user_name_logged_in'];
 $friend_list=$_POST['followers_list'];
 
 include_once('../like_dislike.php');
 include_once('../classes/user.php');
 $like_dislike_obj=new likes_dislikes($con,$user_name_logged_in);
-$comp = 0;
 $post="";
 	// $query_load_post=mysqli_query($con,"SELECT * FROM posts ORDER BY id DESC" );
-	$query_load_post=mysqli_query($con,"SELECT * from posts where MATCH(added_by) AGAINST('$friend_list') order by id DESC");
+	$query_load_post=mysqli_query($con,"SELECT * from posts where MATCH(added_by) AGAINST('$friend_list') order by id DESC LIMIT $pagination_formul_start,10 ");
 	$query_load_post_count=mysqli_query($con,"SELECT count(*) as count_db from posts where MATCH(added_by) AGAINST('$friend_list')");
 
 	$query_num = mysqli_num_rows($query_load_post);	
 	$query_load_post_count_array = mysqli_fetch_array($query_load_post_count);	
 
-	if ($query_num>0) {
         // if ($query_num>11) {
 		// 	echo "<script>$('.friend').css('display','block')</script>";
 
@@ -177,14 +175,9 @@ $post="";
 				</div>";
                 
 				echo $post;
-				$comp++;
 				
-			}
 		}
-		
-    }
-}else{
-	// echo "<script>$('.friend').css('opacity','0')</script>";
+	}	
 }   
 	?>
 <script>
