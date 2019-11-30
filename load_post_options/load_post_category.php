@@ -15,7 +15,6 @@ include_once('../classes/user.php');
 
 include_once('../like_dislike.php');
 $like_dislike_obj=new likes_dislikes($con,$user_name_logged_in_val);
-$comp=0;
 $post="";
     // $query_load_post=mysqli_query($con,"SELECT * FROM posts ORDER BY id DESC LIMIT $count" );	
 	// $query_load_post=mysqli_query($con,"SELECT * from posts ORDER BY id DESC");
@@ -31,7 +30,6 @@ $post="";
                 // if (strstr($categories_list,$row['category'])) {
 					$user_obj=new user($con,$row['added_by']);
 
-					if ($comp<$count) {
 
 						
 					$user_name=$row['added_by'];
@@ -180,8 +178,7 @@ $post="";
 					}
        			}
     		}
-		} 
-	// }   
+
 ?>
 <script>
 
