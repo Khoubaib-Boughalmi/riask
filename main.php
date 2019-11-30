@@ -897,20 +897,22 @@ if (isset($_POST['submit_test'])) {
                         alert('error');
                     },
                     success: function (data) {
-                        $('.pagination').html(data);
                         // load pagination friend
+                        $('.pagination').html(data);
                         $('#pagination_1').addClass('active')
                     }
                 })
             } else if (checked_val == 'related') {
+                var num_followers_list = '<?php echo $pagination->number_of_results_related($followers_list) ?>'
+                pagination_formul_start = 0
                 var categories_list = '<?php echo $categories_list ?>'
-                count_post_option_related = 10
+                var user_name_logged_in = '<?php echo $user_name?>'
 
                 $.ajax({
                     url: 'load_post_options/load_post_related.php',
                     type: 'POST',
                     data: {
-                        count_post_option_related: count_post_option_related,
+                        pagination_formul_start: pagination_formul_start,
                         user_name_logged_in: user_name_logged_in,
                         categories_list: categories_list
                     },
