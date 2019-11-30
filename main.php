@@ -907,30 +907,30 @@ if (isset($_POST['submit_test'])) {
                 pagination_formul_start = 0
                 var categories_list = '<?php echo $categories_list ?>'
                 var user_name_logged_in = '<?php echo $user_name?>'
-                // $.ajax({
-                //     url: 'load_post_options/load_post_related.php',
-                //     type: 'POST',
-                //     data: {
-                //         pagination_formul_start: pagination_formul_start,
-                //         user_name_logged_in: user_name_logged_in,
-                //         categories_list: categories_list
-                //     },
+                $.ajax({
+                    url: 'load_post_options/load_post_related.php',
+                    type: 'POST',
+                    data: {
+                        pagination_formul_start: pagination_formul_start,
+                        user_name_logged_in: user_name_logged_in,
+                        categories_list: categories_list
+                    },
 
-                //     error: function () {
-                //         alert('error');
-                //     },
-                //     success: function (data) {
-                //         $('.load_post').html(data);
+                    error: function () {
+                        alert('error');
+                    },
+                    success: function (data) {
+                        $('.load_post').html(data);
 
-                //     }
-                // })
+                    }
+                })
                 $.ajax({
                     url: 'load_post_options/load_pagination_related.php',
                     type: 'POST',
                     data: {
                         num_post_related_list:num_post_related_list,
                         user_name_logged_in:user_name_logged_in,
-                        followers_list:followers_list
+                        categories_list:categories_list
                         
                         
                     },
