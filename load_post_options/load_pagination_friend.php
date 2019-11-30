@@ -29,6 +29,7 @@ $int_part=intval((int)$num_followers_list/10);
             pagination_id = pagination_id.substr(11);
             var num_followers_list = "<?php echo $num_followers_list; ?>";
             var user_name_logged_in = "<?php echo $user_name_logged_in ?>";
+            var followers_list = "<?php echo $followers_list ?>";
             var pagination_formul_start=(parseInt(pagination_id)-1)*10
 
 
