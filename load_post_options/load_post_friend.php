@@ -33,7 +33,6 @@ $post="";
 				$user_obj=new user($con,$row['added_by']);
 
                 // if (strstr($friend_list,$row['added_by'])) {
-                    if ($comp<$count) {
 					
 			$user_name=$row['added_by'];
 			$body=$row['body'];
@@ -178,7 +177,7 @@ $post="";
 				
 		}
 	}	
-}   
+
 	?>
 <script>
 // $('.show_more_button').css('display','none')
