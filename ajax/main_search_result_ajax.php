@@ -127,7 +127,7 @@ echo "<div class='main_search_result_header'>
 
 <div class='main_search_result_content_all'>
 	
-	<div><img src='images/no_result_found.jpg' style='width:25rem;height:26rem;margin-left: 19rem;'alt=''></div>
+	<div><img src='images/no_result_found.jpg' style='width:25rem;height:26rem;margin-left: 19rem;transform: rotate(180deg);'alt=''></div>
 
 </div>
 
