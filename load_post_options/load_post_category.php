@@ -7,8 +7,9 @@ require '../db.php';
 if(mysqli_connect_errno()){
 	echo 'connection failled';
 }
-$count=$_POST['count'];
+
 $user_name_logged_in_val=$_POST['user_name_logged_in_val'];
+$pagination_formul_start=$_POST['pagination_formul_start'];
 $category_name=$_POST['category_name'];
 include_once('../classes/user.php');
 
@@ -18,7 +19,7 @@ $comp=0;
 $post="";
     // $query_load_post=mysqli_query($con,"SELECT * FROM posts ORDER BY id DESC LIMIT $count" );	
 	// $query_load_post=mysqli_query($con,"SELECT * from posts ORDER BY id DESC");
-	$query_load_post=mysqli_query($con,"SELECT * from posts where category='$category_name' order by id DESC");
+	$query_load_post=mysqli_query($con,"SELECT * from posts where category='$category_name' order by id DESC limit $pagination_formul_start,10");
 
     // $query_search=mysqli_query($this->con,"SELECT * from posts where MATCH(title,body) AGAINST('$input_val') limit 10") MATCH(category) AGAINST('$categories_list');
 
@@ -276,7 +277,7 @@ $('.bottom_post_componment_mark_post').click(function () {
             var all_tags = '';
             var post_marked_id = $(this).attr('id');
             post_marked_id = post_marked_id.slice(33);
-            var user_name_logged_in_val = '<?php echo $user_name_logged_in_val?>';
+            var user_name_logged_in = '<?php echo $user_name_logged_in_val?>';
             var body = $('.commen_css_post_span_' + post_marked_id).text();
             var title = $('.post_title_' + post_marked_id).text();
             var tags = $('.span_tag_value_' + post_marked_id).each(function () {
@@ -290,7 +291,7 @@ $('.bottom_post_componment_mark_post').click(function () {
                 // mark the post
                 $.post("ajax/mark_post.php", {
                     post_marked_id: post_marked_id,
-                    user_name_logged_in_val: user_name_logged_in_val,
+                    user_name_logged_in: user_name_logged_in,
                     body: body,
                     title: title,
                     tags: all_tags
@@ -305,7 +306,7 @@ $('.bottom_post_componment_mark_post').click(function () {
                     type: 'POST',
                     data: {
                         post_id:post_marked_id,
-                        user_name_logged_in_val: user_name_logged_in_val
+                        user_name_logged_in: user_name_logged_in
 
                     },
                     error: function () {

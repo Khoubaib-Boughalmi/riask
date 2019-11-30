@@ -370,14 +370,15 @@ if (isset($_POST['submit_test'])) {
             var category_name = $(this).attr('class');
             var category_name = category_name.slice(50);
             var user_name_logged_in_val = '<?php echo $user_name ?>';
-            var count = 20;
+            var num_followers_list_category_post = '<?php $pagination->number_of_results_category($category_name) ?>'
+            var pagination_formul_start = 0;
             $.ajax({
                 url: 'load_post_options/load_post_category.php',
                 type: 'POST',
                 data: {
                     category_name: category_name,
                     user_name_logged_in_val: user_name_logged_in_val,
-                    count: count
+                    pagination_formul_start: pagination_formul_start
                 },
                 
                 error: function () {
@@ -389,7 +390,26 @@ if (isset($_POST['submit_test'])) {
 
                 }
             })
-            
+            $.ajax({
+                    url: 'load_post_options/load_pagination_category_selection.php',
+                    type: 'POST',
+                    data: {
+                        num_followers_list_category_post:num_followers_list_category_post,
+                        user_name_logged_in:user_name_logged_in,
+                        followers_list:followers_list
+                        
+                        
+                    },
+
+                    error: function () {
+                        alert('error');
+                    },
+                    success: function (data) {
+                        // load pagination friend
+                        $('.pagination').html(data);
+                        $('#pagination_1').addClass('active')
+                    }
+                })
 
         })
         // display the slide bar
