@@ -35,7 +35,7 @@ $int_part=intval((int)$num_followers_list/10);
                 $(this).addClass('active')
                 window.scrollTo(0,0)
                 $.ajax({
-                    url: 'load_post_options/load_post_friend.php',
+                    url: 'load_post_options/load_post_all.php',
                     type: 'POST',
                     data: {
                         user_name_logged_in: user_name_logged_in,
