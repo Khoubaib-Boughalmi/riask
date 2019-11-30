@@ -196,7 +196,7 @@ url: 'like_clicked.php',
 type: 'POST',
 data:{
 like_id_val: like_id,
-user_name_logged_in_val_val: user_name_logged_in_val,
+user_name_logged_in_val: user_name_logged_in_val,
 liked_text_val:liked_text_val
 },
 async: false,
@@ -239,7 +239,7 @@ url: 'dislike_clicked.php',
 type: 'POST',
 data:{
 like_id_val: dislike_id,
-user_name_logged_in_val_val: user_name_logged_in_val,
+user_name_logged_in_val: user_name_logged_in_val,
 liked_text_val:liked_text_val
 },
 async: false,
