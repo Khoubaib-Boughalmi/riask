@@ -7,7 +7,7 @@ require '../db.php';
 if(mysqli_connect_errno()){
 	echo 'connection failled';
 }
-$count=$_POST['count_post_option_related'];
+$pagination_formul_start=$_POST['pagination_formul_start'];
 $user_name_logged_in=$_POST['user_name_logged_in'];
 $categories_list=$_POST['categories_list'];
 include_once('../classes/user.php');
@@ -18,7 +18,7 @@ $comp=0;
 $post="";
     // $query_load_post=mysqli_query($con,"SELECT * FROM posts ORDER BY id DESC LIMIT $count" );	
 	// $query_load_post=mysqli_query($con,"SELECT * from posts ORDER BY id DESC");
-	$query_load_post=mysqli_query($con,"SELECT * from posts where MATCH(category) AGAINST('$categories_list') order by id DESC");
+	$query_load_post=mysqli_query($con,"SELECT * from posts where MATCH(category) AGAINST('$categories_list') order by id DESC LIMIT $pagination_formul_start,10");
 
     // $query_search=mysqli_query($this->con,"SELECT * from posts where MATCH(title,body) AGAINST('$input_val') limit 10") MATCH(category) AGAINST('$categories_list');
 
@@ -30,7 +30,6 @@ $post="";
                 // if (strstr($categories_list,$row['category'])) {
 					$user_obj=new user($con,$row['added_by']);
 
-					if ($comp<$count) {
 
 						
 					$user_name=$row['added_by'];
@@ -179,7 +178,7 @@ $post="";
 					}
        			}
     		}
-		} 
+		
 	// }   
 ?>
 <script>

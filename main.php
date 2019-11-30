@@ -1046,22 +1046,34 @@ if (isset($_POST['submit_test'])) {
                 var pagination_id =$(this).attr('id');
                 pagination_id = pagination_id.substr(11);
 
-                alert(pagination_id)
+                var user_name_logged_in = '<?php echo $user_name?>'
+                var categories_list = '<?php echo $categories_list ?>'
+
                 $('.pagination_content').removeClass('active');
                 $(this).addClass('active')
                 var pagination_formul_start=(parseInt(pagination_id)-1)*10
-                var pagination_formul_end=(parseInt(pagination_id)-1)*10
                 window.scrollTo(0,0)
-                // $.post('ajax/pagination_main_search_ajax.php',{
-                //     // pagination_formul_start:pagination_formul_start,
-                //     pagination_formul_end:pagination_formul_end,
-                //     input_search_val:input_search_val
-                // },function(data){
-                //     $('.show_all_search_result_container').html(data)
-                // })
-                alert(pagination_formul_start)
-                alert(pagination_formul_end)
+                $.ajax({
+                    url: 'load_post_options/load_post_related.php',
+                    type: 'POST',
+                    data: {
+                        user_name_logged_in: user_name_logged_in,
+                        categories_list: categories_list,
+                        pagination_formul_start,pagination_formul_start
+                    },
+
+                    error: function () {
+                        alert('error');
+                    },
+                    success: function (data) {
+                        $('.load_post').html(data);
+                    }
+                })
             })
+
+
+
+
     </script>
 </body>
 
