@@ -6,7 +6,7 @@ $followers_list=$_POST['followers_list'];
 
 $int_part=intval((int)$num_followers_list/10);
             if ($int_part!=$num_followers_list/10) {
-                for ($i=0; $i < $int_part-1; $i++) { 
+                for ($i=0; $i < $int_part+1; $i++) { 
                     $j=$i+1;
                     if ($i == 10) {
                         break;
@@ -14,7 +14,7 @@ $int_part=intval((int)$num_followers_list/10);
                     echo "<span href='#' class='pagination_content' id='pagination_$j'>$j</span>";
                 }
             }else{
-                for ($i=0; $i < $int_part-1; $i++) { 
+                for ($i=0; $i < $int_part+1; $i++) { 
                     $j=$i+1;
                     if ($i == 10) {
                     break;
