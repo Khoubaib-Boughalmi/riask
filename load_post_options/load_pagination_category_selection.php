@@ -9,24 +9,26 @@ $category_val=$_POST['category_val'];
     $query_search_array=mysqli_fetch_array($query_search);
     $num_post_category = $query_search_array['count'];
 
-$int_part=intval((int)$num_post_category/10);
-            if ($int_part!=$num_post_category/10) {
-                for ($i=0; $i < $int_part+1; $i++) { 
-                    $j=$i+1;
-                    if ($i == 10) {
-                        break;
-                    }
-                    echo "<span href='#' class='pagination_content' id='pagination_$j'>$j</span>";
-                }
-            }else{
-                for ($i=0; $i < $int_part+1; $i++) { 
-                    $j=$i+1;
-                    if ($i == 10) {
-                    break;
-                }
-                    echo "<span href='#' class='pagination_content' id='pagination_$j'>$j</span>";
-                }
-            }?>
+// $int_part=intval((int)$num_post_category/10);
+//             if ($int_part!=$num_post_category/10) {
+//                 for ($i=0; $i < $int_part+1; $i++) { 
+//                     $j=$i+1;
+//                     if ($i == 10) {
+//                         break;
+//                     }
+//                     echo "<span href='#' class='pagination_content' id='pagination_$j'>$j</span>";
+//                 }
+//             }else{
+//                 for ($i=0; $i < $int_part+1; $i++) { 
+//                     $j=$i+1;
+//                     if ($i == 10) {
+//                     break;
+//                 }
+//                     echo "<span href='#' class='pagination_content' id='pagination_$j'>$j</span>";
+//                 }
+            // }
+            echo 'assssssssssssssssssssssss'
+            ?>
 
 <script>
         $('.pagination_content').click(function(){

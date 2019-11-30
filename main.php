@@ -393,7 +393,7 @@ if (isset($_POST['submit_test'])) {
                     url: 'load_post_options/load_pagination_category_selection.php',
                     type: 'POST',
                     data: {
-                        user_name_logged_in:user_name_logged_in,
+                        user_name_logged_in:user_name_logged_in_val,
                         followers_list:followers_list
                         
                         
