@@ -12,6 +12,16 @@
         $query_search_num=mysqli_num_rows($query_search);
         return $query_search_num;
     }
+    public function number_of_results_friend($friend_list){
+        $query_search=mysqli_query($this->con,"SELECT * from posts where MATCH(added_by) AGAINST('$friend_list')");
+        $query_search_num=mysqli_num_rows($query_search);
+        return $query_search_num;
+    }
+    public function number_of_results_all($categories_list){
+        $query_search=mysqli_query($this->con,"SELECT * from posts where MATCH(category) AGAINST('$categories_list')");
+        $query_search_num=mysqli_num_rows($query_search);
+        return $query_search_num;
+    }
 
     public function pagination($number_search_result){
         $int_part=intval((int)$number_search_result/10);
