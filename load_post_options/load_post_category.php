@@ -174,7 +174,6 @@ $post="";
 						</div>";
 						
 						echo $post;
-						$comp++;
 					}
        			}
     		}
