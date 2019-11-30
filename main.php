@@ -947,6 +947,8 @@ if (isset($_POST['submit_test'])) {
             } else if (checked_val == 'all') {
                 pagination_formul_start = 0;
                 var user_name_logged_in = '<?php echo $user_name?>'
+                var num_post_related_list = '<?php echo $pagination->number_of_results_all() ?>'
+
                 $.ajax({
                     url: 'load_post_options/load_post_all.php',
                     type: 'POST',
@@ -961,6 +963,23 @@ if (isset($_POST['submit_test'])) {
                     success: function (data) {
                         $('.load_post').html(data);
 
+                    }
+                })
+                $.ajax({
+                    url: 'load_post_options/load_pagination_all.php',
+                    type: 'POST',
+                    data: {
+                        num_post_related_list:num_post_related_list,
+                        user_name_logged_in:user_name_logged_in
+                    },
+
+                    error: function () {
+                        alert('error');
+                    },
+                    success: function (data) {
+                        // load pagination friend
+                        $('.pagination').html(data);
+                        $('#pagination_1').addClass('active')
                     }
                 })
             }

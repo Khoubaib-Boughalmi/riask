@@ -17,9 +17,10 @@
         $query_search_num=mysqli_num_rows($query_search);
         return $query_search_num;
     }
-    public function number_of_results_all($categories_list){
-        $query_search=mysqli_query($this->con,"SELECT * from posts where MATCH(category) AGAINST('$categories_list')");
-        $query_search_num=mysqli_num_rows($query_search);
+    public function number_of_results_all(){
+        $query_search=mysqli_query($this->con,"SELECT count(*) as count from posts");
+        $query_search_array=mysqli_fetch_array($query_search);
+        $query_search_num = $query_search_array['count'];
         return $query_search_num;
     }
 
