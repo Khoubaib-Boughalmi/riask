@@ -1986,6 +1986,9 @@ font-size: 3.3rem;
     font-size: bold;
 }
 
+.create-post-category{
+    width: 100%;
+}
 .active_btn_tag{
     color: #fff;  
     border-bottom: .4rem solid #3C89C4;
@@ -2044,14 +2047,14 @@ font-size: 3.3rem;
     display: grid;
     grid-row:2/3;
     grid-template-columns: 1fr min-content ; 
-    padding: 1rem 7rem 0 7rem;
+    padding: 3rem 7rem 0 7rem;
 
 
 }
 .h3-create-post,
 .h4-create-post{
     font-weight: bold;
-    margin: 0rem 1rem 2rem 1rem;
+    margin: 0rem 1rem 2rem 0rem;
 }
 .h4-create-post{
     font-size: 1.3rem;
@@ -2964,6 +2967,8 @@ cursor: pointer;
 /* styling tags from step2 registration */
 .results_container_categorys{
     width: 90%;
+    overflow-y: scroll;
+    height: 20.5rem;
 }
 .scroling-div-step2-register{
     display: none;

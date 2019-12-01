@@ -93,10 +93,7 @@ $category_obj=new category_main($con);
                     <div class="create-post-tags-title">
                         <div class="create-post-tags-title-container">
                             <div class="create-post-category">
-                                <h3 class="h3-create-post">What languages, technologies, and/or frameworks is your
-                                    question about?</h3>
-                                <h4 class="h4-create-post">Tags help the right people find and answer your question.
-                                </h4>
+                                <h3 class="h3-create-post">Select a category for the post</h3>
                                 <div class="input-create-post-div input-create-post-category">
                                 
                                     <!-- <input type="text" class="create-post-category-input" placeholder="eg: php java c#"> -->
@@ -124,15 +121,14 @@ $category_obj=new category_main($con);
 
                                     </div>
                                 </div>
-                                
-
-                            </div>
-                            <div class='results_container_categorys' style="">
+                                <div class='results_container_tags' style="">
                                     <p class="tags_create_post"></p>
                                 </div>
+
+                            </div>
+                            
                             <div class="create-post-title">
-                                <h3 class="h3-create-post">What languages, technologies, and/or frameworks is your
-                                    question about?</h3>
+                                <h3 class="h3-create-post">Tile for the</h3>
                                 <h4 class="h4-create-post">Tags help the right people find and answer your question.
                                 </h4>
                                 <div class="input-create-post-div input-create-post-title">
