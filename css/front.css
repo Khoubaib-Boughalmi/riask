@@ -2763,7 +2763,7 @@ cursor: pointer;
     .post{
         margin: 1rem;
         border-radius: 0 0 0 0;
-        height: 95vh;
+        height: 100%;
         width: 98vw;
     }
     
