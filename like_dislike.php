@@ -25,7 +25,7 @@
                     if ($row['is_like']=='yes') {
                         $value="
                         <hr>
-                        <div class='bottom-post'>
+                        <div class='bottom-post disable-select'>
                         <div class='bottom_post_like_".$post_id."'>
                         <div class='riask-reaction'>
                         <span class='like-btn'> 
@@ -68,7 +68,7 @@
                         $value="
                         <hr>
 
-                        <div class='bottom-post'>
+                        <div class='bottom-post disable-select'>
                         <div class='bottom_post_like_".$post_id."'>
                         <div class='riask-reaction'>
                         <span class='like-btn'> 
@@ -112,7 +112,7 @@
             $value="
             <hr>
 
-            <div class='bottom-post'>
+            <div class='bottom-post disable-select'>
                         <div class='bottom_post_like_".$post_id."'>
                         <div class='riask-reaction'>
                         <span class='like-btn'> 

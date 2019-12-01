@@ -107,15 +107,19 @@
             <div class="close_log_in">
                 +
             </div>
-            <div class="log_in_pop_up_body">
-                <span>Lorem ipsum dolor sit amet </span>
+            <div class="log_in_pop_up_body ">
+                <div class="upper_log_in_pop_up">
+                <span class="log_in_mobile_text">log-in E-Mail </span>
                 <br>
-                <input type="text" class="email_pop_up">
+                <input type="text" class="log_in_pop_up_mobile email_pop_up" style="margin-bottom: 3rem;" placeholder="Email">
                 <br>
-                <span>Lorem ipsum dolor sit amet </span>
+                <span class="log_in_mobile_text">log-in Password </span>
                 <br>
-                <input type="text" class="password_pop_up">
-                <a href="#" class="log_in_button_pop_up">Log in</a>
+                <input type="password" class="log_in_pop_up_mobile password_pop_up" placeholder="Password">
+                </div>
+                <div class="lower_log_in_pop_up">
+                    <a href="#" class="log_in_button_pop_up" id="button-popup">Log in</a>
+                </div>
             </div>
         </div>
     </div>
@@ -277,6 +281,8 @@ include('log_in.php');
                         // $('.email_pop_up').val(data)
                     }else{
                         simpleNotify.notify('Email or password are incorrect', 'danger'); 
+                        $('.email_pop_up').css('border', '.2rem solid red');
+                        $('.password_pop_up').css('border', '.2rem solid red');
                     }
                 }
             })

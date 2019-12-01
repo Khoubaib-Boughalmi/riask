@@ -87,12 +87,12 @@ if(isset($_POST['title'])){
                 echo "<div class='main_search_result_content' style='padding: .5rem;border: 0.1rem solid #929292;margin: 0.2rem 0rem;'>
                 <div class='main_search_result_reactions' style=''>
                     <div class='main_search_result_like'>
-                        <i class='fas fa-flag' style='font-size:1.8rem ;color:#0080008c;'></i>
-                        <span style='font-size:1.4rem; margin-left:.4rem;font-weight:bold'>".$title_name['likes']."</span>
+                    <img src='images/green_flag.png' style='height: 1.8rem;' alt=''>
+                    <span style='font-size:1.4rem; margin-left:.4rem;font-weight:bold'>".$title_name['likes']."</span>
                     </div>
                     <div class='main_search_result_like'>
-                        <i class='fas fa-flag' style='font-size:1.8rem;color:#ff000094'></i>
-                        <span style='font-size:1.6rem; margin-left:.4rem;font-weight:bold'>".$title_name['dislikes']."</span>
+                    <img src='images/red_flag.png' style='height: 1.8rem;' alt=''>
+                    <span style='font-size:1.6rem; margin-left:.4rem;font-weight:bold'>".$title_name['dislikes']."</span>
                     </div>
                 </div>
                 <a href='show_comments.php?post_id=".$title_name['id']."' style='padding: .8rem 0rem;'>

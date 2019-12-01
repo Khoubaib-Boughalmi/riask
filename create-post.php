@@ -74,7 +74,7 @@ $category_obj=new category_main($con);
 
             </div>
 
-            <div class="post post-create-post" >
+            <div class="post post-create-post" style="padding:0 1rem;">
                 <div class="post-header-create-post"style='padding:2rem;border-radius: 3.2rem;background-color:#fff;display: block;'>
                 <div class="post-header-create-post_header">
                     <h2 style='padding: .5rem'>Create a Post</h2>
@@ -105,10 +105,8 @@ $category_obj=new category_main($con);
 
                             </div>
                             <div class="create-post-tags">
-                                <h3 class="h3-create-post">What languages, technologies, and/or frameworks is your
-                                    question about?</h3>
-                                <h4 class="h4-create-post">Tags help the right people find and answer your question.
-                                </h4>
+                                <h3 class="h3-create-post">Tags</h3>
+                                <h4 class="h4-create-post">If no tag appear select <b style="color:rgba(0, 0, 0, 0.781)">Another tag</b></h4>
                                 <div class="input-create-post-div input-create-post-tags">
                                     <div class="top_tag">
                                         <!-- <span class='tags_value'>php<span class="delete_tag">+</span></span>
@@ -128,9 +126,8 @@ $category_obj=new category_main($con);
                             </div>
                             
                             <div class="create-post-title">
-                                <h3 class="h3-create-post">Tile for the</h3>
-                                <h4 class="h4-create-post">Tags help the right people find and answer your question.
-                                </h4>
+                                <h3 class="h3-create-post">Title for the Post</h3>
+                                <h4 class="h4-create-post">Title is the first thing other users will read so make it simple and clear</h4>
                                 <div class="input-create-post-div input-create-post-title">
 
                                     <input type="text" class="create-post-title-input" placeholder="eg: php java c#">
