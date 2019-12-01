@@ -85,8 +85,8 @@ $category_obj=new category_main($con);
                     <img src="images/icons/title.png" class="botton1 active_btn_tag" style='width:3rem;height:3rem;margin: 0 2.5rem;' alt="">
 
                         <!-- <i class="fas fa-tag btn-create-post " style="font-size:2.5rem;"></i> -->
-                        <i class="fas fa-file-alt btn-create-post botton2" style="font-size:2.5rem;"></i>
-                        <i class="fas fa-binoculars btn-create-post botton3" style="font-size:2.5rem;"></i>
+                        <img src="images/icons/blue_pen.png" class="botton2" style='width:3rem;height:3rem;margin: 0 2.5rem;' alt="">
+                        <img src="images/icons/binocular.png" class="botton3" style='width:3rem;height:3rem;margin: 0 2.5rem;' alt="">
                     </div>
                 </div>
                 <div class="ajax-insert">
@@ -104,9 +104,7 @@ $category_obj=new category_main($con);
                                    <?php $category_obj->load_category_create_post() ?>
                                     </select>
                                 </div>
-                                <div class='results_container_categorys' style="">
-                                    <p class="tags_create_post"></p>
-                                </div>
+                                
 
                             </div>
                             <div class="create-post-tags">
@@ -129,7 +127,9 @@ $category_obj=new category_main($con);
                                 
 
                             </div>
-
+                            <div class='results_container_categorys' style="">
+                                    <p class="tags_create_post"></p>
+                                </div>
                             <div class="create-post-title">
                                 <h3 class="h3-create-post">What languages, technologies, and/or frameworks is your
                                     question about?</h3>
