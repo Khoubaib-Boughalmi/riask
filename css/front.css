@@ -2749,7 +2749,9 @@ cursor: pointer;
 }
 
 @media(max-width: 900px){
-    
+    #button-back-top{
+        display: none;
+    }
     .side{
         display: none;
     }
