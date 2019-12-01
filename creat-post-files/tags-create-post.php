@@ -1,10 +1,25 @@
 <?php
+include "../db.php";
 if (isset($_POST['user_logged_in'])) {
     $user_name = $_POST['user_logged_in'];
 }
+include('../classes/load_category_main.php');
+$category_obj=new category_main($con);
 ?>
  <div class="create-post-tags-title">
                         <div class="create-post-tags-title-container">
+                            <div class="create-post-category">
+                                <h3 class="h3-create-post">Select a category for the post</h3>
+                                <div class="input-create-post-div input-create-post-category">
+                                
+                                    <!-- <input type="text" class="create-post-category-input" placeholder="eg: php java c#"> -->
+                                    <select name="select_category" value='Select Category'class="select_category" id="">
+                                   <?php $category_obj->load_category_create_post() ?>
+                                    </select>
+                                </div>
+                                
+
+                            </div>
                             <div class="create-post-tags">
                                 <h3 class="h3-create-post">What languages, technologies, and/or frameworks is your
                                     question about?</h3>
@@ -27,10 +42,9 @@ if (isset($_POST['user_logged_in'])) {
                                 </div>
 
                             </div>
-
+                            
                             <div class="create-post-title">
-                                <h3 class="h3-create-post">What languages, technologies, and/or frameworks is your
-                                    question about?</h3>
+                                <h3 class="h3-create-post">Tile for the</h3>
                                 <h4 class="h4-create-post">Tags help the right people find and answer your question.
                                 </h4>
                                 <div class="input-create-post-div input-create-post-title">
