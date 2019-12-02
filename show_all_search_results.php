@@ -4,10 +4,7 @@ define("header",true);
 include('header.php');
 
 ?>
-<link rel="stylesheet" type="text/css" href="css/reaction.css" />
 
-<!-- jQuery for Reaction system -->
-<script type="text/javascript" src="js/reaction.js"></script>
 <?php
 include('classes/notification.php');
 include('classes/user.php');

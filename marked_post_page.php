@@ -339,9 +339,13 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
 
         // show main search result 
         $(".input-search-main").keyup(function () {
+
+            var keycode = (event.keyCode ? event.keyCode : event.which);
             var input_search_val = $(this).val()
             if (input_search_val.length > 0) {
-
+                if (keycode == '13') {
+                    window.location.replace("show_all_search_results.php?q=" + input_search_val);
+                }
                 $.post("ajax/main_search_result_ajax.php", {
 
                     input_search_val: input_search_val

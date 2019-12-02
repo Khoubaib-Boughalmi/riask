@@ -295,9 +295,7 @@ document.querySelector('.user-name-menu').addEventListener("click", function() {
 	document.querySelector('.slide-menu-wraper').style.display = "block";
 });
 
-document.querySelector('.slide-menu-header-close').addEventListener("click", function() {
-	document.querySelector('.slide-menu-wraper').style.display = "none";
-});
+
 
     // like button clicked
     $(".reaction-like").click(function (event) {
@@ -595,8 +593,11 @@ $('.followed_list').click(function () {
         // show main search result 
         $(".input-search-main").keyup(function () {
             var input_search_val = $(this).val()
+                var keycode = (event.keyCode ? event.keyCode : event.which);
             if (input_search_val.length > 0) {
-
+                if (keycode == '13') {
+                    window.location.replace("show_all_search_results.php?q=" + input_search_val);
+                }
                 $.post("ajax/main_search_result_ajax.php", {
 
                     input_search_val: input_search_val

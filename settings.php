@@ -83,7 +83,7 @@ $category = new category($con,$user_name);
                         class="setting_change_value_span">Change</span></div>
             </div>
             <div class="setting_grid toggel_conatiner_setting_page toggel_conatiner_setting_page_name">
-                <div class="setting_name">Name</div>
+                <div class="setting_name setting_name_toggle">Name</div>
                 <div class="setting_value">
                     <form method="POST">
                         <table>
@@ -116,11 +116,11 @@ $category = new category($con,$user_name);
             <hr>
             <div class="setting_grid change_bio">
                 <div class="setting_name">Bio</div>
-                <div class="setting_value">Lorem, ipsum dolor sit amet consectetur bloom...</div>
+                <div class="setting_value"><?php echo $user_obj->get_bio()?></div>
                 <div class="setting_change_value_bio"><span class="setting_change_value_span">Change</span></div>
             </div>
             <div class="setting_grid toggel_conatiner_setting_page toggel_conatiner_setting_page_bio">
-                <div class="setting_name">Bio</div>
+                <div class="setting_name setting_name_toggle">Bio</div>
                 <div class="setting_value">
                     <form method="POST">
                         <table>
@@ -144,14 +144,14 @@ $category = new category($con,$user_name);
                 <div class="setting_change_value"></div>
 
             </div>
-            <hr>
+            <!-- <hr>
             <div class="setting_grid change_profile_pic">
                 <div class="setting_name">Profile picture</div>
                 <div class="setting_value" style="text-align: center;"></div>
                 <div class="setting_change_value_profile_pic"><span class="setting_change_value_span">Change</span>
                 </div>
-            </div>
-            <div class="setting_grid toggel_conatiner_setting_page toggel_conatiner_setting_page_profile_pic">
+            </div> -->
+            <!-- <div class="setting_grid toggel_conatiner_setting_page toggel_conatiner_setting_page_profile_pic">
                 <div class="setting_name">Profile picture</div>
                 <div class="setting_value">
                     <form method="POST" enctype='multipart/form-data'>
@@ -163,9 +163,9 @@ $category = new category($con,$user_name);
                             <tr class="submit_setting_page">
                                 <td class="submit_setting_page_content">
                                     <input type="submit" name="submit_setting_value_profile_pic"
-                                        class="submit_setting_value_profile_pic" value="Submit">
+                                        class="submit_setting_value_profile_pic" value="Submit"> -->
                                     <!-- <span class="submit_setting_value_profile_pic">Submit</span> -->
-                                    <span class="cancel_setting_change_value_profile_pic"
+                                    <!-- <span class="cancel_setting_change_value_profile_pic"
                                         style='margin:0rem .5rem'>Cancel</span>
                                 </td>
                             </tr>
@@ -178,7 +178,7 @@ $category = new category($con,$user_name);
                         style="display:none;width: 10rem;height: 10rem;margin-bottom: 2rem;" />
                 </div>
 
-            </div>
+            </div> -->
             <hr>
             <div class="setting_grid change_category">
                 <div class="setting_name">Change category</div>
@@ -187,7 +187,7 @@ $category = new category($con,$user_name);
                 </div>
             </div>
             <div class="setting_grid toggel_conatiner_setting_page toggel_conatiner_setting_page_category">
-                <div class="setting_name">Change category</div>
+                <div class="setting_name setting_name_toggle">Change category</div>
                 <div class="setting_value setting_value_category">
                     <form method="POST">
                         <table>
@@ -245,7 +245,7 @@ $category = new category($con,$user_name);
                 <div class="setting_change_value_email"><span class="setting_change_value_span">Change</span></div>
             </div>
             <div class="setting_grid toggel_conatiner_setting_page toggel_conatiner_setting_page_email">
-                <div class="setting_name">Email</div>
+                <div class="setting_name setting_name_toggle">Email</div>
                 <div class="setting_value">
                     <form method="POST">
                         <table>
@@ -285,7 +285,7 @@ $category = new category($con,$user_name);
                 <div class="setting_change_value_password"><span class="setting_change_value_span">Change</span></div>
             </div>
             <div class="setting_grid toggel_conatiner_setting_page toggel_conatiner_setting_page_password">
-                <div class="setting_name">Password</div>
+                <div class="setting_name setting_name_toggle">Password</div>
                 <div class="setting_value">
                     <form method="POST">
                         <table>
@@ -377,12 +377,7 @@ $category = new category($con,$user_name);
                             <p>Marked Post</p>
                         </a>
                     </div>
-                    <div class="slide-menu-option followed_list">
-                        <img src="images/icons/users.png" alt="" style="height:2.1rem;">
-                        <a href="#">
-                            <p>followed list</p>
-                        </a>
-                    </div>
+                    
                     <hr>
                     <div class="slide-menu-option">
                         <a href="#">
@@ -483,7 +478,7 @@ function compressImage($source, $destination, $quality) {
 
         })
 
-        var x = window.matchMedia("(max-width: 1100px)")
+        var x = window.matchMedia("(max-width: 900px)")
         display_slide(x) // Call listener function at run time
         x.addListener(display_slide) // Attach listener function on state changes
 
@@ -549,8 +544,11 @@ function compressImage($source, $destination, $quality) {
         // show main search result 
         $(".input-search-main").keyup(function () {
             var input_search_val = $(this).val()
+                var keycode = (event.keyCode ? event.keyCode : event.which);
             if (input_search_val.length > 0) {
-
+                if (keycode == '13') {
+                    window.location.replace("show_all_search_results.php?q=" + input_search_val);
+                }
                 $.post("ajax/main_search_result_ajax.php", {
 
                     input_search_val: input_search_val
