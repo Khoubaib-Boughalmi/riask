@@ -353,12 +353,12 @@ if (isset($_POST['submit_test'])) {
 
         </div>
     </div>
-    <div class="log_in_pop_up_container">
-        <div class="log_in_pop_up" style="padding : 5rem 0rem">
+    <div class="load_post_category_pop_up_container">
+        <div class="load_post_category_pop_up">
             <div class="close_log_in">
                 +
             </div>
-            <div class="log_in_pop_up_body" style="padding : 1rem 0rem">
+            <div class="load_post_category_pop_up_body" style="padding : 1rem 0rem;width:100%;top:45%;">
                 <!-- function load category -->
                 <?php $category_obj->load_category() ?>
                 
@@ -385,7 +385,7 @@ if (isset($_POST['submit_test'])) {
                 },
                 success: function (data) {
                     $('.load_post').html(data);
-                    $('.log_in_pop_up_container').css('display','none')
+                    $('.load_post_category_pop_up_container').css('display','none')
 
                 }
             })
@@ -630,12 +630,12 @@ if (isset($_POST['submit_test'])) {
 
         // show more categoties
         $('.show_more_categories').click(function () {
-            document.querySelector('.log_in_pop_up_container').style.display = 'block'
+            document.querySelector('.load_post_category_pop_up_container').style.display = 'block'
 
         })
 
         $('.close_log_in').click(function () {
-            document.querySelector('.log_in_pop_up_container').style.display = 'none'
+            document.querySelector('.load_post_category_pop_up_container').style.display = 'none'
 
         })
 

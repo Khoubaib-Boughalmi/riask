@@ -2,6 +2,7 @@
 
 define("header",true);
 include('header.php');
+
 ?>
 <link rel="stylesheet" type="text/css" href="css/reaction.css" />
 
@@ -9,6 +10,8 @@ include('header.php');
 <script type="text/javascript" src="js/reaction.js"></script>
 <?php
 include('classes/notification.php');
+include('classes/user.php');
+
 if (isset($_SESSION['user_name_log_in'])) {
     $user_name=$_SESSION['user_name_log_in'];
     $query_log_in=mysqli_query($con,"SELECT * FROM users WHERE user_name ='$user_name'");
@@ -16,6 +19,7 @@ if (isset($_SESSION['user_name_log_in'])) {
 }else{
     header('location: index.php');
 }
+$user_obj=new user($con,$user_name);
 $notification_obj=new notification($con,$user_name);
 
 if (isset($_GET['q'])) {
@@ -41,22 +45,25 @@ $num_notification=$notification_obj->num_notification($user_name);
 
 <body style="background-color: #DAE0E6;overflow-x: hidden;">
     <section class="main-page-main">
-        <!--start navigation bar -->
-        <nav id="main-nav">
+<!--start navigation bar -->
+<nav id="main-nav">
             <div class="user-main">
-                <a class="user-name-menu" href="profile.php?user_profile=<?php echo $row['user_name']?>"><i class="fas fa-bars" style="font-size:1.8rem;"></i><span
-                        class="user-name-menu-span"><?php echo $row['first_name'].' ';echo $row['last_name']?></span></a>
+                <a class="user-name-menu"><img src="images/icons/bars.png" style="height:2rem;width:2rem;" alt=""><span
+                        class="user-name-menu-span"><?php echo $user_obj->get_first_last_name() ?></span></a>
             </div>
             </div>
             </div>
             <div class="search-main">
-                <i class=" fas fa-search" style="color:#222222;"></i>
-                <input type="text" class="input-search input-search-main" placeholder="Search">
+                <img src="images/icons/loop.png" alt="" class="fa-search" style='height:2.1rem;'>
+
+                <!-- <i class=" fas fa-search" style="color:#222222;"></i> -->
+                <input type="text" class="input-search input-search-main" placeholder="Search for a question">
             </div>
             <div class="navigation-icons">
-                <a href="#"><i class="fas fa-home"></i></a>
+                <a href="main.php" class="home_icon"><img src="images/icons/home.png" alt=""></a>
                 <div class="notification_bell notification_container ">
-                    <i class="far fa-bell dropbtn" onclick='drop_down_notification_function()'></i>
+                    <img src="images/icons/notification.png" alt="" class="fa-bell dropbtn"
+                        style="width:4rem;height:4rem;" onclick="drop_down_notification_function()">
                     <!-- show the number of notification -->
                     <?php 
                 if ($num_notification>0) {
@@ -73,9 +80,9 @@ $num_notification=$notification_obj->num_notification($user_name);
 
                     </div>
                 </div>
-                <a href="#" class="fa-cog"><i class="fas fa-cog"></i></a>
-                <a href="#"><i class="fas fa-pencil-alt"></i></a>
-                <a href="classes/log_out.php" class="fa-sign-out-alt"><i class="fas fa-sign-out-alt"></i></a>
+                <a href="settings.php" class="fa-cog"><img src="images/icons/settings.png" alt=""></a>
+                <a href="create-post.php"><img src="images/icons/pencil.png" alt=""></a>
+                <a href="classes/log_out.php" class="fa-sign-out-alt"><img src="images/icons/logout.png" alt=""></a>
             </div>
 
         </nav>
@@ -165,68 +172,72 @@ $num_notification=$notification_obj->num_notification($user_name);
             </div>
     </section>
     <div class="empty-main-content2"></div>
+    
     <div class="slide-menu-wraper">
         <div class="slide-menu">
+        <div class="close_slide">
+                +
+            </div>
             <div class="slide-menu-header">
                 <h3>Account info</h3>
-                <a href="#">
-                    <p class="slide-menu-header-close">+</p>
-                </a>
+                
             </div>
             <hr>
-            <div class="slide-menu-profile-pic" style="display:flex;">
-                <a href="<?php echo 'profile.php?user_profile='.$row['user_name']?>"><img src="<?php echo $row['profile_pic'] ?>" alt="" style="width:4.3rem;"></a>
-                <a href="<?php echo 'profile.php?user_profile='.$row['user_name']?>">
-                    <p><?php echo $row['first_name'].' ';echo $row['last_name']?></p>
+            <div class="slide-menu-profile-pic">
+                <img src="<?php echo $user_obj->get_profile_pic()?>" alt="" style="width:4.3rem;">
+                <a href="">
+                    <p><?php echo $user_obj->get_first_last_name() ?></p>
                 </a>
             </div>
             <div class="number-posts">
-                <p><?php echo $row['followed_by'].' '.'Follower';?></p>
+                <p><?php echo $user_obj->followers()?> Follower</p>
             </div>
             <hr>
 
             <div class="slide-menu-options">
-            <div class="slide-menu-option">
-                    <a href="profile.php?user_profile=<?php echo $row['user_name'] ?>">
-                    <i class="fas fa-user" style="font-size:1.8rem;"></i>
-                        <p>My Profile</p>
+                <div class="slide-menu-option">
+                    <img src="images/icons/home.png" alt=""  style="height:2.1rem;">
+                    <a
+                        href="main.php">
+                        <p>Home Page</p>
                     </a>
                 </div>
                 <div class="slide-menu-option">
-                    <a href="marked_post_page.php?user_profile=<?php echo $row['user_name'] ?>">
-                    <i class="far fa-bookmark" style="font-size:1.8rem;"></i>
-                        <p>Marked post</p>
+                    <img src="images/icons/user.png" alt=""  style="height:2.1rem;">
+                    <a
+                        href="profile.php?user_profile=<?php echo $user_name?>">
+                        <p>Profile Page</p>
                     </a>
                 </div>
-             
+                
                 <div class="slide-menu-option">
-                <a href="create-post.php">
-                    <i class="fas fa-pencil-alt" style="font-size:1.8rem;"></i>
-                        <p>Create A Post</p>
+                    <a href="create-post.php">
+                    <img src="images/icons/pencil.png" alt=""  style="height:2.1rem;">
+                    <p>Create A Post</p>
                     </a>
                 </div>
                 <div class="slide-menu-option">
                     <a href="settings.php">
-                    <i class="fas fa-cog" style="font-size:1.8rem;"></i>
-                        <p>Settings</p>
+                        <img src="images/icons/settings.png" alt=""  style="height:2.1rem;">
+                        <p>User Settings</p>
                     </a>
                 </div>
-               
+                <div class="slide-menu-option">
+                    <img src="images/icons/mark.png" alt=""  style="height:2.1rem;">
+                    <a
+                    href="marked_post_page.php?user_profile=<?php echo $user_name?>">
+                    <p>Marked Post</p>
+                    </a>
+                </div>
                 <hr>
                 <div class="slide-menu-option">
-                    <a href="#">
-                        <p style="margin-left:0;">Settings And Privacy</p>
-                    </a>
+                    <a href="#"><p style="margin-left:0;">Settings And Privacy</p></a>
                 </div>
                 <div class="slide-menu-option">
-                    <a href="#">
-                        <p style="margin-left:0;">Help</p>
-                    </a>
-                </div>
+                <a href="#"><p style="margin-left:0;">Help</p></a>
+            </div>
                 <div class="slide-menu-option">
-                    <a href="classes/log_out.php">
-                        <p style="margin-left:0;">Log Out</p>
-                    </a>
+                <a href="#"><p style="margin-left:0;">Log Out</p></a>
                 </div>
             </div>
         </div>
@@ -248,13 +259,29 @@ $num_notification=$notification_obj->num_notification($user_name);
 </div>
 
        <script>
+           // display the slide bar
+function display_slide(x) {
+            if (x.matches) { // If media query matches
+                $('.user-name-menu').click(function () {
+                    $('.slide-menu').css('display', 'block')
+                })
+            }
+        }
+
+        $('.close_slide').click(function () {
+            $('.slide-menu').css('display', 'none')
+
+        })
+
+        var x = window.matchMedia("(max-width: 1100px)")
+        display_slide(x) // Call listener function at run time
+        x.addListener(display_slide) // Attach listener function on state changes
+
         document.querySelector('.user-name-menu').addEventListener("click", function () {
                 document.querySelector('.slide-menu-wraper').style.display = "block";
             });
 
-            document.querySelector('.slide-menu-header-close').addEventListener("click", function () {
-                document.querySelector('.slide-menu-wraper').style.display = "none";
-            });
+           
 
 
         //notification script

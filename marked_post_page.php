@@ -133,7 +133,7 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
                             <div class=""><a href="#">&copy;2019 Riask</a></div>
                         </div>
                     </div>
-                    <div class="botton-footer"><a href="#">created with &#10084; by khoubaib Boughalmi</a></div>
+                    <div class="botton-footer"><a href="#">created with &#128151; by khoubaib Boughalmi</a></div>
 
                 </div>
             </div>

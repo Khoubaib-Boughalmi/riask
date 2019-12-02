@@ -85,11 +85,11 @@ if ($query_search_num>0) {
         <div class='show_all_search_result_content'>
         <div class='show_all_search_result_reactions'>
             <div class='show_all_search_result_reaction_like'>
-                <i class='fas fa-flag' style='font-size:1.8rem ;color:#0080008c;'></i>
-                <span style='font-size:1.4rem; margin-left:.4rem;font-weight:bold'>".$query_search_array['likes']."</span>
+            <img src='images/green_flag.png' style='height: 2.2rem;'>
+            <span style='font-size:1.4rem; margin-left:.4rem;font-weight:bold'>".$query_search_array['likes']."</span>
             </div>
             <div class='show_all_search_result_reaction_dislike'>
-                <i class='fas fa-flag' style='font-size:1.8rem ;color:#FF6B6B;'></i>
+            <img src='images/red_flag.png' style='height: 2.2rem;'>
                 <span style='font-size:1.4rem; margin-left:.4rem;font-weight:bold'>".$query_search_array['dislikes']."</span>
             </div>
         </div>

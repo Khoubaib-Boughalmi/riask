@@ -10,8 +10,7 @@ if (isset($_POST['user_logged_in'])) {
         you answer your question.</h4>
 
     <div id="trumbowyg-demo"></div>
-    <h4 class="h4-create-post" style="margin-top:2rem;">Your description gives people the information they need to help
-        you answer your question.</h4>
+   
     
     <div class="next_privious_botton_flex">
         <span class="next_previous_button_create_post previous_botton_description">Previous</span>

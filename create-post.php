@@ -74,7 +74,7 @@ $category_obj=new category_main($con);
 
             </div>
 
-            <div class="post post-create-post" style="padding:0 1rem;">
+            <div class="post post-create-post" style="padding:0 .5rem;">
                 <div class="post-header-create-post"style='padding:2rem;border-radius: 3.2rem;background-color:#fff;display: block;'>
                 <div class="post-header-create-post_header">
                     <h2 style='padding: .5rem'>Create a Post</h2>
@@ -176,7 +176,7 @@ $category_obj=new category_main($con);
                             <div class=""><a href="#">&copy;2019 Riask</a></div>
                         </div>
                     </div>
-                    <div class="botton-footer"><a href="#">created with &#10084; by khoubaib Boughalmi</a></div>
+                    <div class="botton-footer"><a href="#">created with &#128151; by khoubaib Boughalmi</a></div>
 
                 </div>
             </div>
@@ -186,11 +186,12 @@ $category_obj=new category_main($con);
 
     <div class="slide-menu-wraper">
         <div class="slide-menu">
+        <div class="close_slide">
+                +
+            </div>
             <div class="slide-menu-header">
                 <h3>Account info</h3>
-                <a href="#">
-                    <p class="slide-menu-header-close">+</p>
-                </a>
+                
             </div>
             <hr>
             <div class="slide-menu-profile-pic">
@@ -263,9 +264,7 @@ $category_obj=new category_main($con);
             document.querySelector('.slide-menu-wraper').style.display = "block";
         });
 
-        document.querySelector('.slide-menu-header-close').addEventListener("click", function () {
-            document.querySelector('.slide-menu-wraper').style.display = "none";
-        });
+       
 
         $(document).ready(function () {
             $('.next_botton_tags_title').click(function () {
@@ -454,6 +453,23 @@ $category_obj=new category_main($con);
             }
 
         })
+// display the slide bar
+function display_slide(x) {
+            if (x.matches) { // If media query matches
+                $('.user-name-menu').click(function () {
+                    $('.slide-menu').css('display', 'block')
+                })
+            }
+        }
+
+        $('.close_slide').click(function () {
+            $('.slide-menu').css('display', 'none')
+
+        })
+
+        var x = window.matchMedia("(max-width: 1100px)")
+        display_slide(x) // Call listener function at run time
+        x.addListener(display_slide) // Attach listener function on state changes
 
     </script>
 
