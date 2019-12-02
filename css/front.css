@@ -492,7 +492,6 @@ font-weight: bold;
 	background-color: #ffffffbf;
 	text-align: center;
     position: relative;
-    overflow: hidden;
 }
 
 .no_post_yet{
@@ -2812,6 +2811,9 @@ cursor: pointer;
     }
     .close_slide{
         display: block;
+    }
+    .slide-menu-option_options{
+        display: none;
     }
     
 }

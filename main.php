@@ -1066,7 +1066,10 @@ if (isset($_POST['submit_test'])) {
             })
 
 
-
+            // toggle category load post
+            $('.slide-menu-option_loading_option').click(function(){
+                $('.slide-menu-option_options').css('display','block');
+            })
 
     </script>
 </body>

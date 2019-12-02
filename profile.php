@@ -104,7 +104,7 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
                             <p class="user_profile_info_name">@<?php echo $user_profile?></p>
                         </div>
                   
-                            <p class="user_profile_info_posts_followers">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias dolorem modi culpa. Facere dignissimos labore sit nisi fugit quaerat sapiente.</p>
+                            <p class="user_profile_info_posts_followers"><?php echo $user_obj->get_bio()?></p>
                     </div>
                     <?php
                      if($user_profile==$user_name_logged_in){
