@@ -60,7 +60,7 @@ $pdp = $user_obj->get_profile_pic();
             </div>
             </div>
             <div class="search-main">
-            <img src="images/icons/loop.png" alt="" class="fa-search" style='height:2.1rem;'>
+                <img src="images/icons/loop.png" alt="" class="fa-search" style='height:2.1rem;'>
 
                 <!-- <i class=" fas fa-search" style="color:#222222;"></i> -->
                 <input type="text" class="input-search input-search-main" placeholder="Search for a question">
@@ -68,7 +68,8 @@ $pdp = $user_obj->get_profile_pic();
             <div class="navigation-icons">
                 <a href="main.php" class="home_icon"><img src="images/icons/home.png" alt=""></a>
                 <div class="notification_bell notification_container ">
-                    <img src="images/icons/notification.png" alt="" class="fa-bell dropbtn" style="width:4rem;height:4rem;" onclick="drop_down_notification_function()">
+                    <img src="images/icons/notification.png" alt="" class="fa-bell dropbtn"
+                        style="width:4rem;height:4rem;" onclick="drop_down_notification_function()">
                     <!-- show the number of notification -->
                     <?php 
                 if ($num_notification>0) {
@@ -103,10 +104,10 @@ $pdp = $user_obj->get_profile_pic();
                 <div class='post-header-create-post'>
                     <h2>Show Comments</h2>
                     <div class='create-post-botton-btn'>
-                        <img src="images/icons/comment.png" alt="" style="height:3rem;margin-right: 2rem;">   
-                        </div>
+                        <img src="images/icons/comment.png" alt="" style="height:3rem;margin-right: 2rem;">
                     </div>
-                    <hr style='margin:.5rem 3rem'>
+                </div>
+                <hr style='margin:.5rem 3rem'>
                 <div class='post_show_comments_container' style='border-radius:.2rem;padding:0rem 3rem;'>
                     <script></script>
                     <?php
@@ -215,8 +216,8 @@ $pdp = $user_obj->get_profile_pic();
                                         $post.="</div>
                                         </div>
                                     </div>
-                                    <h4 class='post_title post_title_".$row['id']."'>".$row['title']."</h4>
-                                    <span class='commen_css_post_span commen_css_post_span_".$row['id']."'>$body </span>
+                                    <h4 class='post_title post_title_".$row['id']." hyphens'>".$row['title']."</h4>
+                                    <span class='commen_css_post_span commen_css_post_span_".$row['id']." hyphens'>$body </span>
                                     <div class='show_all_search_result_content_tags'>";
                                     $str = $row['post_tags'];
                                     $arr=explode(',',$str);
@@ -511,15 +512,16 @@ $pdp = $user_obj->get_profile_pic();
             </div>
     </section>
     <div class='empty-main-content2'></div>
-                     
+
 
     <div class='slide-menu-wraper'>
         <div class='slide-menu'>
+            <div class="close_slide">
+                +
+            </div>
             <div class='slide-menu-header'>
                 <h3>Account info</h3>
-                <a href='#'>
-                    <p class='slide-menu-header-close'>+</p>
-                </a>
+
             </div>
             <hr>
             <?php 
@@ -537,37 +539,34 @@ $pdp = $user_obj->get_profile_pic();
             <hr>
 
             <div class='slide-menu-options'>
-            <div class="slide-menu-option">
-                    <img src="images/icons/home.png" alt=""  style="height:2.1rem;">
-                    <a
-                        href="main.php">
+                <div class="slide-menu-option">
+                    <img src="images/icons/home.png" alt="" style="height:2.1rem;">
+                    <a href="main.php">
                         <p>Home Page</p>
                     </a>
                 </div>
                 <div class="slide-menu-option">
-                    <img src="images/icons/user.png" alt=""  style="height:2.1rem;">
-                    <a
-                        href="profile.php?user_profile=<?php echo $user_name?>">
+                    <img src="images/icons/user.png" alt="" style="height:2.1rem;">
+                    <a href="profile.php?user_profile=<?php echo $user_name?>">
                         <p>Profile Page</p>
                     </a>
                 </div>
-                
+
                 <div class="slide-menu-option">
                     <a href="create-post.php">
-                    <img src="images/icons/pencil.png" alt=""  style="height:2.1rem;">
+                        <img src="images/icons/pencil.png" alt="" style="height:2.1rem;">
                         <p>Create A Post</p>
                     </a>
                 </div>
                 <div class="slide-menu-option">
                     <a href="settings.php">
-                    <img src="images/icons/settings.png" alt=""  style="height:2.1rem;">
+                        <img src="images/icons/settings.png" alt="" style="height:2.1rem;">
                         <p>User Settings</p>
                     </a>
                 </div>
                 <div class="slide-menu-option">
-                    <img src="images/icons/mark.png" alt=""  style="height:2.1rem;">
-                    <a
-                        href="marked_post_page.php?user_profile=<?php echo $user_name?>">
+                    <img src="images/icons/mark.png" alt="" style="height:2.1rem;">
+                    <a href="marked_post_page.php?user_profile=<?php echo $user_name?>">
                         <p>Marked Post</p>
                     </a>
                 </div>
@@ -590,13 +589,40 @@ $pdp = $user_obj->get_profile_pic();
             </div>
         </div>
     </div>
+    <div class="main_search_container">
+
+        <div class="main_search_box_container">
+
+            <div class="main_search_result_header">
+                <span>Search results</span>
+            </div>
+            <div class="main_search_result_content_all">
+
+            </div>
+
+        </div>
+    </div>
     <script>
+        // display the slide bar
+        function display_slide(x) {
+            if (x.matches) { // If media query matches
+                $('.user-name-menu').click(function () {
+                    $('.slide-menu').css('display', 'block')
+                })
+            }
+        }
+
+        $('.close_slide').click(function () {
+            $('.slide-menu').css('display', 'none')
+
+        })
+
+        var x = window.matchMedia("(max-width: 1100px)")
+        display_slide(x) // Call listener function at run time
+        x.addListener(display_slide) // Attach listener function on state changes
+
         document.querySelector('.user-name-menu').addEventListener('click', function () {
             document.querySelector('.slide-menu-wraper').style.display = 'block';
-        });
-
-        document.querySelector('.slide-menu-header-close').addEventListener('click', function () {
-            document.querySelector('.slide-menu-wraper').style.display = 'none';
         });
 
         $('#trumbowyg-demo').trumbowyg({
@@ -612,6 +638,48 @@ $pdp = $user_obj->get_profile_pic();
                 ['removeformat'],
             ]
         });
+
+        // show and hide main search results 
+        $('.input-search-main').focus(function () {
+            $('.main_search_container').css('display', 'block')
+            $('.main_search_result_content_all').html(
+                '<div><img src="images/search_loop.jpg" style="width:25rem;height:26rem;margin-left: 19rem;"alt=""></div>'
+            )
+
+        })
+        // transition: background-color .3s;
+        $('.main-content').click(function () {
+            $('.main_search_container').css('display', 'none')
+
+        })
+
+        // show main search result 
+        $(".input-search-main").keyup(function () {
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            var input_search_val = $(this).val()
+
+            if (input_search_val.length > 0) {
+
+                if (keycode == '13') {
+                    window.location.replace("show_all_search_results.php?q=" + input_search_val);
+                }
+                $.post("ajax/main_search_result_ajax.php", {
+
+                    input_search_val: input_search_val
+
+
+                }, function (data) {
+                    $('.main_search_box_container').html(data)
+                })
+            } else {
+                $('.main_search_result_content_all').html(
+                    '<div><img src="images/search_loop.jpg" style="width:25rem;height:26rem;margin-left: 19rem;"alt=""></div>'
+                )
+
+            }
+
+        })
+
 
         // to reload page when user click back button
 
@@ -749,7 +817,7 @@ $pdp = $user_obj->get_profile_pic();
                     url: 'ajax/remove_marked_post_ajax.php',
                     type: 'POST',
                     data: {
-                        post_id:post_marked_id,
+                        post_id: post_marked_id,
                         user_name_logged_in: user_name_logged_in
 
                     },
@@ -757,7 +825,7 @@ $pdp = $user_obj->get_profile_pic();
                         alert('error');
                     },
                     success: function (data) {
-                        $('#bottom_post_componment_mark_post_'+post_marked_id).html(data)
+                        $('#bottom_post_componment_mark_post_' + post_marked_id).html(data)
                     }
                 })
             }
@@ -812,8 +880,8 @@ $pdp = $user_obj->get_profile_pic();
             })
         })
 
-    // toggle comment ellipsis
-    $('.ellipsis_img_comment').click(function () {
+        // toggle comment ellipsis
+        $('.ellipsis_img_comment').click(function () {
             var ellipsis_id = $(this).attr('class');
             var ellipsis_id = ellipsis_id.slice(42);
             $(".dropdown-content_more_option_comment_" + ellipsis_id).toggle("show");
@@ -862,7 +930,7 @@ $pdp = $user_obj->get_profile_pic();
             // alert(post_id)
         })
 
-    // submit comment
+        // submit comment
         $('.submit_comment').click(function () {
             var post_id = $(this).attr('class');
             var post_id = post_id.slice(30);
@@ -878,7 +946,7 @@ $pdp = $user_obj->get_profile_pic();
                     body: body,
                     user_to: user_to,
                     user_name_logged_in: user_name_logged_in,
-                    pdp:pdp
+                    pdp: pdp
                 },
                 error: function () {
                     alert('error');
@@ -895,7 +963,7 @@ $pdp = $user_obj->get_profile_pic();
 
             // alert(post_id.match(/[^/]*/i)[0])
         })
-        
+
         // dropdown menu notification
 
         function drop_down_notification_function() {

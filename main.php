@@ -225,7 +225,7 @@ if (isset($_POST['submit_test'])) {
 
             <div class="slide-menu-options">
                 <div class="slide-menu-option slide-menu-option_loading_option" style="margin-bottom:0.5rem">
-                    <span><i class="fas fa-sort-amount-down" style="font-size:1.8rem;"></i>
+                    <span><img src="images/icons/sort.png" alt="" style="width:2.4rem"></i>
                         <p>Sort post by</p>
                     </span>
                 </div>
@@ -1068,7 +1068,7 @@ if (isset($_POST['submit_test'])) {
 
             // toggle category load post
             $('.slide-menu-option_loading_option').click(function(){
-                $('.slide-menu-option_options').css('display','block');
+                $('.slide-menu-option_options').toggle('show');
             })
 
     </script>

@@ -1974,6 +1974,7 @@ font-size: 3.3rem;
 .slide-menu-option_loading_option span{
     display: flex;
     cursor: pointer;
+    align-items: center;
 }
 .slide-menu-option_options{
     margin-left: 8rem;
@@ -2489,9 +2490,14 @@ font-size: 1.3rem;
 .pagination {
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
+    margin: 2rem;
+    flex-wrap: wrap;
 }
-  
+.hyphens {
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+}
   .pagination span {
     float: left;
     padding: 6px 12px;
@@ -2784,8 +2790,8 @@ cursor: pointer;
 
 @media(max-width: 1100px){
     .slide_menu_setting{
-        width: 25rem !important;
-        display: block !important;
+        width: 20rem;
+        display: block ;
     }
     .slide-menu{
         display: none;
@@ -2811,14 +2817,20 @@ cursor: pointer;
     }
     .close_slide{
         display: block;
+        z-index: 99;
     }
     .slide-menu-option_options{
         display: none;
     }
     
 }
-
+@media(max-width: 1000px){
+    .main_search_box_container{
+        display: none;
+    }
+}
 @media(max-width: 900px){
+
     #button-back-top{
         display: none;
     }
@@ -2837,6 +2849,7 @@ cursor: pointer;
         border-radius: 0 0 0 0;
         height: 100%;
         width: 98vw;
+        min-height: 90vh;
     }
     
     .user-main{
@@ -2855,7 +2868,7 @@ cursor: pointer;
     }
 
     .slide_menu_setting{
-        display: none !important;
+        display: none;
     }
     .setting_container {
         left: 50%;
@@ -3210,7 +3223,7 @@ cursor: pointer;
 }
 
 .trumbowyg-button-pane{
-    z-index: 1 !important;
+    z-index: 0 !important;
 }
 .next_botton_create_post{
     float: right;
@@ -3273,6 +3286,9 @@ cursor: pointer;
   cursor: pointer;
 }
 
+.display{
+    display: block !important;
+}
 /* Create a custom radio button */
 .checkmark_show_post_option {
     position: absolute;

@@ -150,7 +150,7 @@ class post{
                                         </div>
                                     </div>
                                     <h4 class='post_title post_title_".$row['id']."'>".$row['title']."</h4>
-                                    <span class='commen_css_post_span commen_css_post_span_".$row['id']."'>$body </span>
+                                    <span class='commen_css_post_span commen_css_post_span_".$row['id']." hyphens'>$body </span>
                                     <div class='show_all_search_result_content_tags'>";
                                     $str = $row['post_tags'];
                                     $arr=explode(',',$str);

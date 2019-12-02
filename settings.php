@@ -326,11 +326,11 @@ $category = new category($con,$user_name);
 
         <div class="slide-menu-wraper">
             <div class="slide-menu slide_menu_setting">
+                <div class="close_slide">
+            +
+        </div>
                 <div class="slide-menu-header">
                     <h3>Account info</h3>
-                    <a href="#">
-                        <p class="slide-menu-header-close">+</p>
-                    </a>
                 </div>
                 <hr>
                 <div class="slide-menu-profile-pic">
@@ -469,6 +469,24 @@ function compressImage($source, $destination, $quality) {
 
 
     <script>
+        // display the slide bar
+        function display_slide(x) {
+            if (x.matches) { // If media query matches
+                $('.user-name-menu').click(function () {
+                    $('.slide-menu').css('display', 'block')
+                })
+            }
+        }
+
+        $('.close_slide').click(function () {
+            $('.slide-menu').css('display', 'none')
+
+        })
+
+        var x = window.matchMedia("(max-width: 1100px)")
+        display_slide(x) // Call listener function at run time
+        x.addListener(display_slide) // Attach listener function on state changes
+
         //notification script
         // dropdown menu notification
 
