@@ -150,18 +150,13 @@ $category_obj=new category_main($con);
 
             <!-- **************** -->
             <div class="side" style="margin-right:0rem;">
-                <div class="tags" style="font-size:3rem;margin-top:0">
-                    <div class="header-side">
-                        <h3 class="header-side-text">Tags that you may like</h3>
-                    </div>
-                    <div class="tags-friend-content" style="display flex;flex-direction:column;">
-                        <div class="tags_name"><img src="images/phpimg.png" alt=""><a href="#">PHP</a></div>
-                        <hr>
-                        <div class="tags_name"><img src="images/java.webp" alt=""><a href="#">Java</a></div>
-                        <hr>
-                        <div class="tags_name"><img src="images/cpp.png" alt=""><a href="#">Cpp</a></div>
-                    </div>
-                    <div class="span-button"> <a href="#">Show more</a></div>
+            <div class='ads first-ads' style="margin-top:0rem">
+                    <span> advertisment</span>
+                </div>
+                
+               
+                <div class='ads second-ads'>
+                    <span> advertisment</span>
                 </div>
                 <div class="footer-create-post">
                     <div class="top-footer">

@@ -445,51 +445,12 @@ $pdp = $user_obj->get_profile_pic();
             </div>
             <!-- **************** -->
             <div class='side'>
-                <div class='tags' style='font-size:3rem;margin-top:0rem'>
-                    <div class='header-side'>
-                        <h3 class='header-side-text'>Tags that you may like</h3>
-                    </div>
-                    <div class='tags-friend-content' style='display flex;flex-direction:column;'>
-                        <div class=''><img src='images/phpimg.png' alt=''><a href='#'>PHP</a></div>
-                        <hr>
-                        <div class=''><img src='images/java.webp' alt=''><a href='#'>Java</a></div>
-                        <hr>
-                        <div class=''><img src='images/cpp.png' alt=''><a href='#'>Cpp</a></div>
-                    </div>
-                    <div class='span-button'> <a href='#'>Show more</a></div>
-                </div>
-                <div class='ads first-ads'>
+              
+                <div class='ads first-ads' style="margin-top:0rem">
                     <span> advertisment</span>
                 </div>
-                <div class='follow-friend'>
-                    <div class='header-side'>
-                        <h3 class='header-side-text'>Search for a friend</h3>
-                    </div>
-                    <div class='tags-friend-content' style='display flex;flex-direction:column;'>
-                        <div class='input-friends-content'><input class='input-search input-search-friend-content'
-                                type='text' placeholder='search here'></div>
-                        <div class=''><img src='images/phpimg.png' alt=''><a href='#'>PHP</a></div>
-                        <hr>
-                        <div class=''><img src='images/java.webp' alt=''><a href='#'>Java</a></div>
-                        <hr>
-                        <div class=''><img src='images/cpp.png' alt=''><a href='#'>Cpp</a></div>
-                        <hr>
-                        <div class=''><img src='images/java.webp' alt=''><a href='#'>Java</a></div>
-                        <hr>
-                        <div class=''><img src='images/phpimg.png' alt=''><a href='#'>PHP</a></div>
-                        <hr>
-                    </div>
-                    <div class='span-button'> <a href='#'>Show more</a></div>
-                </div>
-                <!-- <div class='create-post-side'>
-                     <div class='header-side header-side-create-post-side'>
-                         <h3 class='header-side-text header-side-text-create-post'>Share something with the world</h3>
-                     </div>
-                     <div class='button-create-post'>
-                         <div class='span-button span-button-create-post'> <a href='#'>Create a Post</a></div>
-                     </div>
-                 </div> -->
-
+                
+               
                 <div class='ads second-ads'>
                     <span> advertisment</span>
                 </div>
@@ -506,7 +467,7 @@ $pdp = $user_obj->get_profile_pic();
                             <div class=''><a href='#'>&copy;2019 Riask</a></div>
                         </div>
                     </div>
-                    <div class='botton-footer'><a href='#'>created with &#10084; by khoubaib Boughalmi</a></div>
+                    <div class="botton-footer"><a href="#">created with &#128151; by khoubaib Boughalmi</a></div>
 
                 </div>
             </div>
