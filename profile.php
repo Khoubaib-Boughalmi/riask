@@ -553,6 +553,33 @@ $('.followed_list').click(function () {
             var ellipsis_id = ellipsis_id.slice(36);
             $(".dropdown-content_more_option_post_" + ellipsis_id).toggle("show");
         })
+
+        // report a post
+        $('.report_post_div').click(function () {
+            var report_id = $(this).attr('class');
+            var report_id = report_id.slice(32);
+            var user_name_logged_in = '<?php echo $user_name?>';
+            $.ajax({
+                url: 'ajax/report_post_ajax.php',
+                type: 'POST',
+                data: {
+                    report_id: report_id,
+                    user_name_logged_in: user_name_logged_in
+                },
+                error: function () {
+                    alert('error');
+                },
+                success: function (data) {
+                    $('.post_' + report_id).hide('slow', function () {
+                        $('.post_' + report_id).remove();
+                        simpleNotify.notify(
+                            'We will check this post as soon as possible &#128522;',
+                            'attention');
+
+                    });
+                }
+            })
+        })
         // delete a post
     
         $('.delete_post_div').click(function () {
