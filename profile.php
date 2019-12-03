@@ -558,7 +558,7 @@ $('.followed_list').click(function () {
         $('.report_post_div').click(function () {
             var report_id = $(this).attr('class');
             var report_id = report_id.slice(32);
-            var user_name_logged_in = '<?php echo $user_name?>';
+            var user_name_logged_in = '<?php echo $user_profile?>';
             $.ajax({
                 url: 'ajax/report_post_ajax.php',
                 type: 'POST',
