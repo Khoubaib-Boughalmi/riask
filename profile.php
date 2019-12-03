@@ -86,7 +86,7 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
             <hr style="margin: 0rem 3rem;">
             <div class="profile_post_container">
                 <?php
-            $user_profile_obj->load_profile_posts($con,$user_name_logged_in,$user_profile);
+            $user_profile_obj->load_profile_posts($con,$user_profile,$user_name_logged_in);
             ?>
             </div>
         </div>
