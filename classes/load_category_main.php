@@ -6,7 +6,7 @@ class category_main{
 
     public function __construct($con){
         $this->con=$con;
-        $this->query=mysqli_query($con,'SELECT * from category RAND()');
+        $this->query=mysqli_query($con,'SELECT * from category order by RAND()');
     }
     public function load_category(){
         $query = $this->query;
