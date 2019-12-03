@@ -165,7 +165,6 @@ if (isset($_POST['submit_test'])) {
                         <h3 class="header-side-text">Tags that you may like</h3>
                     </div>
                     <div class="tags-friend-content" style="display flex;flex-direction:column;">
-                    <?php $category_obj->load_category_side()?>
                     </div>
                     <div class="span-button show_more_categories"> <a href="#">Show more</a></div>
                 </div>
