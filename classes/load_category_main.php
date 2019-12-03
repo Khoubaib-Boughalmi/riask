@@ -9,7 +9,7 @@ class category_main{
         $this->query=mysqli_query($con,'SELECT * from category order by RAND()');
     }
     public function load_category(){
-        $query = $this->query;
+        $query=mysqli_query($this->con,'SELECT * from category order by RAND()');
         while ($query_array=mysqli_fetch_array($query)) { 
             echo "<div class='load_category_search_div load_category_search_div_".$query_array['category_val']."'>
             <div class='category_image_div_search_category'>
