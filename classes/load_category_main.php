@@ -36,7 +36,7 @@ class category_main{
     }
     
     public function load_category_side(){
-        $query_side = $this->query_side;
+        $query_side = $this->query;
         $count = 0;
         while (($query_array_side=mysqli_fetch_array($query_side)) && ($count<4) ) { 
             echo "<div class='load_category_search_div load_category_search_div_".$query_array_side['category_val']."'>
