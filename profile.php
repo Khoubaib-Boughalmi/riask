@@ -5,7 +5,7 @@ if (isset($_GET['user_profile'])) {
     $user_profile=$_GET['user_profile'];
 }
 include('classes/profile_posts.php');
-$user_profile_obj=new profile_posts($con,$user_profile);
+$user_profile_obj=new profile_posts($con,$user_name_logged_in,$user_profile);
 
 if (isset($_SESSION['user_name_log_in'])) {
     $user_name_logged_in=$_SESSION['user_name_log_in'];
@@ -86,7 +86,7 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
             <hr style="margin: 0rem 3rem;">
             <div class="profile_post_container">
                 <?php
-            $user_profile_obj->load_profile_posts($con,$user_name_logged_in);
+            $user_profile_obj->load_profile_posts($con,$user_name_logged_in,$user_profile);
             ?>
             </div>
         </div>

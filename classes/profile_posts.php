@@ -1,18 +1,19 @@
 
 <?php
 class profile_posts{
-	public function __construct($con,$user_name){
+	public function __construct($con,$user_name_logged_in,$user_profile){
 		$this->con = $con;
-		$this->user_name = $user_name;
+		$this->user_name_logged_in = $user_name_logged_in;
+		$this->user_profile = $user_profile;
 	}
-	public function load_profile_posts($con,$user_name_logged_in){
+	public function load_profile_posts($con,$user_profile,$user_name_logged_in){
 		
 		include_once('like_dislike.php');
 
 		$like_dislike_obj=new likes_dislikes($con,$user_name_logged_in);
 	
 $post="";
-$query_load_post=mysqli_query($con,"SELECT * FROM posts WHERE added_by ='$user_name_logged_in'ORDER BY id DESC" );	
+$query_load_post=mysqli_query($con,"SELECT * FROM posts WHERE added_by ='$user_profile'ORDER BY id DESC" );	
 if (mysqli_num_rows($query_load_post)>0) {
 	while($row=mysqli_fetch_array($query_load_post)){
 		if (strstr($row['repored_by'],$user_name_logged_in)==false) {
