@@ -53,7 +53,7 @@ $category = new category($con);
                 <br>
 
             </form>
-            <div class="label" style="flex-direction: column;height: 12rem;">
+            <div class="label" style="flex-direction: column;height: 14rem;">
                 <label id="conditions" for="">En appuyant sur Inscription, vous acceptez nos <a href="#">Condition</a>,
                     notre Politique d’utilisation des données et notre Politique
                     d’utilisation des <a href="#">cookies</a>. Vous recevrez peut-être des notifications par texto
