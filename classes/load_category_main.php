@@ -36,15 +36,15 @@ class category_main{
     }
     
     public function load_category_side(){
-        $query = $this->query;
+        $query_side = $this->query_side;
         $count = 0;
-        while (($query_array=mysqli_fetch_array($query)) && ($count<4) ) { 
-            echo "<div class='load_category_search_div load_category_search_div_".$query_array['category_val']."'>
+        while (($query_array_side=mysqli_fetch_array($query_side)) && ($count<4) ) { 
+            echo "<div class='load_category_search_div load_category_search_div_".$query_array_side['category_val']."'>
             <div class='category_image_div_search_category'>
-                <img src='".$query_array['category_img']."' alt='' srcset=''class='category_image_search_category'>
+                <img src='".$query_array_side['category_img']."' alt='' srcset=''class='category_image_search_category'>
             </div>
             <div class='category_name_commen_categorys'>
-                <div class='category_name'><span>".$query_array['category_val']."</span></div>
+                <div class='category_name'><span>".$query_array_side['category_val']."</span></div>
 
             </div>
 
