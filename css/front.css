@@ -342,6 +342,7 @@ body {
 /* step2 select check box */
 .dropdown_step2 {
     position: relative;
+    margin-right:1rem ;
 }
 
 .dropdown_step2 dd,
@@ -372,7 +373,7 @@ body {
     outline: none;
     font-size: 12px;
     margin: 0;
-    margin-left: 2rem;
+    margin-left: .5rem;
     border: .2rem solid;
 }
 
@@ -3121,8 +3122,8 @@ body {
         font-weight: bold;
     }
 
-    .fa-bars {
-        font-size: 1.6rem;
+    .modal-contents_step_2{
+        width: 55%;
     }
 
 }
@@ -3155,6 +3156,9 @@ body {
     .user-main a {
         margin: 0 1rem 0px 1rem;
     }
+    .modal-contents_step_2{
+        width: 65%;
+    }
 }
 
 @media(max-width: 530px) {
@@ -3169,11 +3173,15 @@ body {
         top: 58%;
         left: 50%;
     }
+    .modal-contents_step_2{
+        width: 100%;
+        height: 100%;
+    }
 }
 
 @media(max-width: 600px) {
     .review_create_post {
-        padding: 3rem 2rem;
+        padding: 3rem 1.5rem;
     }
     .span-icon-name {
         display: none;

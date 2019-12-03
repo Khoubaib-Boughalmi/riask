@@ -19,7 +19,7 @@ $category = new category($con);
                 <span>Let's make the world a better place</span>
                 <q>Your time is limited, so don't waste it living someone else's life</q>
             </div> -->
-            <form action="" method="POST" style="padding:2rem 5rem">
+            <form action="" method="POST" style="padding:2rem 2rem">
                 <label id="header-register2" for="">Let us know more about you</label>
                 <br>
                 <label id="paragraph-register2" for="">What do you want us to call you</label>
