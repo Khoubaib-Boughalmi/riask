@@ -243,7 +243,7 @@ $category_obj=new category_main($con);
                 <a href="#"><p style="margin-left:0;">Help</p></a>
             </div>
                 <div class="slide-menu-option">
-                <a href="#"><p style="margin-left:0;">Log Out</p></a>
+                <a href="classes/log_out.php"><p style="margin-left:0;">Log Out</p></a>
                 </div>
             </div>
         </div>

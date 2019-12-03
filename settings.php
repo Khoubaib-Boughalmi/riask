@@ -390,7 +390,7 @@ $category = new category($con,$user_name);
                         </a>
                     </div>
                     <div class="slide-menu-option">
-                        <a href="#">
+                        <a href="classes/log_out.php">
                             <p style="margin-left:0;">Log Out</p>
                         </a>
                     </div>
