@@ -253,7 +253,19 @@ $category_obj=new category_main($con);
             </div>
         </div>
     </div>
+    <div class="main_search_container">
 
+<div class="main_search_box_container">
+
+    <div class="main_search_result_header">
+        <span>Search results</span>
+    </div>
+    <div class="main_search_result_content_all">
+
+    </div>
+
+</div>
+</div>
     <script>
     //     $("select.select_category").change(function(){
     //     var selected_category_val = $("select.select_category").children("option:selected").val();
@@ -453,6 +465,45 @@ $category_obj=new category_main($con);
             }
 
         })
+         // show and hide main search results 
+         $('.input-search-main').focus(function () {
+            $('.main_search_container').css('display', 'block')
+            $('.main_search_result_content_all').html(
+                '<div><img src="images/search_loop.jpg" style="width:25rem;height:26rem;margin-left: 19rem;"alt=""></div>'
+            )
+
+        })
+        // transition: background-color .3s;
+        $('.main-content').click(function () {
+            $('.main_search_container').css('display', 'none')
+
+        })
+
+        // show main search result 
+        $(".input-search-main").keyup(function () {
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            var input_search_val = $(this).val()
+            if (input_search_val.length > 0) {
+                if (keycode == '13') {
+                    window.location.replace("show_all_search_results.php?q=" + input_search_val);
+                }
+                $.post("ajax/main_search_result_ajax.php", {
+
+                    input_search_val: input_search_val
+
+
+                }, function (data) {
+                    $('.main_search_box_container').html(data)
+                })
+            } else {
+                $('.main_search_result_content_all').html(
+                    '<div><img src="images/search_loop.jpg" style="width:25rem;height:26rem;margin-left: 19rem;"alt=""></div>'
+                )
+
+            }
+
+        })
+
 // display the slide bar
 function display_slide(x) {
             if (x.matches) { // If media query matches

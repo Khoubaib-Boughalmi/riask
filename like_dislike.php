@@ -39,12 +39,12 @@
 			                </span>
                          </div>
                         </div>
-                        <div class='bottom_post_componment_like_' id='comment_".$post_id."'>
+                        <a class='bottom_post_componment_like_' id='comment_".$post_id."' href='show_comments.php?post_id=$post_id/$title'>
                             <form action='show_comments.php?post_id=$post_id/$title' method='POST' style='display: flex;' >
                                 <img src='images/icons/comment.png' alt=''  style='height:2.1rem';>
                                 <input type='submit' type='submit' value='Comments' name='span-icon-name'class='span-icon-name'>
                                 </form>
-                            </div>
+                            </a>
                             <div class='bottom_post_componment_mark_post' id='bottom_post_componment_mark_post_".$post_id."'>";
                             if ($marked_post_num==0) {
                                 $value.= "<img src='images/icons/mark.png' alt=''  style='height:2.1rem';>

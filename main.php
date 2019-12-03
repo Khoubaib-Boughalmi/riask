@@ -871,6 +871,7 @@ if (isset($_POST['submit_test'])) {
 
         // show results after user clickeck on done
         $('.slide-menu-options_content_done').click(function () {
+            $('.slide-menu').css('display','none')
             window.scrollTo(0, 0);
 
             var user_name_logged_in = '<?php echo $user_name?>'
