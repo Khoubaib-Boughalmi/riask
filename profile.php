@@ -5,14 +5,14 @@ if (isset($_GET['user_profile'])) {
     $user_profile=$_GET['user_profile'];
 }
 include('classes/profile_posts.php');
-$user_profile_obj=new profile_posts($con,$user_name_logged_in,$user_profile);
 
 if (isset($_SESSION['user_name_log_in'])) {
     $user_name_logged_in=$_SESSION['user_name_log_in'];
-
+    
 }else{
     header('location: index.php');
 }
+$user_profile_obj=new profile_posts($con,$user_name_logged_in,$user_profile);
 include('classes/user.php');
 $user_obj=new user($con,$user_name_logged_in);
 
