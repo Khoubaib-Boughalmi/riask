@@ -776,6 +776,7 @@ body {
     margin: 1rem 0 1rem 0;
     font-size: 1.5rem;
     font-weight: bold;
+    border: .1rem solid grey;
 }
 
 .input-register2:focus {
