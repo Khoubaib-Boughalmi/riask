@@ -3172,6 +3172,9 @@ body {
 }
 
 @media(max-width: 600px) {
+    .review_create_post {
+        padding: 3rem 2rem;
+    }
     .span-icon-name {
         display: none;
     }
