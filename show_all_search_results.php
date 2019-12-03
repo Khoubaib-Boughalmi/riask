@@ -27,18 +27,7 @@ $search_obj=new main_search_result($con,$q_val);
 $num_notification=$notification_obj->num_notification($user_name);
 
 ?>
-<script>
-    $(document).ready(function () {
-        var count_posts = 10;
-        $('.show_more_button').click(function () {
-            count_posts = count_posts + 10;
-            $('.load_post').load("load_posts.php", {
-                count_posts: count_posts
-            })
 
-        });
-    })
-</script>
 
 <body style="background-color: #DAE0E6;overflow-x: hidden;">
     <section class="main-page-main">
@@ -338,8 +327,12 @@ function display_slide(x) {
             // show main search result 
             $(".input-search-main").keyup(function () {
                 var input_search_val = $(this).val()
-                if (input_search_val.length > 0) {
+                var keycode = (event.keyCode ? event.keyCode : event.which);
 
+                if (input_search_val.length > 0) {
+                    if (keycode == '13') {
+                    window.location.replace("show_all_search_results.php?q=" + input_search_val);
+                }
                     $.post("ajax/main_search_result_ajax.php", {
 
                         input_search_val: input_search_val

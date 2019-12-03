@@ -699,9 +699,9 @@ if (isset($_POST['submit_test'])) {
 
         })
 
-                var keycode = (event.keyCode ? event.keyCode : event.which);
         // show main search result 
         $(".input-search-main").keyup(function () {
+            var keycode = (event.keyCode ? event.keyCode : event.which);
             var input_search_val = $(this).val()
             if (input_search_val.length > 0) {
                 if (keycode == '13') {
