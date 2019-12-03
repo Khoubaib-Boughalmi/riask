@@ -1741,6 +1741,7 @@ body {
     display: grid;
     grid-template-columns: min-content 1fr min-content;
     padding-top: 1rem;
+    cursor: pointer;
 }
 
 .load_category_search_div:hover {
