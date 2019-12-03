@@ -10,7 +10,7 @@ class profile_posts{
 		
 		include_once('like_dislike.php');
 
-		$like_dislike_obj=new likes_dislikes($con,$user_name_logged_in);
+		$like_dislike_obj=new likes_dislikes($con,$user_profile);
 	
 $post="";
 $query_load_post=mysqli_query($con,"SELECT * FROM posts WHERE added_by ='$user_profile'ORDER BY id DESC" );	
