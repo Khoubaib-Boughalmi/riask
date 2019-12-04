@@ -113,7 +113,7 @@ $category_obj=new category_main($con);
                         <span class='tags_value'>java<span class="delete_tag">+</span></span>-->
 
                                     </div>
-                                    <input type="text" class="create-post-tags-input" placeholder="eg: php java c#">
+                                    <input type="text" class="create-post-tags-input" placeholder="eg: Anatomy, Histolgy, Physiology ... ">
                                     <div class="bottom_tag">
                                         <span class="delete_tag">+</span>
 
@@ -130,7 +130,7 @@ $category_obj=new category_main($con);
                                 <h4 class="h4-create-post">Title is the first thing other users will read so make it simple and clear</h4>
                                 <div class="input-create-post-div input-create-post-title">
 
-                                    <input type="text" class="create-post-title-input" placeholder="eg: php java c#">
+                                    <input type="text" class="create-post-title-input" placeholder="eg: what's the diffrence ...">
                                     <div class="bottom_tag">
                                         <span class="delete_title">+</span>
 

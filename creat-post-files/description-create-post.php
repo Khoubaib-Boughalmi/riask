@@ -5,9 +5,7 @@ if (isset($_POST['user_logged_in'])) {
 ?>
 <!-- Create the editor container -->
 <div class="description-create-post">
-    <h3 class="h3-create-post">What languages, technologies, and/or frameworks is your question about?</h3>
-    <h4 class="h4-create-post" style="margin-top:2rem;">Your description gives people the information they need to help
-        you answer your question.</h4>
+    <h3 class="h3-create-post">Give more details about your question</h3>
 
     <div id="trumbowyg-demo"></div>
    

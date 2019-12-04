@@ -10,9 +10,8 @@ $timezone=  date_default_timezone_set('Africa/Tunis');
 
 ?>
 <div class='review_create_post'>
-<h3 class="h3-create-post">What languages, technologies, and/or frameworks is your question about?</h3>
-    <h4 class="h4-create-post" style="margin-top:2rem;">Your description gives people the information they need to help
-        you answer your question.</h4>
+<h3 class="h3-create-post">This is a preview about your post</h3>
+    <h4 class="h4-create-post" style="margin-top:2rem;">Click Finish to post</h4>
                             <div class='top-post'>
                             <div class='post-body'>
                                 <div class='post_empty'>
@@ -49,13 +48,12 @@ $timezone=  date_default_timezone_set('Africa/Tunis');
                             <div class='likes_dislikes_display_number' id='likes_dislikes_display_number_0' style="margin:2rem;">
                             <div class='like-stat'> <!-- Like statistic container-->
 							<span class='like-emo'> <!-- like emotions container -->
-                            <i class='fas fa-flag' style='font-size:1.8rem ;color:#0080008c;'></i>
-							</span>
+                            <img src="images/green_flag.png" style="width:1.8rem;" alt="">							</span>
 							<span class='like-details'>0</span>
                             </div>
                             <div class='like-stat' style='margin-left:2rem;'> <!-- Like statistic container-->
 							<span class='dislike-emo'> <!-- like emotions container -->
-                            <i class='fas fa-flag' style='font-size:1.8rem ;color:#FF6B6B;'></i>
+                            <img src="images/red_flag.png" style="width:1.8rem;" alt="">							</span>
 							</span>
 							<span class='like-details'>0</span>
                             </div>
