@@ -80,7 +80,7 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
         
         <div class="post post-create-post">
             <div class="post-header-create-post">
-                <h2>My Profile</h2>
+                <h2>Profile</h2>
                 <img src="images/icons/user.png"  style='width:3rem;height:3rem;margin: 0 2.5rem;' alt="">
             </div>
             <hr style="margin: 0rem 3rem;">
@@ -222,7 +222,7 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
                 </div>
                 <div class="slide-menu-option followed_list">
                 <img src="images/icons/users.png" alt=""  style="height:2.1rem;">
-                    <a href="#"><p>followed list</p></a>
+                    <a href="#"><p>Followed list</p></a>
                 </div>
                 <hr>
                 <div class="slide-menu-option">

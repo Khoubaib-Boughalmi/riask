@@ -103,7 +103,7 @@ $pdp = $user_obj->get_profile_pic();
             <div class='post post-create-post' style=''>
                 <div class='post-header-create-post'>
                     <h2>Show Comments</h2>
-                    <div class='create-post-botton-btn'>
+                    <div class='create-post-botton-btn' style="padding: 0">
                         <img src="images/icons/comment.png" alt="" style="height:3rem;margin-right: 2rem;">
                     </div>
                 </div>
@@ -262,14 +262,9 @@ $pdp = $user_obj->get_profile_pic();
                 <div class='show_answeares' style='padding:3rem;'>
                     <h2 id='reply-show-replies'>Reply</h2>
                     <!-- Create the editor container -->
-                    <div class='description-create-post'>
-                        <h3 class='h3-create-post'>Tell us more about your question</h3>
-                        <h4 class='h4-create-post' style='margin-top:2rem;'>Your description gives people the
-                            information they need to help you answer your question.</h4>
-
+                    
                         <div id="trumbowyg-demo"></div>
 
-                    </div>
                     <div class="reply_button_div">
                         <input type='submit' class='submit_comment submit_comment_<?php echo $post_id?>' value='Reply'
                             style='margin:1rem 0 2rem 0rem;'>
@@ -277,7 +272,7 @@ $pdp = $user_obj->get_profile_pic();
 
                     <!-- Initialize Quill editor -->
 
-                    <h2>Answears</h2>
+                    <h2>Answers</h2>
                     <div class="answear_container">
                         <?php
                          $post='';

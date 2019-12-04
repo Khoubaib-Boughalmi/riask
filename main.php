@@ -133,9 +133,9 @@ if (isset($_POST['submit_test'])) {
                     <div class="header-side">
                         <h3 class="header-side-text">Search for a friend</h3>
                     </div>
-                    <div class="tags-friend-content" style="display flex;flex-direction:column;">
+                    <div class="tags-friend-content" style="display: flex;flex-direction:column;">
                         <div class="input-friends-content"><input class="input-search input-search-friend-content"
-                                type="text" placeholder="search here"></div>
+                                type="text" placeholder="Search here"></div>
                         <!-- <div class=""><img src="images/phpimg.png" alt=""><a href="#">PHP</a></div>
                         <hr>
                         <div class=""><img src="images/java.webp" alt=""><a href="#">Java</a></div>
@@ -162,9 +162,9 @@ if (isset($_POST['submit_test'])) {
 
                 <div class="tags" style="font-size:3rem;">
                     <div class="header-side">
-                        <h3 class="header-side-text">Tags that you may like</h3>
+                        <h3 class="header-side-text">More categories</h3>
                     </div>
-                    <div class="tags-friend-content" style="display flex;flex-direction:column;">
+                    <div class="tags-friend-content" style="display: flex;flex-direction:column;">
                     <?php $category_obj->load_category_side()?>
                     </div>
                     <div class="span-button show_more_categories"> <a href="#">Show more</a></div>
@@ -286,7 +286,7 @@ if (isset($_POST['submit_test'])) {
                 <div class="slide-menu-option suggested_friend_show_more_button_slide">
                     <img src="images/icons/follower.png" alt="" style="height:2.1rem;">
                     <a href="#">
-                        <p>show more friends</p>
+                        <p>Show more friends</p>
                     </a>
                 </div>
                 <div class="slide-menu-option">
@@ -866,7 +866,6 @@ if (isset($_POST['submit_test'])) {
 
         // show results after user clickeck on done
         $('.slide-menu-options_content_done').click(function () {
-            $('.slide-menu').css('display','none')
             window.scrollTo(0, 0);
 
             var user_name_logged_in = '<?php echo $user_name?>'

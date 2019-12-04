@@ -110,6 +110,12 @@ body {
     font-family: 'IBM Plex Sans', sans-serif;
     letter-spacing: .2rem;
     color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-items: center; */
+    width: 60rem;
+    font-size: 1.6rem;
 }
 
 

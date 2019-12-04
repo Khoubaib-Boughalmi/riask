@@ -11,16 +11,7 @@
         <div class="left">
             <div class="left-container">
                 <div class="">
-                    <i class="fas fa-search"></i>
-                    <h3 class="left-content-heading "> Find your intrests</h3>
-                </div>
-                <div class="">
-                    <i class="fas fa-user-friends"></i>
-                    <h3 class="left-content-heading"> Explore more</h3>
-                </div>
-                <div class="">
-                    <i class="fas fa-comment"></i>
-                    <h3 class="left-content-heading"> Join us</h3>
+                    <h3 class="left-content-heading"> Education is the passport to the future, for tomorrow belongs to those who prepare for it today. <i>– Malcolm X</i></h3>
                 </div>
             </div>
 
@@ -32,7 +23,7 @@
         <div class="right">
             <div class="right-content">
                 <form class="right-content-form" action="" method="POST">
-                    <input type="text" class="user-email" name="user_email_log_in" placeholder="Phone, Email, Username"
+                    <input type="text" class="user-email" name="user_email_log_in" placeholder="Email"
                         required>
                     <div class="user-password-div">
                         <input type="password" class="user-password" name="user_password_log_in" placeholder="Password"
@@ -40,14 +31,14 @@
                         <input type="" name="user_name_log_in" style="display:none;">
                         <a href="#">Forgot Password</a>
                     </div>
-                    <input class="submit" id="submit" type="submit" name="submit_log_in" value="log-in">
+                    <input class="submit" id="submit" type="submit" name="submit_log_in" value="Log in">
                 </form>
             </div>
             <div class="middle-content">
                 <i class="fa fa-brain"></i>
                 <h1>Exlore what's hapenning</h1>
                 <h4>Join Riask</h4>
-                <a href="#" class="btn sign-up">log In</a>
+                <a href="#" class="btn sign-up">Log In</a>
                 <a href="#" class="btn log-in" id="log-in">Register</a>
             </div>
             <!-- Footer -->
@@ -77,16 +68,16 @@
             <div class="right_side_registration">
 
                 <div class="create_account_email_header">
-                    <span class="create_account_email_header_text"> Sotmy amet consectetur adipisicing elit </span>
+                    <span class="create_account_email_header_text">Feel free to submit your personal information</span>
                 </div>
 
                 <form action="" method="POST" id="form-register">
                     <input type="text" class="popup-input popup firstName-popup" name="reg_first_name"
                         placeholder="First Name" autocomplete="off" required>
                     <input type="text" class="popup-input popup lastName-popup" name="reg_last_name"
-                        placeholder="last Name" autocomplete="off" required>
+                        placeholder="Last Name" autocomplete="off" required>
                     <br>
-                    <input type="email" class="popup-input popup email-popup" name="reg_email" placeholder="E-Mail"
+                    <input type="email" class="popup-input popup email-popup" name="reg_email" placeholder="E-mail"
                         autocomplete="off" required value="">
                     <br>
                     <input type="password" class=" popup-input popup password-popup password-popup-one"
@@ -109,11 +100,11 @@
             </div>
             <div class="log_in_pop_up_body ">
                 <div class="upper_log_in_pop_up">
-                <span class="log_in_mobile_text">log-in E-Mail </span>
+                <span class="log_in_mobile_text">Log-in E-mail </span>
                 <br>
                 <input type="text" class="log_in_pop_up_mobile email_pop_up" style="margin-bottom: 3rem;" placeholder="Email">
                 <br>
-                <span class="log_in_mobile_text">log-in Password </span>
+                <span class="log_in_mobile_text">Log-in Password </span>
                 <br>
                 <input type="password" class="log_in_pop_up_mobile password_pop_up" placeholder="Password">
                 </div>
