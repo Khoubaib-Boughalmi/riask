@@ -52,11 +52,11 @@ if (isset($_POST['user_logged_in'])) {
 
                 }
             })
-            $('.botton2').removeClass('active_btn_tag');
-            $('.botton1').addClass('active_btn_tag');
             var body = $('#trumbowyg-demo').html()
             body = body.replace(/&nbsp;/gi,'');
             sessionStorage.setItem("body", body);
+            $('.botton2').removeClass('active_btn_tag');
+            $('.botton1').addClass('active_btn_tag');
         })
       
         $('.next_botton_description').click(function () {
@@ -77,16 +77,15 @@ if (isset($_POST['user_logged_in'])) {
                     $('.ajax-insert').html(data);
 
                 }
-                var body = $('#trumbowyg-demo').html()
-                body = body.replace(/&nbsp;/gi,'');
-                sessionStorage.setItem("body", body);
             })
 
             $('.botton2').removeClass('active_btn_tag');
             $('.botton3').addClass('active_btn_tag');
 
 
-            
+            var body = $('#trumbowyg-demo').html()
+            body = body.replace(/&nbsp;/gi,'');
+            sessionStorage.setItem("body", body);
             }else{
                 simpleNotify.notify('Body should be at least 10 charcters', 'danger');
 
