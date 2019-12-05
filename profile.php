@@ -224,11 +224,14 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
                     <p>Marked Post</p>
                     </a>
                 </div>
-                <div class="slide-menu-option followed_list">
-                <img src="images/icons/users.png" alt=""  style="height:2.1rem;">
-                    <a href="#"><p>Followed list</p></a>
-                </div>
-                <hr>
+                <?php if ($user_name_logged_in == $user_profile) {
+                    echo '<div class="slide-menu-option followed_list">
+                    <img src="images/icons/users.png" alt=""  style="height:2.1rem;">
+                        <a href="#"><p>Followed list</p></a>
+                    </div>
+                    <hr>';
+                }?>
+                
                 <div class="slide-menu-option">
                     <a href="#"><p style="margin-left:0;">Settings And Privacy</p></a>
                 </div>
