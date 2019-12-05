@@ -77,7 +77,7 @@ $timezone=  date_default_timezone_set('Africa/Tunis');
                 </div>
                 <div class='bottom_post_componment_mark_post' id='bottom_post_componment_mark_post_0'>
                 <img src="images/mark.png" style='width:2.4rem;' alt=""></span>
-                    <span style='' class='span-icon-name'>Mark</span>
+                    <span class='span-icon-name'>Mark</span>
                 </div>
                 
                 </div>
