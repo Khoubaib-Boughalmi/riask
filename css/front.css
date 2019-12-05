@@ -1265,9 +1265,12 @@ body {
 }
 
 .images-user-post {
-    height: 4rem;
-    width: 4rem;
-    border-radius: 10rem;
+    height: 4rem !important;
+    width: 4rem !important;
+    border-radius: 10rem !important;
+    left: 0 !important;
+    transform: translate(0%) !important;
+    left: unset !important;
 }
 
 .user-name-timer {
@@ -3648,6 +3651,7 @@ body {
 .followed_user_name {
     font-size: 1.3rem;
     font-weight: bold;
+    color: #222222;
 }
 
 .followed_full_name {

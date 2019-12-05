@@ -13,7 +13,9 @@ if (isset($_SESSION['user_name_log_in'])) {
     header('location: index.php');
 }
 include('classes/user.php');
+$user_profile =ucfirst($user_profile);
 $user_obj=new user($con,$user_profile);
+$user_logged_in_obj = new user($con,$user_name_logged_in);
 
 // get user profile pic 
 $user_profile_pic = $user_obj->get_profile_pic();
@@ -88,7 +90,7 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
             <hr style="margin: 0rem 3rem;">
             <div class="profile_post_container">
                 <?php
-            $user_profile_obj->load_profile_posts($con,$user_profile,$user_name_logged_in);
+            $user_profile_obj->load_profile_posts($con,$user_profile,$user_name_logged_in,$user_profile_pic);
             ?>
             </div>
         </div>
@@ -177,13 +179,13 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
             </div>
             <hr>
             <div class="slide-menu-profile-pic">
-                <a href="<?php echo 'profile.php?user_profile='.$user_obj->get_user_name()?>"><img
-                        src="<?php echo $user_obj->get_profile_pic()?>" alt=""></a>
-                <a href="<?php echo 'profile.php?user_profile='.$user_obj->get_user_name()?>">
-                    <p><?php echo $user_obj->get_first_name().' '.$user_obj->get_last_name()?></p>
+                <a href="<?php echo 'profile.php?user_profile='.$user_logged_in_obj->get_user_name()?>"><img
+                        src="<?php echo $user_logged_in_obj->get_profile_pic()?>" alt=""></a>
+                <a href="<?php echo 'profile.php?user_profile='.$user_logged_in_obj->get_user_name()?>">
+                    <p><?php echo $user_logged_in_obj->get_first_name().' '.$user_logged_in_obj->get_last_name()?></p>
                 </a>            </div>
             <div class="number-posts">
-            <p><?php echo $user_obj->followers();?> Followers</p>
+            <p><?php echo $user_logged_in_obj->followers();?> Followers</p>
             </div>
             <hr>
     
@@ -252,7 +254,7 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
             <div class="load_friend_search_container">
                 <div class="load_friend_search_container_top">
                     <?php
-                        echo $user_obj->load_followed_list($user_obj->follower_list());
+                        echo $user_logged_in_obj->load_followed_list($user_logged_in_obj->follower_list());
                     ?>
                     
                     
