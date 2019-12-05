@@ -3048,6 +3048,12 @@ body {
     .slide-menu-option_options {
         display: none;
     }
+    .number-posts{
+        margin-bottom:1rem ;
+    }
+    .slide-menu-profile-pic{
+        margin: 2rem 0 1rem 0;
+    }
 
 }
 
