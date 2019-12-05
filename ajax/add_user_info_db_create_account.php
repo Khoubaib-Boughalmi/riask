@@ -62,86 +62,86 @@ $user_name_f_letter =strtolower($user_name_f_letter);
 // choose profile pic
 switch ($user_name_f_letter) {
      case 'a':
-          $profile_pic ="letter/a.png";
+          $profile_pic ="images/letter/a.png";
          break;
      case 'b':
-          $profile_pic ="letter/b.png";
+          $profile_pic ="images/letter/b.png";
          break;
      case 'c':
-          $profile_pic ="letter/c.png";
+          $profile_pic ="images/letter/c.png";
          break;
      case 'd':
-          $profile_pic ="letter/d.png";
+          $profile_pic ="images/letter/d.png";
          break;
      case 'e':
-          $profile_pic ="letter/e.png";
+          $profile_pic ="images/letter/e.png";
          break;
      case 'f':
-          $profile_pic ="letter/f.png";
+          $profile_pic ="images/letter/f.png";
          break;
      case 'j':
-          $profile_pic ="letter/j.png";
+          $profile_pic ="images/letter/j.png";
          break;
      case 'h':
-          $profile_pic ="letter/h.png";
+          $profile_pic ="images/letter/h.png";
          break;
      case 'i':
-          $profile_pic ="letter/i.png";
+          $profile_pic ="images/letter/i.png";
          break;
      case 'g':
-          $profile_pic ="letter/g.png";
+          $profile_pic ="images/letter/g.png";
          break;
          
      case 'k':
-          $profile_pic ="letter/k.png";
+          $profile_pic ="images/letter/k.png";
          break;
      case 'l':
-          $profile_pic ="letter/l.png";
+          $profile_pic ="images/letter/l.png";
          break;
      case 'm':
-          $profile_pic ="letter/m.png";
+          $profile_pic ="images/letter/m.png";
          break;
      case 'n':
-          $profile_pic ="letter/n.png";
+          $profile_pic ="images/letter/n.png";
          break;
      case 'o':
-          $profile_pic ="letter/o.png";
+          $profile_pic ="images/letter/o.png";
          break;
      case 'p':
-          $profile_pic ="letter/p.png";
+          $profile_pic ="images/letter/p.png";
          break;
      case 'q':
-          $profile_pic ="letter/q.png";
+          $profile_pic ="images/letter/q.png";
          break;
      case 'r':
-          $profile_pic ="letter/r.png";
+          $profile_pic ="images/letter/r.png";
          break;
      case 's':
-          $profile_pic ="letter/s.png";
+          $profile_pic ="images/letter/s.png";
          break;
      case 't':
-          $profile_pic ="letter/t.png";
+          $profile_pic ="images/letter/t.png";
          break;
      case 'u':
-          $profile_pic ="letter/u.png";
+          $profile_pic ="images/letter/u.png";
          break;
      case 'v':
-          $profile_pic ="letter/v.png";
+          $profile_pic ="images/letter/v.png";
          break;
      case 'w':
-          $profile_pic ="letter/w.png";
+          $profile_pic ="images/letter/w.png";
          break;
      case 'x':
-          $profile_pic ="letter/x.png";
+          $profile_pic ="images/letter/x.png";
          break;
      case 'y':
-          $profile_pic ="letter/y.png";
+          $profile_pic ="images/letter/y.png";
          break;
      case 'z':
-          $profile_pic ="letter/z.png";
+          $profile_pic ="images/letter/z.png";
          break;
      default: 
-           $profile_pic ="letter/r.png";
+           $profile_pic ="images/letter/r.png";
       break;
 
          
