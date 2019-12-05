@@ -286,13 +286,13 @@ if (isset($_POST['submit_test'])) {
                 <div class="slide-menu-option suggested_friend_show_more_button_slide">
                     <img src="images/icons/follower.png" alt="" style="height:2.1rem;">
                     <a href="#">
-                        <p>Show more friends</p>
+                        <p>Show More Friends</p>
                     </a>
                 </div>
-                <div class="slide-menu-option span-button show_more_categories">
-                    <img src="images/icons/follower.png" alt="" style="height:2.1rem;">
+                <div class="slide-menu-option show_more_categories">
+                    <img src="images/icons/category.png" alt="" style="height:2.1rem;">
                     <a href="#">
-                        <p>Show more Categories</p>
+                        <p>More Categories</p>
                     </a>
                 </div>
                 <div class="slide-menu-option">
