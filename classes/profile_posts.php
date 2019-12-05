@@ -12,7 +12,7 @@ class profile_posts{
 		$this->$user_profile_pic = $user_profile_pic;
 	}
 	public function load_profile_posts($con,$user_profile,$user_name_logged_in){
-		
+		$user_profile_pic = $this->user_profile_pic;
 		include_once('like_dislike.php');
 
 		$like_dislike_obj=new likes_dislikes($con,$user_profile);
