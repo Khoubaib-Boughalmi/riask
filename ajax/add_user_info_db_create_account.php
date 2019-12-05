@@ -56,7 +56,103 @@ $last_name = striping1($last_name,$con);
 $email = striping1($email,$con);
 $password = striping2($password,$con);
 
-$inserting_query = mysqli_query($con,"INSERT INTO `users`(`id`, `first_name`, `last_name`, `user_name`, `email`, `password`, `user_bio`, `number_posts`, `profile_pic`, `user_closed`, `followers`, `tags_user`, `register_date`, `categories`, `followed_by`)VALUES ('','$first_name','$last_name','$user_name','$email','$password','hi u.u hi','0','images/steve.jpg','no','','php,css,java,','0-0-0','$tag_val','')");
+
+
+// choose profile pic
+switch ($user_name) {
+     case 'a':
+          $profile_pic ="letter/a.png";
+         break;
+     case 'b':
+          $profile_pic ="letter/b.png";
+         break;
+     case 'c':
+          $profile_pic ="letter/c.png";
+         break;
+     case 'd':
+          $profile_pic ="letter/d.png";
+         break;
+     case 'e':
+          $profile_pic ="letter/e.png";
+         break;
+     case 'f':
+          $profile_pic ="letter/f.png";
+         break;
+     case 'j':
+          $profile_pic ="letter/j.png";
+         break;
+     case 'h':
+          $profile_pic ="letter/h.png";
+         break;
+     case 'i':
+          $profile_pic ="letter/i.png";
+         break;
+     case 'g':
+          $profile_pic ="letter/g.png";
+         break;
+         
+     case 'k':
+          $profile_pic ="letter/k.png";
+         break;
+     case 'l':
+          $profile_pic ="letter/l.png";
+         break;
+     case 'm':
+          $profile_pic ="letter/m.png";
+         break;
+     case 'n':
+          $profile_pic ="letter/n.png";
+         break;
+     case 'o':
+          $profile_pic ="letter/o.png";
+         break;
+     case 'p':
+          $profile_pic ="letter/p.png";
+         break;
+     case 'q':
+          $profile_pic ="letter/q.png";
+         break;
+     case 'r':
+          $profile_pic ="letter/r.png";
+         break;
+     case 's':
+          $profile_pic ="letter/s.png";
+         break;
+     case 't':
+          $profile_pic ="letter/t.png";
+         break;
+     case 'u':
+          $profile_pic ="letter/u.png";
+         break;
+     case 'v':
+          $profile_pic ="letter/v.png";
+         break;
+     case 'w':
+          $profile_pic ="letter/w.png";
+         break;
+     case 'x':
+          $profile_pic ="letter/x.png";
+         break;
+     case 'y':
+          $profile_pic ="letter/y.png";
+         break;
+     case 'z':
+          $profile_pic ="letter/z.png";
+         break;
+     default: 
+           $profile_pic ="letter/r.png";
+      break;
+
+         
+     }
+     
+     
+
+
+
+
+
+$inserting_query = mysqli_query($con,"INSERT INTO `users`(`id`, `first_name`, `last_name`, `user_name`, `email`, `password`, `user_bio`, `number_posts`, `profile_pic`, `user_closed`, `followers`, `tags_user`, `register_date`, `categories`, `followed_by`)VALUES ('','$first_name','$last_name','$user_name','$email','$password','hi u.u hi','0','$profile_pic','no','','php,css,java,','0-0-0','$tag_val','')");
 echo $email ."<br>";
 echo $user_name ."<br>";
 echo $last_name ."<br>";
