@@ -126,7 +126,7 @@
 			                </span>
                          </div>
                         </div>
-                        <a class='bottom_post_componment_like_' id='comment_".$post_id."'>
+                        <a class='bottom_post_componment_like_' id='comment_".$post_id."'  href='show_comments.php?post_id=$post_id/$title'>
                             <form action='show_comments.php?post_id=$post_id/$title' method='POST' style='display: flex;' >
                                 <img src='images/icons/comment.png' alt=''  style='height:2.1rem';>
                                 <input type='submit' value='Comments' name='span-icon-name'class='span-icon-name'>
