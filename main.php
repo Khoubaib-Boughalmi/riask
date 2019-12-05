@@ -289,6 +289,12 @@ if (isset($_POST['submit_test'])) {
                         <p>Show more friends</p>
                     </a>
                 </div>
+                <div class="slide-menu-option span-button show_more_categories">
+                    <img src="images/icons/follower.png" alt="" style="height:2.1rem;">
+                    <a href="#">
+                        <p>Show more Categories</p>
+                    </a>
+                </div>
                 <div class="slide-menu-option">
                     <img src="images/icons/mark.png" alt="" style="height:2.1rem;">
                     <a href="marked_post_page.php?user_profile=<?php echo $user_name?>">

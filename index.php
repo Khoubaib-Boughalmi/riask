@@ -36,7 +36,7 @@
             </div>
             <div class="middle-content">
                 <i class="fa fa-brain"></i>
-                <h1>Exlore what's hapenning</h1>
+                <h1>Riask where everyone has the right to access information</h1>
                 <h4>Join Riask</h4>
                 <a href="#" class="btn sign-up">Log In</a>
                 <a href="#" class="btn log-in" id="log-in">Register</a>
