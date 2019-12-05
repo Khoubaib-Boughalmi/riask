@@ -96,9 +96,9 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
                     <div class="header-side">
                         <h3 class="header-side-text">Public profile info</h3>
                     </div>
-                    <div class="tags-friend-content profile-content-info" style="display flex;flex-direction:column;">
+                    <div class="tags-friend-content profile-content-info" style="display: flex;flex-direction:column;">
                         <div class="image_profile">
-                        <img src="<?php echo $user_obj->get_profile_pic()?>" alt="" style="width" id="image_profile">
+                        <img src="<?php echo $user_obj->get_profile_pic()?>" alt="" id="image_profile">
                         </div>
                         <div class="user_profile_info">
                             <p class="user_profile_info_name">@<?php echo $user_profile?></p>
