@@ -359,7 +359,7 @@ if (isset($_POST['submit_test'])) {
             <div class="close_log_in">
                 +
             </div>
-            <div class="load_post_category_pop_up_body" style="padding : 1rem 0rem;width:100%;top:45%;">
+            <div class="load_post_category_pop_up_body" style="padding : 1rem 0rem;width:100%;top:37%;height:60%">
                 <!-- function load category -->
                 <?php $category_obj->load_category() ?>
                 
