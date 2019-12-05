@@ -56,10 +56,11 @@ $last_name = striping1($last_name,$con);
 $email = striping1($email,$con);
 $password = striping2($password,$con);
 
-
+$user_name_f_letter = $user_name[0];
+$user_name_f_letter =strtolower($user_name_f_letter);
 
 // choose profile pic
-switch ($user_name) {
+switch ($user_name_f_letter) {
      case 'a':
           $profile_pic ="letter/a.png";
          break;
