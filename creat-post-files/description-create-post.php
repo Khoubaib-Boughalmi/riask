@@ -17,6 +17,9 @@ if (isset($_POST['user_logged_in'])) {
 
     <!-- Initialize Quill editor -->
     <script>
+        if (sessionStorage.getItem("body")) {
+            $('#trumbowyg-demo').val(sessionStorage.getItem("body"))
+        }
         $('#trumbowyg-demo').trumbowyg({
             btns: [
                 ['undo', 'redo'], // Only supported in Blink browsers
@@ -51,6 +54,9 @@ if (isset($_POST['user_logged_in'])) {
             })
             $('.botton2').removeClass('active_btn_tag');
             $('.botton1').addClass('active_btn_tag');
+            var body = $('#trumbowyg-demo').html()
+            body = body.replace(/&nbsp;/gi,'');
+            sessionStorage.setItem("body", body);
         })
       
         $('.next_botton_description').click(function () {
@@ -71,16 +77,16 @@ if (isset($_POST['user_logged_in'])) {
                     $('.ajax-insert').html(data);
 
                 }
+                var body = $('#trumbowyg-demo').html()
+                body = body.replace(/&nbsp;/gi,'');
+                sessionStorage.setItem("body", body);
             })
 
             $('.botton2').removeClass('active_btn_tag');
             $('.botton3').addClass('active_btn_tag');
 
-            $('.click_bitch').html(sessionStorage.getItem("tags") + '<br>' + sessionStorage.getItem("title"))
 
-            var body = $('#trumbowyg-demo').html()
-            body = body.replace(/&nbsp;/gi,'');
-            sessionStorage.setItem("body", body);
+            
             }else{
                 simpleNotify.notify('Body should be at least 10 charcters', 'danger');
 
