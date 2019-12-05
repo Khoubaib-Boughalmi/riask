@@ -22,12 +22,12 @@
         <!-- start of right -->
         <div class="right">
             <div class="right-content">
-                <form class="right-content-form" action="" method="POST">
+                <form class="right-content-form" action="" method="POST" autocomplete="off">
                     <input type="text" class="user-email" name="user_email_log_in" placeholder="Email"
-                        required>
+                        required autocomplete="off">
                     <div class="user-password-div">
                         <input type="password" class="user-password" name="user_password_log_in" placeholder="Password"
-                            required>
+                            required autocomplete="off">
                         <input type="" name="user_name_log_in" style="display:none;">
                         <a href="#">Forgot Password</a>
                     </div>
@@ -71,7 +71,7 @@
                     <span class="create_account_email_header_text">Feel free to submit your personal information</span>
                 </div>
 
-                <form action="" method="POST" id="form-register">
+                <form action="" method="POST" id="form-register" autocomplete="off">
                     <input type="text" class="popup-input popup firstName-popup" name="reg_first_name"
                         placeholder="First Name" autocomplete="off" required>
                     <input type="text" class="popup-input popup lastName-popup" name="reg_last_name"
