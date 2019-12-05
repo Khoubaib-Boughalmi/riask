@@ -6,6 +6,11 @@ if (isset($_POST['user_logged_in'])) {
 include('../classes/load_category_main.php');
 $category_obj=new category_main($con);
 ?>
+<script>
+    var tags = sessionStorage.getItem("tags");
+    var title = sessionStorage.getItem("title");
+    var selected_category_val = sessionStorage.getItem("selected_category_val");
+</script>
  <div class="create-post-tags-title">
                         <div class="create-post-tags-title-container">
                             <div class="create-post-category">
@@ -68,37 +73,22 @@ $category_obj=new category_main($con);
     document.querySelector('.user-name-menu').addEventListener("click", function () {
             document.querySelector('.slide-menu-wraper').style.display = "block";
         });
+        // insert title value  
+        $('.create-post-title-input').val(title)
+        // insert tags
+        if (tags.length>0) {
+            $('.top_tag').css('padding','.65rem 0rem')
+            var tags_top_tag_array = tags.split(',')
+            for (let i = 0; i < tags_top_tag_array.length-1; i++) {
+            $('.top_tag').append('<span class="tags_value tags_value_'+tags_top_tag_array[i]+'">'+tags_top_tag_array[i]+'</span>')           
+            }
+        }
+        // insert category
+        $('.select_category').val(selected_category_val)
 
-        document.querySelector('.slide-menu-header-close').addEventListener("click", function () {
-            document.querySelector('.slide-menu-wraper').style.display = "none";
-        });
 
-        $(document).ready(function () {
-
-            // $('.botton1').click(function () {
-            //     var user_logged_in = '';
-            //     $.ajax({
-            //         url: 'creat-post-files/tags-create-post.php',
-            //         type: 'POST',
-            //         data: {
-            //             user_logged_in: user_logged_in
-            //         },
-            //         error: function () {
-            //             alert('error');
-            //         },
-            //         success: function (data) {
-            //             $('.ajax-insert').html(data);
-
-            //         }
-            //     })
-
-            //     // $.get('creat-post-files/tags-create-post.php',function(data){
-            //     //     $('.ajax-insert').html(data);
-            //     // })
-            //     $('svg').removeClass('active_btn_tag');
-            //     $(this).addClass('active_btn_tag');
-            // })
             $('.next_botton_tags_title').click(function () {
+                var selected_category_val = $("select.select_category").children("option:selected").val();
                 var title_value = $('.create-post-title-input').val();
                 var title_length = title_value.length;
                 if ($('.tags_value').length>0 ) {
@@ -116,7 +106,9 @@ $category_obj=new category_main($con);
             sessionStorage.setItem("tags", all_tags);
             var title = $('.create-post-title-input').val()
             title=title.trim()
-            sessionStorage.setItem("title", title);
+            sessionStorage.setItem("title", title)
+            sessionStorage.setItem("selected_category_val", selected_category_val);
+;
 
             $('.tags_title').html(all_tags)
                 $.ajax({
@@ -147,44 +139,7 @@ $category_obj=new category_main($con);
 
                 }
             })
-            // $('.botton3').click(function () {
-            //     var user_logged_in = ';
-            //     $.ajax({
-            //         url: 'creat-post-files/review-create-post.php',
-            //         type: 'POST',
-            //         data: {
-            //             user_logged_in: user_logged_in
-            //         },
-            //         error: function () {
-            //             alert('error');
-            //         },
-            //         success: function (data) {
-            //             $('.ajax-insert').html(data);
-
-            //         }
-            //     })
-
-            //     $('svg').removeClass('active_btn_tag');
-            //     $(this).addClass('active_btn_tag');
-            // })
-
-
-            //         $('#trumbowyg-demo').trumbowyg({
-            //     btns: [
-            //         ['undo', 'redo'], // Only supported in Blink browsers
-            //         ['formatting'],
-            //         ['strong', 'em'],
-            //         ['superscript', 'subscript'],
-            //         ['link'],
-            //         ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
-            //         ['unorderedList', 'orderedList'],
-            //         ['horizontalRule'],
-            //         ['removeformat'],
-            //         ['fullscreen']
-            //     ]
-            // });
-
-
+           
             $('.create-post-tags-input').keyup(function () {
                 var tag_val = $('.create-post-tags-input').val();
                 var user_logged_in = '<?php echo $user_name ;?>';
@@ -211,7 +166,6 @@ $category_obj=new category_main($con);
                 }
             });
 
-        });
         $('.delete_tag').click(function () {
             $('.top_tag').html('');
         })
@@ -245,23 +199,4 @@ $category_obj=new category_main($con);
             $('.create-post-title-input').val('');
 
         })
-
-
-        // $('.next_botton_tags_title').click(function () {
-        //     var tags;
-        //     var all_tags = '';
-        //     $('.tags_value').each(function () {
-        //         tags = $(this).attr('class') + ',';
-        //         tags = tags.substr(22)
-        //         all_tags = all_tags.concat(tags);
-        //     })
-        //     sessionStorage.setItem("tags", all_tags);
-        //     var title = $('.create-post-title-input').val()
-        //     sessionStorage.setItem("title", title);
-
-        //     $('.tags_title').html(all_tags)
-
-
-
-        // })
 </script>

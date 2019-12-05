@@ -3064,6 +3064,12 @@ body {
 }
 
 @media(max-width: 900px) {
+    .next_privious_botton_flex{
+        margin: 2rem 3rem;
+    }
+    .review_create_post{
+        margin: 3rem 1.5rem;
+    }
 
     #button-back-top {
         display: none;

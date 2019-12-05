@@ -70,13 +70,13 @@ $timezone=  date_default_timezone_set('Africa/Tunis');
              </div>
             </div>
             <div class='bottom_post_componment_like_' id='comment_0'>
-                <form action='show_comments.php?post_id=$post_id' method='POST' >
-                <img src="images/comment.png" style='width:2.4rem;' alt=""></span>
-                    <input type='submit' value='Comments' name='span-icon-name'class='span-icon-name'>
+                <form action='' method='' style="display: flex;" >
+                <img src="images/icons/comment.png" style='width:2.4rem;' alt=""></span>
+                    <input type='submit' value='Comments' name='span-icon-name'class='span-icon-name' disabled>
                     </form>
                 </div>
-                <div class='bottom_post_componment_mark_post' id='bottom_post_componment_mark_post_0'>
-                <img src="images/mark.png" style='width:2.4rem;' alt=""></span>
+                <div class='bottom_post_componment_mark_post' id='bottom_post_componment_mark_post_0' style="display: flex;" >
+                <img src="images/icons/mark.png" style='width:2.4rem;' alt=""></span>
                     <span class='span-icon-name'>Mark</span>
                 </div>
                 

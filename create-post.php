@@ -136,7 +136,7 @@ $category_obj=new category_main($con);
 
                                     </div>
                                 </div>
-                                <div class='results_container_title' style="">
+                                <div class='results_container_title'>
                                     <p class="title_create_post"></p>
                                 </div>
 
