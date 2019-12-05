@@ -18,7 +18,7 @@ if (isset($_POST['user_logged_in'])) {
     <!-- Initialize Quill editor -->
     <script>
         if (sessionStorage.getItem("body")) {
-            $('#trumbowyg-demo').text(sessionStorage.getItem("body"))
+            $('#trumbowyg-demo').html(sessionStorage.getItem("body"))
         }
         $('#trumbowyg-demo').trumbowyg({
             btns: [
