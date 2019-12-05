@@ -1,10 +1,15 @@
 
 <?php
 class profile_posts{
-	public function __construct($con,$user_name_logged_in,$user_profile){
+	private $con;
+	private $user_name_logged_in;
+	private $user_profile;
+	private $user_profile_pic;
+	public function __construct($con,$user_name_logged_in,$user_profile,$user_profile_pic){
 		$this->con = $con;
 		$this->user_name_logged_in = $user_name_logged_in;
 		$this->user_profile = $user_profile;
+		$this->$user_profile_pic = $user_profile_pic;
 	}
 	public function load_profile_posts($con,$user_profile,$user_name_logged_in){
 		
@@ -106,7 +111,7 @@ if (mysqli_num_rows($query_load_post)>0) {
 
 						<div class='user-name-timer'>
 						<div class='image-name-post'>
-							<a href='profile.php?user_profile=$user_name'><img src='$user_profile'  class='images-user-post' ></a>
+							<a href='profile.php?user_profile=$user_name'><img src='$user_profile_pic'  class='images-user-post' ></a>
 								<div class='time_name_post'>
 									<a href='profile.php?user_profile=$user_name'><span class='user-name-post'>$user_name</span></a>
 									<span class='timer-post'>$time_message</span>

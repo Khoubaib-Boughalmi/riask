@@ -12,10 +12,12 @@ if (isset($_SESSION['user_name_log_in'])) {
 }else{
     header('location: index.php');
 }
-$user_profile_obj=new profile_posts($con,$user_name_logged_in,$user_profile);
 include('classes/user.php');
 $user_obj=new user($con,$user_name_logged_in);
 
+// get user profile pic 
+$user_profile_pic = $user_obj->get_profile_pic();
+$user_profile_obj=new profile_posts($con,$user_name_logged_in,$user_profile,$user_profile_pic);
 include('classes/notification.php');
 $notification_obj=new notification($con,$user_name_logged_in);
 $num_notification=$notification_obj->num_notification($user_name_logged_in);
