@@ -101,7 +101,7 @@ if (isset($_POST['submit_test'])) {
                     <div class="top-header-post">
                         <div class="top-header-post_top">
                             <h4>Home</h4>
-                            <img src="images/icons/logo_big.png" alt="" style="width:5rem">
+                            <img src="images/icons/logo_big.png" alt="" style="width:4.5rem">
                         </div>
                         <div class="top-header-post_bottom">
                             <hr>
