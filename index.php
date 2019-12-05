@@ -22,12 +22,12 @@
         <!-- start of right -->
         <div class="right">
             <div class="right-content">
-                <form class="right-content-form" action="" method="POST" autocomplete="off">
+                <form class="right-content-form" action="" method="POST">
                     <input type="text" class="user-email" name="user_email_log_in" placeholder="Email"
-                        required autocomplete="off">
+                        required>
                     <div class="user-password-div">
                         <input type="password" class="user-password" name="user_password_log_in" placeholder="Password"
-                            required autocomplete="off">
+                            required>
                         <input type="" name="user_name_log_in" style="display:none;">
                         <a href="#">Forgot Password</a>
                     </div>
