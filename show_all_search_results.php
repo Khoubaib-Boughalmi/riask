@@ -126,7 +126,7 @@ $num_notification=$notification_obj->num_notification($user_name);
                     <div class="header-side">
                         <h3 class="header-side-text">Tags that you may like</h3>
                     </div>
-                    <div class="tags-friend-content" style="display flex;flex-direction:column;">
+                    <div class="tags-friend-content" style="display: flex;flex-direction:column;">
                         <div class="tags_name"><img src="images/phpimg.png" alt=""><a href="#">PHP</a></div>
                         <hr>
                         <div class="tags_name"><img src="images/java.webp" alt=""><a href="#">Java</a></div>
