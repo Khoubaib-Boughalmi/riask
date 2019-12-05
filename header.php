@@ -20,8 +20,8 @@ $timezone=  date_default_timezone_set('Africa/Tunis');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Free Web tutorials">
-    <meta name="keywords" content="HTML, CSS, XML, JavaScript">
+    <meta name="description" content="Riask is a platfrom that aim to make the information accessible for everyone around the globe">
+    <meta name="keywords" content="Riask, riask, ask, question, Answer, Ask, Question, Education,knowledge, math, science, medical science, economie, business, sharing, helping, ">
     <meta name="author" content="Khoubaib Bouhghalmi">
 
     <link rel="stylesheet" href="css/front.css">
