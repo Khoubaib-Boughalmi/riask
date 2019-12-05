@@ -365,7 +365,7 @@ $pdp = $user_obj->get_profile_pic();
                                  <div class='image-name-post'>
                                      <a href='#'><img src='".$user_profile_pic."'  class='images-user-post' ></a>
                                          <div class='time_name_post'>
-                                             <a href='#'><span class='user-name-post'>$user_name</span></a>
+                                             <a href='#'><span class='user-name-post'>$posted_by</span></a>
                                              <span class='timer-post'>$time_message</span>
                                          </div>   
                                  </div>
