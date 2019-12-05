@@ -13,7 +13,7 @@ if (isset($_SESSION['user_name_log_in'])) {
     header('location: index.php');
 }
 include('classes/user.php');
-$user_obj=new user($con,$user_name_logged_in);
+$user_obj=new user($con,$user_profile);
 
 // get user profile pic 
 $user_profile_pic = $user_obj->get_profile_pic();
