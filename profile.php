@@ -229,9 +229,9 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
                     <img src="images/icons/users.png" alt=""  style="height:2.1rem;">
                         <a href="#"><p>Followed list</p></a>
                     </div>
-                    <hr>';
+                    ';
                 }?>
-                
+                <hr>
                 <div class="slide-menu-option">
                     <a href="#"><p style="margin-left:0;">Settings And Privacy</p></a>
                 </div>
