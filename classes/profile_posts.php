@@ -106,7 +106,7 @@ if (mysqli_num_rows($query_load_post)>0) {
 
 						<div class='user-name-timer'>
 						<div class='image-name-post'>
-							<a href='profile.php?user_profile=$user_name'><img src='".$row['profile_pic']."'  class='images-user-post' ></a>
+							<a href='profile.php?user_profile=$user_name'><img src='$user_profile'  class='images-user-post' ></a>
 								<div class='time_name_post'>
 									<a href='profile.php?user_profile=$user_name'><span class='user-name-post'>$user_name</span></a>
 									<span class='timer-post'>$time_message</span>
