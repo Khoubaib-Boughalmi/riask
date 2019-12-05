@@ -41,7 +41,6 @@ $timezone=  date_default_timezone_set('Africa/Tunis');
   gtag('config', 'UA-153200341-1');
 </script> -->
 <link rel="shortcut icon" href="images/icons/logo_transparent.ico" />
-
-    <title>Riask</title>
+<title>Riask</title>
 </head>
 
