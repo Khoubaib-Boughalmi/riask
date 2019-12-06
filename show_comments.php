@@ -276,7 +276,7 @@ $pdp = $user_obj->get_profile_pic();
                     <div class="answear_container">
                         <?php
                          $post='';
-                         $query_load_comment=mysqli_query($con,"SELECT * FROM comments WHERE post_id='$post_id'");
+                         $query_load_comment=mysqli_query($con,"SELECT * FROM comments WHERE post_id='$post_id' order by id asc");
                          if (mysqli_num_rows($query_load_comment)>0) {
                   
                              while($row=mysqli_fetch_array($query_load_comment)){

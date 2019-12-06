@@ -64,19 +64,19 @@ $timezone=  date_default_timezone_set('Africa/Tunis');
             <div class='bottom_post_like_0'>
             <div class='riask-reaction'>
             <span class='like-btn' style="display:flex"> 
-            <span class='like-btn-emo like-btn-default '><img src="images/empty_flag.png" style='width:2.4rem;' alt=""></span>
+            <span class='like-btn-emo like-btn-default '><img src="images/empty_flag.png" style='width:2.4rem;width:2.4rem' alt=""></span>
             <span class='like-btn-text'>Like</span>        
             </span>
              </div>
             </div>
             <div class='bottom_post_componment_like_' id='comment_0'>
                 <form action='' method='' style="display: flex;" >
-                <img src="images/icons/comment.png" style='width:2.4rem;' alt=""></span>
+                <img src="images/icons/comment.png" style='width:2.4rem;width:2.4rem' alt=""></span>
                     <input type='submit' value='Comments' name='span-icon-name'class='span-icon-name' disabled>
                     </form>
                 </div>
                 <div class='bottom_post_componment_mark_post' id='bottom_post_componment_mark_post_0' style="display: flex;" >
-                <img src="images/icons/mark.png" style='width:2.4rem;' alt=""></span>
+                <img src="images/icons/mark.png" style='width:2.4rem;width:2.4rem' alt=""></span>
                     <span class='span-icon-name'>Mark</span>
                 </div>
                 
@@ -141,6 +141,11 @@ $timezone=  date_default_timezone_set('Africa/Tunis');
                     alert('error');
                 },
                 success:function (data) {
+                    sessionStorage.removeItem('title');
+                    sessionStorage.removeItem('body');
+                    sessionStorage.removeItem('tags');
+                    sessionStorage.removeItem('selected_category_val');
+
                     window.location.replace("main.php");
                     
                 }
