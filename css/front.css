@@ -967,7 +967,12 @@ body {
     margin: 0 .5rem .4rem .5rem
 }
 
-
+.display_num_comments{
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-left: .5rem;
+    color: #222222;
+}
 
 .input-search {
     color: #222222;
