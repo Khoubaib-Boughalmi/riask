@@ -967,12 +967,7 @@ body {
     margin: 0 .5rem .4rem .5rem
 }
 
-.load_friend_search_container_top img {
-    width: 40rem;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-}
+
 
 .input-search {
     color: #222222;
@@ -3525,10 +3520,18 @@ body {
     font-weight: bold;
     max-width: 76rem !important;
 }
+.commen_css_comment_span p {
+    padding-left: 2rem;
+}
+.commen_css_comment_span ul {
+    padding-left: 2rem;
+}
+.commen_css_comment_span ol {
+    padding-left: 2rem;
+}
 .commen_css_comment_span * {
     padding-left: 2rem;
 }
-
 
 .trumbowyg-box,
 .trumbowyg-editor {
