@@ -45,7 +45,7 @@
                         <a class='bottom_post_componment_like_' id='comment_".$post_id."' href='show_comments.php?post_id=$post_id/$title'>
                             <form action='show_comments.php?post_id=$post_id/$title' method='POST' style='display: flex;align-items: center;' >
                                 <img src='images/icons/comment.png' alt=''  style='height:2.1rem';>
-                                <span class='display_num_comments'>".$comment_num['count']."</span>";
+                                <span class='display_num_comments' style=' font-size: 1.6rem;font-weight: bold;margin-left: .5rem;color: #222222;'>".$comment_num['count']."</span>";
                                 if($comment_num['count'] == 0 ||$comment_num['count'] == 1){
                                     $value.= "<input type='submit' value='Comment' name='span-icon-name' class='span-icon-name'>";"                                "
                                 ;}else {
@@ -92,7 +92,7 @@
                         <div class='icon1 icon_comment' id='comment_".$post_id."'>
                             <form action='show_comments.php?post_id=$post_id/$title' method='POST' style='display: flex;align-items: center;' >
                             <img src='images/icons/comment.png' alt=''  style='height:2.1rem';>
-                            <span class='display_num_comments'>".$comment_num['count']."</span>";
+                            <span class='display_num_comments' style=' font-size: 1.6rem;font-weight: bold;margin-left: .5rem;color: #222222;'>".$comment_num['count']."</span>";
                             if($comment_num['count'] == 0 ||$comment_num['count'] == 1){
                                 $value.= "<input type='submit' value='Comment' name='span-icon-name' class='span-icon-name'>";"                                "
                             ;}else {
@@ -144,7 +144,7 @@
                         <a class='bottom_post_componment_like_' id='comment_".$post_id."'  href='show_comments.php?post_id=$post_id/$title'>
                             <form action='show_comments.php?post_id=$post_id/$title' method='POST' style='display: flex;align-items: center;' >
                                 <img src='images/icons/comment.png' alt=''  style='height:2.1rem';>
-                                <span class='display_num_comments'>".$comment_num['count']."</span>";
+                                <span class='display_num_comments' style=' font-size: 1.6rem;font-weight: bold;margin-left: .5rem;color: #222222;'>".$comment_num['count']."</span>";
                                 if($comment_num['count'] == 0 ||$comment_num['count'] == 1){
                                     $value.= "<input type='submit' value='Comment' name='span-icon-name' class='span-icon-name'>";"                                "
                                 ;}else {
