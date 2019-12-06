@@ -863,7 +863,7 @@ $pdp = $user_obj->get_profile_pic();
                     alert('error');
                 },
                 success: function (data) {
-                    $('.post_' + report_id).hide('slow', function () {
+                    $('.comment_' + report_id).hide('slow', function () {
                         $('.comment_' + report_id).remove();
                     });
                 }

@@ -445,7 +445,7 @@ $('.bottom_post_componment_mark_post').click(function () {
             var all_tags = '';
             var post_marked_id = $(this).attr('id');
             post_marked_id = post_marked_id.slice(33);
-            var user_name_logged_in = '<?php echo $user_profile?>';
+            var user_name_logged_in = '<?php echo $user_name_logged_in?>';
             var body = $('.commen_css_post_span_' + post_marked_id).text();
             var title = $('.post_title_' + post_marked_id).text();
             var tags = $('.span_tag_value_' + post_marked_id).each(function () {
