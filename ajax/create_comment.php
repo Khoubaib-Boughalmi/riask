@@ -37,16 +37,15 @@ $body = wordwrap($body,150,"<br>\n");
  $date_submited=date('Y-m-d H:i:s');
  if ($check_empty_body !='') {
      // insert into db
-     $insert_db_query=mysqli_query($con,"INSERT INTO `comments`(`id`, `posted_by`, `posted_to`, `date_added`, `removed`, `post_id`, `comment_body`, `user_profile_pic`)
-                                                 VALUES ('','$user_name','$user_to','$date_submited','no','$post_id','$body','$pdp')");
+     $insert_db_query="INSERT INTO `comments`(`id`, `posted_by`, `posted_to`, `date_added`, `removed`, `post_id`, `comment_body`, `user_profile_pic`)
+                                                 VALUES ('','$user_name','$user_to','$date_submited','no','$post_id','$body','$pdp')";
     
     // push notification
 
     if ($user_name!=$user_to) {
         $notification_obj->insert_notification($post_id,$user_to,'comment','');
     }
-    if ($con->query($sql) === TRUE) {
-        $last_id = $con->insert_id;
+    if ($con->query($insert_db_query) === TRUE) {
     $return_id=$con->insert_id;
     }
     
