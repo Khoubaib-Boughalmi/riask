@@ -430,9 +430,7 @@ $pdp = $user_obj->get_profile_pic();
                                  echo $post;
                             }
                          }
-                         }else{
-                         echo 'no posts to show';
-                     }
+                         }
                      ?>
 
                     </div>
