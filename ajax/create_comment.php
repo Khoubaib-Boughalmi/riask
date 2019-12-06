@@ -45,8 +45,10 @@ $body = wordwrap($body,150,"<br>\n");
     if ($user_name!=$user_to) {
         $notification_obj->insert_notification($post_id,$user_to,'comment','');
     }
-    
-    $return_id=mysqli_insert_id($con);
+    if ($con->query($sql) === TRUE) {
+        $last_id = $con->insert_id;
+    $return_id=$con->insert_id;
+    }
     
     $post= "<div class='comment_$return_id'>
     <div class='top-post'>

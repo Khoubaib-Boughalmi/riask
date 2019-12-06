@@ -873,22 +873,22 @@ $pdp = $user_obj->get_profile_pic();
             var post_id = $(this).attr('class');
             var post_id = post_id.slice(38);
             var user_name_logged_in = '<?php echo $user_name?>';
-            // $.ajax({
-            //     url: 'ajax/delete_comment_ajax.php',
-            //     type: 'POST',
-            //     data: {
-            //         post_id: post_id
-            //     },
-            //     error: function () {
-            //         alert('error');
-            //     },
-            //     success: function (data) {
-            //         $('.comment_' + post_id).hide('slow', function () {
-            //             $('.comment_' + post_id).remove();
-            //         });
-            //     }
-            // })
-            alert(post_id)
+            $.ajax({
+                url: 'ajax/delete_comment_ajax.php',
+                type: 'POST',
+                data: {
+                    post_id: post_id
+                },
+                error: function () {
+                    alert('error');
+                },
+                success: function (data) {
+                    $('.comment_' + post_id).hide('slow', function () {
+                        $('.comment_' + post_id).remove();
+                    });
+                }
+            })
+            // alert(post_id)
         })
 
         // submit comment
