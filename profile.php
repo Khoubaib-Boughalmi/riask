@@ -120,7 +120,7 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
                         </div>';
 
                      }
-                     else if($user_obj->is_friend($user_profile)){
+                     else if($user_logged_in_obj->is_friend($user_profile)){
                         echo '
                         <div class="span_botton_container_profile">
                         <span class="span-button span-button_profile span-button_profile_infollow infollow_'.$user_profile.'">Infollow</span>
@@ -133,7 +133,7 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
                         //     echo "<script>location.reload();</script>";
                         // }
                        
-                     }else if($user_obj->is_friend($user_profile)==false){
+                     }else if($user_logged_in_obj->is_friend($user_profile)==false){
                         echo '
                         <div class="span_botton_container_profile"><span class="span-button span-button_profile span-button__profile__follow follow___'.$user_profile.'">Follow</span></div>';
 
@@ -185,7 +185,14 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
                     <p><?php echo $user_logged_in_obj->get_first_name().' '.$user_logged_in_obj->get_last_name()?></p>
                 </a>            </div>
             <div class="number-posts">
-            <p><?php echo $user_logged_in_obj->followers();?> Followers</p>
+            <p><?php echo $user_obj->followers();
+                 if ($user_obj->followers() == 0 || $user_obj->followers() == 1 ) {
+                    echo ' Follower';
+                }else{
+                    echo ' Followers';
+
+                }
+                ?></p>
             </div>
             <hr>
     

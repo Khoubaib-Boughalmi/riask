@@ -196,7 +196,14 @@ $category_obj=new category_main($con);
                 </a>
             </div>
             <div class="number-posts">
-                <p><?php echo $user_obj->followers()?> Follower</p>
+                <p><?php echo $user_obj->followers();
+                 if ($user_obj->followers() == 0 || $user_obj->followers() == 1 ) {
+                    echo ' Follower';
+                }else{
+                    echo ' Followers';
+
+                }
+                ?></p>
             </div>
             <hr>
 

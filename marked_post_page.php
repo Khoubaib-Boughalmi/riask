@@ -143,29 +143,12 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
     <div class="empty-main-content2"></div>
 
 
-    <div class="slide-menu-wraper">
-        <div class="slide-menu">
-            <div class="close_slide">
-                +
-            </div>
-            <div class="slide-menu-header">
-                <h3>Account info</h3>
-            </div>
-            <hr>
-            <div class="slide-menu-profile-pic">
-                <img src="images/bill.jpg" alt="" style="width:4.3rem;">
-                <a href="">
-                    <p><?php  echo$user_obj->get_first_last_name()?></p>
-                </a>
-            </div>
-            <div class="number-posts">
-                <p><?php echo $user_obj->followers()?> Followers</p>
-            </div>
-            <hr>
-
-            <div class="slide-menu-options">
+    
                 <div class="slide-menu-wraper">
                     <div class="slide-menu">
+                    <div class="close_slide">
+                +
+            </div>
                         <div class="slide-menu-header">
                             <h3>Account info</h3>
 
@@ -179,7 +162,14 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
                             </a>
                         </div>
                         <div class="number-posts">
-                            <p><?php echo $user_obj->followers().'Follower';?></p>
+                            <p><?php echo $user_obj->followers();
+                 if ($user_obj->followers() == 0 || $user_obj->followers() == 1 ) {
+                    echo ' Follower';
+                }else{
+                    echo ' Followers';
+
+                }
+                ?></p>
                         </div>
                         <hr>
 
