@@ -1208,9 +1208,13 @@ body {
     margin-bottom: 1.5rem;
     color: #222222;
     font-weight: bold;
+    padding-left: 2rem;
+}
+.post-body-text .commen_css_post_span ol,
+.post-body-text .commen_css_post_span ul
+{
     padding-left: 4rem;
 }
-
 .commen_css_post_span ul {
     margin: 0rem 2rem;
 }
