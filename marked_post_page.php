@@ -4,8 +4,6 @@ include('header.php');
 if (isset($_GET['user_profile'])) {
     $user_profile=$_GET['user_profile'];
 }
-include('classes/profile_posts.php');
-$user_profile_obj=new profile_posts($con,'',$user_profile);
 
 if (isset($_SESSION['user_name_log_in'])) {
     $user_name_logged_in=$_SESSION['user_name_log_in'];
@@ -99,9 +97,9 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
                     <div class="header-side">
                         <h3 class="header-side-text">Public profile info</h3>
                     </div>
-                    <div class="tags-friend-content profile-content-info" style="display flex;flex-direction:column;">
+                    <div class="tags-friend-content profile-content-info" style="display: flex;flex-direction:column;">
                         <div class="image_profile">
-                            <img src="<?php echo $user_obj->get_profile_pic()?>" alt="" style="width"
+                            <img src="<?php echo $user_obj->get_profile_pic()?>" alt=""
                                 id="image_profile">
                         </div>
                         <div class="user_profile_info">
