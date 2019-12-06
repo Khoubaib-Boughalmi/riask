@@ -259,7 +259,7 @@ $pdp = $user_obj->get_profile_pic();
 
 
                 </div>
-                <div class='show_answeares' style='padding:3rem;'>
+                <div class='show_answeares'>
                     <h2 id='reply-show-replies'>Reply</h2>
                     <!-- Create the editor container -->
                     
@@ -381,7 +381,7 @@ $pdp = $user_obj->get_profile_pic();
                                  </div>
                              </div>
                                  <h4 class='title_review_create_comment'></h4>
-                                 <span class='commen_css_comment_span' style='font-size: 1.3rem;font-weight: bold;'> $body</span>
+                                 <span class='commen_css_comment_span' style='font-size: 1.3rem;font-weight: bold;padding-left:2rem'> $body</span>
                                  <div class='show_all_search_result_content_tags'>
                                  
                                  </div>";

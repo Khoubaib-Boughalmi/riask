@@ -439,7 +439,9 @@ body {
 
 
 /* end step2 select check box */
-
+.show_answeares{
+    padding: 3rem;
+}
 /* forum login */
 .right-content {
     margin-top: 4rem;
@@ -3073,6 +3075,9 @@ body {
 }
 
 @media(max-width: 900px) {
+    .show_answeares{
+        padding: 2rem;
+    }
     .post-header-create-post{
         height: 3rem;
         padding: 1.5rem 0.5rem 1rem;
@@ -3534,7 +3539,10 @@ body {
     padding-left: 2rem;
 }
 .commen_css_comment_span ul {
-    padding-left: 2rem;
+    padding-left: 6rem;
+}
+.commen_css_comment_span li {
+    padding-left: 0rem;
 }
 .commen_css_comment_span ol {
     padding-left: 2rem;
