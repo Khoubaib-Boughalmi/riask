@@ -3204,7 +3204,7 @@ body {
 
 @media(max-width: 600px) {
     .review_create_post {
-        padding: 3rem 1.5rem;
+        padding: 3rem 1.5rem !important;
     }
     .span-icon-name {
         display: none;
