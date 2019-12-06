@@ -3525,6 +3525,10 @@ body {
     font-weight: bold;
     max-width: 76rem !important;
 }
+.commen_css_comment_span * {
+    padding-left: 2rem;
+}
+
 
 .trumbowyg-box,
 .trumbowyg-editor {
