@@ -214,7 +214,7 @@ if (isset($_POST['submit_test'])) {
                 </a>
             </div>
             <div class="number-posts">
-                <p><?php echo $user_obj->followers();?> Followers</p>
+                <p><?php echo $user_obj->followers();?> Follower</p>
             </div>
             <hr>
 
