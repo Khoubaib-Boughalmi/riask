@@ -108,7 +108,7 @@ $pdp = $user_obj->get_profile_pic();
                     </div>
                 </div>
                 <hr style='margin:.5rem 3rem'>
-                <div class='post_show_comments_container'>
+                <div class='post_show_comments_container' style='border-radius:.2rem;padding:0rem 3rem;'>
                     <script></script>
                     <?php
                          $post='';
@@ -381,7 +381,7 @@ $pdp = $user_obj->get_profile_pic();
                                  </div>
                              </div>
                                  <h4 class='title_review_create_comment'></h4>
-                                 <span class='commen_css_comment_span' style='font-size: 1.3rem;font-weight: bold;padding-left: 2rem;'> $body</span>
+                                 <span class='commen_css_comment_span' style='font-size: 1.3rem;font-weight: bold;'> $body</span>
                                  <div class='show_all_search_result_content_tags'>
                                  
                                  </div>";
