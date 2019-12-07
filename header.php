@@ -31,11 +31,7 @@ $timezone=  date_default_timezone_set('Africa/Tunis');
     <script src="js_ex/notification/simpleNotify.min.js"></script>
     <link rel="stylesheet" href="js_ex/notification/simpleNotifyStyle.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <?php
-header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
-header("Pragma: no-cache"); // HTTP 1.0.
-header("Expires: 0"); // Proxies.
-    ?>
+
 <link rel="shortcut icon" href="images/icons/logo_transparent.ico" />
 <title>Riask</title>
 </head>
