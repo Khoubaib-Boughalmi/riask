@@ -26,7 +26,6 @@ class load_friends_default{
             
             // to not show already followed ppl
             $user_logged_in_following=$user_logged_in_array['followers'];
-            if ($user_name =!' ') {
                 if ( (strstr($user_logged_in_following,$user_name)==false) && ($user_name !='')) {
                     $user_profile_pic=$query_all_user_array['profile_pic'];
                     echo "
@@ -34,7 +33,7 @@ class load_friends_default{
                     <div class='follow_suggestion_name_container'><a href='profile.php?user_profile=$user_name'><img src='$user_profile_pic' alt=''></a><a href='profile.php?user_profile=$user_name' class='follow_friend_user_name'>$user_name</a><div class='follow_friend_button follow_".$user_name."'>Follow</div></div>
                     </div><hr>";
                 }
-            }
+            
         }
     }
 }

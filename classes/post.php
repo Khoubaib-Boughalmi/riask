@@ -199,13 +199,17 @@ class post{
 }
 
 public function reduce_num_likes_post_table_db_by_one($text_value,$post_id,$user_name_logged_in){
-    if ($text_value == 'Liked') {
+    if ($text_value == ' Liked') {
         $query_num_likes_post=mysqli_query($this->con,"SELECT * from posts where id='$post_id'");
         $query_num_likes_post_array = mysqli_fetch_array($query_num_likes_post);
         $num_like = $query_num_likes_post_array['likes'];
+        $users_disliked_list = $query_num_likes_post_array['users_liked'];
+        $user_name_logged_in = ','.$user_name_logged_in.',';
+        $new_users_disliked_list = str_replace($user_name_logged_in,'', $users_disliked_list);
         $num_like = (int)$num_like;
         $num_like=$num_like - 1;
-        $update_num_likes_post=mysqli_query($this->con,"UPDATE posts set likes='$num_like' where id='$post_id'");
+        $update_num_likes_post=mysqli_query($this->con,"UPDATE posts set likes='$num_like',users_liked='$new_users_disliked_list' where id='$post_id'");
+
 
 
         # code...

@@ -9,7 +9,6 @@ $dislike_id=$_POST['like_id_val'];
 $user_name_logged_in_val=$_POST['user_name_logged_in_val'];
 $liked_text_val=$_POST['liked_text_val'];
 
-$update_ui = 'true'; // true if the ui going to be updated false if user already disliked post
 
 //  delete old like in casse user click twise
 // $delete_like_query=mysqli_query($con,"DELETE FROM likes WHERE post_id='$dislike_id' and user_name='$user_name_logged_in_val'");
@@ -40,15 +39,6 @@ if (($user_name_logged_in_val!=$user_to)&&($liked_text_val=='Like')) {
     // like ==>type (s7i7a)
     $notification_obj->insert_notification($dislike_id,$user_to,'like',$title);
 }
-
-// query likes
-
-$query_likes=mysqli_query($con,"SELECT * FROM likes where post_id='$dislike_id' and is_like='yes'");
-$query_num_likes=mysqli_num_rows($query_likes);
-
-// query dislikes
-$query_dislikes=mysqli_query($con,"SELECT * FROM likes where post_id='$dislike_id' and is_dislike='yes'");
-$query_num_dislikes=mysqli_num_rows($query_dislikes);
 
 echo "
                         <div class='riask-reaction'>
@@ -107,8 +97,6 @@ echo "
 
             }
         })
-        var update_ui = '<?php echo $update_ui ?>';
-        if (update_ui == 'true') {
             $.ajax({
                 url: 'ajax/like_clicked_update_ui_ajax.php',
                 type: 'POST',
@@ -125,7 +113,7 @@ echo "
 
                 }
             })
-        }
+    
     });
 
 

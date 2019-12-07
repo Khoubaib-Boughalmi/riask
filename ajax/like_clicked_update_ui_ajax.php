@@ -5,7 +5,7 @@ if(mysqli_connect_errno()){
     echo 'connection failled';
 
 }
-
+// 7awel tal9a methode t3adi beha valeur (text) l9dim mta3 l UI liked w dislikes w ken liked zid we7k lel liked ken l3akes l3akes bech mato93edch t selecti f db meloul kol mara
 $like_id=$_POST['like_id_val'];
 
 $query_likes=mysqli_query($con,"SELECT count(*) as count FROM likes where post_id='$like_id' and is_like='yes'");
