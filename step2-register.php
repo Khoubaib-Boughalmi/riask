@@ -85,12 +85,19 @@ $category = new category($con);
         $(document).ready(function (e) {
             $('.input-register2-user-name').blur(function () {
                 var user_name_val = $(this).val();
+
+                if ((user_name_val.length < 3) || (user_name_val.length >14)) {
+                    $('.input-register2-user-name').css('border', '.2rem solid red');
+                    simpleNotify.notify('user name must be between 2 and 15 character ', 'danger');
+                    error_array.push('user name must be between 2 and 15 character')
+                }else{
+                    removeItem('user name must be between 2 and 15 character')
                 $.post("get_user_name.php", {
                     suggestion: user_name_val
                 }, function (data) {
                     if (data != '0') {
                         $('.input-register2-user-name').css('border', '.2rem solid red');
-                        simpleNotify.notify('Email already used', 'danger');
+                        simpleNotify.notify('User name already used', 'danger');
                         error_array.push('User name Already used')
 
                     } else {
@@ -101,7 +108,8 @@ $category = new category($con);
 
                     }
                 })
-            })
+            }
+        })
 
             $('.input-register2-tags').keyup(function () {
                 var tag_val = $('.input-register2-tags').val();

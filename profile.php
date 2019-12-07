@@ -37,7 +37,7 @@ $num_notification=$notification_obj->num_notification($user_name_logged_in);
         <nav id="main-nav">
             <div class="user-main">
                 <a class="user-name-menu"><img src="images/icons/bars.png" style="height:2rem;width:2rem;" alt=""><span
-                        class="user-name-menu-span"><?php echo $user_obj->get_first_last_name() ?></span></a>
+                        class="user-name-menu-span"><?php echo $user_logged_in_obj->get_first_last_name() ?></span></a>
             </div>
             </div>
             </div>

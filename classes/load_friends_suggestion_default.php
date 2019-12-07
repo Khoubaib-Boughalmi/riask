@@ -26,7 +26,7 @@ class load_friends_default{
             
             // to not show already followed ppl
             $user_logged_in_following=$user_logged_in_array['followers'];
-            if (strstr($user_logged_in_following,$user_name)==false) {
+            if ( (strstr($user_logged_in_following,$user_name)==false) && ($user_name !=' ')) {
                 $user_profile_pic=$query_all_user_array['profile_pic'];
                 echo "
                 <div href='profile.php?user_profile=$user_name' class='load_friend_container'>
