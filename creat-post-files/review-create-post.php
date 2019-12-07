@@ -36,9 +36,9 @@ $timezone=  date_default_timezone_set('Africa/Tunis');
                                        </div>
                                         </div>
                                     </div>
-                                    <h4 class="title_review_create_post">title</h4>
-                                    <span class='commen_css_post_span'> </span>
-                                    <div class='show_all_search_result_content_tags'>
+                                    <h4 class="title_review_create_post hyphens">title</h4>
+                                    <span class='commen_css_post_span hyphens'> </span>
+                                    <div class='show_all_search_result_content_tags hyphens'>
                               
                                     </div>
                                 </div>

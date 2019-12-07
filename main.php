@@ -559,14 +559,17 @@ if (isset($_POST['submit_test'])) {
             var user_name_logged_in = '<?php echo $user_name?>';
             var num_like_text_val = $(this).text()
             var like_val_class = $('.like_btn_' + like_id).text(); //DISLIKED, LIKED, LIKE
-            // alert(like_val_class)
+            // get like_button text value
+            var like_btn_text_val = $(this).text()
+            // ajax call to remove like from lain page as first as it loads
             $.ajax({
                 url: 'ajax/remove_like.php',
                 type: 'POST',
                 data: {
                     like_id: like_id,
                     user_name_logged_in: user_name_logged_in,
-                    like_val_class: like_val_class
+                    like_val_class: like_val_class,
+                    like_btn_text_val: like_btn_text_val
                 },
                 async: false,
                 cache: false,

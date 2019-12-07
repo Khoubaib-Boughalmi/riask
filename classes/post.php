@@ -5,28 +5,29 @@ class post{
     public $user_name_loged_in;
     public $categories_list;
     public function __construct($con,$user_name,$categories_list){
+        // include('user.php');
         $this->con=$con;
-        $this->user_obj=new user($con,$user_name);
+        // $this->user_obj=new user($con,$user_name);
         $this->user_name_loged_in=$user_name;
         $this->categories_list=$categories_list;
     }
 
-    public function submit_post($body){
-        $body=strip_tags($body);
-        $body=mysqli_real_escape_string($this->con,$body);
-		$check_empty = preg_replace('/\s+/', '', $body); //Deltes all spaces 
-        $date_submited=date('Y-m-d H:i:s');
-        if ($check_empty !='') {
-            $user_name_val=$this->user_obj->get_user_name();
-            // insert into db
-            $insert_db_query=mysqli_query($this->con,"INSERT INTO `posts`(`id`, `body`, `added_by`, `date_added`, `deleted`, `user_closed`, `likes`) VALUES ('','$body','$user_name_val','$date_submited','no','no','0')");
-            $return_id=mysqli_insert_id($this->con);
-            // update number of postes posted by the user
-            $num_post=$this->user_obj->number_of_posts();
-            $num_post++;
-            $update_query=mysqli_query($this->con,"UPDATE users SET number_posts='$num_post' WHERE user_name='$user_name_val'");
-        }
-    }
+    // public function submit_post($body){
+    //     $body=strip_tags($body);
+    //     $body=mysqli_real_escape_string($this->con,$body);
+	// 	$check_empty = preg_replace('/\s+/', '', $body); //Deltes all spaces 
+    //     $date_submited=date('Y-m-d H:i:s');
+    //     if ($check_empty !='') {
+    //         $user_name_val=$this->user_obj->get_user_name();
+    //         // insert into db
+    //         $insert_db_query=mysqli_query($this->con,"INSERT INTO `posts`(`id`, `body`, `added_by`, `date_added`, `deleted`, `user_closed`, `likes`) VALUES ('','$body','$user_name_val','$date_submited','no','no','0')");
+    //         $return_id=mysqli_insert_id($this->con);
+    //         // update number of postes posted by the user
+    //         $num_post=$this->user_obj->number_of_posts();
+    //         $num_post++;
+    //         $update_query=mysqli_query($this->con,"UPDATE users SET number_posts='$num_post' WHERE user_name='$user_name_val'");
+    //     }
+    // }
 
     public function load_post(){
         // strat likes obj
@@ -197,7 +198,28 @@ class post{
     
 }
 
+public function reduce_num_likes_post_table_db_by_one($text_value,$post_id){
+    if ($text_value == 'Liked') {
+        $query_num_likes_post=mysqli_query($this->con,"SELECT * from posts where id='$post_id'");
+        $query_num_likes_post_array = mysqli_fetch_array($query_num_likes_post);
+        $num_like = $query_num_likes_post_array['likes'];
+        $num_like = (int)$num_like;
+        $num_like=$num_like - 1;
+        $update_num_likes_post=mysqli_query($this->con,"UPDATE posts set likes='$num_like' where id='$post_id'");
 
+
+        # code...
+    }elseif($text_value == 'Disliked'){
+        $query_num_likes_post=mysqli_query($this->con,"SELECT * from posts where id='$post_id'");
+        $query_num_likes_post_array = mysqli_fetch_array($query_num_likes_post);
+        $num_like = $query_num_likes_post_array['dislikes'];
+        $num_like = (int)$num_like;
+        $num_like=$num_like - 1;
+        $update_num_likes_post=mysqli_query($this->con,"UPDATE posts set dislikes='$num_like' where id='$post_id'");
+
+    }
+
+}
 
 
 }

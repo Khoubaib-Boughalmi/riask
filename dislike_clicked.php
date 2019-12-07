@@ -19,9 +19,10 @@ $fetch_array_post_before=mysqli_fetch_array($select_post_query);
 $num_likes=$fetch_array_post_before['dislikes'];
 $title=$fetch_array_post_before['title'];
 // reduce with one
-$num_likes=((int)$num_likes)-1;
+    $num_likes=((int)$num_likes)-1;
+
 // update the number of likes in post table and update table likes
-$reduce_like_query=mysqli_query($con,"UPDATE `posts` SET `likes`= '$num_likes' WHERE id='$dislike_id'");
+$reduce_like_query=mysqli_query($con,"UPDATE `posts` SET `dislikes`= '$num_likes' WHERE id='$dislike_id'");
 // insert new value of likes in tabele 
 $insert_like_query=mysqli_query($con,"INSERT INTO `likes`(`id`, `user_name`, `post_id`, `is_like`, `is_dislike`) VALUES('','$user_name_logged_in_val','$dislike_id','no','yes')");
 // select table post with new value of lieks
@@ -30,7 +31,7 @@ $fetch_array_post_before=mysqli_fetch_array($select_post_query);
 $num_likes=$fetch_array_post_before['dislikes'];
 $num_likes=((int)$num_likes+2);
 // update the value of likes after reducing it
-$increase_like_query=mysqli_query($con,"UPDATE `posts` SET `likes`= '$num_likes' WHERE id='$dislike_id'");
+$increase_like_query=mysqli_query($con,"UPDATE `posts` SET `dislikes`= '$num_likes' WHERE id='$dislike_id'");
 
 
 

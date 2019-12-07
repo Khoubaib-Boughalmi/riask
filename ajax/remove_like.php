@@ -12,6 +12,13 @@ if (isset($_POST['like_id'])) {
 if (isset($_POST['user_name_logged_in'])) {
     $user_name_logged_in=$_POST['user_name_logged_in'];
 }
+if (isset($_POST['like_btn_text_val'])) {
+    $like_btn_text_val=$_POST['like_btn_text_val'];
+}
+
+include '../classes/post.php';
+$post_obj=new post($con,$user_name_logged_in,'');
+
 
     $delete_query = mysqli_query($con,"DELETE FROM `likes` WHERE post_id='$like_id' and user_name='$user_name_logged_in'");
     echo "<div class='riask-reaction'>
@@ -26,8 +33,7 @@ if (isset($_POST['user_name_logged_in'])) {
         </span>
      </div>";
 
-
-
+$post_obj->reduce_num_likes_post_table_db_by_one($like_btn_text_val,$like_id)
 ?>
 <script>
     // like button clicked
@@ -122,46 +128,5 @@ if (isset($_POST['user_name_logged_in'])) {
         })
     });
 
-    // // remove like 
-    // $('.like-btn-text').click(function(){
-    //             var like_id = $(this).attr('class');
-    //             like_id = like_id.slice(23);
-    //             var user_name_logged_in = '<?php echo $user_name_logged_in?>';
-    //             var num_like_text_val = $(this).text()
-    //             var like_val_class=$('.like_btn_'+like_id).text(); //DISLIKED, LIKED, LIKE
-    //             // alert(like_val_class)
-    //             $.ajax({
-    //             url: 'ajax/remove_like.php',
-    //             type: 'POST',
-    //             data:{
-    //             like_id: like_id,
-    //             user_name_logged_in:user_name_logged_in,
-    //             like_val_class:like_val_class
-    //             },
-    //             async: false,
-    //             cache: false,
-    //             error: function(){
-    //                 alert('error');
-    //             },
-    //             success:function (data) {
-    //                 alert(like_val_class)
-
-    //                 $('.bottom_post_like_'+like_id).html(data);
-
-    //                 if (like_val_class == 'Disliked'){
-
-    //                     var liked_text_val = $('.like-details_disliked_'+like_id).text()
-    //                     liked_text_val = parseInt(liked_text_val)-1;
-    //                      $('.like-details_disliked_'+like_id).text(liked_text_val)
-
-    //                 }
-    //                  if (like_val_class == ' Liked') {
-    //                     var liked_text_val = $('.like-details_liked_'+like_id).text()
-    //                     liked_text_val = parseInt(liked_text_val)-1;
-    //                     $('.like-details_liked_'+like_id).text(liked_text_val)
-    //                 }
-    //             }
-    //             })  
-    //         })
 
 </script>
