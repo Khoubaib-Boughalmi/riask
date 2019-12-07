@@ -33,7 +33,7 @@ $post_obj=new post($con,$user_name_logged_in,'');
         </span>
      </div>";
 
-$post_obj->reduce_num_likes_post_table_db_by_one($like_btn_text_val,$like_id)
+$post_obj->reduce_num_likes_post_table_db_by_one($like_btn_text_val,$like_id,$user_name_logged_in)
 ?>
 <script>
     // like button clicked
