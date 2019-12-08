@@ -43,7 +43,7 @@ $body = wordwrap($body,150,"<br>\n");
     // push notification
 
     if ($user_name!=$user_to) {
-        $notification_obj->insert_notification($post_id,$user_to,'comment','');
+        $notification_obj->insert_notification($post_id,$user_to,'comment','',$pdp);
     }
     if ($con->query($insert_db_query) === TRUE) {
     $return_id=$con->insert_id;

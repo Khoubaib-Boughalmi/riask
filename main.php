@@ -36,9 +36,9 @@ $num_notification=$notification_obj->num_notification($user_name);
 include('classes/load_pagination_main_page.php');
 $pagination=new main_pagination($con);
 
-if (isset($_POST['submit_test'])) {
-    $post_obj->submit_post($_POST['text_area']);
-}
+// if (isset($_POST['submit_test'])) {
+//     $post_obj->submit_post($_POST['text_area']);
+// }
 ?>
 
 <body style="background-color: #DAE0E6;overflow-x: hidden;">
@@ -513,7 +513,8 @@ if (isset($_POST['submit_test'])) {
             var user_name_logged_in = '<?php echo $user_name?>';
             var full_like_id = $(this).attr('id');
             var dislike_id = full_like_id.slice(7, full_like_id.len);
-            var liked_text_val = $('.bottom_post_like_' + dislike_id + ' .like_btn_' + dislike_id).text()
+            var liked_text_val = $('.bottom_post_like_' + dislike_id + ' .like_btn_' + dislike_id).text();
+            var user_profile_pic = '<?php echo $user_obj->get_profile_pic() ?>' ;
             // alert(liked_text_val)
             $.ajax({
                 url: 'dislike_clicked.php',
@@ -521,7 +522,8 @@ if (isset($_POST['submit_test'])) {
                 data: {
                     like_id_val: dislike_id,
                     user_name_logged_in_val: user_name_logged_in,
-                    liked_text_val: liked_text_val
+                    liked_text_val: liked_text_val,
+                    user_profile_pic:user_profile_pic
                 },
                 async: false,
                 cache: false,
