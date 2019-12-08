@@ -467,15 +467,15 @@ $pagination=new main_pagination($con);
             var full_like_id = $(this).attr('id');
             var like_id = full_like_id.slice(4, full_like_id.len);
             var liked_text_val = $('.bottom_post_like_' + like_id + ' .like_btn_' + like_id).text()
-            // alert(liked_text_val)
-
+            var user_profile_pic = '<?php echo $user_obj->get_profile_pic() ?>' ;
             $.ajax({
                 url: 'like_clicked.php',
                 type: 'POST',
                 data: {
                     like_id_val: like_id,
                     user_name_logged_in_val: user_name_logged_in,
-                    liked_text_val: liked_text_val
+                    liked_text_val: liked_text_val,
+                    user_profile_pic:user_profile_pic
                 },
                 async: false,
                 cache: false,

@@ -8,6 +8,7 @@ if(mysqli_connect_errno()){
 $like_id=$_POST['like_id_val'];
 $user_name_logged_in_val=$_POST['user_name_logged_in_val'];
 $liked_text_val=$_POST['liked_text_val'];
+$user_profile_pic=$_POST['user_profile_pic'];
 
 $update_ui = 'true'; // true if the ui going to be updated false if user already disliked post
 
@@ -41,7 +42,7 @@ include('classes/notification.php');
 $notification_obj=new notification($con,$user_name_logged_in_val);
 $user_to=$fetch_array_post_before['added_by'];
 if (($user_name_logged_in_val!=$user_to)&&($liked_text_val =='Like')) {
-    $notification_obj->insert_notification($like_id,$user_to,'like',$title);
+    $notification_obj->insert_notification($like_id,$user_to,'like',$title,$pdp);
 }
 
 echo "
