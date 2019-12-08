@@ -62,7 +62,12 @@ class notification{
 									$notification_value="<div class='dropdown_notification_container dropdown_notification_container_type1_145'><a href='profile.php?user_profile=$user_to_profile_name' id='image_drop_down_profile_link'><img src='$user_profile_pic' style='width:3rem;height:3rem;border-radius:10rem;'></a><a href='".$row['link']."&opened_from_notification=true/$title' id='drop_down_link'>".$row['user_from']." Reacted to your post :  <br><span class='hyphens'>".$row['notification_title']."</span></a></div>";
 								}
 							}else{
-								$notification_value="<div class='dropdown_notification_container dropdown_notification_container_type1_145'><a href='profile.php?user_profile=$user_to_profile_name' id='image_drop_down_profile_link'><img src='$user_profile_pic' style='width:3rem;height:3rem;border-radius:10rem;'></a><a href='".$row['link']."&opened_from_notification=true/$title' id='drop_down_link'>".$row['user_from']." and ".$count." other people reacted to your post :  <br><span class='hyphens'>".$row['notification_title']."</span></a></div>";
+								if ($row['is_comment'] == 'yes') {
+									$notification_value="<div class='dropdown_notification_container dropdown_notification_container_type1_145'><a href='profile.php?user_profile=$user_to_profile_name' id='image_drop_down_profile_link'><img src='$user_profile_pic' style='width:3rem;height:3rem;border-radius:10rem;'></a><a href='".$row['link']."&opened_from_notification=true/$title' id='drop_down_link'>".$row['user_from']." and ".$count." Other people commented on your post :  <br><span class='hyphens'>".$row['notification_title']."</span></a></div>";
+								}
+								else{
+									$notification_value="<div class='dropdown_notification_container dropdown_notification_container_type1_145'><a href='profile.php?user_profile=$user_to_profile_name' id='image_drop_down_profile_link'><img src='$user_profile_pic' style='width:3rem;height:3rem;border-radius:10rem;'></a><a href='".$row['link']."&opened_from_notification=true/$title' id='drop_down_link'>".$row['user_from']." and ".$count." Other people reacted to your post :  <br><span class='hyphens'>".$row['notification_title']."</span></a></div>";
+								}
 							}
 						}else {
 							if ($count == 0) {
@@ -72,7 +77,12 @@ class notification{
 								$notification_value="<div class='dropdown_notification_container dropdown_notification_container_type1_130' style='background-color:#e8f3ff;'><a href='profile.php?user_profile=$user_to_profile_name' id='image_drop_down_profile_link'><img src='$user_profile_pic' style='width:3rem;height:3rem;border-radius:10rem;'></a><a href='".$row['link']."&opened_from_notification=true/$title' id='drop_down_link'>".$row['user_from']." reacted to your post :  <br><span class='hyphens'>".$row['notification_title']."</span></a></div>";
 								}
 							}else{
-								$notification_value="<div class='dropdown_notification_container dropdown_notification_container_type1_130' style='background-color:#e8f3ff;'><a href='profile.php?user_profile=$user_to_profile_name' id='image_drop_down_profile_link'><img src='$user_profile_pic' style='width:3rem;height:3rem;border-radius:10rem;'></a><a href='".$row['link']."&opened_from_notification=true/$title' id='drop_down_link'>".$row['user_from']." and ".$count." other people reacted to your post :  <br><span class='hyphens'>".$row['notification_title']."</span></a></div>";
+								if ($row['is_comment'] == 'yes') {
+									$notification_value="<div class='dropdown_notification_container dropdown_notification_container_type1_130' style='background-color:#e8f3ff;'><a href='profile.php?user_profile=$user_to_profile_name' id='image_drop_down_profile_link'><img src='$user_profile_pic' style='width:3rem;height:3rem;border-radius:10rem;'></a><a href='".$row['link']."&opened_from_notification=true/$title' id='drop_down_link'>".$row['user_from']." and ".$count." other people commented on your post :  <br><span class='hyphens'>".$row['notification_title']."</span></a></div>";
+								}
+								else{
+									$notification_value="<div class='dropdown_notification_container dropdown_notification_container_type1_130' style='background-color:#e8f3ff;'><a href='profile.php?user_profile=$user_to_profile_name' id='image_drop_down_profile_link'><img src='$user_profile_pic' style='width:3rem;height:3rem;border-radius:10rem;'></a><a href='".$row['link']."&opened_from_notification=true/$title' id='drop_down_link'>".$row['user_from']." and ".$count." other people reacted to your post :  <br><span class='hyphens'>".$row['notification_title']."</span></a></div>";
+								}
 							}
 						}
 					

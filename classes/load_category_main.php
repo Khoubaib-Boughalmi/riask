@@ -20,7 +20,7 @@ class category_main{
                 <div class='category_commen_categorys'><span>".$query_array['num_post']." Post in this category<span></div>
 
             </div>
-            <div class='follow_category_button_search_category follow_category_button_search_category_$'>Follow</div>
+            <!--<div class='follow_category_button_search_category follow_category_button_search_category_$'>Follow</div>-->
 
             <div class=''></div>
             </div>
