@@ -15,6 +15,9 @@ if (isset($_POST['user_name_logged_in'])) {
 if (isset($_POST['like_btn_text_val'])) {
     $like_btn_text_val=$_POST['like_btn_text_val'];
 }
+$user_profile_pic=$_POST['user_profile_pic'];
+$post_title=$_POST['post_title'];
+$user_to=$_POST['user_to'];
 
 include '../classes/post.php';
 $post_obj=new post($con,$user_name_logged_in,'');
@@ -43,6 +46,9 @@ $post_obj->reduce_num_likes_post_table_db_by_one($like_btn_text_val,$like_id,$us
         var full_like_id = $(this).attr('id');
         var like_id = full_like_id.slice(4, full_like_id.len);
         var liked_text_val = $('.bottom_post_like_'+like_id+' .like_btn_'+like_id).text()
+        var user_profile_pic = '<?php echo $user_profile_pic ?>' ;
+        var post_title = '<?php echo $post_title ?>' ;
+        var user_to = '<?php echo $user_to ?>' ;
 
 
         $.ajax({
@@ -51,7 +57,10 @@ $post_obj->reduce_num_likes_post_table_db_by_one($like_btn_text_val,$like_id,$us
             data: {
                 like_id_val: like_id,
                 user_name_logged_in_val: user_name_logged_in,
-                liked_text_val:liked_text_val
+                liked_text_val:liked_text_val,
+                user_profile_pic:user_profile_pic,
+                post_title:post_title,
+                user_to:user_to
             },
             async: false,
             cache: false,
@@ -90,14 +99,19 @@ $post_obj->reduce_num_likes_post_table_db_by_one($like_btn_text_val,$like_id,$us
         var full_like_id = $(this).attr('id');
         var dislike_id = full_like_id.slice(7, full_like_id.len);
         var liked_text_val = $('.bottom_post_like_'+dislike_id+' .like_btn_'+dislike_id).text()
-
+        var user_profile_pic = '<?php echo $user_profile_pic ?>' ;
+        var post_title = '<?php echo $post_title ?>';
+        var user_to = '<?php echo $user_to ?>';
         $.ajax({
             url: 'dislike_clicked.php',
             type: 'POST',
             data: {
                 like_id_val: dislike_id,
                 user_name_logged_in_val: user_name_logged_in,
-                liked_text_val:liked_text_val
+                liked_text_val:liked_text_val,
+                user_profile_pic:user_profile_pic,
+                post_title: post_title,
+                user_to: user_to
             },
             async: false,
             cache: false,

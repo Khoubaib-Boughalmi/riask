@@ -12,13 +12,56 @@ if (isset($_POST['input_search_val'])) {
 
 
 $query_search=mysqli_query($con,"SELECT * from posts where MATCH(title,body) AGAINST('$input_search_val') LIMIT 5");
+// i need the second query to get id and select likes using post id
+// $query_search_second=mysqli_query($con,"SELECT * from posts where MATCH(title,body) AGAINST('$input_search_val') LIMIT 5");
+
+// $id_array = array_fill(0, 5, 0);
+// $i=0;
+// while($fetch_search_array_id = mysqli_fetch_array($query_search_second)){
+// 	$replacement = array($i => $fetch_search_array_id['id']);
+// 	$id_array = array_replace($id_array, $replacement);
+// 	$i++;
+// }
+
+// $query_likes_posts=mysqli_query($con,"SELECT *,count(*) as count FROM `likes` WHERE (post_id='$id_array[0]' or post_id='$id_array[1]' or post_id='$id_array[2]' or post_id='$id_array[3]' or post_id='$id_array[4]') GROUP by post_id,is_like order by post_id asc");
+
+// $T=array(
+// 	array(0,0,0),
+// 	array(0,0,0),
+// 	array(0,0,0),
+// 	array(0,0,0),
+// 	array(0,0,0),
+// );
+
+// $i = 0; $j =0; $x = 0;
+// $previous_id=0;
+// while($query_likes_posts_array = mysqli_fetch_array($query_likes_posts)){
+// 	$current_id =(int)$query_likes_posts_array['post_id']; 
+// 	$T[$i][0]=(int)$query_likes_posts_array['post_id'];
+	
+// 	if ($query_likes_posts_array['is_like']=='yes') {
+// 		$T[$i][$i+1]=(int)$query_likes_posts_array['count'];
+// 	}else{
+// 		$T[$i][$i+2]=(int)$query_likes_posts_array['count'];
+// 	}
+// 	if (($current_id !== $T[$i][0])) {
+// 		$i++;
+// 	}
+// }
+// echo mysqli_num_rows($query_likes_posts).'<br>';
+// echo $T[0][0];
+// echo $i;
+// echo $x;
+
+
 $date_time_now = date("Y-m-d H:i:s");
 if (mysqli_num_rows($query_search)>0) {
 
 echo "<div class='main_search_result_header'>
-                <span>Search results</span>
+                <span>Search Result</span>
             </div>";
     while($query_search_array=mysqli_fetch_array($query_search)){
+
 		$title = $query_search_array['title'];
 		$title = (string)$title;
         $title = str_replace(' ','-',$title);
@@ -84,6 +127,12 @@ echo "<div class='main_search_result_header'>
 							$time_message = $interval->s . " seconds ago";
 						}
 					}
+			// while($query_likes_posts_array = mysqli_fetch_array($query_likes_posts)){
+
+			
+					// if ($query_search_array['id']==$query_likes_posts_array['id']) {
+					// 	# code...
+					// }
 		echo "
 		
         <div class='main_search_result_content'>
@@ -119,6 +168,8 @@ echo "<div class='main_search_result_header'>
 	</div>
 	</a>
 </div>";
+
+// }
 }else{
 	echo "
 	<div class='main_search_result_header'>
@@ -141,7 +192,6 @@ echo "<div class='main_search_result_header'>
 	</div>
 </div>";
 }
-
 // echo "<div class='main_search_result_content'>
 //                 <div class='main_search_result_reactions' style='>
 //                     <div class='main_search_result_like'>
@@ -165,4 +215,3 @@ echo "<div class='main_search_result_header'>
 // $query_user_logged_in=mysqli_query($con,"SELECT * from users where user_name='$user_name_logged_in'");
 
 ?>
-

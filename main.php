@@ -468,6 +468,8 @@ $pagination=new main_pagination($con);
             var like_id = full_like_id.slice(4, full_like_id.len);
             var liked_text_val = $('.bottom_post_like_' + like_id + ' .like_btn_' + like_id).text()
             var user_profile_pic = '<?php echo $user_obj->get_profile_pic() ?>' ;
+            var post_title = $('.post_title_'+like_id).text();
+            var user_to = $('.post_'+like_id+' .user-name-post').text();
             $.ajax({
                 url: 'like_clicked.php',
                 type: 'POST',
@@ -475,7 +477,9 @@ $pagination=new main_pagination($con);
                     like_id_val: like_id,
                     user_name_logged_in_val: user_name_logged_in,
                     liked_text_val: liked_text_val,
-                    user_profile_pic:user_profile_pic
+                    user_profile_pic:user_profile_pic,
+                    post_title:post_title,
+                    user_to:user_to
                 },
                 async: false,
                 cache: false,
@@ -515,15 +519,18 @@ $pagination=new main_pagination($con);
             var dislike_id = full_like_id.slice(7, full_like_id.len);
             var liked_text_val = $('.bottom_post_like_' + dislike_id + ' .like_btn_' + dislike_id).text();
             var user_profile_pic = '<?php echo $user_obj->get_profile_pic() ?>' ;
-            // alert(liked_text_val)
-            $.ajax({
+            var post_title = $('.post_title_'+dislike_id).text();
+            var user_to = $('.post_'+dislike_id+' .user-name-post').text();
+                $.ajax({
                 url: 'dislike_clicked.php',
                 type: 'POST',
                 data: {
                     like_id_val: dislike_id,
                     user_name_logged_in_val: user_name_logged_in,
                     liked_text_val: liked_text_val,
-                    user_profile_pic:user_profile_pic
+                    user_profile_pic:user_profile_pic,
+                    post_title: post_title,
+                    user_to: user_to
                 },
                 async: false,
                 cache: false,
@@ -564,6 +571,10 @@ $pagination=new main_pagination($con);
             // get like_button text value
             var like_btn_text_val = $(this).text()
             // ajax call to remove like from lain page as first as it loads
+            var user_profile_pic = '<?php echo $user_obj->get_profile_pic() ?>' ;
+            var post_title = $('.post_title_'+like_id).text();
+            var user_to = $('.post_'+like_id+' .user-name-post').text();
+
             $.ajax({
                 url: 'ajax/remove_like.php',
                 type: 'POST',
@@ -571,7 +582,10 @@ $pagination=new main_pagination($con);
                     like_id: like_id,
                     user_name_logged_in: user_name_logged_in,
                     like_val_class: like_val_class,
-                    like_btn_text_val: like_btn_text_val
+                    like_btn_text_val: like_btn_text_val,
+                    user_profile_pic:user_profile_pic,
+                    post_title:post_title,
+                    user_to:user_to
                 },
                 async: false,
                 cache: false,

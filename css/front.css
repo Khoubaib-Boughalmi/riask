@@ -1707,7 +1707,7 @@ body {
     transform: rotate(45deg);
     font-weight: bold;
     position: absolute;
-    top: -5px;
+    top: -2px;
     right: 3px;
     color: #ff0000b3;
     cursor: pointer;
