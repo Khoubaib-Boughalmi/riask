@@ -3,6 +3,7 @@
 $num_followers_list=$_POST['num_followers_list'];
 $user_name_logged_in=$_POST['user_name_logged_in'];
 $followers_list=$_POST['followers_list'];
+$user_profile_pic=$_POST['user_profile_pic'];
 
 $int_part=intval((int)$num_followers_list/10);
             if ($int_part!=$num_followers_list/10) {
@@ -29,6 +30,7 @@ $int_part=intval((int)$num_followers_list/10);
             pagination_id = pagination_id.substr(11);
             var num_followers_list = "<?php echo $num_followers_list; ?>";
             var user_name_logged_in = "<?php echo $user_name_logged_in ?>";
+            var user_profile_pic = "<?php echo $user_profile_pic ?>";
             var followers_list = "<?php echo $followers_list ?>";
             var pagination_formul_start=(parseInt(pagination_id)-1)*10
 
@@ -42,7 +44,8 @@ $int_part=intval((int)$num_followers_list/10);
                     data: {
                         user_name_logged_in: user_name_logged_in,
                         followers_list: followers_list,
-                        pagination_formul_start,pagination_formul_start
+                        pagination_formul_start,pagination_formul_start,
+                        user_profile_pic:user_profile_pic
                     },
 
                     error: function () {

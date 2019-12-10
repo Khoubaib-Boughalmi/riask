@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 session_regenerate_id();
@@ -10,6 +9,8 @@ if(mysqli_connect_errno()){
 $pagination_formul_start=$_POST['pagination_formul_start'];
 $user_name_logged_in=$_POST['user_name_logged_in'];
 $categories_list=$_POST['categories_list'];
+$user_profile_pic=$_POST['user_profile_pic'];
+
 include_once('../classes/user.php');
 
 include_once('../like_dislike.php');
@@ -137,8 +138,8 @@ $post="";
 									$post.="</div>
 									</div>
 								</div>
-								<h4 class='post_title post_title_".$row['id']."'>".$row['title']."</h4>
-								<span class='commen_css_post_span commen_css_post_span_".$row['id']."'>$body </span>
+								<h4 class='post_title post_title_".$row['id']." hyphens'>".$row['title']."</h4>
+								<span class='commen_css_post_span commen_css_post_span_".$row['id']." hyphens'>$body </span>
 								<div class='show_all_search_result_content_tags'>";
 								$str = $row['post_tags'];
 								$arr=explode(',',$str);
@@ -182,209 +183,250 @@ $post="";
 	// }   
 ?>
 <script>
-// $(document).ready(function(){
-//   $(".reaction").on("click",function(){   // like click
-// 	var data_reaction = $(this).attr("data-reaction");
-// 	$(".like-btn-emo").removeClass().addClass('like-btn-emo').addClass('like-btn-'+data_reaction.toLowerCase());
-// 	$(".like-btn-text").text(data_reaction).removeClass().addClass('like-btn-text').addClass('like-btn-text-'+data_reaction.toLowerCase()).addClass("active");;
+	// like button clicked
+	$(".reaction-like").click(function (event) {
+		var user_name_logged_in = '<?php echo $user_name_logged_in?>';
+		var full_like_id = $(this).attr('id');
+		var like_id = full_like_id.slice(4, full_like_id.len);
+		var liked_text_val = $('.bottom_post_like_' + like_id + ' .like_btn_' + like_id).text();
+		var user_profile_pic = '<?php echo $user_profile_pic?>';
+		var post_title = $('.post_title_' + like_id).text();
+		var user_to = $('.post_' + like_id + ' .user-name-post').text();
+		$.ajax({
+			url: 'like_clicked.php',
+			type: 'POST',
+			data: {
+				like_id_val: like_id,
+				user_name_logged_in_val: user_name_logged_in,
+				liked_text_val: liked_text_val,
+				post_title: post_title,
+				user_to: user_to,
+				liked_text_val: liked_text_val,
+				user_profile_pic: user_profile_pic
+			},
+			async: false,
+			cache: false,
+			error: function () {
+				alert('error');
+			},
+			success: function (data) {
+				$('.bottom_post_like_' + like_id).html(data);
 
-// 	if(data_reaction == "Like")
-// 	  $(".like-emo").html('<span class="like-btn-like"></span>');
-// 	else
-// 	  $(".like-emo").html('<span class="like-btn-like"></span><span class="like-btn-'+data_reaction.toLowerCase()+'"></span>');
-//   });
-  
-//   $(".like-btn-text").on("click",function(){ // undo like click
-// 	  if($(this).hasClass("active")){
-// 		  $(".like-btn-text").text("Like").removeClass().addClass('like-btn-text');
-// 		  $(".like-btn-emo").removeClass().addClass('like-btn-emo').addClass("like-btn-default");
-// 		  $(".like-emo").html('<span class="like-btn-like"></span>');
-		  
-// 	  }	  
-//   })
-  
-  
-// });
+			}
+		})
 
-// like button clicked
-$(".reaction-like").click(function (event) {
-var user_name_logged_in = '<?php echo $user_name_logged_in?>';
-var full_like_id = $(this).attr('id');
-var like_id = full_like_id.slice(4, full_like_id.len);
-var liked_text_val = $('.bottom_post_like_'+like_id+' .like_btn_'+like_id).text()
+		$.ajax({
+			url: 'ajax/like_clicked_update_ui_ajax.php',
+			type: 'POST',
+			data: {
+				like_id_val: like_id
+			},
+			async: false,
+			cache: false,
+			error: function () {
+				alert('error');
+			},
+			success: function (data) {
+				$('#likes_dislikes_display_number_' + like_id).html(data);
 
-$.ajax({
-url: 'like_clicked.php',
-type: 'POST',
-data:{
-like_id_val: like_id,
-user_name_logged_in_val: user_name_logged_in,
-liked_text_val:liked_text_val
-},
-async: false,
-cache: false,
-error: function(){
-	alert('error');
-},
-success:function (data) {
-	$('.bottom_post_like_' + like_id).html(data);
+			}
+		})
+	});
+
+	$(".reaction-love").click(function (event) {
+		var user_name_logged_in = '<?php echo $user_name_logged_in?>';
+		var full_like_id = $(this).attr('id');
+		var dislike_id = full_like_id.slice(7, full_like_id.len);
+		var liked_text_val = $('.bottom_post_like_' + dislike_id + ' .like_btn_' + dislike_id).text()
+		var user_profile_pic = '<?php echo $user_profile_pic?>';
+		var post_title = $('.post_title_' + dislike_id).text();
+		var user_to = $('.post_' + dislike_id + ' .user-name-post').text();
+		$.ajax({
+			url: 'dislike_clicked.php',
+			type: 'POST',
+			data: {
+				like_id_val: dislike_id,
+				user_name_logged_in_val: user_name_logged_in,
+				liked_text_val: liked_text_val,
+				post_title: post_title,
+				user_to: user_to,
+				liked_text_val: liked_text_val,
+				user_profile_pic: user_profile_pic
+
+			},
+			async: false,
+			cache: false,
+			error: function () {
+				alert('error');
+			},
+			success: function (data) {
+				$('.bottom_post_like_' + dislike_id).html(data);
+
+			}
+		})
+
+		$.ajax({
+			url: 'ajax/like_clicked_update_ui_ajax.php',
+			type: 'POST',
+			data: {
+				like_id_val: dislike_id
+			},
+			async: false,
+			cache: false,
+			error: function () {
+				alert('error');
+			},
+			success: function (data) {
+				$('#likes_dislikes_display_number_' + dislike_id).html(data);
+
+			}
+		})
+	});
+
+	// mark post
+	$('.bottom_post_componment_mark_post').click(function () {
+		var all_tags = '';
+		var post_marked_id = $(this).attr('id');
+		post_marked_id = post_marked_id.slice(33);
+		var user_name_logged_in = '<?php echo $user_name_logged_in?>';
+		var body = $('.commen_css_post_span_' + post_marked_id).text();
+		var title = $('.post_title_' + post_marked_id).text();
+		var tags = $('.span_tag_value_' + post_marked_id).each(function () {
+			tags = $(this).text() + ',';
+			all_tags = all_tags.concat(tags);
+		})
+		var mark_full_id = $(this).attr('id');
+		var mark_text_value = $('#bottom_post_componment_mark_post_' + post_marked_id + ' .span-icon-name')
+			.text();
+		if (mark_text_value == 'Mark') {
+			// mark the post
+			$.post("ajax/mark_post.php", {
+				post_marked_id: post_marked_id,
+				user_name_logged_in: user_name_logged_in,
+				body: body,
+				title: title,
+				tags: all_tags
+			}, function (data) {
+				$('#bottom_post_componment_mark_post_' + post_marked_id).html(data)
+			})
+		} else {
+			// remove the mark
+
+			$.ajax({
+				url: 'ajax/remove_marked_post_ajax.php',
+				type: 'POST',
+				data: {
+					post_id: post_marked_id,
+					user_name_logged_in: user_name_logged_in
+
+				},
+				error: function () {
+					alert('error');
+				},
+				success: function (data) {
+					$('#bottom_post_componment_mark_post_' + post_marked_id).html(data)
+				}
+			})
+		}
+	})
+
+	// toggle between hiding and showing the dropdown content 
+
+	$('.ellipsis_img_post').click(function () {
+		var ellipsis_id = $(this).attr('class');
+		var ellipsis_id = ellipsis_id.slice(36);
+		$(".dropdown-content_more_option_post_" + ellipsis_id).toggle("show");
+	})
+	// report a post
+	$('.report_post_div').click(function () {
+		var report_id = $(this).attr('class');
+		var report_id = report_id.slice(32);
+		var user_name_logged_in = '<?php echo $user_name_logged_in?>';
+		$.ajax({
+			url: 'ajax/report_post_ajax.php',
+			type: 'POST',
+			data: {
+				report_id: report_id,
+				user_name_logged_in: user_name_logged_in
+			},
+			error: function () {
+				alert('error');
+			},
+			success: function (data) {
+				$('.post_' + report_id).hide('slow', function () {
+					$('.post_' + report_id).remove();
+				});
+			}
+		})
+	})
+	$('.delete_post_div').click(function () {
+		var post_id = $(this).attr('class');
+		var post_id = post_id.slice(32);
+		var user_name_logged_in = '<?php echo $user_name_logged_in?>';
+		$.ajax({
+			url: 'ajax/delete_post_ajax.php',
+			type: 'POST',
+			data: {
+				post_id: post_id
+			},
+			error: function () {
+				alert('error');
+			},
+			success: function (data) {
+				$('.post_' + post_id).hide('slow', function () {
+					$('.post_' + post_id).remove();
+				});
+			}
+		})
+	})
 	
-}
-})
-
-$.ajax({
-url: 'ajax/like_clicked_update_ui_ajax.php',
-type: 'POST',
-data:{
-like_id_val: like_id
-},
-async: false,
-cache: false,
-error: function(){
-	alert('error');
-},
-success:function (data) {
-	$('#likes_dislikes_display_number_' + like_id).html(data);
-	
-}
-})
-});
-
-$(".reaction-love").click(function (event) {
-var user_name_logged_in = '<?php echo $user_name_logged_in?>';
-var full_like_id = $(this).attr('id');
-var dislike_id = full_like_id.slice(7, full_like_id.len);
-var liked_text_val = $('.bottom_post_like_'+dislike_id+' .like_btn_'+dislike_id).text()
-
-$.ajax({
-url: 'dislike_clicked.php',
-type: 'POST',
-data:{
-like_id_val: dislike_id,
-user_name_logged_in_val: user_name_logged_in,
-liked_text_val:liked_text_val
-},
-async: false,
-cache: false,
-error: function(){
-	alert('error');
-},
-success:function (data) {
-	$('.bottom_post_like_' + dislike_id).html(data);
-	
-}
-})
-
-$.ajax({
-url: 'ajax/like_clicked_update_ui_ajax.php',
-type: 'POST',
-data:{
-like_id_val: dislike_id
-},
-async: false,
-cache: false,
-error: function(){
-	alert('error');
-},
-success:function (data) {
-	$('#likes_dislikes_display_number_' + dislike_id).html(data);
-	
-}
-})
-});
-
-// mark post
-$('.bottom_post_componment_mark_post').click(function () {
-            var all_tags = '';
-            var post_marked_id = $(this).attr('id');
-            post_marked_id = post_marked_id.slice(33);
+        // remove like 
+        $('.like-btn-text').click(function () {
+            var like_id = $(this).attr('class');
+            like_id = like_id.slice(23);
             var user_name_logged_in = '<?php echo $user_name_logged_in?>';
-            var body = $('.commen_css_post_span_' + post_marked_id).text();
-            var title = $('.post_title_' + post_marked_id).text();
-            var tags = $('.span_tag_value_' + post_marked_id).each(function () {
-                tags = $(this).text() + ',';
-                all_tags = all_tags.concat(tags);
-            })
-            var mark_full_id = $(this).attr('id');
-            var mark_text_value = $('#bottom_post_componment_mark_post_' + post_marked_id + ' .span-icon-name')
-                .text();
-            if (mark_text_value == 'Mark') {
-                // mark the post
-                $.post("ajax/mark_post.php", {
-                    post_marked_id: post_marked_id,
+            var num_like_text_val = $(this).text()
+            var like_val_class = $('.like_btn_' + like_id).text(); //DISLIKED, LIKED, LIKE
+            // get like_button text value
+            var like_btn_text_val = $(this).text()
+            // ajax call to remove like from lain page as first as it loads
+            var user_profile_pic = '<?php echo $user_obj->get_profile_pic() ?>';
+            var post_title = $('.post_title_' + like_id).text();
+            var user_to = $('.post_' + like_id + ' .user-name-post').text();
+
+            $.ajax({
+                url: 'ajax/remove_like.php',
+                type: 'POST',
+                data: {
+                    like_id: like_id,
                     user_name_logged_in: user_name_logged_in,
-                    body: body,
-                    title: title,
-                    tags: all_tags
-                }, function (data) {
-                    $('#bottom_post_componment_mark_post_' + post_marked_id).html(data)
-                })
-            } else {
-                // remove the mark
+                    like_val_class: like_val_class,
+                    like_btn_text_val: like_btn_text_val,
+                    user_profile_pic: user_profile_pic,
+                    post_title: post_title,
+                    user_to: user_to
+                },
+                async: false,
+                cache: false,
+                error: function () {
+                    alert('error');
+                },
+                success: function (data) {
+                    $('.bottom_post_like_' + like_id).html(data);
+                    if (like_val_class == 'Disliked') {
+                        var liked_text_val = $('.like-details_disliked_' + like_id).text()
+                        liked_text_val = parseInt(liked_text_val) - 1;
+                        $('.like-details_disliked_' + like_id).text(liked_text_val)
 
-                $.ajax({
-                    url: 'ajax/remove_marked_post_ajax.php',
-                    type: 'POST',
-                    data: {
-                        post_id:post_marked_id,
-                        user_name_logged_in: user_name_logged_in
-
-                    },
-                    error: function () {
-                        alert('error');
-                    },
-                    success: function (data) {
-                        $('#bottom_post_componment_mark_post_'+post_marked_id).html(data)
+                    } else if (like_val_class == 'Liked') {
+                        var liked_text_val = $('.like-details_liked_' + like_id).text()
+                        liked_text_val = parseInt(liked_text_val) - 1;
+                        $('.like-details_liked_' + like_id).text(liked_text_val)
+                        // alert('diliked')   
                     }
-                })
-            }
+                }
+            })
         })
 
-// toggle between hiding and showing the dropdown content 
 
-$('.ellipsis_img_post').click(function(){
-    var ellipsis_id=$(this).attr('class');
-    var ellipsis_id = ellipsis_id.slice(36);
-    $(".dropdown-content_more_option_post_"+ellipsis_id).toggle("show");
-})
-// report a post
-$('.report_post_div').click(function(){
-    var report_id=$(this).attr('class');
-    var report_id = report_id.slice(32);
-    var user_name_logged_in = '<?php echo $user_name_logged_in?>';
-    $.ajax({
-        url: 'ajax/report_post_ajax.php',
-        type: 'POST',
-        data:{
-        report_id: report_id,
-        user_name_logged_in:user_name_logged_in
-        },
-        error: function(){
-        alert('error');
-        },
-        success:function (data) {
-        $('.post_' + report_id).hide('slow', function(){ $('.post_' + report_id).remove(); });
-        }
-    })
-})
-$('.delete_post_div').click(function(){
-    var post_id=$(this).attr('class');
-    var post_id = post_id.slice(32);
-    var user_name_logged_in = '<?php echo $user_name_logged_in?>';
-    $.ajax({
-        url: 'ajax/delete_post_ajax.php',
-        type: 'POST',
-        data:{
-        post_id: post_id
-        },
-        error: function(){
-        alert('error');
-        },
-        success:function (data) {
-        $('.post_' + post_id).hide('slow', function(){ $('.post_' + post_id).remove(); });
-        }
-    })
-})
 </script>
-
-

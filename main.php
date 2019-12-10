@@ -13,8 +13,8 @@ include_once('like_dislike.php');
 include('classes/notification.php');
 include('classes/load_friends_suggestion_default.php');
 include('classes/load_category_main.php');
-if (isset($_SESSION['user_name_log_in'])) {
-    $user_name=$_SESSION['user_name_log_in'];
+if (isset($_COOKIE['user_name_log_in'])) {
+    $user_name=$_COOKIE['user_name_log_in'];
     $query_log_in=mysqli_query($con,"SELECT * FROM users WHERE user_name ='$user_name'");
     $row=mysqli_fetch_array($query_log_in);
 }
@@ -121,11 +121,12 @@ $pagination=new main_pagination($con);
                         <span href="#" class="pagination_content" id='pagination_4'>4</span>
                         <span href="#" class="pagination_content" id='pagination_5'>5</span>
                         <span href="#" class="pagination_content" id='pagination_6'>6</span> -->
-                            <?php
+                        <?php
                             $num_posts = $pagination->number_of_results_related($categories_list);
                             $pagination->pagination($num_posts);
                             ?>
-                    </div>                </div>
+                    </div>
+                </div>
             </div>
             <!-- **************** -->
             <div class="side">
@@ -165,7 +166,7 @@ $pagination=new main_pagination($con);
                         <h3 class="header-side-text">More categories</h3>
                     </div>
                     <div class="tags-friend-content" style="display: flex;flex-direction:column;">
-                    <?php $category_obj->load_category_side()?>
+                        <?php $category_obj->load_category_side()?>
                     </div>
                     <div class="span-button show_more_categories"> <a href="#">Show more</a></div>
                 </div>
@@ -369,12 +370,12 @@ $pagination=new main_pagination($con);
             <div class="load_post_category_pop_up_body" style="padding : 1rem 0rem;width:100%;top:37%;height:60%">
                 <!-- function load category -->
                 <?php $category_obj->load_category() ?>
-                
+
             </div>
         </div>
     </div>
     <script>
-        $('.load_category_search_div').click(function(){
+        $('.load_category_search_div').click(function () {
             var category_name = $(this).attr('class');
             var category_name = category_name.slice(50);
             var user_name_logged_in_val = '<?php echo $user_name ?>';
@@ -387,35 +388,35 @@ $pagination=new main_pagination($con);
                     user_name_logged_in_val: user_name_logged_in_val,
                     pagination_formul_start: pagination_formul_start
                 },
-                
+
                 error: function () {
                     alert('error');
                 },
                 success: function (data) {
                     $('.load_post').html(data);
-                    $('.load_post_category_pop_up_container').css('display','none')
+                    $('.load_post_category_pop_up_container').css('display', 'none')
 
                 }
             })
             $.ajax({
-                    url: 'load_post_options/load_pagination_category_selection.php',
-                    type: 'POST',
-                    data: {
-                        user_name_logged_in:user_name_logged_in_val,
-                        category_name: category_name,
+                url: 'load_post_options/load_pagination_category_selection.php',
+                type: 'POST',
+                data: {
+                    user_name_logged_in: user_name_logged_in_val,
+                    category_name: category_name,
 
-                        
-                    },
 
-                    error: function () {
-                        alert('error');
-                    },
-                    success: function (data) {
-                        // load pagination friend
-                        $('.pagination').html(data);
-                        $('#pagination_1').addClass('active')
-                    }
-                })
+                },
+
+                error: function () {
+                    alert('error');
+                },
+                success: function (data) {
+                    // load pagination friend
+                    $('.pagination').html(data);
+                    $('#pagination_1').addClass('active')
+                }
+            })
 
         })
         // display the slide bar
@@ -467,9 +468,9 @@ $pagination=new main_pagination($con);
             var full_like_id = $(this).attr('id');
             var like_id = full_like_id.slice(4, full_like_id.len);
             var liked_text_val = $('.bottom_post_like_' + like_id + ' .like_btn_' + like_id).text()
-            var user_profile_pic = '<?php echo $user_obj->get_profile_pic() ?>' ;
-            var post_title = $('.post_title_'+like_id).text();
-            var user_to = $('.post_'+like_id+' .user-name-post').text();
+            var user_profile_pic = '<?php echo $user_obj->get_profile_pic() ?>';
+            var post_title = $('.post_title_' + like_id).text();
+            var user_to = $('.post_' + like_id + ' .user-name-post').text();
             $.ajax({
                 url: 'like_clicked.php',
                 type: 'POST',
@@ -477,9 +478,9 @@ $pagination=new main_pagination($con);
                     like_id_val: like_id,
                     user_name_logged_in_val: user_name_logged_in,
                     liked_text_val: liked_text_val,
-                    user_profile_pic:user_profile_pic,
-                    post_title:post_title,
-                    user_to:user_to
+                    user_profile_pic: user_profile_pic,
+                    post_title: post_title,
+                    user_to: user_to
                 },
                 async: false,
                 cache: false,
@@ -518,17 +519,17 @@ $pagination=new main_pagination($con);
             var full_like_id = $(this).attr('id');
             var dislike_id = full_like_id.slice(7, full_like_id.len);
             var liked_text_val = $('.bottom_post_like_' + dislike_id + ' .like_btn_' + dislike_id).text();
-            var user_profile_pic = '<?php echo $user_obj->get_profile_pic() ?>' ;
-            var post_title = $('.post_title_'+dislike_id).text();
-            var user_to = $('.post_'+dislike_id+' .user-name-post').text();
-                $.ajax({
+            var user_profile_pic = '<?php echo $user_obj->get_profile_pic() ?>';
+            var post_title = $('.post_title_' + dislike_id).text();
+            var user_to = $('.post_' + dislike_id + ' .user-name-post').text();
+            $.ajax({
                 url: 'dislike_clicked.php',
                 type: 'POST',
                 data: {
                     like_id_val: dislike_id,
                     user_name_logged_in_val: user_name_logged_in,
                     liked_text_val: liked_text_val,
-                    user_profile_pic:user_profile_pic,
+                    user_profile_pic: user_profile_pic,
                     post_title: post_title,
                     user_to: user_to
                 },
@@ -571,9 +572,9 @@ $pagination=new main_pagination($con);
             // get like_button text value
             var like_btn_text_val = $(this).text()
             // ajax call to remove like from lain page as first as it loads
-            var user_profile_pic = '<?php echo $user_obj->get_profile_pic() ?>' ;
-            var post_title = $('.post_title_'+like_id).text();
-            var user_to = $('.post_'+like_id+' .user-name-post').text();
+            var user_profile_pic = '<?php echo $user_obj->get_profile_pic() ?>';
+            var post_title = $('.post_title_' + like_id).text();
+            var user_to = $('.post_' + like_id + ' .user-name-post').text();
 
             $.ajax({
                 url: 'ajax/remove_like.php',
@@ -583,9 +584,9 @@ $pagination=new main_pagination($con);
                     user_name_logged_in: user_name_logged_in,
                     like_val_class: like_val_class,
                     like_btn_text_val: like_btn_text_val,
-                    user_profile_pic:user_profile_pic,
-                    post_title:post_title,
-                    user_to:user_to
+                    user_profile_pic: user_profile_pic,
+                    post_title: post_title,
+                    user_to: user_to
                 },
                 async: false,
                 cache: false,
@@ -910,7 +911,8 @@ $pagination=new main_pagination($con);
                 pagination_formul_start = 0
 
                 var user_name_logged_in = '<?php echo $user_name?>'
-                var followers_list = '<?php echo $followers_list ?>'
+                var followers_list = '<?php echo $followers_list ?>';
+                var user_profile_pic = '<?php echo $user_obj->get_profile_pic()?>';
 
                 $.ajax({
                     url: 'load_post_options/load_post_friend.php',
@@ -918,7 +920,8 @@ $pagination=new main_pagination($con);
                     data: {
                         pagination_formul_start: pagination_formul_start,
                         user_name_logged_in: user_name_logged_in,
-                        followers_list: followers_list
+                        followers_list: followers_list,
+                        user_profile_pic:user_profile_pic,
                     },
 
                     error: function () {
@@ -927,18 +930,21 @@ $pagination=new main_pagination($con);
                     success: function (data) {
                         $('.load_post').html(data);
                         // load pagination friend
-                        
+
                     }
                 })
                 $.ajax({
                     url: 'load_post_options/load_pagination_friend.php',
                     type: 'POST',
                     data: {
-                        num_followers_list:num_followers_list,
-                        user_name_logged_in:user_name_logged_in,
-                        followers_list:followers_list
-                        
-                        
+                        num_followers_list: num_followers_list,
+                        user_name_logged_in: user_name_logged_in,
+                        followers_list: followers_list,
+                        categories_list: categories_list,
+                        user_profile_pic:user_profile_pic
+
+
+
                     },
 
                     error: function () {
@@ -951,17 +957,19 @@ $pagination=new main_pagination($con);
                     }
                 })
             } else if (checked_val == 'related') {
-                var num_post_related_list = '<?php echo $pagination->number_of_results_related($categories_list) ?>'
+                var num_post_related_list ='<?php echo $pagination->number_of_results_related($categories_list) ?>'
                 pagination_formul_start = 0
-                var categories_list = '<?php echo $categories_list ?>'
-                var user_name_logged_in = '<?php echo $user_name?>'
+                var categories_list = '<?php echo $categories_list ?>';
+                var user_name_logged_in = '<?php echo $user_name?>';
+                var user_profile_pic = '<?php echo $user_obj->get_profile_pic()?>';
                 $.ajax({
                     url: 'load_post_options/load_post_related.php',
                     type: 'POST',
                     data: {
                         pagination_formul_start: pagination_formul_start,
                         user_name_logged_in: user_name_logged_in,
-                        categories_list: categories_list
+                        user_profile_pic:user_profile_pic,
+                        categories_list: categories_list,
                     },
 
                     error: function () {
@@ -976,11 +984,13 @@ $pagination=new main_pagination($con);
                     url: 'load_post_options/load_pagination_related.php',
                     type: 'POST',
                     data: {
-                        num_post_related_list:num_post_related_list,
-                        user_name_logged_in:user_name_logged_in,
-                        categories_list:categories_list
-                        
-                        
+                        num_post_related_list: num_post_related_list,
+                        user_name_logged_in: user_name_logged_in,
+                        categories_list: categories_list,
+                        user_profile_pic:user_profile_pic
+
+
+
                     },
 
                     error: function () {
@@ -995,14 +1005,16 @@ $pagination=new main_pagination($con);
             } else if (checked_val == 'all') {
                 pagination_formul_start = 0;
                 var user_name_logged_in = '<?php echo $user_name?>'
-                var num_post_all = '<?php echo $pagination->number_of_results_all() ?>'
+                var num_post_all = '<?php echo $pagination->number_of_results_all() ?>';
+                var user_profile_pic = '<?php echo $user_obj->get_profile_pic()?>';
 
                 $.ajax({
                     url: 'load_post_options/load_post_all.php',
                     type: 'POST',
                     data: {
-                        pagination_formul_start:pagination_formul_start,
-                        user_name_logged_in:user_name_logged_in
+                        pagination_formul_start: pagination_formul_start,
+                        user_name_logged_in: user_name_logged_in,
+                        user_profile_pic:user_profile_pic,
                     },
 
                     error: function () {
@@ -1017,8 +1029,10 @@ $pagination=new main_pagination($con);
                     url: 'load_post_options/load_pagination_all.php',
                     type: 'POST',
                     data: {
-                        num_post_all:num_post_all,
-                        user_name_logged_in:user_name_logged_in
+                        num_post_all: num_post_all,
+                        user_name_logged_in: user_name_logged_in,
+                        user_profile_pic:user_profile_pic,
+
                     },
 
                     error: function () {
@@ -1033,10 +1047,10 @@ $pagination=new main_pagination($con);
             }
 
         })
-        $('.tags_name').click(function(){
+        $('.tags_name').click(function () {
             var full_class = $(this).attr('class');
             var full_class = full_class.slice(20);
-            if (full_class =='maths') {
+            if (full_class == 'maths') {
                 $.ajax({
                     url: 'load_post_options/load_post_all.php',
                     type: 'POST',
@@ -1052,55 +1066,57 @@ $pagination=new main_pagination($con);
 
                     }
                 })
-            }else if(full_class =='big_data'){
+            } else if (full_class == 'big_data') {
 
-            }else if (full_class =='computer_science') {
-                
+            } else if (full_class == 'computer_science') {
+
             }
             // else if (condition) {
-                
+
             // }else if(){
 
             // }else if (condition) {
-                
+
             // }
 
         })
-        $('.pagination_content').click(function(){
-                var pagination_id =$(this).attr('id');
-                pagination_id = pagination_id.substr(11);
+        $('.pagination_content').click(function () {
+            var pagination_id = $(this).attr('id');
+            pagination_id = pagination_id.substr(11);
 
-                var user_name_logged_in = '<?php echo $user_name?>'
-                var categories_list = '<?php echo $categories_list ?>'
+            var user_name_logged_in = '<?php echo $user_name?>'
+            var categories_list = '<?php echo $categories_list ?>'
+            var user_profile_pic = '<?php echo $user_obj->get_profile_pic()?>';
 
-                $('.pagination_content').removeClass('active');
-                $(this).addClass('active')
-                var pagination_formul_start=(parseInt(pagination_id)-1)*10
-                window.scrollTo(0,0)
-                $.ajax({
-                    url: 'load_post_options/load_post_related.php',
-                    type: 'POST',
-                    data: {
-                        user_name_logged_in: user_name_logged_in,
-                        categories_list: categories_list,
-                        pagination_formul_start,pagination_formul_start
-                    },
+            $('.pagination_content').removeClass('active');
+            $(this).addClass('active')
+            var pagination_formul_start = (parseInt(pagination_id) - 1) * 10
+            window.scrollTo(0, 0)
+            $.ajax({
+                url: 'load_post_options/load_post_related.php',
+                type: 'POST',
+                data: {
+                    user_name_logged_in: user_name_logged_in,
+                    categories_list: categories_list,
+                    pagination_formul_start,
+                    pagination_formul_start,
+                    user_profile_pic:user_profile_pic
+                },
 
-                    error: function () {
-                        alert('error');
-                    },
-                    success: function (data) {
-                        $('.load_post').html(data);
-                    }
-                })
+                error: function () {
+                    alert('error');
+                },
+                success: function (data) {
+                    $('.load_post').html(data);
+                }
             })
+        })
 
 
-            // toggle category load post
-            $('.slide-menu-option_loading_option').click(function(){
-                $('.slide-menu-option_options').toggle('show');
-            })
-
+        // toggle category load post
+        $('.slide-menu-option_loading_option').click(function () {
+            $('.slide-menu-option_options').toggle('show');
+        })
     </script>
 </body>
 

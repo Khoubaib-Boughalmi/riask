@@ -22,7 +22,9 @@ require '../db.php';
         if($user_closed == 'yes'){
             $user_closed_update=mysqli_query($con,"UPDATE users SET user_closed='no' WHERE email='$user_email_log_in'");
         }
-        $_SESSION['user_name_log_in']=$user_name_log_in;
+        // $_SESSION['user_name_log_in']=$user_name_log_in;
+        setcookie('user_name_log_in', $user_name_log_in, time() + (86400 * 30 * 30), "/"); // 86400 = 1 day
+
         echo $num_query_log_in;
     }
     else{
