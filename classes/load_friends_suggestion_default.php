@@ -10,7 +10,7 @@ class load_friends_default{
         $this->user_logged_in=$user_logged_in;
     }
 
-    public function load_friends_default_function(){
+    public function load_friends_default_function($followers_list){
         $user_logged_in=$this->user_logged_in;
         // add the show only ppl with same categories
         $query_all_user=mysqli_query($this->con,"SELECT * FROM users WHERE user_name!='$user_logged_in' order by RAND() DESC  LIMIT 5");
@@ -19,7 +19,7 @@ class load_friends_default{
             
             // to not show already followed ppl
             $user_logged_in_following=$query_all_user_array['followers'];
-                if ( (strstr($user_logged_in_following,$user_name)==false) && ($user_name !='') && ($user_name !=' ')) {
+                if ( (strstr($followers_list,$user_name)==false)) {
                     $user_profile_pic=$query_all_user_array['profile_pic'];
                     echo "
                     <div href='profile.php?user_profile=$user_name' class='load_friend_container'>

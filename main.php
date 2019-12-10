@@ -27,7 +27,7 @@ $followers_list = $user_obj->follower_list();
 $categories_list = $user_obj->get_categories();
 $post_obj=new post($con,$user_name,$categories_list);
 $notification_obj=new notification($con,$user_name);
-$load_friends_suggestion_default_obj=new load_friends_default($con,$user_name);
+$load_friends_suggestion_default_obj=new load_friends_default($con,'Naceur');
 $category_obj=new category_main($con);
 
 
@@ -149,7 +149,8 @@ $pagination=new main_pagination($con);
                         <hr> -->
                         <div class="load_suggestion_container">
                             <?php
-                           $load_friends_suggestion_default_obj->load_friends_default_function();
+                            $followers_list = $user_obj->follower_list();
+                           $load_friends_suggestion_default_obj->load_friends_default_function($followers_list);
                         ?>
                         </div>
                     </div>
