@@ -86,30 +86,30 @@ $category = new category($con);
             $('.input-register2-user-name').blur(function () {
                 var user_name_val = $(this).val();
 
-                if ((user_name_val.length < 3) || (user_name_val.length >14)) {
+                if ((user_name_val.length < 3) || (user_name_val.length > 14)) {
                     $('.input-register2-user-name').css('border', '.2rem solid red');
                     simpleNotify.notify('user name must be between 2 and 15 character ', 'danger');
                     error_array.push('user name must be between 2 and 15 character')
-                }else{
+                } else {
                     removeItem('user name must be between 2 and 15 character')
-                $.post("get_user_name.php", {
-                    suggestion: user_name_val
-                }, function (data) {
-                    if (data != '0') {
-                        $('.input-register2-user-name').css('border', '.2rem solid red');
-                        simpleNotify.notify('User name already used', 'danger');
-                        error_array.push('User name Already used')
+                    $.post("get_user_name.php", {
+                        suggestion: user_name_val
+                    }, function (data) {
+                        if (data != '0') {
+                            $('.input-register2-user-name').css('border', '.2rem solid red');
+                            simpleNotify.notify('User name already used', 'danger');
+                            error_array.push('User name Already used')
 
-                    } else {
-                        simpleNotify.notify('User name availble', 'good');
-                        $('.input-register2-user-name').css('border', '.2rem solid green');
-                        removeItem('User name Already used')
-                        sessionStorage.setItem('user_name_log_in', user_name_val)
+                        } else {
+                            simpleNotify.notify('User name availble', 'good');
+                            $('.input-register2-user-name').css('border', '.2rem solid green');
+                            removeItem('User name Already used')
+                            sessionStorage.setItem('user_name_log_in', user_name_val)
 
-                    }
-                })
-            }
-        })
+                        }
+                    })
+                }
+            })
 
             $('.input-register2-tags').keyup(function () {
                 var tag_val = $('.input-register2-tags').val();
@@ -122,57 +122,76 @@ $category = new category($con);
             });
 
             $('.button-popup-register2').click(function (e) {
-                var tags='';
+                var tags = '';
                 $('.category_val').each(function () {
                     tags = tags + $(this).attr('title');
                 })
-                if (($('.input-register2-user-name').val() == '') || (tags.length == 0)) {
-                    simpleNotify.notify('input field is empty', 'danger');
-                    error_array.push('input field is empty')
+                // if (($('.input-register2-user-name').val() == '') || (tags.length == 0)) {
+                //     simpleNotify.notify('input field is empty', 'danger');
+                //     error_array.push('input field is empty')
 
+
+                // } else {
+                removeItem('input field is empty')
+                if (error_array.length != 0) {
+                    const distinct = (value, index, self) => {
+                        return self.indexOf(value) === index;
+                    }
+                    var dis = error_array.filter(distinct);
+                    dis = dis.reverse();
+                    // $("#button-popup").addClass("not-allowed");
+                    dis.forEach(e => {
+                        simpleNotify.notify(e, 'danger');
+                    });
 
                 } else {
-                    removeItem('input field is empty')
-                    if (error_array.length != 0) {
-                        const distinct = (value, index, self) => {
-                            return self.indexOf(value) === index;
-                        }
-                        var dis = error_array.filter(distinct);
-                        dis = dis.reverse();
-                        // $("#button-popup").addClass("not-allowed");
-                        dis.forEach(e => {
-                            simpleNotify.notify(e, 'danger');
-                        });
-                        
-                    } else {
-                        var tag_val = sessionStorage.setItem('tag_val',tags)
-                        var user_name = sessionStorage.getItem('user_name_log_in')
-                        var first_name = sessionStorage.getItem('first_name')
-                        var last_name = sessionStorage.getItem('last_name')
-                        var password = sessionStorage.getItem('password')
-                        var email = sessionStorage.getItem('email')
-                        var tag_val = sessionStorage.getItem('tag_val')
-                        $.ajax({
-                            url: 'ajax/add_user_info_db_create_account.php',
-                            type: 'POST',
-                            data: {
-                                user_name: user_name,
-                                first_name: first_name,
-                                tag_val: tag_val,
-                                last_name: last_name,
-                                password: password,
-                                email: email
-                            },
+                    var tag_val = sessionStorage.setItem('tag_val', tags)
+                    var user_name = sessionStorage.getItem('user_name_log_in')
+                    var first_name = sessionStorage.getItem('first_name')
+                    var last_name = sessionStorage.getItem('last_name')
+                    var password = sessionStorage.getItem('password')
+                    var email = sessionStorage.getItem('email')
+                    var tag_val = sessionStorage.getItem('tag_val')
+                    $.ajax({
+                        url: 'ajax/add_user_info_db_create_account.php',
+                        type: 'POST',
+                        data: {
+                            user_name: user_name,
+                            first_name: first_name,
+                            tag_val: tag_val,
+                            last_name: last_name,
+                            password: password,
+                            email: email
+                        },
 
-                            error: function () {
-                                alert('error');
-                            },
-                            success: function (data) {
-                                window.location.replace("index.php");
-                            }
-                        })
-                    }
+                        error: function () {
+                            alert('error');
+                        },
+                        success: function (data) {
+                            $.ajax({
+                                url: 'ajax/redirect_main_page.php',
+                                type: 'POST',
+                                data: {
+                                    user_name: user_name,
+                                    
+                                },
+
+                                error: function () {
+                                    alert('error');
+                                },
+                                success: function (data) {
+                                    // window.location('main.php')
+                                        if (data =='1') {
+                                            window.location.replace("main.php");
+                                        }else{
+                                            alert('someting went wrong try again')
+                                        }
+                                }
+                            })
+                        }
+                    })
                 }
+                // }
             })
             $('.input-register2-tags').focus(function () {
                 $('.scroling-div-step2-register').css('display', 'flex')
@@ -183,6 +202,7 @@ $category = new category($con);
             $(".dropdown_step2 dt a").on('click', function () {
                 $(".dropdown_step2 dd ul").slideToggle('fast');
             });
+
             function getSelectedValue(id) {
                 return $("#" + id).find("dt a span.value").html();
             }
@@ -192,7 +212,8 @@ $category = new category($con);
                     title = $(this).val() + ",";
 
                 if ($(this).is(':checked')) {
-                    var html = '<span title="' + title + '" " class="category_val">' + title + '</span>';
+                    var html = '<span title="' + title + '" " class="category_val">' + title +
+                    '</span>';
                     $('.multiSel').append(html);
                     $(".hida").hide();
                 } else {
