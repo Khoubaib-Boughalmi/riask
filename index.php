@@ -1,6 +1,9 @@
 <?php
     define("header",true);
     include('header.php');
+    if ($_COOKIE['user_name_log_in']) {
+        header('Location: main.php');
+    }
 ?>
 
 <body>
