@@ -1,5 +1,5 @@
 <?php
-    session_start();
-    session_destroy();
+    setcookie("user_name_log_in", "", time() - 3600);
+
     header('location: ../index.php');
 ?>
