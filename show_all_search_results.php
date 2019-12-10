@@ -9,8 +9,8 @@ include('header.php');
 include('classes/notification.php');
 include('classes/user.php');
 
-if (isset($_SESSION['user_name_log_in'])) {
-    $user_name=$_SESSION['user_name_log_in'];
+if (isset($_COOKIE['user_name_log_in'])) {
+    $user_name=$_COOKIE['user_name_log_in'];
     $query_log_in=mysqli_query($con,"SELECT * FROM users WHERE user_name ='$user_name'");
     $row=mysqli_fetch_array($query_log_in);
 }else{
