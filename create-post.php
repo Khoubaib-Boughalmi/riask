@@ -2,8 +2,8 @@
 define("header",true);
 include('header.php');
 
-if (isset($_SESSION['user_name_log_in'])) {
-    $user_name=$_SESSION['user_name_log_in'];
+if (isset($_COOKIE['user_name_log_in'])) {
+    $user_name=$_COOKIE['user_name_log_in'];
 }else{
     header('location: index.php');
 }

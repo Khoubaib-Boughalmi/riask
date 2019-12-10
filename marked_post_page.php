@@ -5,8 +5,8 @@ if (isset($_GET['user_profile'])) {
     $user_profile=$_GET['user_profile'];
 }
 
-if (isset($_SESSION['user_name_log_in'])) {
-    $user_name_logged_in=$_SESSION['user_name_log_in'];
+if (isset($_COOKIE['user_name_log_in'])) {
+    $user_name_logged_in=$_COOKIE['user_name_log_in'];
 
 }else{
     header('location: index.php');
