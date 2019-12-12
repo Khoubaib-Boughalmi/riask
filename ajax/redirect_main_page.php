@@ -6,6 +6,8 @@
         echo '1';
     }else{
         setcookie('user_name_log_in', $user_name, time() + (86400 * 30 * 30), "/"); // 86400 = 1 day
+        echo '1';
+
     }
 
 ?>
