@@ -85,7 +85,7 @@ $category = new category($con);
         $(document).ready(function (e) {
             $('.input-register2-user-name').blur(function () {
                 var user_name_val = $(this).val();
-
+                user_name_val = user_name_val.trim()
                 if ((user_name_val.length < 3) || (user_name_val.length > 14)) {
                     $('.input-register2-user-name').css('border', '.2rem solid red');
                     simpleNotify.notify('user name must be between 2 and 15 character ', 'danger');
