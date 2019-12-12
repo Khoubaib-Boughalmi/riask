@@ -154,6 +154,7 @@ $category = new category($con);
                     var tag_val = sessionStorage.getItem('tag_val')
                     $.ajax({
                         url: 'ajax/add_user_info_db_create_account.php',
+                        async: false, 
                         type: 'POST',
                         data: {
                             user_name: user_name,
@@ -170,6 +171,7 @@ $category = new category($con);
                         success: function (data) {
                             $.ajax({
                                 url: 'ajax/redirect_main_page.php',
+                                async: false, 
                                 type: 'POST',
                                 data: {
                                     user_name: user_name,
