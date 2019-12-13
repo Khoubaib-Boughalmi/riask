@@ -291,7 +291,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     overflow: hidden;
-    padding: 5rem 0rem;
+    padding: 3rem 0rem;
     height: 45rem;
     width: 40rem;
     top: 54%;
@@ -3205,7 +3205,7 @@ body {
 
 @media(max-width: 530px) {
     .load_post_category_pop_up {
-        height: 81%;
+        height: 82%;
         width: 102%;
     }
 
