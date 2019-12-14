@@ -381,7 +381,7 @@ $pdp = $user_obj->get_profile_pic();
                                  </div>
                              </div>
                                  <h4 class='title_review_create_comment'></h4>
-                                 <span class='commen_css_comment_span' style='font-size: 1.3rem;font-weight: bold;padding-left:2rem'> $body</span>
+                                 <span class='commen_css_comment_span hyphens' style='font-size: 1.3rem;font-weight: bold;padding-left:2rem'> $body</span>
                                  <div class='show_all_search_result_content_tags'>
                                  
                                  </div>";
@@ -564,6 +564,13 @@ $pdp = $user_obj->get_profile_pic();
         </div>
     </div>
     <script>
+        $('#trumbowyg-demo').keyup(function(){
+            var last_char = $(this).text()
+            last_char = last_char[last_char.length-1]
+            if (last_char=='@') {
+                $(this).css("background-color" ,"rgba(230, 152, 152, 0.658)")
+            }
+        })
         // display the slide bar
         function display_slide(x) {
             if (x.matches) { // If media query matches
@@ -587,6 +594,7 @@ $pdp = $user_obj->get_profile_pic();
         });
 
         $('#trumbowyg-demo').trumbowyg({
+            removeformatPasted: true,
             btns: [
                 ['undo', 'redo'], // Only supported in Blink browsers
                 ['formatting'],
@@ -598,6 +606,7 @@ $pdp = $user_obj->get_profile_pic();
                 ['horizontalRule'],
                 ['removeformat'],
             ]
+
         });
 
         // show and hide main search results 
@@ -895,7 +904,7 @@ $pdp = $user_obj->get_profile_pic();
         $('.submit_comment').click(function () {
             var post_id = $(this).attr('class');
             var post_id = post_id.slice(30);
-            var body = $('#trumbowyg-demo').html()
+            var body = $('#trumbowyg-demo').text()
             var user_name_logged_in = '<?php echo $user_name?>';
             var user_to = $('.user_name_posted').text();
             var pdp = '<?php echo $pdp ?>'

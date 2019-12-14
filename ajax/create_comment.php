@@ -34,11 +34,15 @@ if (isset($_POST['pdp'])) {
 
 $body = wordwrap($body,150,"<br>\n");
 
- $date_submited=date('Y-m-d H:i:s');
- if ($check_empty_body !='') {
-     // insert into db
-     $insert_db_query="INSERT INTO `comments`(`id`, `posted_by`, `posted_to`, `date_added`, `removed`, `post_id`, `comment_body`, `user_profile_pic`)
+$date_submited=date('Y-m-d H:i:s');
+if ($check_empty_body !='') {
+    // insert into db
+    // $body = mysqli_real_escape_string($con,$body);
+
+    $insert_db_query="INSERT INTO `comments`(`id`, `posted_by`, `posted_to`, `date_added`, `removed`, `post_id`, `comment_body`, `user_profile_pic`)
                                                  VALUES ('','$user_name','$user_to','$date_submited','no','$post_id','$body','$pdp')";
+    
+    // $body = htmlspecialchars($body, ENT_QUOTES);
     
     // push notification
 
@@ -75,7 +79,7 @@ $body = wordwrap($body,150,"<br>\n");
     </div>
 </div>
 <h4 class='title_review_create_post'></h4>
-<span class='commen_css_post_span'> $body</span>
+<span class='commen_css_post_span hyphens'> $body</span>
 <div class='show_all_search_result_content_tags'>
 
 </div>";
@@ -123,8 +127,6 @@ $body = wordwrap($body,150,"<br>\n");
     </div>"; 
 echo $post;
 
-}else{
-echo 'no posts to show';
 }
 ?>
 <script>
