@@ -34,7 +34,7 @@
       }
     ],
     "start_url": "https://riask.com/index.php",
-    "scope": ".",
+    "scope": "https://riask.com/.",
     "display": "standalone",
     "orientation": "portrait-primary",
     "background_color": "#fff",
