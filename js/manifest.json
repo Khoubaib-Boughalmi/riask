@@ -37,7 +37,7 @@
     "scope": "https://riask.com/.",
     "display": "standalone",
     "orientation": "portrait-primary",
-    "background_color": "#fff",
+    "background_color": "#ff0000",
     "theme_color": "#ff0000",
     "description": "Riask is a platform that aim to make information accessible for everyone around the globe",
     "dir": "ltr",
