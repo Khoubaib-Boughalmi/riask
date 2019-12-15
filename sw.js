@@ -1,14 +1,11 @@
-self.addEventListener('install', function (event) {
-    console.log('[Service Worker] Installing Service Worker ...', event);
-
+self.addEventListener('install', (event) => {
+    console.log('Inside the install handler:', event);
   });
   
-self.addEventListener('activate', function (event) {
-    console.log('[Service Worker] Activating Service Worker ....', event);
- 
-return self.clients.claim();
-});
-
-self.addEventListener(fetch, (event) => {
+  self.addEventListener('activate', (event) => {
+    console.log('Inside the activate handler:', event);
+  });
+  
+  self.addEventListener(fetch, (event) => {
     console.log('Inside the fetch handler:', event);
-});
+  });
