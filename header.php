@@ -29,7 +29,7 @@ $timezone=  date_default_timezone_set('Africa/Tunis');
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans|Montserrat&display=swap" rel="stylesheet">
     <!--Notification-->
     <script src="js_ex/notification/simpleNotify.min.js"></script>
-    <link rel="manifest" href="/js/manifest.json"></link>
+    <link rel="manifest" href="js/manifest.json"></link>
     <link rel="stylesheet" href="js_ex/notification/simpleNotifyStyle.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
