@@ -38,7 +38,7 @@
     "display": "standalone",
     "orientation": "portrait-primary",
     "background_color": "#fff",
-    "theme_color": "#fff",
+    "theme_color": "#ff0000",
     "description": "Riask is a platform that aim to make information accessible for everyone around the globe",
     "dir": "ltr",
     "lang": "en-US"
