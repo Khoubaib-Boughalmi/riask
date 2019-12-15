@@ -7,14 +7,25 @@
       "start": "http-server -c-1"
     },
     "keywords": [
-      "pwa",
-      "progressive",
-      "web",
-      "app",
-      "complete",
-      "tutorial"
+        "Riask",
+        " riask",
+        " ask",
+        " question",
+        " Answer",
+        " Ask",
+        " Question",
+        " Education",
+        "knowledge",
+        " math",
+        " science",
+        " medical science",
+        " economie",
+        " business",
+        " sharing",
+        " helping",
+        " research "
     ],
-    "author": "Maximilian Schwarzmüller",
+    "author": "Khoubaib Boughalmi",
     "license": "ISC",
     "devDependencies": {
       "http-server": "^0.10.0"
