@@ -33,7 +33,7 @@
         "sizes": "512x512"
       }
     ],
-    "start_url": "https://riask.com/index.php",
+    "start_url": "https://riask.com/main.php",
     "scope": "https://riask.com/.",
     "display": "standalone",
     "orientation": "portrait-primary",
