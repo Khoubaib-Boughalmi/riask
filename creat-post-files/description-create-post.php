@@ -1,4 +1,4 @@
-<link rel="manifest" href="../js/manifest.json"></link>
+<link rel="manifest" href="/../js/manifest.json"></link>
 
 <?php
 if (isset($_POST['user_logged_in'])) {
