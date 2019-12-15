@@ -1,5 +1,5 @@
 <link rel="manifest" href="/js/manifest.json"></link>
-<script src="js/index.js"></script>
+<script src="/js/index.js"></script>
 <?php
 ini_set('display_errors', true);
 error_reporting(E_ALL);

@@ -34,7 +34,7 @@ $timezone=  date_default_timezone_set('Africa/Tunis');
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <link rel="shortcut icon" href="images/icons/logo_transparent.ico" />
-<script src="js/index.js"></script>
+<script src="/js/index.js"></script>
 
 <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
