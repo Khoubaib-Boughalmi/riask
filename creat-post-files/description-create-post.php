@@ -1,3 +1,5 @@
+<link rel="manifest" href="../js/manifest.json"></link>
+
 <?php
 if (isset($_POST['user_logged_in'])) {
     $user_name = $_POST['user_logged_in'];

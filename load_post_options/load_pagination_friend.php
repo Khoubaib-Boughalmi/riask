@@ -1,3 +1,5 @@
+<link rel="manifest" href="../js/manifest.json"></link>
+
 <?php
 
 $num_followers_list=$_POST['num_followers_list'];

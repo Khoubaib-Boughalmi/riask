@@ -1,0 +1,45 @@
+{
+    "name": "Riask",
+    "short_name": "Riask",
+    "icons": [
+      {
+        "src": "../images/pwa_img/48x48.png",
+        "type": "image/png",
+        "sizes": "48x48"
+      },
+      {
+        "src": "../images/pwa_img/96x96.png",
+        "type": "image/png",
+        "sizes": "96x96"
+      },
+      {
+        "src": "../images/pwa_img/144x144.png",
+        "type": "image/png",
+        "sizes": "144x144"
+      },
+      {
+        "src": "../images/pwa_img/192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "../images/pwa_img/256x256.png",
+        "type": "image/png",
+        "sizes": "256x256"
+      },
+      {
+        "src": "../images/pwa_img/512x512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "http://localhost/riask/index.php",
+    "scope": ".",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "background_color": "#fff",
+    "theme_color": "#fff",
+    "description": "Riask is a platform that aim to make information accessible for everyone around the globe",
+    "dir": "ltr",
+    "lang": "en-US"
+  }

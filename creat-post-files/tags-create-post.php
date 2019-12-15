@@ -1,3 +1,5 @@
+<link rel="manifest" href="../js/manifest.json"></link>
+
 <?php
 include "../db.php";
 if (isset($_POST['user_logged_in'])) {

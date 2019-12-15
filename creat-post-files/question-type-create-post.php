@@ -1,3 +1,6 @@
+
+<link rel="manifest" href="../js/manifest.json"></link>
+
 <div class="question-type-post-container">
     <div class="question-type-post-container-left">
 

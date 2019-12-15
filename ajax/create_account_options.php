@@ -1,3 +1,5 @@
+<link rel="manifest" href="../js/manifest.json"></link>
+
 <div class="create_account_header">
     <span class="create_account_header_text"> Sotmy amet consectetur adipisicing elit </span>
 </div>

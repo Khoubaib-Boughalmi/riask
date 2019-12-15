@@ -1,3 +1,5 @@
+<link rel="manifest" href="../js/manifest.json"></link>
+
 <?php
 
 $num_post_all=$_POST['num_post_all'];
