@@ -34,6 +34,17 @@ $timezone=  date_default_timezone_set('Africa/Tunis');
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <link rel="shortcut icon" href="images/icons/logo_transparent.ico" />
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="PWAGram">
+  <link rel="apple-touch-icon" href="images/pwa_img/48x48.png" sizes="48x48">
+  <link rel="apple-touch-icon" href="images/pwa_img/96x96.png" sizes="96x96">
+  <link rel="apple-touch-icon" href="images/pwa_img/256x256.png" sizes="256x256">
+  <link rel="apple-touch-icon" href="images/pwa_img/144x144.png" sizes="144x144">
+  <meta name="msapplication-TileImage" content="images/pwa_img/144x144.png">
+  <meta name="msapplication-TileColor" content="#fff">
+  <meta name="theme-color" content="#fff">
 <title>Riask</title>
 </head>
 
