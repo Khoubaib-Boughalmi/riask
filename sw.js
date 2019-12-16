@@ -8,4 +8,6 @@ self.addEventListener('install', (event) => {
   
   self.addEventListener(fetch, (event) => {
     console.log('Inside the fetch handler:', event);
+    event.respondWith(fetch(event.request))
+
   });
