@@ -669,7 +669,9 @@ $pdp = $user_obj->get_profile_pic();
             var full_like_id = $(this).attr('id');
             var like_id = full_like_id.slice(4, full_like_id.len);
             var liked_text_val = $('.bottom_post_like_' + like_id + ' .like_btn_' + like_id).text()
-
+            var user_profile_pic = '<?php echo $user_obj->get_profile_pic() ?>';
+            var post_title = $('.post_title_' + like_id).text();
+            var user_to = $('.post_' + like_id + ' .user-name-post').text();
 
             $.ajax({
                 url: 'like_clicked.php',
@@ -677,7 +679,10 @@ $pdp = $user_obj->get_profile_pic();
                 data: {
                     like_id_val: like_id,
                     user_name_logged_in_val: user_name_logged_in,
-                    liked_text_val: liked_text_val
+                    liked_text_val: liked_text_val,
+                    user_profile_pic: user_profile_pic,
+                    post_title: post_title,
+                    user_to: user_to
                 },
                 async: false,
                 cache: false,

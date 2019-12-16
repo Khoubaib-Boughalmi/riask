@@ -391,7 +391,7 @@ $post="";
             // get like_button text value
             var like_btn_text_val = $(this).text()
             // ajax call to remove like from lain page as first as it loads
-            var user_profile_pic = '<?php echo $user_obj->get_profile_pic() ?>';
+            var user_profile_pic = '<?php echo $user_profile_pic ?>';
             var post_title = $('.post_title_' + like_id).text();
             var user_to = $('.post_' + like_id + ' .user-name-post').text();
 
