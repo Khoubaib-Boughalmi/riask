@@ -182,14 +182,13 @@ $category = new category($con);
                                     alert('error');
                                 },
                                 success: function (data) {
-                                    // window.location('main.php')
-                                    alert(data)
-                                        // if (data =='1') {
-                                        //     window.location.replace("main.php");
-                                        // }else{
-                                        //     alert('something went wrong try again')
-                                        //     // window.location.replace("index.php");
-                                        // }
+                                    
+                                        if (data =='1') {
+                                            window.location.replace("main.php");
+                                        }else{
+                                            alert('something went wrong try again')
+                                            // window.location.replace("index.php");
+                                        }
                                 }
                             })
                         }
