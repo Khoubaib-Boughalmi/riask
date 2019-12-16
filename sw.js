@@ -25,6 +25,16 @@ self.addEventListener('install', (event) => {
   
   self.addEventListener(fetch, (event) => {
     console.log('Inside the fetch handler:', event);
-    event.respondWith(fetch(event.request))
+    event.respondWith(
+      caches.match(event.request)
+        .then(function (response) {
+          if (response) {
+            return response;
+          } else {
+            return fetch(event.request)
+              
+          }
+        })
+    );    
 
   });
