@@ -721,7 +721,7 @@ $pdp = $user_obj->get_profile_pic();
             var liked_text_val = $('.bottom_post_like_' + dislike_id + ' .like_btn_' + dislike_id).text()
             var user_profile_pic = '<?php echo $user_obj->get_profile_pic() ?>';
             var post_title = $('.post_title_' + dislike_id).text();
-            var user_to = $('.post_' + like_id + ' .user-name-post').text();
+            var user_to = $('.post_' + dislike_id + ' .user-name-post').text();
 
             $.ajax({
                 url: 'dislike_clicked.php',
