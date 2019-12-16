@@ -88,7 +88,7 @@
                     <input type="password" class="popup-input popup password-popup repeat-password-popup"
                         name="reg_repeat_password" placeholder="Repeat Password" autocomplete="off" required>
                     <br>
-                    <span id="button-popup" onclick="load_errors()">Register</span>
+                    <span id="button-popup">Register</span>
                 </form>
 
 
@@ -199,7 +199,7 @@ include('log_in.php');
                 }, function (data) {
                     if (data != '0') {
                         $('.email-popup').css('border', '.2rem solid red');
-                        simpleNotify.notify('Email already used', 'danger');
+                        simpleNotify.notify("Email Already used" + data, 'danger');
                         error_array.push('Email Already used')
 
                     } else {
