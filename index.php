@@ -201,19 +201,18 @@ include('log_in.php');
                         $('.email-popup').css('border', '.2rem solid red');
                         simpleNotify.notify("Email Already used" + data, 'danger');
                         error_array.push('Email Already used')
-
                     } else {
                         if (validateEmail(email_val)) {
                             $('.email-popup').css('border', '.2rem solid green');
                             removeItem('Invalid Email')
 
-                        } else {
+                        } 
+                        else {
                             $('.email-popup').css('border', '.2rem solid red');
                             error_array.push('Invalid Email')
 
                         }
                         removeItem('Email Already used')
-
 
                     }
                 })

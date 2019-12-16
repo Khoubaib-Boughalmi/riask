@@ -719,13 +719,20 @@ $pdp = $user_obj->get_profile_pic();
             var full_like_id = $(this).attr('id');
             var dislike_id = full_like_id.slice(7, full_like_id.len);
             var liked_text_val = $('.bottom_post_like_' + dislike_id + ' .like_btn_' + dislike_id).text()
+            var user_profile_pic = '<?php echo $user_obj->get_profile_pic() ?>';
+            var post_title = $('.post_title_' + like_id).text();
+            var user_to = $('.post_' + like_id + ' .user-name-post').text();
+
             $.ajax({
                 url: 'dislike_clicked.php',
                 type: 'POST',
                 data: {
                     like_id_val: dislike_id,
                     user_name_logged_in_val: user_name_logged_in,
-                    liked_text_val: liked_text_val
+                    liked_text_val: liked_text_val,
+                    user_profile_pic: user_profile_pic,
+                    post_title: post_title,
+                    user_to: user_to
 
                 },
                 async: false,
