@@ -1,5 +1,3 @@
-<!-- <link rel="manifest" href="/../js/manifest.json"></link> -->
-
 <?php
     $user_name=$_POST['user_name'];
     setcookie('user_name_log_in', $user_name, time() + (86400 * 30 * 30), "/"); // 86400 = 1 day
