@@ -6,6 +6,8 @@ var STATIC_FILES = [
   '/main.php',
   '/css/front.css',
   '/css/reaction.css',
+  '/js/front.js',
+  '/images/.',
 ];
 
 self.addEventListener('install', (event) => {
