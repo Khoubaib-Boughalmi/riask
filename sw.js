@@ -23,7 +23,7 @@ self.addEventListener('install', (event) => {
     console.log('Inside the activate handler:', event);
   });
   
-  self.addEventListener(fetch, (event) => {
+  self.addEventListener('fetch', (event) => {
     console.log('Inside the fetch handler:', event);
     event.respondWith(
       caches.match(event.request)
