@@ -7,7 +7,6 @@ var STATIC_FILES = [
   '/css/front.css',
   '/css/reaction.css',
   '/js/front.js',
-  '/images/.',
 ];
 
 self.addEventListener('install', (event) => {
