@@ -1,5 +1,3 @@
-<link rel="manifest" href="/../js/manifest.json"></link>
-
 <?php
 session_start();
 require '../db.php';

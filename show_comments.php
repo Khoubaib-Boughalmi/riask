@@ -670,7 +670,7 @@ $pdp = $user_obj->get_profile_pic();
             var like_id = full_like_id.slice(4, full_like_id.len);
             var liked_text_val = $('.bottom_post_like_' + like_id + ' .like_btn_' + like_id).text()
             var user_profile_pic = '<?php echo $user_obj->get_profile_pic() ?>';
-            var post_title = $('.post_title_' + like_id).text();
+            var post_title = $(".post_title_" + like_id).text();
             var user_to = $('.post_' + like_id + ' .user-name-post').text();
 
             $.ajax({
