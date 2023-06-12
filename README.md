@@ -1,6 +1,6 @@
 "Riask" - A Journey of Building a Web-Based Project
 
-www.riask.com holds a special place in my heart as it was my very first web-based project. Developed using PHP, I embarked on a solo mission to create a CRUD forum website that would enable students from across Tunisia to submit and answer questions.
+Riask holds a special place in my heart as it was my very first web-based project. Developed using PHP, I embarked on a solo mission to create a CRUD forum website that would enable students from across Tunisia to submit and answer questions.
 
 Starting from scratch, I poured my passion into this project, embracing the challenges that came along the way. The journey of building "Riask" was nothing short of amazing, taking me from the initial stages to the final production.
 
